@@ -10,7 +10,7 @@ mvn install:install-file -DgroupId=net.sf.picard -DartifactId=Picard -Dversion=1
 
 The snpEff make script assumes a specific Eclipsey directory structure. Let's not muck with that.
 
-Just follow these verbatim to build snpEff into the target directory.
+To build snpEff-with-dependencies.jar in the ~/workspace/target directory:
 
 
 ```
