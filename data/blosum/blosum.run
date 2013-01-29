@@ -1,0 +1,10 @@
+#    blosum.run
+@ c=30
+while ($c <= 100)
+   echo blosum$c
+   blosum /data/blocks_5.0/blocks.dat 0 9999 $c >blosum$c.out
+   @ c += 5 
+end
+blosum /data/blocks_5.0/blocks.dat 0 9999 62 >blosum62.out
+blosum /data/blocks_5.0/blocks.dat 0 9999 n >blosumn.out
+exit(0)

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/collections
+END
+HashLongLongArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/collections/HashLongLongArray.java
+END
+MultivalueHashMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/collections/MultivalueHashMap.java
+END
+AutoHashMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/collections/AutoHashMap.java
+END
+ArrayUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/collections/ArrayUtil.java
+END
+BitUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/collections/BitUtil.java
+END
+OpenBitSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/collections/OpenBitSet.java
+END

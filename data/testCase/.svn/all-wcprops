@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/data/testCase
+END
+genes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/data/testCase/genes.txt
+END
+cds.txt.gz
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/data/testCase/cds.txt.gz
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/a_thaliana_test
+END
+assembly_test.fa
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/a_thaliana_test/assembly_test.fa
+END
+assembly_test.README
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/a_thaliana_test/assembly_test.README
+END
+assembly_test.result
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/a_thaliana_test/assembly_test.result
+END

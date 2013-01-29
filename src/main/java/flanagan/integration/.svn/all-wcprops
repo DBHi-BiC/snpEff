@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/integration
+END
+DerivFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/integration/DerivFunction.java
+END
+Integration.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/integration/Integration.java
+END
+RungeKutta.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/integration/RungeKutta.java
+END
+IntegralFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/integration/IntegralFunction.java
+END
+DerivnFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/integration/DerivnFunction.java
+END

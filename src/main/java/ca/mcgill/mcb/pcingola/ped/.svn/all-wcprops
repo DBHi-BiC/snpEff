@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ped
+END
+Sex.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ped/Sex.java
+END
+PedFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ped/PedFileIterator.java
+END
+PedGenotype.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ped/PedGenotype.java
+END
+PedEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ped/PedEntry.java
+END
+PedFamily.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ped/PedFamily.java
+END
+PlinkMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ped/PlinkMap.java
+END
+PedPedigree.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ped/PedPedigree.java
+END

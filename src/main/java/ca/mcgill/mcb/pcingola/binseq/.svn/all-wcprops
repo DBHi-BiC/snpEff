@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq
+END
+DnaSequenceByte.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/snpeff/!svn/ver/212/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/DnaSequenceByte.java
+END
+DnaAndQualitySequenceWithId.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/DnaAndQualitySequenceWithId.java
+END
+DnaSequencePe.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/DnaSequencePe.java
+END
+IdGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/IdGenerator.java
+END
+DnaAndQualitySequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/DnaAndQualitySequence.java
+END
+DnaSequenceId.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/DnaSequenceId.java
+END
+DnaNSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/17/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/DnaNSequence.java
+END
+DnaSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/DnaSequence.java
+END
+BinarySequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/binseq/BinarySequence.java
+END

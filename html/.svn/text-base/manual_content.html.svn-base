@@ -1,0 +1,216 @@
+<div id="content"> 
+				<p style="font-size: 16pt"> <b> Command line options </b> </p>
+				If you type the command without any arguments, it shows all available options:<br>
+				<pre>
+Usage: snpEff [eff]    [options] genome_version [variants_file]
+   or: snpEff download [options] genome_version
+   or: snpEff build    [options] genome_version
+   or: snpEff dump     [options] genome_version
+   or: snpEff cds      [options] genome_version
+				</pre>
+
+There are four main 'commands': calcualte effects (eff, which is the default), build database (build), dump database (dump), test cds in database (cds).
+
+<hr>
+<p style="font-size: 16pt"> <b> Calculate variant effects: snpEff [eff] </b> </p>
+If you type the command without any arguments, it shows all available options ("java -jar snpEff.jar eff"):<br>
+<pre>
+Usage: snpEff [eff] genome_version [variants_file]
+
+Input file: Default is STDIN
+
+Options:
+	-a , -around            : Show N codons and amino acids around change (only in coding regions). Default is 0 codons.
+	-i format               : Input format [ vcf, txt, pileup, bed ]. Default: VCF.
+	-o format               : Ouput format [ txt, vcf, gatk, bed, bedAnn ]. Default: VCF.
+	-interval               : Use a custom interval file (you may use this option many times)
+	-chr string             : Prepend 'string' to chromosome name (e.g. 'chr1' instead of '1'). Only on TXT output.
+	-s,  -stats             : Name of stats file (summary). Default is 'snpEff_summary.html'
+	-t                      : Use multiple threads (implies '-noStats'). Default 'off'
+
+Sequence change filter options:
+	-del                    : Analyze deletions only
+	-ins                    : Analyze insertions only
+	-hom                    : Analyze homozygous variants only
+	-het                    : Analyze heterozygous variants only
+	-minQ X, -minQuality X  : Filter out variants with quality lower than X
+	-maxQ X, -maxQuality X  : Filter out variants with quality higher than X
+	-minC X, -minCoverage X : Filter out variants with coverage lower than X
+	-maxC X, -maxCoverage X : Filter out variants with coverage higher than X
+	-nmp                    : Only MNPs (multiple nucleotide polymorphisms)
+	-snp                    : Only SNPs (single nucleotide polymorphisms)
+
+Results filter options:
+	-fi bedFile                     : Only analyze changes that intersect with the intervals specified in this file (you may use this option many times)
+	-no-downstream                  : Do not show DOWNSTREAM changes
+	-no-intergenic                  : Do not show INTERGENIC changes
+	-no-intron                      : Do not show INTRON changes
+	-no-upstream                    : Do not show UPSTREAM changes
+	-no-utr                         : Do not show 5_PRIME_UTR or 3_PRIME_UTR changes
+
+Annotations filter options:
+	-canon                          : Only use canonical transcripts.
+	-onlyReg                        : Only use regulation tracks.
+	-onlyTr file.txt                : Only use the transcripts in this file. Format: One transcript ID per line.
+	-reg name                       : Regulation track to use (this option can be used add several times).
+	-treatAllAsProteinCoding bool   : If true, all transcript are treated as if they were protein conding. Default: Auto
+	-ud, -upDownStreamLen           : Set upstream downstream interval length (in bases)
+
+Generic options:
+	-0                      : File positions are zero-based (same as '-inOffset 0 -outOffset 0')
+	-1                      : File positions are one-based (same as '-inOffset 1 -outOffset 1')
+	-c , -config            : Specify config file
+	-h , -help              : Show this help and exit
+	-if, -inOffset          : Offset input by a number of bases. E.g. '-inOffset 1' for one-based input files
+	-of, -outOffset         : Offset output by a number of bases. E.g. '-outOffset 1' for one-based output files
+	-noLog                  : Do not report usage statistics to server
+	-noStats                : Do not create stats (summary) file
+	-q , -quiet             : Quiet mode (do not show any messages or errors)
+	-v , -verbose           : Verbose mode
+</pre>
+
+<b>Options</b><p>
+<table border=0>
+	<tr bgcolor=aaaaaa> <th style="white-space: nowrap"> Option </th><th> Note </th></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-a, -around </td><td>Show N codons and amino acids around change (only in coding regions). Default is 0 codons (i.e. by default is turned off).</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-i </td>
+		<td>Input format: [ txt, vcf, pileup, bed ]<br>
+			<ul>
+				<li> vcf: Input file is in VCF format. Implies '-inOffset 1'
+				<li> txt: Input file is in TXT format. Implies '-inOffset 1'
+				<li> pileup: Input file is in PILEUP format. Implies '-inOffset 1'. WARNING: This format is deprecated.
+				<li> bed: Only intervals are provided (no variants). This is used when you want to know were an interval hits. Implies '-inOffset 0'
+			</ul>
+		</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-interval </td><td>Add custom interval file. You may use this option many times to add many interval files.</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-o </td>
+		<td>Output format: [ txt, vcf, bed, bedAnn ]<br>
+			<ul>
+				<li> vcf: Output in VCF format. Implies '-inOffset 1'
+				<li> txt: Output in TXT format. Implies '-inOffset 1'
+				<li> bed: Only minimal information is added to the 'Name' column. Format: "Effect_1 | Gene_1 | Biotype_1 ; Effect_2 | Gene_2 | Biotype_2 ; ... ". This is used when you want to know were an interval hits. Implies '-outOffset 0'
+				<li> bedAnn: Output annotation's info in BED format (as opposed to variant's info). This option will output annotations intersecting each variant, information will be added in the 'name' column. Implies '-outOffset 0'
+			</ul>
+		</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-s, -stats </td><td>Name of stats file (summary). Default is 'snpEff_summary.html'.</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-chr </td><td>Prepend 'chr' before printing a chromosome name (e.g. 'chr7' instead of '7').</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-t </td><td>Use multiple threads (implies '-noStats'). If active, tries to use available cores in the computer. Default 'off'</td></tr>
+</table>
+<p>
+
+<b> Sequence change filter options </b><p>
+<table border=0>
+	<tr bgcolor=aaaaaa> <th style="white-space: nowrap"> Option </th><th> Note </th></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-del  </td><td>Analyze deletions only (filter out insertions, SNPs and MNPs).</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-hom  </td><td>Analyze homozygous sequence changes only (filter out heterozygous changes).</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-het  </td><td>Analyze heterozygous sequence changes only (filter out homozygous changes). Note that this option may not be valid when using VCF4 files, since there might be more than two changes per line, the notion of heterozygous change is lost.</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-ins  </td><td>Analyze insertions only (filter out deletions, SNPs and MNPs).</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-minC, -minCoverage </td><td>Filter out sequence changes with coverage lower than X.</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-maxC, -maxCoverage </td><td>Filter out sequence changes with coverage higher than X.</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-minQ, -minQuality </td><td>Filter out sequence changes with quality lower than X.</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-maxQ, -maxQuality </td><td>Filter out sequence changes with quality higher than X.</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-mnp  </td><td>Analyze MNPs only (filter out insertions, deletions and SNPs).</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-snp  </td><td>Analyze SNPs only (filter out insertions, deletions and MNPs).</td></tr>
+</table>
+<p>
+
+<b>Results filter options</b><p>
+<table border=0>
+	<tr bgcolor=aaaaaa> <th style="white-space: nowrap"> Option </th><th> Note </th></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-fi {bedFile} </td><td> Only analyze changes intersecting intervals in file (you may use this option many times)</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-no-downstream  </td><td> Do not show DOWNSTREAM changes</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-no-intergenic  </td><td> Do not show INTERGENIC changes</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-no-intron  </td><td> Do not show INTRON changes</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-no-upstream  </td><td> Do not show UPSTREAM changes</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-no-utr  </td><td> Do not show 5_PRIME_UTR or 3_PRIME_UTR changes</td></tr>
+</table>
+<p>
+
+<b>Annotations filter options</b><p>
+<table border=0>
+	<tr bgcolor=aaaaaa> <th style="white-space: nowrap"> Option </th><th> Note </th></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-canon  </td><td>Only annotate using "canonical" transcripts. Canonical transcripts are defined as the transcript having the longest CDS.</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-treatAllAsProteinCoding {val} </td><td>If value is 'true', report all transcript as if they were conding. Default: Auto, i.e. if transcripts any marked as 'protein_coding' the set to 'false', if no transcripts are marked as 'protein_coding' then set to 'true'.</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-ud, -upDownStreamLen </td><td>Set upstream downstream interval length (in bases). If set to zero or negative, then no UPSTREAM or DOWNSTREAM effects are reported.</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-onlyReg </td><td>Only use regulation tracks</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-reg {name}</td><td>Regulation track to use (this option can be used add several times).</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-onlyTr {file.txt}</td><td>Only use the transcripts in this file. Format: One transcript ID per line.</td></tr>
+</table>
+<p>
+<b>Generic options</b><p>
+<table border=0>
+	<tr bgcolor=aaaaaa> <th style="white-space: nowrap"> Option </th><th> Note </th></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-0 </td><td> Indicates that input and output positions are zero-based. Tha means the the first base in a chromosome is base number 0. This is equivalent to '-inOffset 0 outOffset 0'</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-1 </td><td> Indicates that input and output positions are one-based. Tha means the the first base in a chromosome is base number 1. This is equivalent to '-inOffset 1 outOffset 1'. This is the default.</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-c, -config </td><td> Specifies the location of a configuration file. Default location is in current directory.</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-h, -help </td><td> Print help and exit.</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-if, -inOffset </td><td>Offset all position in input files by a number of bases. E.g. '-inOffset 1' for one-based input files.</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-of, -outOffset </td><td>Offset all outputs by a number of bases. E.g. '-outOffset 1' for one-based outputs.</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-v, -verbose </td><td> Verbose mode.</td></tr>
+	<tr bgcolor=eeeeee> <td style="white-space: nowrap">-q, -quiet </td><td> Quiet mode (do not show any messages or errors).</td></tr>
+	<tr bgcolor=dddddd> <td style="white-space: nowrap">-noLog </td><td> Do not report usage statistics to server.</td></tr>
+</table>
+<p>
+
+<hr>
+<p style="font-size: 16pt"> <b> Download a database: snpEff download </b> </p>
+
+Download and install a database.
+A list of databases is available at the download page.<br>
+
+<pre>
+Usage: snpEff download [options] genome_version
+
+Generic options:
+	-c , -config            : Specify config file
+	-h , -help              : Show this help and exit
+	-v , -verbose           : Verbose mode
+	-noLog                  : Do not report usage statistics to server
+</pre>
+
+E.g. to downlaod GRCh37.64, just run: 
+<pre>java -jar snpEff.jar download GRCh37.64</pre>
+
+<hr>
+<p style="font-size: 16pt"> <b> Build database: snpEff build </b> </p>
+
+If you type the command without any arguments, it shows all available options ("java -jar snpEff.jar build"):<br>
+<pre>
+Usage: snpEff build [options] genome_version
+
+Build DB options:
+	-embl                   : Use Embl format.
+	-genbank                : Use GenBank format.
+	-gff2                   : Use GFF2 format (obsolete).
+	-gff3                   : Use GFF3 format.
+	-gtf22                  : Use GTF 2.2 format.
+	-refseq                 : Use RefSeq table from UCSC.
+	-txt                    : Use TXT format (obsolete).
+	-onlyReg                : Only build regulation tracks.
+	-cellType type          : Only build regulation tracks for cellType "type".
+
+Generic options:
+	-0                      : File positions are zero-based (same as '-inOffset 0 -outOffset 0')
+	-1                      : File positions are one-based (same as '-inOffset 1 -outOffset 1')
+	-c , -config            : Specify config file
+	-h , -help              : Show this help and exit
+	-if, -inOffset          : Offset input by a number of bases. E.g. '-inOffset 1' for one-based input files
+	-of, -outOffset         : Offset output by a number of bases. E.g. '-outOffset 1' for one-based output files
+	-noLog                  : Do not report usage statistics to server
+	-q , -quiet             : Quiet mode (do not show any messages or errors)
+	-v , -verbose           : Verbose mode
+</pre>
+<table border=0>
+	<tr bgcolor=aaaaaa> <th style="white-space: nowrap"> Option </th><th> Note </th></tr>
+	<tr bgcolor=dddddd> <td>-embl</td><td>Use Embl format. It will look gene information in a file called './data/GENOME/genes.embl' which is assumed to be in EMBL format (assuming 'data_dir=./data/' in your snpEff.config file).</td></tr>
+	<tr bgcolor=eeeeee> <td>-genbank</td><td>Use GenBank format. It will look gene information in a file called './data/GENOME/genes.gb' which is assumed to be in GenBank format (assuming 'data_dir=./data/' in your snpEff.config file).</tr>
+	<tr bgcolor=dddddd> <td>-gff3</td><td>Use GFF3 format. It will look gene information in a file called './data/GENOME/genes.gff' which is assumed to be in GFF3 format (assuming 'data_dir=./data/' in your snpEff.config file).</td></tr>
+	<tr bgcolor=eeeeee> <td>-gff2</td><td>Use GFF2 format. It will look gene information in a file called './data/GENOME/genes.gff' which is assumed to be in GFF2 format (assuming 'data_dir=./data/' in your snpEff.config file).<br>WARNING: GFF2 format is obsolete and should not be used.</td></tr>
+	<tr bgcolor=dddddd> <td>-gtf22</td><td>Use GFT 2.2 format. It will look gene information in a file called './data/GENOME/genes.gtf' which is assumed to be in GTF 2.2 format (assuming 'data_dir=./data/' in your snpEff.config file).</td></tr>
+	<tr bgcolor=dddddd> <td>-refseq</td><td>Use refSeq table. It will look gene information in a file called './data/GENOME/genes.txt' which is assumed to be a RefSeq table from UCSC (assuming 'data_dir=./data/' in your snpEff.config file).</td></tr>
+</table>
+<p>
+
+<hr>
+
+</div> 

@@ -1,0 +1,188 @@
+<div id="content"> 
+<p style="font-size: 16pt"> <b> New genome: Building a new database</b></p>
+
+In order to add support for a new genome, you need to:
+<ol>
+	<li> Get the reference genome sequence (e.g. in FASTA format).
+	<li> Get genome annotations. It can be either:
+		<ol>
+			<li> <a class="body" href="#gtf">GTF</a> file (the easiest way) 
+			<li> <a class="body" href="#gff">GFF</a> file.
+			<li> <a class="body" href="#refseq">RefSeq (UCSC)</a> table.
+			<li> <a class="body" href="#genbank">GenBank</a>.
+		</ol>
+	<li> <a class="body" href="#conf">Add</a> the genome to snpEff's configuration file
+	<li> Create the database (i.e. "java -jar snpEff.jar build ...")
+</ol>
+
+<hr>
+<p>
+<b>Note:</b> All files can be compressed using gzip. E.g. the reference file 'hg19.fa' can be compressed to 'hg19.fa.gz', snpEff will automaticall decompress the file.
+<p>
+<hr>
+<a class="body" name="gtf"> <h3>Option 1: Using GTF files</h3></a>
+GTF 2.2 files are supported by snpEff (e.g. ENSEMBL relases genome annotations in this format).<p>
+
+<ol>
+	<li> Get the genome and uncompress it
+		<pre>
+			# Create directoy for this new genome
+			cd /path/to/snpEff/data/
+			mkdir mm37.61
+			cd mm37.61
+			
+			# Get annotation files
+			wget ftp://ftp.ensembl.org/pub/current/gtf/mus_musculus/Mus_musculus.NCBIM37.61.gtf.gz
+			mv Mus_musculus.NCBIM37.61.gtf.gz genes.gtf.gz
+
+			# Get the genome
+			cd /path/to/snpEff/data/genomes
+			wget ftp://ftp.ensembl.org/pub/current/fasta/mus_musculus/dna/Mus_musculus.NCBIM37.61.dna.toplevel.fa.gz
+			mv Mus_musculus.NCBIM37.61.dna.toplevel.fa.gz mm37.61.fa.gz</pre>
+		<p>
+
+	<li> <b>Note:</b> The FASTA file can be either in <br> <tt>/path/to/snpEff/data/genomes/mm37.61.fa</tt> <br> or in <br> <tt>/path/to/snpEff/data/mm37.61/sequences.fa</tt><p>
+
+	<li> <a class="body" href="#conf">Add</a> the new genome to the config file (see section "How to add a new genome to the configuration file" for details)
+			<p>
+
+	<li> Create database
+		<pre>
+			cd /path/to/snpEff
+			java -jar snpEff.jar build -gtf22 -v mm37.61 </pre>
+			<p>
+</ol>
+
+<hr>
+<a class="body" name="gff"><h3>Option 2: Using a GFF file (e.g. FlyBase, WormBase, BeeBase)</h3></a>
+
+This example shows how to create a database for a new genome. For this example we'll use the Drosophila melanogaster genome (dm5.31):
+
+<ol>
+	<li> Get a GFF file (into path/to/snpEff/data/dm5.31/genes.gff):
+
+		<pre>
+			mkdir path/to/snpEff/data/dm5.31
+			cd path/to/snpEff/data/dm5.31
+			wget ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r5.31_FB2010_08/gff/dmel-all-r5.31.gff.gz
+			mv dmel-all-r5.31.gff.gz genes.gff.gz </pre>
+		<p>
+
+	<li> <b>Note:</b> GFF3 files can include the reference sequence in the same file. This is done by dumping the fasta file after a '##FASTA' line. You can also add the sequence fasta file to the 'data/genomes/' directory, like it is done in when using GTF format.
+
+	<li> <a class="body" href="#conf">Add</a> the new genome to the config file (see section "How to add a new genome to the configuration file" for details)
+		<p>
+
+	<li> Create database (note the "-gff3" flag):
+		<pre>
+			cd /path/to/snpEff
+			java -jar snpEff.jar build -gff3 -v dm5.31 </pre>
+		<p>
+
+</ol>
+
+<hr>
+<a class="body" name="refseq"><h3>Option 3: Using a RefSeq table from UCSC</h3></a>
+
+This example shows how to create a database for a new genome. For this example we'll use the Human genome (hg19):
+
+<ol>
+	<li> Go to UCSC genome browser (http://genome.ucsc.edu/)
+	<li> Click on "Table" menu
+	<li> Select parameters as shown here:<p>
+			<img src="./images/ucsc_refSeq.png"><p>
+	<li> Click on "get output" and save the data to file "/path/to/snpEff/data/hg19/genes.txt".
+		<p>
+
+	<li> Add the fasta reference genome. The FASTA file can be either in <br> <tt>/path/to/snpEff/data/genomes/hg19.fa</tt> <br> or in <br> <tt>/path/to/snpEff/data/hg19/sequences.fa</tt><p>
+
+	<li> <a class="body" href="#conf">Add</a> the new genome to the config file (see section "How to add a new genome to the configuration file" for details)
+		<p>
+
+	<li> Create database (note the "-refSeq" flag):
+		<pre>
+			cd /path/to/snpEff
+			java -jar snpEff.jar build -refSeq -v hg19 </pre>
+		<p>
+
+</ol>
+</pre>
+
+<hr>
+<a class="body" name="genbank"><h3>Option 4: Using a GenBank</h3></a>
+
+This example shows how to create a database for a new genome. For this example we'll use "Staphylococcus aureus":
+
+<ol>
+	<li> Go to NIH page for <a class="body" href="http://www.ncbi.nlm.nih.gov/nuccore/CP000730.1">CP000730</a>
+
+	<li> Download the features in geneBank format, by clicking as shown in the following images (red arrows)<p>
+		<p>
+			<center> <img width=800 src="images/genBank_0.png"> </center> <p>
+
+		Make sure you click the "Update" button!<p>
+		Then you go to the "Send" menu<p>
+
+			<center> <img width=800 src="images/genBank_1.png"> </center> <p>
+		and then <p>
+			<center> <img width=800 src="images/genBank_2.png"> </center> <p>
+
+	<li> Save the GenBank data to "/path/to/snpEff/data/CP000730/genes.gb".
+
+		<p>
+		 <b>Note:</b> If there are more than one genbank file for an organism (e.g. multiple chromosomes), then you can download each file and save them separately.<p>
+		 E.g.: Vibrio Cholerae has two chromosomes with GenBank accessions: NC_002505.1 and NC_002506.1.
+		 You can download both files and save them as snpEff/data/vibrio/NC_002505.1.gb and snpEff/data/vibrio/NC_002506.1.gb respectively.
+		 Then you can add the following entries in the config file:
+<pre>
+# Vibrio Cholerae
+vibrio.genome : Vibrio Cholerae
+    vibrio.chromosomes : NC_002505.1, NC_002506.1
+    vibrio.NC_002505.1.codonTable : Bacterial_and_Plant_Plastid
+    vibrio.NC_002506.1.codonTable : Bacterial_and_Plant_Plastid
+</pre>
+
+		SnpEff will load both files when building the database.
+		<p>
+
+	<li> Create database (note the "-genbank" flag):
+		<pre>
+			cd /path/to/snpEff
+			java -jar snpEff.jar build -genbank -v CP000730 </pre>
+		<p>
+
+</ol>
+</pre>
+<hr>
+<a class="body" name="conf"><h3>How to add a new genome to the configuration file</h3></a>
+
+This example shows how to add a new genome to the config files. For this example we'll use the mouse genome (mm37.61):
+
+<ol>
+	<li> Edit the config file to create the new genome
+
+		<pre>
+			vi snpEffect.config </pre>
+			
+		Add the following lines (you are editting snpEffect.config)<br>
+		<pre>
+			# Mouse genome, version mm37.61
+			mm37.61.genome : Mouse </pre>
+			<p>
+
+	<li> Optional: Add genome to Galaxy's menu 
+		<pre>
+			cd /path/to/galaxy
+			cd tools/snpEffect/
+			vi snpEffect.xml </pre>
+
+		Add the following lines to the file
+		<pre>
+			&lt;param name="genomeVersion" type="select" label="Genome"&gt;
+				&lt;option value="hg37"&gt;Human (hg37)&lt;option&gt;
+				&lt;option value="mm37.61"&gt;Mouse (mm37.61)&lt;option&gt;
+			&lt;param&gt; </pre>
+			<p>
+</ol>
+
+</div> 

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory
+END
+SnpEffPredictorFactoryKnownGene.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svnroot/snpeff/!svn/ver/325/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryKnownGene.java
+END
+SnpEffPredictorFactoryFeatures.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/snpeff/!svn/ver/308/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryFeatures.java
+END
+SnpEffPredictorFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactory.java
+END
+SnpEffPredictorFactoryEmbl.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/snpeff/!svn/ver/262/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryEmbl.java
+END
+SnpEffPredictorFactoryGenesFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svnroot/snpeff/!svn/ver/308/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryGenesFile.java
+END
+SnpEffPredictorFactoryGff.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/snpeff/!svn/ver/330/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryGff.java
+END
+SnpEffPredictorFactoryGff2.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/snpeff/!svn/ver/205/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryGff2.java
+END
+SnpEffPredictorFactoryGtf22.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryGtf22.java
+END
+SnpEffPredictorFactoryRand.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryRand.java
+END
+SnpEffPredictorFactoryGenBank.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/snpeff/!svn/ver/262/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryGenBank.java
+END
+SnpEffPredictorFactoryGff3.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/snpeff/!svn/ver/335/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryGff3.java
+END
+SnpEffPredictorFactoryRefSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/snpeff/!svn/ver/325/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/factory/SnpEffPredictorFactoryRefSeq.java
+END

@@ -1,0 +1,7 @@
+#    matblas.run
+set fats = (blosum*.iij)
+foreach fat ($fats)
+   set rfat=$fat:r; set trfat=$rfat:t
+   matblas $fat >$trfat.bla
+end
+exit(0)

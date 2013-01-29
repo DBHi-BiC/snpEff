@@ -1,0 +1,208 @@
+<header>
+	<title> snpEff: SNP effect predictor </title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
+	<style type="text/css" media="all">
+		body { background: url(./images/bg_gradient.jpg) repeat-x; }
+	</style>    
+</header>
+
+<div align="center">
+	<div id="wrap">
+		<div id="header">
+			<div class="logo">
+					<a href="http://snpEff.sourceforge.net/">snpEff</a>
+					<p style="font-size: 12pt" align=right><b>SNP effect predictor</b></p>
+			</div>
+		</div>
+		<div id="menu">
+			<ul>
+			<li><a href="http://snpeff.sourceforge.net/">Home</a></li>
+			<li class="page_item"><a href="faq.html" title="FAQ">FAQ</a></li>
+			<li class="page_item"><a href="features.html" title="Features">Features</a></li>
+			<li class="page_item"><a href="manual.html" title="Manual">Manual</a></li>
+			<li class="page_item"><a href="examples.html" title="Examples">Examples</a></li>
+			<li class="page_item"><a href="morebs.html" title="MoreBs">MoreBs</a></li>
+			<li class="page_item"><a href="SnpSift.html" title="SnpSift">SnpSift</a></li>
+			<li class="page_item"><a href="download.html" title="Download">Downloads</a></li>
+			<li class="page_item"><a href="about.html" title="About">About</a></li>
+			</ul>
+		</div>
+
+
+
+			<div class="entry">
+
+	<div id="content"> 
+
+				<hr> <center> <p style="font-size: 16pt"> <b> Examples index </b></center></p>
+
+<p><b> basic examples </b> <br>
+- <a class="body" href="#ex1"> Installing SnpEff </a> <br>
+- <a class="body" href="#ex2"> Managing SnpEff databses </a> <br>
+- <a class="body" href="#ex3"> Annotate using SnpEff </a> <br>
+
+<p><b> Advanced examples </b> <br>
+- <a class="body" href="#ex4"> Filter out SNPs from dbSnp </a> <br>
+
+<p>
+				<hr> <center> <p style="font-size: 16pt"> <b> Basic examples </b></center></p>
+
+				Here we'll show a few examples that should be enough to get you started.
+
+				<p style="font-size: 14pt"> <b> <a class="body" name="ex1"> Installing SnpEff </a> </b></p>
+				Obviously the first step to use the program is to install it.
+				You have to download the core program from the "Download" page.
+				Then you have to uncompress the ZIP file.
+				In Windows systems, you can just double click and copy the contents of the ZIP file to wherever you want the program installed.
+				If you have a Unix or a Mac system, the command line would be:
+<pre>
+unzip snpEff_latest_core.zip 
+</pre>
+
+				<p>
+				<b>Note:</b> By default SnpEff stores all the databases in $HOME/snpeff/data (where $HOME is your home directory).
+				If you want to change this, you can edit the config file and change the "data_dir" entry:
+				<p>
+<pre>
+#---
+# Databases are stored here
+# E.g.: Information for 'hg19' is stored in data_dir/hg19/
+#
+# Note: Since version 2.1 you can use tilde ('~') as first character to refer to your home directory
+#---
+data_dir = ~/snpEff/data/
+
+</pre>
+
+				<p style="font-size: 14pt"> <b> <a class="body" name="ex2"> Managing SnpEff databses </a> </b></p>
+				In order to use SnpEff, you need a database for the reference genome you want to use. 
+				SnpEff databases for the most popular genomes are already pre-built and avaialable for you to download.
+				So there is no need for you to build it (this will save you a LOT of work).
+				<p>
+				<b>Important:</b> Most of the time you don't need to build the SnpEff database. You can just download a pre-built one.
+				<p>
+
+				The easiest way to download and install a pre-built SnpEff database it using the "download" command.
+				E.g. if you want to install the SnpEff database for the human genome, you can run the following command:
+<pre>
+java -jar snpEff.jar download -v GRCh37.66
+</pre>
+				<p>
+				<b>Note:</b> If you are running SnpEff from a directory different than the one it was installed, you will have to specify where the config file is.
+				This is done using the '-c' command line option:
+<p><pre>
+java -Xmx4g -jar snpEff.jar download <b>-c path/to/snpEff/snpEff.config</b> -v GRCh37.66 
+</pre><p>
+
+				<p style="font-size: 14pt"> <b> <a class="body" name="ex3"> Annotate using SnpEff </a> </b></p>
+				Let's assume you have a VCF file ("file.vcf") and you want to annotate the variants in that file.
+				You can download the file for this example <a class="body" href="examples/file.vcf">here</a>.
+				This data is from the 1000 Genomes roject, so the reference genome is the human genome (GRCh37.66).
+				<p>
+				Let's assume this is the first time you use SnpEff, so you don't have the database installed, so the fisrt step is to download the database.
+				Then you can annotate the file:
+
+<p><pre>
+# Go to the directory where snpEff is installed
+cd snpEff
+
+# Do this only if you don't already have the database installed.
+java -jar snpEff.jar download -v GRCh37.66
+
+# Annotate the file
+java -Xmx4g -jar snpEff.jar eff -v GRCh37.66 file.vcf > file.eff.vcf
+</pre><p>
+
+				The annotated variants will be in the new file "file.eff.vcf".<p>
+				<p>
+				<b>Important:</b> SnpEff creates a file called "snpEff_summary.html" showing basic statistices about the analyzed variants. 
+				Take a quick look at it!
+
+				<p>
+				<b>Note:</b> We used the java parameter -Xmx4g to increase the memory avaialble to the Java Virtual Machine to 4G. 
+				SnpEff's human genome database is large and it has to be loaded into memory. 
+				If your computer doesn't have at least 4G of memeory, you problably won't be able to run this example.
+
+				<p>
+				<b>Note:</b> If you are running SnpEff from a directory different than the one it was installed, you will have to specify where the config file is.
+				This is done using the '-c' command line option:
+<p><pre>
+java -Xmx4g -jar snpEff.jar eff <b>-c path/to/snpEff/snpEff.config</b> -v GRCh37.66 file.vcf > file.eff.vcf
+</pre><p>
+
+
+				<hr> <center> <p style="font-size: 16pt"> <b> Advanced examples </b></center></p>
+
+				These are slighlty more advanced examples. 
+				Here we'll try to show how to perform specific tasks.
+
+				<p style="font-size: 14pt"> <b> <a class="body" name="ex4"> Filter out SNPs from dbSnp </a> </b></p>
+
+				If you want to filter out SNPs from dbSnp, you can do it using SnpSift.
+				You can download SnpSift from the "Downloads" page.
+				<p>
+				You can download the file for this example <a class="body" href="examples/file.vcf">here</a>.<br>
+				Here is how to do it:
+				<p>
+				1-) Annotate ID fields using dbSnp<br>
+				<b>Note:</b>
+						We annotate using dbSnp before using SnpEff in order to 
+						have 'known' and 'unknown' statistics in SnpEff's summary page.
+						Those stats are based on the presence of an ID field. If the ID 
+						is non-empty, then it is assumed to be a 'known variant'.
+<pre>
+# Download and uncompress dbSnp database.
+wget -O dbSnp.vcf.gz ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606/VCF/00-All.vcf.gz
+gunzip dbSnp.vcf.gz
+
+# Annotate ID field using dbSnp
+java -jar SnpSif.jar annotate -v dbSnp.vcf.gz file.vcf > file.dbSnp.vcf
+</pre>
+
+				<p>
+				2-) Annotate using SnpEff:
+<pre>
+# Do this only if you don't already have the database installed.
+java -jar snpEff.jar download -v GRCh37.66
+
+# Annotate the file
+java -Xmx4g -jar snpEff.jar eff -v GRCh37.66 file.dbSnp.vcf > file.eff.vcf
+</pre>
+
+				3-) Filter out variants that have a non-empty ID field. 
+				These variants are the ones that are NOT in dbSnp, since we annotated the ID field using rs-numbers from dbSnp in step 1.
+<pre>
+java -jar SnpSift.jar filter -f file.eff.vcf "! exists ID" > file.eff.not_in_dbSnp.vcf
+</pre>
+				<b>Note:</b> The expression using to filter the file is "! exists ID".
+				This means that the ID field does not exists (i.e. the value is empty) which is represented as a dot (".") in a VCF file.
+
+</div> 
+
+
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+					<center><b>Author: <a class="body" href="http://www.mcb.mcgill.ca/~pcingola/">Pablo Cingolani</a> (pcingola@users.sourceforge.net</a>)</b></center>
+			</div>
+		</div>
+	</div>
+</div>
+
+<center>
+<font color=ffffff>
+Key words (for search engines): <br>
+	SNP : single nucleotide polymorphisms <br>
+	SNP effect predictor <br>
+	SNP effect predictor Galaxy<br>
+	SNP functional annotation <br>
+	NG sequencing analysis <br>
+	Next genenration sequencing analysis <br>
+	Next genenration sequencing analysis tool <br>
+	Functionally annotate single nucleotide polymorphisms (SNP) <br>
+	Variation analysis <br>
+	Open source <br>
+	java <br>
+	Windows Linux OSX <br>
+	<a href="http://en.wikipedia.org/wiki/Single-nucleotide_polymorphism">SNP Wikipedia</a> <br>
+</font>
+</center>

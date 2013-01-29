@@ -1,0 +1,122 @@
+<div id="content"> 
+<p style="font-size: 16pt"> <b> Regulatory annotations</b></p>
+
+There are two ways to add support for regulatory annotations (these are not mutually exclusive, you can use both at the same time): 
+<ol>
+	<li> <a class="body" href="#gff">GFF</a> regulation file (usually from ENSEMB).
+	<li> <a class="body" href="#bed">BED</a> files.
+</ol>
+
+<b>WARNING:</b> Adding regulation support and analyzing data using regulation tracks can take much more memory. For instance, for the human genome I use 10Gb to 20Gb of RAM.<p>
+
+<b>WARNING:</b> It is assumed the the genome is already installed, only regulatory tracks are added.<p>
+<p>
+
+<hr>
+<a class="body" name="gff"><h3>Option 1: Using an annotation GFF </h3></a>
+
+This example shows how to create a regulation database for human (GRCh37.65):
+
+<ol>
+	<li> Get the GFF regulatory annotations (into path/to/snpEff/data/GRCh37.65/regulation.gff):
+
+		<pre>
+			cd path/to/snpEff/data/GRCh37.65
+			wget ftp:/ftp.ensembl.org/pub/release-65/regulation/homo_sapiens/AnnotatedFeatures.gff.gz
+			mv AnnotatedFeatures.gff.gz regulation.gff.gz </pre>
+		<p>
+
+	<li> Create databases (note the "-onlyReg" flag):
+		<pre>
+			cd /path/to/snpEff
+			java -Xmx20G -jar snpEff.jar build -v -onlyReg GRCh37.65 </pre>
+		<p>
+
+		The output looks like this
+		<pre>
+Reading regulation elements (GFF)
+    Chromosome '11'	line: 226964
+    Chromosome '12'	line: 493780
+    ...
+    Chromosome '9'	line: 4832434
+    Chromosome 'X'  line: 5054301
+    Chromosome 'Y'  line: 5166958
+Done
+    Total lines                 : 5176289
+    Total annotation count      : 3961432
+    Percent                     : 76.5%
+    Total annotated length      : 3648200193
+    Number of cell/annotations  : 266
+Saving database 'HeLa-S3' in file '/path/to/snpEff/data/GRCh37.65/regulation_HeLa-S3.bin'
+Saving database 'HepG2' in file '/path/to/snpEff/data/GRCh37.65/regulation_HepG2.bin'
+Saving database 'NHEK' in file '/path/to/snpEff/data/GRCh37.65/regulation_NHEK.bin'
+Saving database 'GM12878' in file '/path/to/snpEff/data/GRCh37.65/regulation_GM12878.bin'
+Saving database 'HUVEC' in file '/path/to/snpEff/data/GRCh37.65/regulation_HUVEC.bin'
+Saving database 'H1ESC' in file '/path/to/snpEff/data/GRCh37.65/regulation_H1ESC.bin'
+Saving database 'CD4' in file '/path/to/snpEff/data/GRCh37.65/regulation_CD4.bin'
+Saving database 'GM06990' in file '/path/to/snpEff/data/GRCh37.65/regulation_GM06990.bin'
+Saving database 'IMR90' in file '/path/to/snpEff/data/GRCh37.65/regulation_IMR90.bin'
+Saving database 'K562' in file '/path/to/snpEff/data/GRCh37.65/regulation_K562.bin'
+Done.
+		</pre>
+
+		As you can see, annotations for each cell type are saved in different files. This makes it easier to load annotations only for the desired cell types when analyzing data.<p>
+
+</ol>
+
+<hr>
+<a class="body" name="bed"><h3>Option 2: Using an BED filed </h3></a>
+
+This example shows how to create a regulation database for human (GRCh37.65). We assume we have a file called "my_regulation.bed" which has infromation for H3K9me3 in Pancreatic Islets (for instance, as a result of a Chip-Seq experiment and peak enrichment analysis).
+
+<ol>
+	<li> Add all your BED files to 'path/to/snpEff/data/GRCh37.65/regulation.bed/' dir:
+
+		<pre>
+			cd path/to/snpEff/data/GRCh37.65
+			mkdir regulation.bed
+			cd regulation.bed
+			mv where/everh/your/bed/file/is/my_regulation.bed ./regulation.Pancreatic_Islets.H3K9me3.bed </pre>
+		<p>
+		<b>Note:</b> The name of the file must be 'regulation.CELL_TYPE.ANNOTATION_TYPE.bed'. In this case, 'CELL_TYPE=Pancreatic_Islets' and 'ANNOTATION_TYPE=H3K9me3' <br>
+
+	<li> Create databases (note the "-onlyReg" flag):
+		<pre>
+			cd /path/to/snpEff
+			java -Xmx20G -jar snpEff.jar build -v -onlyReg GRCh37.65 </pre>
+		<p>
+
+		The output looks like this
+		<pre>
+Building database for 'GRCh37.65'
+Reading regulation elements (GFF)
+Cannot read regulation elements form file '/path/to/snpEff/data/GRCh37.65/regulation.gff'
+Directory has 1 bed files and 1 cell types
+Creating consensus for cellType 'Pancreatic_Islets', files: [/path/to/snpEff/data/GRCh37.65/regulation.bed/regulation.Pancreatic_Islets.H3K9me3.bed]
+Reading file '/path/to/snpEff/data/GRCh37.65/regulation.bed/regulation.Pancreatic_Islets.H3K9me3.bed'
+	Chromosome '10'	line: 5143
+	Chromosome '11'	line: 8521
+	...
+	Chromosome 'X'	line: 52481
+	Chromosome 'Y'	line: 53340
+Done
+	Total lines                 : 53551
+	Total annotation count      : 53573
+	Percent                     : 100.0%
+	Total annotated length      : 75489402
+	Number of cell/annotations  : 1
+Creating consensus for cell type: Pancreatic_Islets
+Sorting: Pancreatic_Islets	, size: 53573
+Adding to final consensus
+Final consensus for cell type: Pancreatic_Islets	, size: 53549
+Saving database 'Pancreatic_Islets' in file '/path/to/snpEff/data/GRCh37.65/regulation_Pancreatic_Islets.bin'
+Done
+Finishing up
+		</pre>
+
+		<b>Note:</b> If there are many annotations, they are saved in one binary file for each cell type (i.e. several BED files for different cell types are collapsed toghether). This makes it easier to load annotations only for the desired cell types when analyzing data.<p>
+
+</ol>
+
+
+</div> 

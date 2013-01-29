@@ -1,0 +1,51 @@
+\begin{thebibliography}{1}
+
+\bibitem{benjamini1995controlling}
+Y.~Benjamini and Y.~Hochberg.
+\newblock {Controlling the false discovery rate: a practical and powerful
+  approach to multiple testing}.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, 57(1):289--300, 1995.
+
+\bibitem{vcf4broad}
+Broad Institute.
+\newblock {VCF (Variant Call Format) version 4.0}.
+\newblock {\em http://www.1000genomes.org/wiki/Analysis/vcf4.0}, 2010.
+
+\bibitem{langmead2009ultrafast}
+B.~Langmead, C.~Trapnell, M.~Pop, and S.L. Salzberg.
+\newblock {Ultrafast and memory-efficient alignment of short DNA sequences to
+  the human genome}.
+\newblock {\em Genome Biol}, 10(3):R25, 2009.
+
+\bibitem{li2010baq}
+H.~Li.
+\newblock {Mathematical Notes on SAMtools Algorithms}.
+\newblock {\em http://lh3lh3.users.sourceforge.net/download/samtools.pdf},
+  2010.
+
+\bibitem{li2010fast}
+H.~Li and R.~Durbin.
+\newblock {Fast and accurate short-read alignment with Burrows-Wheeler
+  transform}.
+\newblock {\em Bioinformatics}, 25(5), 2009.
+
+\bibitem{li2010fastlong}
+H.~Li and R.~Durbin.
+\newblock {Fast and accurate long-read alignment with Burrows-Wheeler
+  transform}.
+\newblock {\em Bioinformatics}, 26(5):589, 2010.
+
+\bibitem{li2009sequence}
+H.~Li, B.~Handsaker, A.~Wysoker, T.~Fennell, J.~Ruan, N.~Homer, G.~Marth,
+  G.~Abecasis, and R.~Durbin.
+\newblock {The sequence alignment/map format and SAMtools}.
+\newblock {\em Bioinformatics}, 25(16):2078, 2009.
+
+\bibitem{li2008mapping}
+H.~Li, J.~Ruan, and R.~Durbin.
+\newblock {Mapping short DNA sequencing reads and calling variants using
+  mapping quality scores}.
+\newblock {\em Genome research}, 18(11):1851, 2008.
+
+\end{thebibliography}

@@ -1,0 +1,497 @@
+	<div id="content"> 
+				<p style="font-size: 16pt"> <b> SnpSift (related software) </b></p>
+				SnpSift is a collection of tools to manipulate <a class="body" href="http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41">VCF</a> (variant call format) files.<br>
+				What can you do:
+				<ul>
+					<li> <a class="body" href="#filter"><b>Filter:</b></a> You can filter using arbitrary expressions, for instance "(QUAL &gt; 30) | (exists INDEL) | ( countHet() &gt; 2 )". The actual expressions can be quite complex, so it allows for a lot of flexibility.
+					<li> <a class="body" href="#annotate"><b>Annotate:</b></a> You can add 'ID'  from another database (e.g.  variants from dbSnp)
+					<li> <a class="body" href="#casecontrol"><b>CaseControl:</b></a> You can compare how many variants are in 'case' and in 'control' groups. Also calculates p-values (Fisher exact test).
+					<li> <a class="body" href="#intervals"><b>Intervals:</b></a> Filter variants that intersect with intervals.
+					<li> <a class="body" href="#intidx"><b>Intervals (intidx):</b></a> Filter variants that intersect with intervals. Index the VCF file using memory mapped I/O to speed up the search. This is intended for huge VCF files and a small number of intervals to retrieve.
+					<li> <a class="body" href="#join"><b>Join:</b></a> Join by generic genomic regions (intersecting or closest).
+					<li> <a class="body" href="#rmRefGen"><b>RmRefGen:</b></a> Remove reference genotype (i.e. replace '0/0' genotypes by '.')
+					<li> <a class="body" href="#tstv"><b>TsTv:</b></a> Calculate transiton to transversion ratio.
+					<li> <a class="body" href="#extractFields"><b>Extract fields:</b></a> Extract fields from a VCF file to a TXT (tab separated) format.
+					<li> <a class="body" href="#varType"><b>Variant type:</b></a> Adds SNP/MNP/INS/DEL to info field. It also adds "HOM/HET" if there is only one sample.
+					<li> <a class="body" href="#gwasCat"><b>GWAS Catalog:</b></a> Annotate using GWAS Catalog.
+					<li> <a class="body" href="#dbnsfp"><b>dbNSFP:</b></a> Annotate using dbNSFP: The dbNSFP is an integrated database of functional predictions from multiple algorithms (SIFT, Polyphen2, LRT and MutationTaster, PhyloP and GERP++, etc.)
+				</ul>
+
+				<p> <hr> <p>
+
+				<b>Citing SnpSift</b>: "Using Drosophila melanogaster as a model for genotoxic chemical mutational studies with a new program, SnpSift", Cingolani, P., et. al., Frontiers in Genetics, 3, 2012.<br>
+				BibTex entry: 
+<pre>
+@article{cingolani2012using,
+  title={Using Drosophila melanogaster as a model for genotoxic chemical mutational studies with a new program, SnpSift},
+  author={Cingolani, P. and Patel, V.M. and Coon, M. and Nguyen, T. and Land, S.J. and Ruden, D.M. and Lu, X.},
+  journal={Frontiers in Genetics},
+  volume={3},
+  year={2012},
+  publisher={Frontiers Media SA}
+}
+</pre>
+				
+				<p> <b> Source code:</b> The project is hosted at SourceForge. <br>
+				Here is the SVN command to check out the development version of the code:
+<pre>
+svn co https://snpeff.svn.sourceforge.net/svnroot/snpeff/SnpSift/trunk
+</pre>
+
+
+				<a class="body" name="filter"> <p><hr><p style="font-size: 16pt"> <b> SnpSift filter</b></p> </a>
+				Using SnpSift filter you can filter using arbitrary expressions, for instance "(QUAL &gt; 30) | (exists INDEL) | ( countHet() &gt; 2 )". The actual expressions can be quite complex, so it allows for a lot of flexibility.<p>
+
+				Some examples for the impatient:
+				<ul>
+					<li> I want to filter out samples with quality less than 30:
+					<pre> cat variants.vcf | java -jar SnpSift.jar filter " ( QUAL >= 30 )" > filtered.vcf</pre>
+
+					<li> ...but we also want InDels that have quality 20 or more:
+					<pre> cat variants.vcf | java -jar SnpSift.jar filter "(( exists INDEL ) & (QUAL >= 20)) | (QUAL >= 30 )" > filtered.vcf</pre>
+
+					<li> ...or any homozygous variant present in more than 3 samples:
+					<pre> cat variants.vcf | java -jar SnpSift.jar filter "(countHom() > 3) | (( exists INDEL ) & (QUAL >= 20)) | (QUAL >= 30 )" > filtered.vcf</pre>
+
+					<li> ...or any heterozygous sample with coverage 25 or more:
+					<pre> cat variants.vcf | java -jar SnpSift.jar filter "((countHet() > 0) && (DP >= 25)) | (countHom() > 3) | (( exists INDEL ) & (QUAL >= 20)) | (QUAL >= 30 )" > filtered.vcf</pre>
+
+					<li> I want to keep samples where the genotype for the first sample is homozygous variant and the genotype for the second sample is reference:
+					<pre> cat variants.vcf | java -jar SnpSift.jar filter "isHom( GEN[0] ) & isVariant( GEN[0] ) & isRef( GEN[1] )" > filtered.vcf</pre>
+
+					<li> I want to keep samples where the ID matches a set defined in a file:
+					<pre> cat variants.vcf | java -jar SnpSift.jar filter --set my_rs.txt "ID in SET[0]" > filtered.vcf</pre>
+					and the file my_rs.txt has one string per line, e.g.:
+					<pre>rs58108140
+rs71262674
+rs71262673</pre> 
+				</ul>
+
+				Now you get the idea. You can combine any conditions you want using boolean operators. <p>
+
+				<b>Variables</b> names are:
+				<ul>
+					<li> <b>Fields</b> names: "CHROM, POS, ID, REF, ALT, QUAL or FILTER"
+						Examples:
+						<ul>
+							<li> Any variant in chromosome 1: <pre> "( CHROM = 'chr1' )" </pre>
+							<li> Variants between two positions: <pre> "( POS > 123456 ) & ( POS < 654321 )" </pre>
+							<li> Has an ID and it matches the regulat expression 'rs': <pre> "(exists ID) & ( ID =~ 'rs' )" </pre>
+							<li> The reference is 'A': <pre> "( REF = 'A' )" </pre>
+							<li> The alternative is 'T': <pre> "( ALT = 'T' )" </pre>
+							<li> Quality over 30: <pre> "( QUAL > 30 )" </pre>
+							<li> Filter value is either 'PASS' or it is missing: <pre> "( na FILTER ) | (FILTER = 'PASS')" </pre>
+						</ul>
+
+					<li> <b>INFO field</b> names in the INFO field. E.g. if the info field has "DP=48;AF1=0;..." you can use something like
+						<pre> ( DP > 10 ) & ( AF1 = 0 )</pre>
+
+					<li> <b>Multiple value</b> info fields (comma separated) can be accessed using an index. E.g. If the INFO field has "CI95=0.04167,0.5417" you can use an expression such as 
+						<pre> "( CI95[0] > 0.1 ) & (CI95[1] <= 0.3)" </pre>
+
+					<li> <b>Multiple indexes</b> You may test multiple indexed fields using 'ANY' or 'ALL' as index. In the examples we assume the INFO field has "CI95=0.04167,0.5417" <p>
+						<b>ANY</b> or <b>*</b>: If you use 'ANY' as index, the expression will be true if any field satisfies the expression.<br>
+						So, for instance, the following expresssions
+						<pre> "( CI95[ANY] > 0.1 )" </pre>
+						or
+						<pre> "( CI95[*] > 0.1 )" </pre>
+						are equivalent to (in this case, there are only two values in the array)
+						<pre> "( CI95[0] > 0.1 ) | ( CI95[1] > 0.1 )" </pre>
+						<p>
+						<b>ALL</b> or <b>?</b>: If you use 'ALL' as index, the expression will be true if all field satisfy the expression.<br>
+						So, for instance, the following expresssions
+						<pre> "( CI95[ALL] > 0.1 )" </pre>
+						<pre> "( CI95[?] > 0.1 )" </pre>
+						are equivalent to (in this case, there are only two values in the array)
+						<pre> "( CI95[0] > 0.1 ) & ( CI95[1] > 0.1 )" </pre>
+
+					<li> <b>Genotype fields</b> are accessed using an index (sample number) followed by a variable name. E.g. If the genotypes are "GT:PL:GQ    1/1:255,66,0:63    0/1:245,0,255:99"
+						You can write something like
+						<pre>"( GEN[0].GQ > 60 ) & ( GEN[1].GQ > 90 )" </pre>
+
+						You may use an asterisk to represent 'ANY' field
+						<pre>"( GEN[*].GQ > 60 )" </pre>
+
+					<li> <b>Genotype multiple fields</b> are accessed using an index (sample number) followed by a variable name and then another index. E.g. If the genotypes are "GT:PL:GQ    1/1:255,66,0:63    0/1:245,0,255:99"
+						You can write something like
+						<pre>"( GEN[0].PL[2] = 0 )" </pre>
+
+						You may use an asterisk to represent 'ANY' field
+						<pre>"( GEN[0].PL[*] = 0 )" </pre>
+
+						...or even 
+						<pre>"( GEN[*].PL[*] = 0 )" </pre>
+
+					<li> <b>Sets</b> are defined by the '-s' (or '--set') command line option. Each file must have one string per line. They are named based on the order used in the command line (e.g. the first one is 'SET[0]', the second one is 'SET[1]', etc.)
+						You can write something like (assuming your command line was "-s set1.txt -s set2.txt -s set3.txt"):
+						<pre>"( ID in SET[2] )" </pre>
+
+					<li> <b>Effect fields (from SnpEff)</b> are accessed using an index (effect number) followed by a sub-field name. <br>
+					Available sub-field are:  
+						<ul>
+							<li> EFFECT: Effect (e.g. SYNONYMOUS_CODING, NON_SYNONYMOUS_CODING, FRAME_SHIFT, etc.)
+							<li> IMPACT: { HIGH, MODERATE, LOW, MODIFIER }
+							<li> FUNCLASS: { NONE, SILENT, MISSENSE, NONSENSE }
+							<li> CODON: Codon change (e.g. 'ggT/ggG')
+							<li> AA: Amino acid change (e.g. 'G156')
+							<li> GENE: Gene name (e.g. 'PSD3')
+							<li> BIOTYPE: Gene biotype, as described by the annotations (e.g. 'protein_coding')
+							<li> CODING: Gene is { CODING, NON_CODING } 
+							<li> TRID: Transcript ID
+							<li> EXID: Exon ID
+						</ul>
+
+					For example, you may want only the lines where the first effect is a NON_SYNONYMOUS variants:
+						<pre>"( EFF[0].EFFECT = 'NON_SYNONYMOUS_CODING' )" </pre>
+
+					...but this probably doesn't make much sense. What you may really want are lines where ANY effect is NON_SYNONYMOUS:
+						<pre>"( EFF[*].EFFECT = 'NON_SYNONYMOUS_CODING' )" </pre>
+
+					May be you want only the ones that affect gene 'TCF7L2'
+						<pre>"( EFF[*].EFFECT = 'NON_SYNONYMOUS_CODING' ) &  ( EFF[*].GENE = 'TCF7L2' )" </pre>
+					
+
+				</ul>
+
+				<b> Available operands and functions </b><p>
+				<center>
+				<table border=0>
+					<tr bgcolor=999999> <th> Operand </th> <th> Description </th> <th> Data type </th> <th> Example </th> </tr>
+					<tr bgcolor=eeeeee> 
+						<td> = </td> 
+						<td> Equality test </td> 
+						<td> FLOAT, INT or STRING </td> 
+						<td style="white-space: nowrap"> (REF <b>=</b> 'A') </td> 
+					</tr>
+					<tr bgcolor=dddddd> 
+						<td> &gt; </td> 
+						<td> Greater than </td> 
+						<td> FLOAT or INT </td>
+						<td style="white-space: nowrap"> (DP <b>&gt;</b> 20) </td> 
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> &ge; </td> 
+						<td> Greater or equal than </td> 
+						<td> FLOAT or INT </td>
+						<td style="white-space: nowrap"> (DP <b>&ge;</b> 20) </td> 
+					</tr>
+					<tr bgcolor=dddddd> 
+						<td> &lt; </td> 
+						<td> Less than </td> 
+						<td> FLOAT or INT </td>
+						<td style="white-space: nowrap"> (DP <b>&lt;</b> 20) </td> 
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> &le; </td> 
+						<td> Less or equal than </td> 
+						<td> FLOAT or INT </td>
+						<td style="white-space: nowrap"> (DP <b>&le;</b> 20) </td> 
+					</tr>
+					<tr bgcolor=dddddd> 
+						<td> =~ </td> 
+						<td> Match regular expression </td> 
+						<td> STRING </td>
+						<td style="white-space: nowrap"> (REL <b>=~</b> 'AC') </td> 
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> !~ </td> 
+						<td> Does not match regular expression </td> 
+						<td> STRING </td>
+						<td style="white-space: nowrap"> (REL <b>!~</b> 'AC') </td> 
+					</tr>
+					<tr bgcolor=dddddd> 
+						<td> &amp; </td> 
+						<td> AND operator  </td> 
+						<td> Boolean </td>
+						<td style="white-space: nowrap"> (DP &gt 20) <b>&amp;</b> (REF = 'A') </td> 
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> | </td> 
+						<td> OR operator  </td> 
+						<td> Boolean </td>
+						<td style="white-space: nowrap"> (DP &gt 20) <b>|</b> (REF = 'A') </td> 
+					</tr>
+					<tr bgcolor=dddddd> 
+						<td> ! </td> 
+						<td> NOT operator  </td> 
+						<td> Boolean </td>
+						<td style="white-space: nowrap"> <b>!</b> (DP &gt 20) </td>
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> exists </td> 
+						<td> The variable exists (not missing)</td> 
+						<td> Any </td>
+						<td style="white-space: nowrap"> (<b>exists</b> INDEL) </td>
+					</tr>
+					<tr bgcolor=999999> <th> Function </th> <th> Description </th> <th> Data type </th> <th> Example </th> </tr>
+					<tr bgcolor=dddddd> 
+						<td> countHom() </td> 
+						<td> Count number of homozygous genotypes</td> 
+						<td> No arguments </td>
+						<td style="white-space: nowrap"> (<b>countHom()</b> &gt 0) </td>
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> countHet() </td> 
+						<td> Count number of heterozygous genotypes</td> 
+						<td> No arguments </td>
+						<td style="white-space: nowrap"> (<b>countHet()</b> &gt 2) </td>
+					</tr>
+					<tr bgcolor=dddddd> 
+						<td> countVariant() </td> 
+						<td> Count number of genotypes that are variants (i.e. not reference 0/0)</td> 
+						<td> No arguments </td>
+						<td style="white-space: nowrap"> (<b>countVariant()</b> &gt 5) </td>
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> countRef() </td> 
+						<td> Count number of genotypes that are NOT variants (i.e. reference 0/0)</td> 
+						<td> No arguments </td>
+						<td style="white-space: nowrap"> (<b>countRef()</b> &lt 1) </td>
+					</tr>
+					<tr bgcolor=999999> <th> Genotype <br> Function </th> <th> Description </th> <th> Data type </th> <th> Example </th> </tr>
+					<tr bgcolor=dddddd> 
+						<td> isHom </td> 
+						<td> Is homozygous genotype?</td> 
+						<td> Genotype </td>
+						<td style="white-space: nowrap"> <b>isHom( GEN[0] )</b> </td>
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> isHet </td> 
+						<td> Is heterozygous genotype?</td> 
+						<td> Genotype </td>
+						<td style="white-space: nowrap"> <b>isHet( GEN[0] )</b> </td>
+					</tr>
+					<tr bgcolor=dddddd> 
+						<td> isVariant </td> 
+						<td> Is genotype a variant? (i.e. not reference 0/0)</td> 
+						<td> Genotype </td>
+						<td style="white-space: nowrap"> <b>isVariant( GEN[0] )</b> </td>
+					</tr>
+					<tr bgcolor=eeeeee> 
+						<td> isRef </td> 
+						<td> Is genotype a reference? (i.e. 0/0)</td> 
+						<td> Genotype </td>
+						<td style="white-space: nowrap"> <b>isRef( GEN[0] )</b> </td>
+					</tr>
+				</table>
+				</center>
+
+				<a class="body" name="annotate"><p><hr><p style="font-size: 16pt"> <b> SnpSift Annotate</b></p></a>
+				This is typically used to annotate IDs and all INFO fields from dbSnp. Here is an example
+				<pre> java -jar SnpSift.jar annotate dbSnp132.vcf variants.vcf > variants_annotated.vcf </pre>
+				<b>Note:</b> By default now the 'annotate' command adds ALL database INFO fields. You can use the '-id' command line option if you only want to add ID fields.<p>
+				<b>dbSnp in VCF:</b> iYou can download dbSnp in VCF format <a href="ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606/VCF/v4.0/00-All.vcf.gz"> here </a><p>
+
+				<a class="body" name="casecontrol"><p><hr><p style="font-size: 16pt"> <b> SnpSift CaseControl</b></p></a>
+				Allows you to count how many samples are in 'case' group and a 'control' group. You can count 'homozygous', 'heterozygous' or 'any' variants. Case and control are defined by a string containing plus and minus symbols {'+', '-', '0'} where '+' is case, '-' is control and '0' is neutral.
+				This command adds two annotations to the VCF file:
+				<ul>
+					<li> <b>CaseControl</b>: Two comma separated numbers numbers representing the number of samples that have the variant in the case and the control group: E.g.: "CaseControl=3,4" the variant is present in 3 cases and 4 controls.
+					<p>
+					<li> <b>CaseControlP</b>: A p-value (Fisher exact test) that the number of cases is N or more. E.g.: "CaseControl=4,0;CaseControlP=3.030303e-02" in this case the pValue of having 4 or more cases and zero controls is 0.03
+				</ul>
+				E.g. We have ten samples (which means ten genotype columns in the VCF file), the first four are 'case' and the last six are 'control', so the description string would be "++++------". Let's say we want to distinguish genotypes that are homozygous in 'case' and either homozygous or heterozygous in 'control':
+				<pre> java -jar ~/tools/SnpSift.jar caseControl hom any "++++------" variants.vcf &gt; variants_case_control.vcf </pre>
+
+				E.g. ...from the previous example, we want to filter the variants that have a p-value less than 0.05:
+				<pre> java -jar ~/tools/SnpSift.jar caseControl hom any "++++------" variants.vcf \
+	| java -jar SnpSift.jar filter "( CaseControlP &lt; 0.05 )" \
+	&gt; variants_case_control_filtered.vcf</pre>
+
+
+				<a class="body" name="intervals"><p><hr><p style="font-size: 16pt"> <b> SnpSift Intervals</b></p></a>
+				This is used to extract variants that intersect any interval. You provided the intervals as BED files.<p>
+
+				<b>Note:</b> BED file format is tab separated zero-based coordinates "chr \t start \t end " (for this application, all other fields in the BED file are ignored).<br>
+				<b>Command line options:</b> <br>
+				<ul>
+					<li> '-x' : Filter out (exclude) VCF entries that match any interval in the BED files.
+					<li> '-i file.vcf' : Specify the input VCF file (default is STDIN).
+				</ul>
+
+				<p>
+				E.g.: 
+				<pre> cat variants.vcf | java -jar SnpSift.jar intervals my_intervals.bed > variants_intersecting_intervals.vcf </pre>
+	
+				<a class="body" name="intidx"><p><hr><p style="font-size: 16pt"> <b> SnpSift Intervals Index (intidx) </b></p></a>
+				This is used to extract variants that intersect any interval. You provided the intervals as BED files.<p>
+				It indexes the VCF file using memory mapped I/O to speed up the search. This is intended for huge VCF files and a small number of intervals to retrieve.<p>
+
+				<b>Note:</b> BED file format is tab separated zero-based coordinates "chr \t start \t end " (for this application, all other fields in the BED file are ignored).<br>
+				<b>Note:</b> You can use command line option '-if 1' if you want one-based coordinates.<br>
+
+				<p>
+				E.g.: 
+				<pre> java -jar SnpSift.jar intidx variants.vcf my_intervals.bed > variants_intersecting_intervals.vcf </pre>
+
+				You can also have genomic coordinate in the command line<br>
+				Note that in this case, coordinates are assumed to be one-based (instead of zero-based, like in BED files):
+				<pre> java -jar SnpSift.jar intidx -c variants.vcf chr1:12345-23456 chr2:3456789-4567890  > variants_intersecting_intervals.vcf </pre>
+
+				<a class="body" name="join"><p><hr><p style="font-size: 16pt"> <b> SnpSift Join</b></p></a>
+				Join files by genomic regions (i.e. chr:start-end). Files can be generic TXT (tab separated), VCF or BED.
+<pre>
+Usage: java -jar SnpSift.jar join [options] file1 file2 
+Note: It is assumed that both files fit in memory.
+Options:
+    -if1 &lt;num&gt;       : Offset for file1 (e.g. 1 if coordinates are one-based. Default: 1
+    -if2 &lt;num&gt;       : Offset for file2 (e.g. 2 if coordinates are one-based. Default: 1
+    -cols1 &lt;colDef&gt;  : Column definition for file 1. Format: chrCol,startCol,endCol (e.g. '1,2,3'). Shortcuts 'bed' or 'vcf' are allowed. Default: 'vcf
+    -cols2 &lt;colDef&gt;  : Column definition for file 2. Format: chrCol,startCol,endCol (e.g. '1,2,3'). Shortcuts 'bed' or 'vcf' are allowed. Default: 'vcf
+    -all             : For each interval, show all intersecting. Default: show only one (the largest intersection)
+    -closest         : Show closest intervals in file2 if none intersect. Default: off
+    -empty           : Show intervals in file1 even if they do not intersect with any other interval. Default: off
+</pre>
+
+Example: Join two bed files, showing intersecting or closest intervals
+<pre>
+java -Xmx2G -jar SnpSift.jar join -v -cols1 bed -cols2 bed -closest file1.bed file2.bed
+</pre>
+
+Example: Join one bed file and another file having chr:start-end in columns 7,8 and 9 respectively. Showing intervals form file1 that do not intersect any interval from file2
+<pre>
+java -Xmx2G -jar SnpSift.jar join -v -cols1 bed -cols2 7,8,9 -empty file.bed my_weird_file.txt
+</pre>
+				<a class="body" name="RmRefGen"><p><hr><p style="font-size: 16pt"> <b> SnpSift RmRefGen</b></p></a>
+				Remove reference genotypes. Replcaces genotype information for non-variant samples. <p>
+				E.g. If you have this file:
+<pre>
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT       M1                 M2                X1              X2              
+2L      426906  .       C       G       53.30   .       DP=169  GT:PL:GQ     0/1:7,0,255:4      0/1:7,0,255:4     0/0:0,0,0:6     0/0:0,30,255:35 
+2L      601171  .       C       A       999.00  .       DP=154  GT:PL:GQ     0/1:81,0,141:78    0/1:42,0,251:39   0/0:0,0,0:4     0/0:0,33,255:36 
+2L      648611  .       A       T       999.00  .       DP=225  GT:PL:GQ     0/1:52,0,42:47     1/1:75,21,0:14    0/0:0,0,0:3     0/0:0,60,255:61 
+2L      807373  .       A       G       106.00  .       DP=349  GT:PL:GQ     0/1:14,0,65:12     0/1:60,0,42:50    0/0:0,0,0:4     0/0:0,69,255:72 
+2L      816766  .       G       T       999.00  .       DP=411  GT:PL:GQ     0/1:108,0,45:53    0/1:7,0,255:6     0/0:0,0,0:4     0/0:0,57,255:59 
+</pre>
+
+You can do
+<pre> cat file.vcf | java -jar SnpSift.jar rmRefGen > file_noref.vcf </pre>
+
+and you get this (notice the last two columns, that had '0/0' genotype):
+<pre>
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT       M1                 M2                X1    X2              
+2L      426906  .       C       G       53.30   .       DP=169  GT:PL:GQ     0/1:7,0,255:4      0/1:7,0,255:4     .     .
+2L      601171  .       C       A       999.00  .       DP=154  GT:PL:GQ     0/1:81,0,141:78    0/1:42,0,251:39   .     .
+2L      648611  .       A       T       999.00  .       DP=225  GT:PL:GQ     0/1:52,0,42:47     1/1:75,21,0:14    .     .
+2L      807373  .       A       G       106.00  .       DP=349  GT:PL:GQ     0/1:14,0,65:12     0/1:60,0,42:50    .     .
+2L      816766  .       G       T       999.00  .       DP=411  GT:PL:GQ     0/1:108,0,45:53    0/1:7,0,255:6     .     .
+</pre>
+
+				<a class="body" name="tstv"><p><hr><p style="font-size: 16pt"> <b> SnpSift TsTv</b></p></a>
+				As the name suggests, it is used to calculate transition vs transversion ratios for each sample.
+				<pre> 
+$ java -jar SnpSift.jar tstv hom s.vcf 
+
+Sample        :	1	2	3	4	5	6	7	8	9	10	11	12	Total
+Transitions   :	150488	150464	158752	156674	152936	160356	152276	155314	156484	149276	151182	153468	1847670
+Transversions :	70878	70358	73688	72434	70828	76150	72030	71958	72960	69348	70180	71688	862500
+Ts/Tv         :	2.123	2.139	2.154	2.163	2.159	2.106	2.114	2.158	2.145	2.153	2.154	2.141	2.142	
+
+</pre>
+			
+				<a class="body" name="extractFields"><p><hr><p style="font-size: 16pt"> <b> SnpSift Extract Fields</b></p></a>
+				Extract fields from a VCF file to a TXT (tab separated) format.
+				<pre>
+$ java -jar SnpSift.jar extractFields s.vcf CHROM POS ID AF | head
+#CHROM        POS        ID            AF
+1             69134                    0.086
+1             69496      rs150690004   0.001
+1             69511      rs75062661    0.983
+1             69569                    0.538
+1             721559                   0.001
+1             721757                   0.011
+1             846854     rs111957712   0.003
+1             865584     rs148711625   0.001
+1             865625     rs146327803   0.001
+</pre>
+
+				You can also use sub-fields and genotype fields / sub-fields. For instance:
+<pre>
+$ java -jar SnpSift.jar extractFields file.vcf CHROM POS ID THETA GEN[0].GL[1] GEN[1].GL GEN[3].GL[*] GEN[*].GT
+</pre>
+
+				This means to extract:
+				<ul>
+				  <li> CHROM POS ID: regular fields (as in the previous example)
+				  <li> THETA : This one is from INFO
+				  <li> GEN[0].GL[1] : Second likelihood from first genotype
+				  <li> GEN[1].GL : The whole GL fiels (all entries without separating them)
+				  <li> GEN[3].GL[*] : All likelihoods form genotype 3 (this time they will be tab separated, as opposed to the previous one).
+				  <li> GEN[*].GT : Genotype subfields (GT) from ALL samples (tab separated).
+				</ul>
+				The result will look something like:
+<pre>
+#CHROM  POS     ID              THETA   GEN[0].GL[1]    GEN[1].GL               GEN[3].GL[*]            GEN[*].GT
+1       10583   rs58108140      0.0046  -0.47           -0.24,-0.44,-1.16       -0.48   -0.48   -0.48   0|0     0|0     0|0     0|1     0|0     0|1     0|0     0|0     0|1 
+1       10611   rs189107123     0.0077  -0.48           -0.24,-0.44,-1.16       -0.48   -0.48   -0.48   0|0     0|1     0|0     0|0     0|0     0|0     0|0     0|0     0|0 
+1       13302   rs180734498     0.0048  -0.58           -2.45,-0.00,-5.00       -0.48   -0.48   -0.48   0|0     0|1     0|0     0|0     0|0     1|0     0|0     0|1     0|0 
+1       13327   rs144762171     0.0204  -1.11           -1.97,-0.01,-2.51       -0.48   -0.48   -0.48   0|0     0|1     0|0     0|0     0|0     1|0     0|0     0|0     0|0 
+1       13957   rs201747181     0.0100  0               0,0,0                   0       0       0       0|0     0|1     0|0     0|0     0|0     0|0     0|0     0|0     0|0 
+1       13980   rs151276478     0.0139  -0.48           -0.48,-0.48,-0.48       -0.48   -0.48   -0.48   0|0     0|0     0|0     0|0     0|0     0|0     0|0     0|0     0|0 
+1       30923   rs140337953     0.0162  -0.61           -0.10,-0.69,-2.81       -0.48   -0.48   -0.48   1|1     0|0     0|0     1|1     1|0     0|0     1|1     1|0     1|1 
+1       46402   rs199681827     0.0121  0               0,0,0                   0       0       0       0|0     0|0     0|0     0|0     0|0     0|0     0|0     0|0     0|0 
+1       47190   rs200430748     0.0153  0               0,0,0                   0       0       0       0|0     0|0     0|0     0|0     0|0     0|0     0|0     0|0     0|0 
+</pre>
+
+
+				<a class="body" name="varType"><p><hr><p style="font-size: 16pt"> <b> Variant type</b></p></a>
+				It adds "SNP/MNP/INS/DEL/MIXED" in the INFO field.<br>
+				It also adds "HOM/HET", but this last one works if there is only one sample (otherwise it doesn't make any sense).<p>
+<pre>
+$ java -jar SnpSift.jar varType  test.vcf | grep -v "^#" | head
+20	10469	.	C	G	100.0	PASS	SNP;HOM	GT:AP	0|0:0.075,0.060
+20	10492	.	C	T	100.0	PASS	SNP;HET	GT:AP	0|1:0.180,0.345
+20	10575	.	C	CG	100.0	PASS	DEL;HET	GT:AP	0|1:0.000,0.000
+20	10611	.	CG	C	100.0	PASS	INS;HET	GT:AP	0|1:0.000,0.010
+20	10618	.	GT	TA	100.0	PASS	MNP;HET	GT:AP	0|1:0.020,0.030
+</pre>
+
+				<a class="body" name="gwasCat"><p><hr><p style="font-size: 16pt"> <b> GWAS Catalog </b></p></a>
+				Annotate using <a class="body" href="http://www.genome.gov/gwastudies/">GWAS catalog</a><br>
+				You need the GWAS catalog file (in TXT format), which can be downloaded <a class="body" href="http://www.genome.gov/admin/gwascatalog.txt"> here </a> <p>
+<pre>
+$ java -jar SnpSift.jar gwasCat gwascatalog.txt test.vcf | tee test.gwas.vcf
+1   1005806 rs3934834   C   T   .   PASS    AF=0.091;GWASCAT=Body_mass_index    
+1   2069172 rs425277    C   T   .   PASS    AF=0.400;GWASCAT=Height 
+1   2069681 rs3753242   C   T   .   PASS    AF=0.211;GWASCAT=Reasoning  
+1   2392648 rs2477686   G   C   .   PASS    AF=0.745;GWASCAT=Non_obstructive_azoospermia    
+1   2513216 rs734999    C   T   .   PASS    AF=0.547;GWASCAT=Ulcerative_colitis 
+1   2526746 rs3748816   A   G   .   PASS    AF=0.489;GWASCAT=Celiac_disease 
+1   3083712 rs2651899   T   C   .   PASS    AF=0.467;GWASCAT=Migraine   
+1   3280253 rs6658356   G   A   .   PASS    AF=0.070;GWASCAT=Response_to_statin_therapy 
+1   4315204 rs966321    G   T   .   PASS    AF=0.522;GWASCAT=Factor_VII 
+1   5170712 rs7513590   A   G   .   PASS    AF=0.256;GWASCAT=Anthropometric_traits  
+1   6279370 rs846111    G   C   .   PASS    AF=0.153;GWASCAT=QT_interval,QT_interval    
+1   6631431 rs11587438  C   T   .   PASS    AF=0.906;GWASCAT=White_blood_cell_types 
+1   7879063 rs2797685   C   T   .   PASS    AF=0.186;GWASCAT=Crohn_s_disease    
+1   8021973 rs35675666  G   T   .   PASS    AF=0.093;GWASCAT=Ulcerative_colitis 
+1   8046672 rs12727642  C   A   .   PASS    AF=0.101;GWASCAT=Celiac_disease 
+1   8422676 rs2252865   T   C   .   PASS    AF=0.771;GWASCAT=Schizophrenia  
+1   8526142 rs4908760   G   A   .   PASS    AF=0.630;GWASCAT=Vitiligo   
+</pre>
+
+				<a class="body" name="dbnsfp"><p><hr><p style="font-size: 16pt"> <b> Annotate dbNSFP database </b></p></a>
+				The dbNSFP is an integrated database of functional predictions from multiple algorithms (SIFT, Polyphen2, LRT and MutationTaster, PhyloP and GERP++, etc.).
+				One of the main advantages is that you can annotate using multiple prediction tools with just one command.
+				<a class="body" href="https://sites.google.com/site/jpopgen/dbNSFP">Here</a> is the link to dbNSFP database website.
+				<p>
+
+				In order to use this command, you need to download the dbNSFP database file from our <a class="body" href="http://sourceforge.net/projects/snpeff/files/databases/">'databases' directory</a>.
+				The file is named 'dbNSFP-version.txt.gz', where 'version' is the version number (e.g. 'dbNSFP2.0b3.txt.gz').<br>
+				Another option is to download from the original <a class="body" href="https://sites.google.com/site/jpopgen/dbNSFP">dbNSFP</a> site, and create a single file from the individual chromosome files (a simple 'cat dbNSFP2.0b3_variant.chr* | grep -v "^#" &gt; dbNSFP2.0b3.txt' command will be enough).
+				<p>
+
+				Here is a full example how to perform annotations:
+<pre>
+# Donload and uncompress database (you need to do this only once):
+# WARNING: The database is 3Gb when compressed and 30Gb uncompressed.
+wget http://sourceforge.net/projects/snpeff/files/databases/dbNSFP2.0b3.txt.gz
+gunzip dbNSFP2.0b3.txt.gz
+
+# Annotate using dbNSFP
+java -jar SnpSift.jar dbnsfp -v dbNSFP2.0b3.txt myFile.vcf > myFile.annotated.vcf
+</pre>
+
+			<b>Note:</b> You can now specify which fields you want to use for annotation using the '-f' command line option followed by a comma separated list of field names.<br>
+			The default is "Ensembl_transcriptid,Uniprot_acc,Interpro_domain,SIFT_score,Polyphen2_HVAR_pred,GERP++_NR,GERP++_RS,29way_logOdds,1000Gp1_AF,1000Gp1_AFR_AF,1000Gp1_EUR_AF,1000Gp1_AMR_AF,1000Gp1_ASN_AF,ESP5400_AA_AF,ESP5400_EA_AF".
+		</div> 

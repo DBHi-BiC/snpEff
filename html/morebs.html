@@ -1,0 +1,150 @@
+<header>
+	<title> snpEff: SNP effect predictor </title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
+	<style type="text/css" media="all">
+		body { background: url(./images/bg_gradient.jpg) repeat-x; }
+	</style>    
+</header>
+
+<div align="center">
+	<div id="wrap">
+		<div id="header">
+			<div class="logo">
+					<a href="http://snpEff.sourceforge.net/">snpEff</a>
+					<p style="font-size: 12pt" align=right><b>SNP effect predictor</b></p>
+			</div>
+		</div>
+		<div id="menu">
+			<ul>
+			<li><a href="http://snpeff.sourceforge.net/">Home</a></li>
+			<li class="page_item"><a href="faq.html" title="FAQ">FAQ</a></li>
+			<li class="page_item"><a href="features.html" title="Features">Features</a></li>
+			<li class="page_item"><a href="manual.html" title="Manual">Manual</a></li>
+			<li class="page_item"><a href="examples.html" title="Examples">Examples</a></li>
+			<li class="page_item"><a href="morebs.html" title="MoreBs">MoreBs</a></li>
+			<li class="page_item"><a href="SnpSift.html" title="SnpSift">SnpSift</a></li>
+			<li class="page_item"><a href="download.html" title="Download">Downloads</a></li>
+			<li class="page_item"><a href="about.html" title="About">About</a></li>
+			</ul>
+		</div>
+
+
+
+			<div class="entry">
+
+	<div id="content"> 
+				<p style="font-size: 16pt"> <b> MoreBs (related software) </b></p>
+				MoreBs is a pipeline for bisulphite sequencing analysis. MoreBs maps reads to the genome using "C to T" conversion and "G to A" conversion for reads and genome (a total of four alignmens). Then it selects the best matches and produces methlation calls.<p>
+				MoreBs can use either bwa or bowtie for mapping. Since the archtecture is quite modular, other aligners should be easy to add.
+
+				<p style="font-size: 16pt"> <b> How to use MoreBs </b></p>
+				MoreBs has three different stages:
+
+				<ul>
+					<li> <b>index</b>: Prepare the reference genome for alignment. In this step, the reference genome is converted "C to T" and "G to A", then indexes for these two new reference genomes are created.
+					<li> <b> map </b>: Map reads to the genome by converting reads "C to T" and "G to A" and mapping to each of the reference genomes (a total of four mapping stages). After mapping is performed, methylation calls are produced.
+					<li> <b> stats </b>: Perform several statistics on methylation calls.
+				</ul>
+	
+				<p style="font-size: 16pt"> <b> MoreBs index </b></p>
+<pre>
+Usage: MoreBs index [options]
+
+Index:
+	Usage: MoreBs index [options]
+		-g &lt;genome.fasta&gt;       : Genome file (FASTA format)
+		-pathBwa &lt;path&gt;         : Path to BWA program
+		-pathBowtie &lt;path&gt;      : Path to Bowtie
+		-pathSam &lt;path&gt;         : Path to Samtools
+		-optsBwa ...            : Options to be passed to BWA program. Last argument (*)
+		-optsBowtie ...         : Options to be passed to Bowtie program. Last argument (*)
+	Note (*): Arguments marked as 'last argument' should be the last argument in the command line because all arguments following will be passed directly to the aligment program (thus not interpreted by MoreBs).
+</pre>
+
+				<p style="font-size: 16pt"> <b> MoreBs map </b></p>
+<pre>
+Usage: MoreBs index [options]
+Map: 
+	Usage: MoreBs map [options]
+	Options:
+		-g &lt;genome.fasta&gt;       : Genome file (FASTA format)
+		-se &lt;reads.fastq&gt;       : Reads file (single ended, FASTQ format)
+		-pe1 &lt;reads1.fastq&gt;     : Reads file (first pair ended file, FASTQ format)
+		-pe2 &lt;reads2.fastq&gt;     : Reads file (second pair ended file, FASTQ format)
+		-ff|-fr|-rf             : Pair end reads align fw/fw, fw/rev, rev/fw (default -fr)
+		-phred33                : Input quality is coded Phred+33 (i.e. Sanger). This is the default.
+		-phred64                : Input quality is coded Phred+64 (e.g. Illumina or Solid).
+		-pathBwa &lt;path&gt;         : Path to BWA program
+		-pathBowtie &lt;path&gt;      : Path to Bowtie
+		-pathSam &lt;path&gt;         : Path to Samtools
+		-optsBwaSai ...         : Options to be passed to BWA program. SAI creation stage (alignment stage). Last argument (*)
+		-optsBwaSam ...         : Options to be passed to BWA program. SAM creation stage (second stage). Last argument (*)
+		-optsBowtie ...         : Options to be passed to Bowtie program. Last argument (*)
+		-t &lt;num&gt;                : Use multiple threads in alignment algorithm (sets appropriate options for bwa or bowtie)
+	Note (*): Arguments marked as 'last argument' should be the last argument in the command line because all arguments following will be passed directly to the aligment program (thus not interpreted by MoreBs).
+</pre>
+
+
+
+				<p style="font-size: 16pt"> <b> MoreBs stats</b></p>
+<pre>
+Stats:
+	Usage: MoreBs stats [options] genome_version meth_file
+	Options:
+		-bins                   : Numnber of bins for 'type' histograms
+		-cpg                    : Analyze CpG context only
+		-chg                    : Analyze CHG context only
+		-chh                    : Analyze CHH context only
+		-i , -interval          : Use a custom interval file (you may use this option many times)
+		-fi, -filterInterval    : Only analyze changes that intersect with the intervals specified in this file (you may use this option many times)
+		-highCoverage           : Coverage threshold above which a region is considered 'high-coverage'
+		-inVcf                  : Input format is 'VCF' format (implies '-1')
+		-minQ X, -minQuality X  : Filter out methylation calls with quality lower than X
+		-maxQ X, -maxQuality X  : Filter out methylation calls with quality higher than X
+		-minC X, -minCoverage X : Filter out methylation calls with coverage lower than X
+		-maxC X, -maxCoverage X : Filter out methylation calls with coverage higher than X
+		-noChromoPlots          : Do not create per chromosome plots in summary
+		-noPvalues              : Do not calculate p-values
+		-r , -chr               : Prepend 'chr' to chromosome name (e.g. 'chr1' instead of '1')
+		-rawTables              : Output 'raw' tables instead of HTML tables (only for some very long tables)
+		-s,  -stats             : Name of stats file (summary). Default is 'moreBs_summary.html'
+		-ud, -upDownStreamLen   : Set upstream downstream interval length (in bases)
+	Generic options:
+		-0                      : File positions are zero-based (same as '-inOffset 0 -outOffset 0')
+		-1                      : File positions are one-based (same as '-inOffset 1 -outOffset 1')
+		-c , -config            : Specify config file
+		-h , -help              : Show this help and exit
+		-if, -inOffset          : Offset input by a number of bases. E.g. '-inOffset 1' for one-based input files
+		-of, -outOffset         : Offset output by a number of bases. E.g. '-outOffset 1' for one-based output files
+		-q , -quiet             : Quiet mode (do not show any messages or errors)
+		-v , -verbose           : Verbose mode
+</pre>
+		</div> 
+
+
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+					<center><b>Author: <a class="body" href="http://www.mcb.mcgill.ca/~pcingola/">Pablo Cingolani</a> (pcingola@users.sourceforge.net</a>)</b></center>
+			</div>
+		</div>
+	</div>
+</div>
+
+<center>
+<font color=ffffff>
+Key words (for search engines): <br>
+	SNP : single nucleotide polymorphisms <br>
+	SNP effect predictor <br>
+	SNP effect predictor Galaxy<br>
+	SNP functional annotation <br>
+	NG sequencing analysis <br>
+	Next genenration sequencing analysis <br>
+	Next genenration sequencing analysis tool <br>
+	Functionally annotate single nucleotide polymorphisms (SNP) <br>
+	Variation analysis <br>
+	Open source <br>
+	java <br>
+	Windows Linux OSX <br>
+	<a href="http://en.wikipedia.org/wiki/Single-nucleotide_polymorphism">SNP Wikipedia</a> <br>
+</font>
+</center>

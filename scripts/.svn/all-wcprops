@@ -1,0 +1,287 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/snpeff/!svn/ver/332/SnpEffect/trunk/scripts
+END
+download.sh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/303/SnpEffect/trunk/scripts/download.sh
+END
+fasta2tab.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/fasta2tab.pl
+END
+txt2fa.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/scripts/txt2fa.pl
+END
+download_nextProt.sh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/146/SnpEffect/trunk/scripts/download_nextProt.sh
+END
+meme_all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/scripts/meme_all.sh
+END
+proteinFasta2NM.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/proteinFasta2NM.pl
+END
+make.sh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/scripts/make.sh
+END
+annotate_demo.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/11/SnpEffect/trunk/scripts/annotate_demo.sh
+END
+queue_dump.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/queue_dump.txt
+END
+plot.pl
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/snpeff/!svn/ver/65/SnpEffect/trunk/scripts/plot.pl
+END
+qqplot.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/65/SnpEffect/trunk/scripts/qqplot.pl
+END
+filterOutBoringPredictionsVcf.sh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/filterOutBoringPredictionsVcf.sh
+END
+filterOutBoringPredictions.sh
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/filterOutBoringPredictions.sh
+END
+promoterSequences.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/promoterSequences.sh
+END
+queue.pl
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/queue.pl
+END
+db.pl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/snpeff/!svn/ver/65/SnpEffect/trunk/scripts/db.pl
+END
+uniqCount.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/uniqCount.pl
+END
+sift2vcf.pl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/sift2vcf.pl
+END
+nOutOfM.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/nOutOfM.pl
+END
+build_regulation.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/build_regulation.sh
+END
+queue_test.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/queue_test.txt
+END
+randBedIntervals.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/randBedIntervals.pl
+END
+maPlot.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/34/SnpEffect/trunk/scripts/maPlot.pl
+END
+file2GenomeName.pl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/file2GenomeName.pl
+END
+compareToEnsembl.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/compareToEnsembl.sh
+END
+download_ncbi.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/303/SnpEffect/trunk/scripts/download_ncbi.sh
+END
+genesTxtColumnNames.sh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/genesTxtColumnNames.sh
+END
+waitProcess.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/332/SnpEffect/trunk/scripts/waitProcess.sh
+END
+hist.pl
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/snpeff/!svn/ver/65/SnpEffect/trunk/scripts/hist.pl
+END
+queue_build.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/136/SnpEffect/trunk/scripts/queue_build.txt
+END
+fastaSplit.pl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/fastaSplit.pl
+END
+download_ensembl.sh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/330/SnpEffect/trunk/scripts/download_ensembl.sh
+END
+buildTestCases.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/scripts/buildTestCases.sh
+END
+meme_all_queue.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/scripts/meme_all_queue.sh
+END
+bam2fastq.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/bam2fastq.pl
+END
+vcfEffOnePerLine.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/vcfEffOnePerLine.pl
+END
+1kg.sh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/snpeff/!svn/ver/252/SnpEffect/trunk/scripts/1kg.sh
+END
+queue_test.sh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/queue_test.sh
+END
+sift2vcf.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/sift2vcf.sh
+END
+test.Broad_NS_SYN.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/test.Broad_NS_SYN.sh
+END
+vcfSpeedTest.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/vcfSpeedTest.sh
+END
+smoothScatter.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/65/SnpEffect/trunk/scripts/smoothScatter.pl
+END
+fastaSample.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/fastaSample.pl
+END
+queue_build_regulation.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/queue_build_regulation.txt
+END
+joinSnpEff.pl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/scripts/joinSnpEff.pl
+END
+queue_build.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/330/SnpEffect/trunk/scripts/queue_build.sh
+END
+distro.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/snpeff/!svn/ver/304/SnpEffect/trunk/scripts/distro.sh
+END

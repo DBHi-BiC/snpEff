@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/245/SnpEffect/trunk/src/main/resources
+END
+snpEff_summary.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/snpeff/!svn/ver/245/SnpEffect/trunk/src/main/resources/snpEff_summary.ftl
+END
+snpEff_genes.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/snpeff/!svn/ver/245/SnpEffect/trunk/src/main/resources/snpEff_genes.ftl
+END
+moreBs_summary.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/snpeff/!svn/ver/245/SnpEffect/trunk/src/main/resources/moreBs_summary.ftl
+END
+bunFinder_summary.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/snpeff/!svn/ver/245/SnpEffect/trunk/src/main/resources/bunFinder_summary.ftl
+END

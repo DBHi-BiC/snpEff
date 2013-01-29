@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{snpeff}
+Pablo Cingolani.
+\newblock {SnpEff: Variant effect analysis}.
+\newblock {\em snpeff.sourceforge.net}, 2011.
+
+\bibitem{li2009sequence}
+H.~Li, B.~Handsaker, A.~Wysoker, T.~Fennell, J.~Ruan, N.~Homer, G.~Marth,
+  G.~Abecasis, and R.~Durbin.
+\newblock {The sequence alignment/map format and SAMtools}.
+\newblock {\em Bioinformatics}, 25(16):2078, 2009.
+
+\end{thebibliography}

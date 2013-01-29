@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io
+END
+FileInput.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/FileInput.java
+END
+PrintToScreen.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/PrintToScreen.java
+END
+FileOutput.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/FileOutput.java
+END
+KeyboardInput.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/KeyboardInput.java
+END
+FileInputAsChar.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/FileInputAsChar.java
+END
+FileNameSelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/FileNameSelector.java
+END
+MultipleFilesChooser.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/MultipleFilesChooser.java
+END
+FileChooser.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/FileChooser.java
+END
+Db.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/Db.java
+END
+FileTypeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/FileTypeFilter.java
+END
+DigiGraph.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/io/DigiGraph.java
+END

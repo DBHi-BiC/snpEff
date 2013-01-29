@@ -1,0 +1,875 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svnroot/snpeff/!svn/ver/317/SnpEffect/trunk/tests
+END
+mm37_coding_snps.out
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/mm37_coding_snps.out
+END
+ENST00000250823_InDels.out
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823_InDels.out
+END
+splice_site_new.out
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/splice_site_new.out
+END
+v.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/v.vcf
+END
+ENST00000250823.out
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823.out
+END
+lof.stop_gained.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/274/SnpEffect/trunk/tests/lof.stop_gained.vcf
+END
+ENST00000310701_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000310701_ensembl.txt
+END
+splice_site_2.out
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/splice_site_2.out
+END
+fastq_test.fastq
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/fastq_test.fastq
+END
+ENSMUST00000027849.gtf
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENSMUST00000027849.gtf
+END
+test.chr1.1line.out.multi-thread.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test.chr1.1line.out.multi-thread.txt
+END
+ENST00000430575_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000430575_ensembl.txt
+END
+no_effect.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/no_effect.vcf
+END
+Os03t0150600.gff
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/Os03t0150600.gff
+END
+exonSimple.gff3
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/exonSimple.gff3
+END
+splice_site.in
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/splice_site.in
+END
+ppersica_139.ORI.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/317/SnpEffect/trunk/tests/ppersica_139.ORI.txt
+END
+splice_site.out
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/splice_site.out
+END
+empty.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/empty.vcf
+END
+sacCer2_coding_snps.in
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/sacCer2_coding_snps.in
+END
+exonIn.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/exonIn.txt
+END
+dm3_coding_snps.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/dm3_coding_snps.in
+END
+intStats_test_01.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/intStats_test_01.txt
+END
+vcf_hetero.ori.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/vcf_hetero.ori.vcf
+END
+AT5G66790.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/AT5G66790.txt
+END
+vcf.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/vcf.vcf
+END
+danRer6_coding_snps.in
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/danRer6_coding_snps.in
+END
+test_01.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test_01.txt
+END
+lof.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/snpeff/!svn/ver/275/SnpEffect/trunk/tests/lof.vcf
+END
+ENST00000382764.out
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000382764.out
+END
+test_03.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test_03.txt
+END
+warren.eff.missing.chr20.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/warren.eff.missing.chr20.vcf
+END
+hg19_refSeq_OR4F16.dump.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/snpeff/!svn/ver/247/SnpEffect/trunk/tests/hg19_refSeq_OR4F16.dump.txt
+END
+filterTranscripts_01.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/snpeff/!svn/ver/204/SnpEffect/trunk/tests/filterTranscripts_01.txt
+END
+test_05.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test_05.txt
+END
+ENST00000415551_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000415551_ensembl.txt
+END
+hg37_coding_snps.in
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/hg37_coding_snps.in
+END
+long.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/long.vcf
+END
+ENST00000250823_InDels_3_ori.out
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823_InDels_3_ori.out
+END
+test_filter_transcripts_001.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/snpeff/!svn/ver/204/SnpEffect/trunk/tests/test_filter_transcripts_001.vcf
+END
+mm37_coding_snps.in
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/mm37_coding_snps.in
+END
+ENST00000369368_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000369368_ensembl.txt
+END
+ppersica_139.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/tests/ppersica_139.txt
+END
+cigar_test.sam.gz
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/cigar_test.sam.gz
+END
+vibrio.ORI.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/317/SnpEffect/trunk/tests/vibrio.ORI.txt
+END
+ENST00000331397.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/300/SnpEffect/trunk/tests/ENST00000331397.txt
+END
+choking_on_dot_slash_dot.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/choking_on_dot_slash_dot.vcf
+END
+zzz.out
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/zzz.out
+END
+cds_hg37_chrY.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/cds_hg37_chrY.txt
+END
+test.chr1.1line.out.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test.chr1.1line.out.vcf
+END
+ENSMUSG00000005763.gtf
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENSMUSG00000005763.gtf
+END
+exonOut.ori.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/snpeff/!svn/ver/317/SnpEffect/trunk/tests/exonOut.ori.txt
+END
+ENST00000250823_mnp_out_of_exon.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823_mnp_out_of_exon.txt
+END
+zz.out
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/zz.out
+END
+zzz_ENST00000382764.out
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/zzz_ENST00000382764.out
+END
+000.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/000.txt
+END
+Os03t0150600_ori.gff
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/Os03t0150600_ori.gff
+END
+array_out_of_bounds.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/array_out_of_bounds.vcf
+END
+alt_del.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/alt_del.vcf
+END
+snpEff.config
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/snpEff.config
+END
+test.chr1.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test.chr1.vcf
+END
+meth_test1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/meth_test1.txt
+END
+ENST00000331397.cds
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000331397.cds
+END
+zzz_sacCer2_coding_snps.out
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/zzz_sacCer2_coding_snps.out
+END
+chr15_78909452.ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/chr15_78909452.ensembl.txt
+END
+vcf_homhet.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/vcf_homhet.vcf
+END
+AT5G66790.gff3
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/AT5G66790.gff3
+END
+warren.eff.missing.chr20.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/warren.eff.missing.chr20.txt
+END
+ENST00000250823_InDels_3.out
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823_InDels_3.out
+END
+test_filter_transcripts_001.ori.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/204/SnpEffect/trunk/tests/test_filter_transcripts_001.ori.vcf
+END
+NM_052944.protein.fa
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/NM_052944.protein.fa
+END
+vibrio.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/tests/vibrio.txt
+END
+ENST00000434489_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000434489_ensembl.txt
+END
+vcf_homo.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/vcf_homo.vcf
+END
+vibrio.gff3
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/vibrio.gff3
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/.project
+END
+paeru.PA14.muccA.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/tests/paeru.PA14.muccA.txt
+END
+exonOut.gff3
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/exonOut.gff3
+END
+ENSG00000122497_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENSG00000122497_ensembl.txt
+END
+Broad_NS_SYN.test.vcf.gz
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/Broad_NS_SYN.test.vcf.gz
+END
+hg19_refSeq_OR4F16.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/207/SnpEffect/trunk/tests/hg19_refSeq_OR4F16.txt
+END
+ENSMUSG00000005763.out
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENSMUSG00000005763.out
+END
+mt.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/snpeff/!svn/ver/97/SnpEffect/trunk/tests/mt.vcf
+END
+chr_not_found.out
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/chr_not_found.out
+END
+ppersica_139.gff
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ppersica_139.gff
+END
+hg37_coding_snps.out
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/hg37_coding_snps.out
+END
+ENSMUSG00000051951.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/300/SnpEffect/trunk/tests/ENSMUSG00000051951.txt
+END
+test.chr1.1line.out.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test.chr1.1line.out.txt
+END
+ce6_coding_snps.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ce6_coding_snps.in
+END
+ce6_coding_snps.out
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ce6_coding_snps.out
+END
+Os03t0150600.ORI.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/317/SnpEffect/trunk/tests/Os03t0150600.ORI.txt
+END
+interval_data_100.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/interval_data_100.txt
+END
+ENST00000448574_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000448574_ensembl.txt
+END
+test.chr1.out.vcf.gz
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test.chr1.out.vcf.gz
+END
+testCase.fa.gz
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/testCase.fa.gz
+END
+exonOut.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/tests/exonOut.txt
+END
+z.out
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/z.out
+END
+vcf_04_del.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/vcf_04_del.vcf
+END
+genotypes.chr22.vcf.gz
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/genotypes.chr22.vcf.gz
+END
+fastq_test.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/fastq_test.txt
+END
+danRer6_coding_snps.out
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/danRer6_coding_snps.out
+END
+test_02.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test_02.txt
+END
+test.chr1.1line.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test.chr1.1line.vcf
+END
+test_04.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test_04.txt
+END
+filterTranscripts_02.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/snpeff/!svn/ver/204/SnpEffect/trunk/tests/filterTranscripts_02.txt
+END
+ENSMUSG00000051951.gtf
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENSMUSG00000051951.gtf
+END
+vcf_homo.ori.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/vcf_homo.ori.vcf
+END
+chr15_78909452.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/chr15_78909452.txt
+END
+sacCer2_coding_snps.out
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/sacCer2_coding_snps.out
+END
+missenseSilent.chr22.vcf.gz
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/missenseSilent.chr22.vcf.gz
+END
+ENST00000382896_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000382896_ensembl.txt
+END
+ENST00000250823.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823.in
+END
+Os03t0150600.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/tests/Os03t0150600.txt
+END
+ENST00000431121_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000431121_ensembl.txt
+END
+ENST00000250823_ori.out
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823_ori.out
+END
+mt.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/snpeff/!svn/ver/97/SnpEffect/trunk/tests/mt.txt
+END
+ENST00000250838.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/300/SnpEffect/trunk/tests/ENST00000250838.txt
+END
+test.chr1.1line.out.multi-thread.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test.chr1.1line.out.multi-thread.vcf
+END
+delete_exon_utr.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/delete_exon_utr.txt
+END
+ENST00000331397.gtf22
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000331397.gtf22
+END
+paeru.PA14.muccA.gff
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/paeru.PA14.muccA.gff
+END
+ENST00000382673.snps
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000382673.snps
+END
+ENST00000369219_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000369219_ensembl.txt
+END
+paeru.PA14.muccA.ORI.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/snpeff/!svn/ver/317/SnpEffect/trunk/tests/paeru.PA14.muccA.ORI.txt
+END
+dm3_coding_snps.out
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/dm3_coding_snps.out
+END
+1kg_head.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/1kg_head.vcf
+END
+ENST00000250823_InDels_3_old_2.out
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823_InDels_3_old_2.out
+END
+exonIn.gff3
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/exonIn.gff3
+END
+ENST00000250838.cds
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250838.cds
+END
+cigar_test_CHANGED.sam.gz
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/cigar_test_CHANGED.sam.gz
+END
+M_tuberculosis.embl.gz
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/M_tuberculosis.embl.gz
+END
+exonSimple.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/exonSimple.txt
+END
+vcf_hetero.vcf
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/vcf_hetero.vcf
+END
+ENST00000250838.gtf
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250838.gtf
+END
+ENST00000250823_InDels_2.out
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823_InDels_2.out
+END
+ENST00000444640_ensembl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000444640_ensembl.txt
+END
+ENST00000439108.snps
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000439108.snps
+END
+ENST00000382764_ori.out
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000382764_ori.out
+END
+proteins_testHg3763ChrY.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/proteins_testHg3763ChrY.txt
+END
+rareAa.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/rareAa.txt
+END
+chrY.fa.gz
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/chrY.fa.gz
+END
+indexer_test_01.fastq
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/indexer_test_01.fastq
+END
+test.chr1.out.multi-thread.vcf.gz
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/test.chr1.out.multi-thread.vcf.gz
+END
+ENST00000250823_all.out
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/ENST00000250823_all.out
+END
+SCU49845.gb.gz
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/snpeff/!svn/ver/62/SnpEffect/trunk/tests/SCU49845.gb.gz
+END

@@ -1,0 +1,6 @@
+# The following table is formatted as tab separated values. 
+#GeneId	GeneName	BioType	Bases affected (DOWNSTREAM)	Total score (DOWNSTREAM)	Length (DOWNSTREAM)	Bases affected (EXON)	Total score (EXON)	Length (EXON)	Bases affected (GENE)	Total score (GENE)	Length (GENE)	Count (DOWNSTREAM)	Count (SYNONYMOUS_CODING)
+Eucgr.L01893	Eucgr.L01893	mRNA	1	0	5000	0	0	1568	0	0	3105	1	0
+Eucgr.L01895	Eucgr.L01895	mRNA	0	0	5000	1	0	740	0	0	1026	0	1
+Eucgr.L03665	Eucgr.L03665	mRNA	0	0	3	0	0	946	0	0	1224	0	0
+Eucgr.L03666	Eucgr.L03666	mRNA	0	0	98	0	0	436	0	0	1296	0	0

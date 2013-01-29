@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/snpeff/!svn/ver/33/SnpEffect/trunk/data/miRna
+END
+miRna.hg.gff3.gz
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/snpeff/!svn/ver/30/SnpEffect/trunk/data/miRna/miRna.hg.gff3.gz
+END
+miRna.all.embl.gz
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/snpeff/!svn/ver/30/SnpEffect/trunk/data/miRna/miRna.all.embl.gz
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/32/SnpEffect/trunk/data/miRna/README.txt
+END
+miRna.target_predictions.homo_sapiens.txt.gz
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/snpeff/!svn/ver/31/SnpEffect/trunk/data/miRna/miRna.target_predictions.homo_sapiens.txt.gz
+END

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/snpeff/!svn/ver/345/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola
+END
+Fastq2Fastq.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/Fastq2Fastq.java
+END
+RegulationConsensusMultipleBed.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/RegulationConsensusMultipleBed.java
+END
+PromoterSequences.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/PromoterSequences.java
+END
+Qseq2FastqSplit.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/Qseq2FastqSplit.java
+END
+Config2DownloadTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/Config2DownloadTable.java
+END
+Qseq2Fastq.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/Qseq2Fastq.java
+END
+RegulationFileConsensus.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/RegulationFileConsensus.java
+END
+ZzzPacBIo.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/snpeff/!svn/ver/212/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/ZzzPacBIo.java
+END
+Pcingola.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/Pcingola.java
+END
+Zzz.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/snpeff/!svn/ver/344/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/Zzz.java
+END

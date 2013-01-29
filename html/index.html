@@ -1,0 +1,261 @@
+<header>
+	<title> snpEff: SNP effect predictor </title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
+	<style type="text/css" media="all">
+		body { background: url(./images/bg_gradient.jpg) repeat-x; }
+	</style>    
+</header>
+
+<div align="center">
+	<div id="wrap">
+		<div id="header">
+			<div class="logo">
+					<a href="http://snpEff.sourceforge.net/">snpEff</a>
+					<p style="font-size: 12pt" align=right><b>SNP effect predictor</b></p>
+			</div>
+		</div>
+		<div id="menu">
+			<ul>
+			<li><a href="http://snpeff.sourceforge.net/">Home</a></li>
+			<li class="page_item"><a href="faq.html" title="FAQ">FAQ</a></li>
+			<li class="page_item"><a href="features.html" title="Features">Features</a></li>
+			<li class="page_item"><a href="manual.html" title="Manual">Manual</a></li>
+			<li class="page_item"><a href="examples.html" title="Examples">Examples</a></li>
+			<li class="page_item"><a href="morebs.html" title="MoreBs">MoreBs</a></li>
+			<li class="page_item"><a href="SnpSift.html" title="SnpSift">SnpSift</a></li>
+			<li class="page_item"><a href="download.html" title="Download">Downloads</a></li>
+			<li class="page_item"><a href="about.html" title="About">About</a></li>
+			</ul>
+		</div>
+
+
+
+			<div class="entry">
+
+	<div id="content"> 
+		<div id="right">  
+			<div class="ltop"></div> 
+			<div class="lmid">
+				<center><h2>Features </h2></center>
+				<b>Fast:</b> Makes over a millon preditions per minute.<br>
+				<b>Flexible:</b> You can add custom genomes and annotations<br>
+				<b>Galaxy:</b> Integrated with <a class="body" href="http://usegalaxy.org">Galaxy</a><br>
+				<b>GATK:</b> Integrated with <a class="body" href="http://www.broadinstitute.org/gsa/wiki/index.php/The_Genome_Analysis_Toolkit">GATK</a><br>
+				<b>Multiple species:</b> Supports multiple codon table (e.g. mithoncondrial DNA)<br>
+			</div> 
+			<div class="lbot"></div> 
+		</div>
+
+				<p style="font-size: 16pt"> <b> What is snpEff?</b></p>
+				It's a variant annotation and effect prediction tool.
+				It annotates and predicts the effects of variants on genes (such as amino acid changes).
+				<p>
+
+				<b> Typical usage :</b><p>
+				<ul>
+					<li> <b>Input:</b> 
+					The inputs are predicted variants (SNPs, insertions, deletions and MNPs). 
+					The input file is usually obtained as a result of a sequencing experiment, and it is usually in variant call format (VCF).
+					<p>
+
+					<li> <b>Output:</b> 
+					SnpEff analyzes the input variants. 
+					It annotates the variants and calculates the effects they produce on known genes (e.g. amino acid changes).
+					A list of effects and annotations that SnpEff can calculate can be found <a class="body" href="faq.html#What_effects_are_predicted?">here</a>.
+				</ul>
+				<p>
+
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+
+				<p style="font-size: 16pt"> <b> Version: 3.1h (2012-12-04).</b></p>
+				<ul>
+					<li> Improvements handling intronic intervals and removing zero-gap exons (rev. b).
+					<li> All NCBI bacterial genomes added: <b>Over 2,500 genomes added!</b>
+					<li> Loss of function effect and tag added (experimental command line option '-lof')
+					<li> Nonsense-mediated decay effect and tag added (experimental command line option '-lof')
+					<li> ENSEMBL version 68 genomes added
+					<li> SnpEff 'countReads' count number of reads and bases (form a BAM file) on each gene, transcript, exon, intron, etc.
+					<li> SnpEff Intron and Intergenic annotations improved.
+					<li> Revision d: Race condition in multi-threaded version fixed.
+					<li> Revision d: GFF parsing fixes
+				</ul>
+
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+				<p style="font-size: 16pt"> <b> Paper & Citations </b></p>
+				If you are using SnpEff or SnpSift, please cite our work. Thank you!<p>
+
+				<b>Citing SnpEff</b>: <a class="body" href="SnpEff_paper.pdf"> "A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3.", Cingolani P, Platts A, Wang le L, Coon M, Nguyen T, Wang L, Land SJ, Lu X, Ruden DM. Fly (Austin). 2012 Apr-Jun;6(2):80-92.  PMID: 22728672 [PubMed - in process] </a>
+				<p>
+				BibTex entry: 
+<pre>
+@article{cingolani2012program,
+  title={A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3},
+  author={Cingolani, P. and Platts, A. and Coon, M. and Nguyen, T. and Wang, L. and Land, S.J. and Lu, X. and Ruden, D.M.},
+  journal={Fly},
+  volume={6},
+  number={2},
+  pages={80-92},
+  year={2012}
+}
+</pre>
+				<p>
+				<b>Citing SnpSift</b>: <a class="body" href="SnpSift_paper.pdf">"Using Drosophila melanogaster as a model for genotoxic chemical mutational studies with a new program, SnpSift", Cingolani, P., et. al., Frontiers in Genetics, 3, 2012.</a><br>
+				BibTex entry: 
+<pre>
+@article{cingolani2012using,
+  title={Using Drosophila melanogaster as a model for genotoxic chemical mutational studies with a new program, SnpSift},
+  author={Cingolani, P. and Patel, V.M. and Coon, M. and Nguyen, T. and Land, S.J. and Ruden, D.M. and Lu, X.},
+  journal={Frontiers in Genetics},
+  volume={3},
+  year={2012},
+  publisher={Frontiers Media SA}
+}
+</pre>
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+				<p style="font-size: 16pt"> <b> Related software</b></p>
+				Some spinoffs from this project:
+				<ul>
+					<li> <a class="body" href="morebs.html">MoreBs</a>: A bisulphite sequencing analysis pipeline.
+					<li> <a class="body" href="SnpSift.html">SnpSift</a>: A set of tools for filtering and selecting variants. Includes "SnpSift filter", which allows you to use arbitrary expressions to filter VCF files.
+				</ul>
+
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+
+				<p style="font-size: 16pt"> <b> Use example: 1000 Genomes SNP predictions</b></p>
+				SnpEff is really fast, it can calculate predictions for all the SNPs in the <a class="body" href="http://www.1000genomes.org/">1000 Genomes</a> project in less than 15 minutes.<br>
+				<b>Summary</b> page for all predictions can be found <a class="body" href="1kg.html">here</a>.<br>
+				All preditions in <a class="body" href="http://sourceforge.net/projects/snpeff/files/1kg.snpeff.vcf.gz/download">VCF</a> and <a class="body" href="http://sourceforge.net/projects/snpeff/files/1kg.snpeff.txt.gz/download">TXT</a> formats.<br>
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+
+				<p style="font-size: 16pt"> <b> Who is using SnpEff? </b> </p>
+				    SnpEff is also being used by the following institutions (this is short and incomplete list): 
+					<ul>
+					<li> Broad Institute (MIT & Harvard)
+					<li> NIH (US)
+					<li> Harvard University
+					<li> Princeton University
+					<li> BGI (China)
+					<li> Massachusetts General Hospital
+					<li> Whitehead Institute, MIT
+					<li> Wellcome Trust Sanger Institute (UK)
+					<li> UC Berkeley
+					<li> Illumina
+					<li> Wellcome Trust Centre for Human Genetics (UK)
+					<li> University of Cambridge (UK)
+					<li> Duke University
+					<li> Max Planck (Germany)
+					<li> Cold Spring Harbor Laboratory (CSHL)
+					<li> Institut Pasteur (France)
+					<li> NCI / NIH (National Cancer Institute, US)
+					<li> McGill University (Canada)
+					<li> EMBL (Cambridge, UK)
+					<li> University of Toronto (Canada)
+					<li> Bayer
+					<li> University of Cambridge (UK)
+					<li> Novartis
+					<li> Yale University
+					<li> Columbia University
+					<li> Stanford University
+					<li> Brown University
+					<li> Genome Quebec (Canada)
+					<li> Centre national de la recherche scientifique (CNRS, France)
+					<li> University of Michigan
+					<li> Kyoto University (Japan)
+					<li> Institut National de la Recherche Agronomique (INRA, France)
+					<li> University of Wisconsin-Madison
+					<li> UT Southwestern Medical Center
+					<li> University of Southern California
+					<li> Bologna University (Italy)
+					<li> Casa Sollievo della Sofferenza - Mendel (Italy)
+					<li> Universitat Wien (Vienna, Austria)
+					<li> Ottawa University (Canada)
+					<li> Peter MacCallum Cancer Centre (Australia)
+					<li> University of Alabama Birmigham
+					<li> University of Bristol (UK)
+					<li> UC-Davis (California)
+					<li> Winsconsin University
+					<li> TUM University (Germany)
+					<li> The Translational Genomics Institute (Tgen)
+					<li> Rutgers University (New Jersey)
+					<li> Nagasaki University (Japan)
+					<li> Washington University
+					<li> Netherlands Cancer Institute (NKI)
+					<li> Novocraft 
+					<li> Centro Nacional de Biotecnolog&iacute;a, (National Center for Biotecnology) CNB-CSIC, Madrid, Spain
+					<li> University of California-Riverside
+					<li> Carleton University (Canada)
+					<li> Memorial Sloan-Kettering Cancer Center
+					<li> Boston University 
+					<li> AstraZeneca
+					<li> University of California, San Francisco (UCSF) 
+					<li> Accelrys
+					<li> Johnson &amp; Johnson
+					<li> Institute of Cancer Research (ICR), UK
+					<li> University of Virginia
+					<li> University of British Columbia (Canada)
+					<li> Seoul National University (Korea)
+					<li> University of Southern California (USC)
+					<li> Arizona State University (ASU)
+					<li> Bio-Prodict (Netherlands)
+					<li> NeuroTexas Institute at St. David's HealthCare
+					<li> University of Otago (New Zealand)
+					<li> Sanofi (France)
+					<li> Queensland Institute of Medical Research (Australia)
+					<li> National University of Singapore (NUS)
+					<li> Children's Hospital of Philadelphia
+					<li> Queensland UNiversity (Australia)
+					<li> Vall d'Hebron Research Institute: VHIR (Barcelona. Catalonia. Spain)
+					<li> University of Pretoria (South Africa).
+					<li> Centrum Wiskunde &amp; Informatica (Amsterdam, Netherlands)
+					<li> Technical University of Denmark: DTU (Denmark)
+					<li> Spanish National Research Council (CSIC, Spain)
+					<li> Swedish University of Agricultural Sciences: SLU (Sweden)
+					<li> University of Iowa
+					<li> Bilkent University (Turkey)
+					<li> The Hebrew University of Jerusalem (Israel)
+					<li> Laboratory of Malaria and Vector Research NIH/NIAID
+					<li> Max F. Perutz Laboratories: MFPL (Vienna, Austria)
+					<li> Animal Health Trust: AHT (UK)
+					<li> BC Cancer Agency (Canada)
+					<li> University of California, Irvine
+					<li> Eisai (Japan)
+					<li> Covance 
+					<li> University College London (London, UK)
+					<li> Centro Nacional de Análisis Genómico: CNAG (Barcelona, Spain)
+					</ul>
+				
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+
+				<center> <b>Screen Snapshot</b> </center><p>
+ 				<p style="font-size: 12pt"> This is a screen capture from a Galaxy server (click to enlarge) <p>
+				<center> <a href="images/snpEff_galaxy.png"><img src="images/snpEff_galaxy_small.png"></a> </center>
+
+		</div> 
+
+
+				<p style="font-size: 8pt" align=center><font color=#777777> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </font></p>
+					<center><b>Author: <a class="body" href="http://www.mcb.mcgill.ca/~pcingola/">Pablo Cingolani</a> (pcingola@users.sourceforge.net</a>)</b></center>
+			</div>
+		</div>
+	</div>
+</div>
+
+<center>
+<font color=ffffff>
+Key words (for search engines): <br>
+	SNP : single nucleotide polymorphisms <br>
+	SNP effect predictor <br>
+	SNP effect predictor Galaxy<br>
+	SNP functional annotation <br>
+	NG sequencing analysis <br>
+	Next genenration sequencing analysis <br>
+	Next genenration sequencing analysis tool <br>
+	Functionally annotate single nucleotide polymorphisms (SNP) <br>
+	Variation analysis <br>
+	Open source <br>
+	java <br>
+	Windows Linux OSX <br>
+	<a href="http://en.wikipedia.org/wiki/Single-nucleotide_polymorphism">SNP Wikipedia</a> <br>
+</font>
+</center>

@@ -1,0 +1,36 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+
+\title{BS-seq Methods}
+\author{Pablo Cingolani}
+\date{}
+\maketitle
+
+\section{Methods}
+
+\subsection{Sequencing Analysis}
+In total we sequenced \textbf{NUMBER-OF-LANES} lanes using Illumina Genome Analyzer GAIIx with a Paired End Cluster Generation Kit. Obtaining \textbf{NUMBER-OF-READS}, \textbf{76} bp, pair-ended reads. Sequence extraction and base calling was done using Illumina Pipeline v1.6 software. Image analysis and basecalling was done using \textit{SCS} (Sequencing Control Software).
+
+\subsection{Mapping}
+Read mapping and downstream analysis was done using our in-house system (MoreBs version 1.0) which uses either BWA\cite{li2010fast}\cite{li2010fastlong} or Bowtie\cite{langmead2009ultrafast} for read alignment. Both alignment programs are based on Burrows-Wheeler transform and create \textit{SAM}\cite{li2009sequence} output format. In this case BWA was selected as main mapping method in order to have better alignment near insertions and deletions. MoreBs parameters were the following \textbf{INSERT PARAMETERS HERE}.
+
+\subsection{Methylation Assessment}
+MoreBs perform methylation calls by invoking \textit{Samtools} to create \textit{BAM} files, \textit{sorted BAM} files and \textit{mpileup}. In this last step methylation calls are produced using an MAQ\cite{li2008mapping} probabilistic model. It must be noted that BAQ\cite{li2010baq} model is explicitly disabled by MoreBs, since some of the its assumptions do not apply for methylation calls. Finally \textit{BcfTools} package is invoked to produce methylation calls in \textit{VCF4.0}\cite{vcf4broad} format.
+
+As a final step, MoreBs performs statistics on methylation as well as ranks of hypo-methylated and hyper-methylated genes by means of Fisher exact test. Multiple testing is corrected using False Discovery Rate methodology\cite{benjamini1995controlling}.
+
+Some statistics were carried out using custom programs in R programming language (www.r-project.org).
+
+%-----------------------------------------------------------------------------
+% Bibliography. You need to run the following command: "bibtex methods"
+%-----------------------------------------------------------------------------
+
+\section{References}
+\bibliographystyle{plain}
+\bibliography{bib}
+
+\end{document}

@@ -1,0 +1,32 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+
+\title{Exome sequencing: Methods}
+\author{Pablo Cingolani}
+\date{}
+\maketitle
+
+\section{Methods}
+
+
+We performed exome sequencing of twelve samples using Illumina Genome Analyzer GAIIx with a Paired End Cluster Generation Kit. Obtaining 242,719,043 pair-ended reads, length 100 bp. A total of 48.5 Giga-bases. Sequence extraction and base calling was done using Illumina Pipeline v1.6 software. Image analysis and base-calling was done using \textit{SCS} (Sequencing Control Software).
+
+  Read mapping was done using the standard Illumina pipiline which uses Eland mapping algorithm. Reference genome used was hg37.61, which was the latest version at the moment. Reads mapped successfully accounted for $86\%$ of the original reads.
+
+    Multi-sample variant calling was performed using SamTools 0.1.12a \cite{li2009sequence} package and BcfTools (same authors).Variant analysis and statistics were performed using our in-house development tool SnpEff\cite{snpeff} (version 1.0301). 
+    
+    We obtained over \textbf{563,000} variants form all 'case' samples. These variants were filtered using the variants obtained from the 'control' group and DbSnp-132. The remaining variants were further filtered using quality values over 30 and at least coverage of 3. After filtering, we obtained over \textbf{36,000} novel high quality variants.
+        
+
+%-----------------------------------------------------------------------------
+% Bibliography. You need to run the following command: "bibtex methods"
+%-----------------------------------------------------------------------------
+
+\bibliographystyle{plain}
+\bibliography{bib}
+
+\end{document}

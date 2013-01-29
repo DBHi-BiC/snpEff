@@ -1,0 +1,12 @@
+ce				celegans_gene_ensembl
+dm				dmelanogaster_gene_ensembl
+danRer			drerio_gene_ensembl
+hg				hsapiens_gene_ensembl
+mm				mmusculus_gene_ensembl
+sacCer			scerevisiae_gene_ensembl
+btau4_59        btaurus_gene_ensembl
+canfam2_59      cfamiliaris_gene_ensembl
+ggallus_59      ggallus_gene_ensembl
+chimp2_1_59     ptroglodytes_gene_ensembl
+rat3_4_59       rnorvegicus_gene_ensembl
+

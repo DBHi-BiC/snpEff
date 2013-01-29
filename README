@@ -1,0 +1,39 @@
+                                       snpEff
+                                       ------
+
+
+A tool to calculate the effect of SNPs in genomes.
+
+Main page: http://snpeff.sourceforge.net/
+
+
+Galaxy install details
+----------------------
+
+  By default the snpEff is assumed to be installed in "~/snpEff", where ~ means "your home directory"
+  If you install it somewhere else, you'll need to modify the following files:
+
+	- snpEff.config:
+
+		---------- Change data_dir param ----------
+		# Interval data is stored here
+		data_dir = /path/to/snpEff/data/
+		---------- End of change ----------
+
+	- snpEff.xml: This is the galaxy configuration file (in tools directory)
+
+		---------- Change command param ----------
+		<command>java -jar /path/to/snpEff/snpEff/snpEff.jar -c /path/to/snpEff/snpEff/snpEff.config $genomeVersion $input > $output</command>
+		---------- End of change ----------
+
+	WARNING!: You may need to use a custom memory value in your java virtual machine ("-XmX" option) as shown here:
+
+		---------- Change command param ----------
+		<command>java -Xmx4G -jar /path/to/snpEff/snpEff.jar -c /path/to/snpEff/snpEff.config $genomeVersion $input > $output</command>
+		---------- End of change ----------
+
+If you have any bugs, suggestions or problems, you may contact me pablo.cingolani@mcgill.ca
+Enjoy!
+
+	Pablo Cingolani
+

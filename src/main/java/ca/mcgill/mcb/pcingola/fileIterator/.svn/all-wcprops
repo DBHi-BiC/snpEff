@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/snpeff/!svn/ver/225/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator
+END
+SeekableBufferedReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeekableBufferedReader.java
+END
+DnaSeqIdFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/DnaSeqIdFileIterator.java
+END
+FastaFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/FastaFileIterator.java
+END
+NeedlemanWunschOverlap.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/snpeff/!svn/ver/212/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/NeedlemanWunschOverlap.java
+END
+LineSeqFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/LineSeqFileIterator.java
+END
+NeedlemanWunsch.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/NeedlemanWunsch.java
+END
+SeqChangeBedFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/snpeff/!svn/ver/225/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeBedFileIterator.java
+END
+DnaSeqFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/DnaSeqFileIterator.java
+END
+BlastResultEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/11/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/BlastResultEntry.java
+END
+MatrixEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/MatrixEntry.java
+END
+TableFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/TableFile.java
+END
+FastqFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/FastqFileIterator.java
+END
+FileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/FileIterator.java
+END
+MatrixEntryFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/MatrixEntryFileIterator.java
+END
+LineFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/snpeff/!svn/ver/133/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/LineFileIterator.java
+END
+RegulationGffFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/RegulationGffFileIterator.java
+END
+SeqChangeFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeFileIterator.java
+END
+DnaSeqPeFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/DnaSeqPeFileIterator.java
+END
+SeqChangeFilePileUp.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeFilePileUp.java
+END
+BlastResultFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/snpeff/!svn/ver/11/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/BlastResultFileIterator.java
+END
+VcfHapMapFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/VcfHapMapFileIterator.java
+END
+RegulationFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/RegulationFileIterator.java
+END
+LineClassFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/LineClassFileIterator.java
+END
+VcfFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/198/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/VcfFileIterator.java
+END
+GenericMarkerFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/GenericMarkerFileIterator.java
+END
+SamFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SamFileIterator.java
+END
+BinSeqFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/BinSeqFileIterator.java
+END
+MarkerFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/MarkerFileIterator.java
+END
+NullReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/NullReader.java
+END
+RegulationBedFileIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/RegulationBedFileIterator.java
+END
+SeqChangeFileTxt.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeFileTxt.java
+END

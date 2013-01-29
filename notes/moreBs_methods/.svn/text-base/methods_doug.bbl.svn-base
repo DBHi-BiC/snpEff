@@ -1,0 +1,90 @@
+\begin{thebibliography}{10}
+
+\bibitem{bao2011evaluation}
+S.~Bao, R.~Jiang, W.K. Kwan, B.B. Wang, X.~Ma, and Y.Q. Song.
+\newblock Evaluation of next-generation sequencing software in mapping and
+  assembly.
+\newblock {\em Journal of Human Genetics}, 2011.
+
+\bibitem{benjamini1995controlling}
+Y.~Benjamini and Y.~Hochberg.
+\newblock {Controlling the false discovery rate: a practical and powerful
+  approach to multiple testing}.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, 57(1):289--300, 1995.
+
+\bibitem{burrows1994block}
+M.~Burrows and D.J. Wheeler.
+\newblock A block-sorting lossless data compression algorithm.
+\newblock 1994.
+
+\bibitem{vcf4broad}
+Broad Institute.
+\newblock {VCF (Variant Call Format) version 4.0}.
+\newblock {\em http://www.1000genomes.org/wiki/Analysis/vcf4.0}, 2010.
+
+\bibitem{langmead2009ultrafast}
+B.~Langmead, C.~Trapnell, M.~Pop, and S.L. Salzberg.
+\newblock {Ultrafast and memory-efficient alignment of short DNA sequences to
+  the human genome}.
+\newblock {\em Genome Biol}, 10(3):R25, 2009.
+
+\bibitem{li2010baq}
+H.~Li.
+\newblock {Mathematical Notes on SAMtools Algorithms}.
+\newblock {\em http://lh3lh3.users.sourceforge.net/download/samtools.pdf},
+  2010.
+
+\bibitem{li2010fast}
+H.~Li and R.~Durbin.
+\newblock {Fast and accurate short-read alignment with Burrows-Wheeler
+  transform}.
+\newblock {\em Bioinformatics}, 25(5), 2009.
+
+\bibitem{li2010fastlong}
+H.~Li and R.~Durbin.
+\newblock {Fast and accurate long-read alignment with Burrows-Wheeler
+  transform}.
+\newblock {\em Bioinformatics}, 26(5):589, 2010.
+
+\bibitem{li2009sequence}
+H.~Li, B.~Handsaker, A.~Wysoker, T.~Fennell, J.~Ruan, N.~Homer, G.~Marth,
+  G.~Abecasis, and R.~Durbin.
+\newblock {The sequence alignment/map format and SAMtools}.
+\newblock {\em Bioinformatics}, 25(16):2078, 2009.
+
+\bibitem{li2010survey}
+H.~Li and N.~Homer.
+\newblock A survey of sequence alignment algorithms for next-generation
+  sequencing.
+\newblock {\em Briefings in bioinformatics}, 11(5):473, 2010.
+
+\bibitem{li2008mapping}
+H.~Li, J.~Ruan, and R.~Durbin.
+\newblock {Mapping short DNA sequencing reads and calling variants using
+  mapping quality scores}.
+\newblock {\em Genome research}, 18(11):1851, 2008.
+
+\bibitem{pao11bs}
+C.~Pao-Yang, C.~Shawn, and P.~Matteo.
+\newblock {BS Seeker: precise mapping for bisulfite sequencing}.
+\newblock {\em BMC Bioinformatics}, 11.
+
+\bibitem{samarakoon2009epigenomics}
+P.S. Samarakoon.
+\newblock Epigenomics and genome wide methylation profiling.
+\newblock {\em Sri Lanka Journal of Bio-Medical Informatics}, 1(1):53--62,
+  2009.
+
+\bibitem{xi2009bsmap}
+Y.~Xi and W.~Li.
+\newblock Bsmap: whole genome bisulfite sequence mapping program.
+\newblock {\em BMC bioinformatics}, 10(1):232, 2009.
+
+\bibitem{zhang2008model}
+Y.~Zhang, T.~Liu, C.A. Meyer, J.~Eeckhoute, D.S. Johnson, B.E. Bernstein,
+  C.~Nussbaum, R.M. Myers, M.~Brown, W.~Li, et~al.
+\newblock Model-based analysis of chip-seq (macs).
+\newblock {\em Genome Biol}, 9(9):R137, 2008.
+
+\end{thebibliography}

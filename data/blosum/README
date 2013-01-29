@@ -1,0 +1,60 @@
+19 October 1992		BLOSUM Matrices
+
+	The file blosum.tar contains the 5.0 version of the BLOSUM series of
+matrices. The BLOSUM matrices are based on the local alignments in version
+5.0 of the Blocks database, and for Blosum62, for example, the sequences in
+a block were clustered if they were at least 62% identical. We have
+obtained improved results using the FASTA, BLASTP and SSEARCH programs
+with BLOSUM matrices in the 60%-65% clustering range.
+	For this work, please cite:
+Steven Henikoff and Jorja G. Henikoff, "Amino acid substitution matrices
+	from protein blocks", PNAS, in press.
+
+	The file Blosum.sum includes a summary of the matrices.
+For each matrix in the series, the following files are included:
+	blosum*.out	Blosum output (includes raw frequencies)
+        blosum*.qij	Target frequencies (odds ratios)
+	blosum*.sij	Matrix in bit units, generic format 
+        blosum*.iij	Matrix in variably scaled units, integer values
+	blosum*.fas	blosum*.iij in FASTA/SSEARCH format
+	blosum*.bla	blosum*.iij BLASTP format
+
+The integer-valued matrices, blosum*.iij, include columns for B, Z and X
+computed as weighted averages of columns N & D for B, of Q & E for Z, and of
+all 20 amino acids for X. The scale is determined from the entropy H as:
+    scale = min(1/2, 1/x) bits where x = round(2/sqrt(H)).
+
+	Several programs are also included in the blosum.tar file. All
+are written in standard C. They are:
+	blosum		Make a blosum matrix from a Blocks database.
+         (Creates the .out, .qij, .sij & .iij files)
+	matrix		Compare two matrices.
+	matblas		Convert a matrix to blastp format.
+         (Creates the .bla files)
+	matfas		Convert a matrix to fasta format.
+         (Creates the .fas files)
+	matalin		Convert a matrix to multalin format.
+	matspace	Convert a matrix to spacer format.
+To compile the programs, edit the Makefile if necessary, it is set up
+for BSD UNIX. Then type "make blosums". Executable files are included
+for SUN 4 systems.
+
+To obtain blosum.tar:
+	ftp ncbi.nlm.nih.gov
+	login: anonymous
+	password: <your userid>
+	cd repository/blocks/blosum
+	binary
+	get blosum.tar.Z
+	quit
+	uncompress blosum.tar
+	tar -xvf blosum.tar
+	make blosums
+
+Steven & Jorja Henikoff
+Howard Hughes Medical Institute/Fred Hutchinson Cancer Research Center
+1124 Columbia Street, M-684
+Seattle, WA 98104
+Phone: (206) 667-4515
+FAX:   (206) 667-5449
+EMail: henikoff@sparky.fhcrc.org

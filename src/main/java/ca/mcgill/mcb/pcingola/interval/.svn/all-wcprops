@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/snpeff/!svn/ver/343/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval
+END
+Genes.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/snpeff/!svn/ver/293/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Genes.java
+END
+GenomeHuman.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/GenomeHuman.java
+END
+SpliceSite.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/274/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSite.java
+END
+Markers.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Markers.java
+END
+MarkerParentId.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/snpeff/!svn/ver/129/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/MarkerParentId.java
+END
+Intron.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/292/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Intron.java
+END
+Custom.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/129/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Custom.java
+END
+Genome.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/327/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Genome.java
+END
+SpliceSiteBranchU12.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/185/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteBranchU12.java
+END
+MarkerSerializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/snpeff/!svn/ver/246/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/MarkerSerializer.java
+END
+Gene.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/343/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Gene.java
+END
+MarkerUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/315/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/MarkerUtil.java
+END
+SpliceSiteBranch.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/snpeff/!svn/ver/274/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteBranch.java
+END
+Downstream.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/182/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Downstream.java
+END
+IntervalComparatorByStart.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/snpeff/!svn/ver/130/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/IntervalComparatorByStart.java
+END
+ChromosomeSimpleName.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/snpeff/!svn/ver/260/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/ChromosomeSimpleName.java
+END
+MicroRnaBindingSite.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/129/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/MicroRnaBindingSite.java
+END
+SeqChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/289/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/SeqChange.java
+END
+IntergenicConserved.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/129/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/IntergenicConserved.java
+END
+Upstream.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/snpeff/!svn/ver/182/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Upstream.java
+END
+SpliceSiteDonor.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/snpeff/!svn/ver/274/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteDonor.java
+END
+ExonSpliceCaracterizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/snpeff/!svn/ver/326/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/ExonSpliceCaracterizer.java
+END
+Regulation.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/134/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Regulation.java
+END
+Cds.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/snpeff/!svn/ver/129/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Cds.java
+END
+Exon.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Exon.java
+END
+IntervalAndSubIntervals.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/335/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/IntervalAndSubIntervals.java
+END
+IntervalSetIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/IntervalSetIterator.java
+END
+Utr.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr.java
+END
+Chromosome.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/182/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Chromosome.java
+END
+GenericMarker.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/GenericMarker.java
+END
+Marker.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Marker.java
+END
+IntronConserved.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/snpeff/!svn/ver/129/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/IntronConserved.java
+END
+Interval.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/snpeff/!svn/ver/315/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Interval.java
+END
+SpliceSiteAcceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/snpeff/!svn/ver/274/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteAcceptor.java
+END
+Intergenic.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/129/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Intergenic.java
+END
+Transcript.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java
+END
+Utr3prime.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr3prime.java
+END
+Utr5prime.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr5prime.java
+END
+RareAminoAcid.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/snpeff/!svn/ver/131/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/RareAminoAcid.java
+END
+IntervalComparatorByEnd.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/130/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/IntervalComparatorByEnd.java
+END

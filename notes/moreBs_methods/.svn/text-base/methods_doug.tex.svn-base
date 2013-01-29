@@ -1,0 +1,53 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+
+\title{BS-seq Methods}
+\author{Pablo Cingolani}
+\date{}
+\maketitle
+
+\section{Methods}
+
+\subsection{Sequencing Analysis}
+All sequencing was performed using Illumina Genome Analyzer GAIIx with a Paired End Cluster Generation Kit. 
+Image analysis, base calling and sequence extraction was performed using standard Illumina Pipeline v1.6 software.
+
+\subsection{Bisulphite Sequencing Analysis: MoreBs}
+We performed bisulphite sequenceing (BS-Seq) on two different types of bees: Africanized honey bees (AHB) and European honey bees (EHB).
+The number of lanes sequenced was 11 (pair end) for AHB and 8 pair-end for EHB. Obtaining 240 millon reasd for AHB and 317 millon reads EHB. Reads were 76 base-pair long yielding a total of 18.2 giga bases and 24.1 giga bases for AHB abd EHB respectively.
+
+The reference genome was Amel2, which is 228M bases long.
+Read mapping and downstream analysis was done using our in-house system (MoreBs version 1.0) which uses either BWA\cite{li2010fast}\cite{li2010fastlong} or Bowtie\cite{langmead2009ultrafast} for read alignment. 
+Both alignment programs are based on Burrows-Wheeler transform\cite{burrows1994block, li2010survey} and create \textit{SAM}\cite{li2009sequence} output format. There are other tools and methods based on similar approaches \cite{pao11bs, xi2009bsmap, samarakoon2009epigenomics}.
+In this case BWA was selected as main mapping method in order to have better alignment near insertions and deletions \cite{bao2011evaluation}.
+
+MoreBs perform methylation calls by invoking \textit{Samtools} to create \textit{BAM} files, \textit{sorted BAM} files \textit{mpileup} and finally \textit{VCF} files. 
+In this last step methylation calls are produced using an MAQ\cite{li2008mapping} probabilistic model. 
+It must be noted that BAQ\cite{li2010baq} model is explicitly disabled by MoreBs, since some of the its assumptions do not apply for methylation calls. 
+Finally \textit{BcfTools} package is invoked to produce methylation calls in \textit{VCF4.1}\cite{vcf4broad} format.
+
+MoreBs was set to filter out low quality  ($Q < 20$) methylation calls. After all mapping and filtering steps, the mean coverage was 20.8 and 27.4 for AHB and EHB respectively.
+
+As a final step, MoreBs performs several statistics on methylation as well as ranking of hypo-methylated and hyper-methylated genes by means of Fisher exact test. 
+Multiple testing is corrected using False Discovery Rate methodology\cite{benjamini1995controlling}.
+Some additional statistics were carried out using custom programs in R programming language (www.r-project.org).
+
+\subsection{mDip Sequencing Analysis}
+Methylated DNA immunoprecipitation followed by sequenceing (mDip-Seq or MeDip-Seq) was performed for a total of 41.3 millon 76 bases long reads.
+Reads were aligned using BWA and SamTools.
+Peak calling was performed using MACS \cite{zhang2008model} 1.4 beta version.
+
+
+%-----------------------------------------------------------------------------
+% Bibliography. You need to run the following command: "bibtex methods"
+%-----------------------------------------------------------------------------
+
+\section{References}
+\bibliographystyle{plain}
+\bibliography{bib}
+
+\end{document}

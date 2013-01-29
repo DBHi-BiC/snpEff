@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/snpeff/!svn/ver/292/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats
+END
+AlleleFrequencyStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/AlleleFrequencyStats.java
+END
+ChangeEffectResutStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/281/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/ChangeEffectResutStats.java
+END
+FisherExactTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/FisherExactTest.java
+END
+IntStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/52/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/IntStats.java
+END
+ObservedOverExpectedCHG.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/ObservedOverExpectedCHG.java
+END
+CounterDouble.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/107/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/CounterDouble.java
+END
+Average.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/Average.java
+END
+ObservedOverExpectedCHH.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/ObservedOverExpectedCHH.java
+END
+MineTwoMarkerIntervals.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/MineTwoMarkerIntervals.java
+END
+ChrPosStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/ChrPosStats.java
+END
+SeqChangeStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/SeqChangeStats.java
+END
+Counter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/Counter.java
+END
+TsTvStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/TsTvStats.java
+END
+ObservedOverExpectedCpG.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/ObservedOverExpectedCpG.java
+END
+MineMarkerIntervals.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/MineMarkerIntervals.java
+END
+FloatStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/FloatStats.java
+END
+CountByType.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/snpeff/!svn/ver/292/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/CountByType.java
+END
+AverageInt.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/AverageInt.java
+END
+Hypergeometric.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/Hypergeometric.java
+END
+ObservedOverExpected.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/ObservedOverExpected.java
+END
+SamplingStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/SamplingStats.java
+END
+GeneCountByTypeTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/GeneCountByTypeTable.java
+END
+CountByKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/snpeff/!svn/ver/292/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/CountByKey.java
+END
+VcfStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/stats/VcfStats.java
+END

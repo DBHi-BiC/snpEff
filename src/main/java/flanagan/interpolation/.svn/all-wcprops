@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation
+END
+CubicSpline.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/CubicSpline.java
+END
+PolyCubicSpline.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/PolyCubicSpline.java
+END
+QuadriCubicSpline.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/QuadriCubicSpline.java
+END
+BiCubicSplineFirstDerivative.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/BiCubicSplineFirstDerivative.java
+END
+BiCubicInterpolation.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/BiCubicInterpolation.java
+END
+BiCubicSplinePartialDerivative.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/BiCubicSplinePartialDerivative.java
+END
+BiCubicSpline.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/BiCubicSpline.java
+END
+TriCubicInterpolation.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/TriCubicInterpolation.java
+END
+CubicSplineFast.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/CubicSplineFast.java
+END
+TriCubicSpline.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/TriCubicSpline.java
+END
+CubicSplineShort.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/CubicSplineShort.java
+END
+PolyCubicSplineFast.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/PolyCubicSplineFast.java
+END
+LinearInterpolation.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/LinearInterpolation.java
+END
+PolylineSimplification.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/PolylineSimplification.java
+END
+BiCubicSplineFast.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/BiCubicSplineFast.java
+END
+BiCubicSplineShort.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/BiCubicSplineShort.java
+END
+CubicInterpolation.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/interpolation/CubicInterpolation.java
+END

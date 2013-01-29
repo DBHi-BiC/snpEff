@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/snpeff/!svn/ver/340/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases
+END
+TestCasesNeedlemanWunsch.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesNeedlemanWunsch.java
+END
+TestCasesFilterTranscripts.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/snpeff/!svn/ver/204/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesFilterTranscripts.java
+END
+TestCasesNmers.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesNmers.java
+END
+TestCasesRefSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/snpeff/!svn/ver/207/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesRefSeq.java
+END
+TestCasesGff3.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/snpeff/!svn/ver/163/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesGff3.java
+END
+TestCasesTranscript.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/snpeff/!svn/ver/330/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesTranscript.java
+END
+TestCasesMnp.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/294/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesMnp.java
+END
+TestCasesDnaOverlap.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesDnaOverlap.java
+END
+TestCasesDnaSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesDnaSequence.java
+END
+TestCasesSeqChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/snpeff/!svn/ver/300/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesSeqChange.java
+END
+TestCasesSeekableReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesSeekableReader.java
+END
+TestCasesSnp.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesSnp.java
+END
+TestCompareCds.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCompareCds.java
+END
+TestCasesMarkerUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/snpeff/!svn/ver/315/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesMarkerUtils.java
+END
+TestCasesIntervalSeqChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/snpeff/!svn/ver/301/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesIntervalSeqChange.java
+END
+IntegrationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/IntegrationTest.java
+END
+TestCasesDel.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/301/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesDel.java
+END
+CreateSpliceSiteTestCase.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/snpeff/!svn/ver/268/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/CreateSpliceSiteTestCase.java
+END
+TestCasesIntervals.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/snpeff/!svn/ver/173/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesIntervals.java
+END
+TestSuiteAllIntegration.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestSuiteAllIntegration.java
+END
+TestCochranArmitage.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCochranArmitage.java
+END
+TestCasesDnaNSequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesDnaNSequence.java
+END
+TestCasesCodonTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/snpeff/!svn/ver/170/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesCodonTable.java
+END
+TestCasesNmd.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/316/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesNmd.java
+END
+TestCasesVcf.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/340/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesVcf.java
+END
+TestCasesDnaSequenceByte.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/snpeff/!svn/ver/212/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesDnaSequenceByte.java
+END
+TestCasesProtein.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesProtein.java
+END
+TestCasesLof.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/290/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesLof.java
+END
+CompareToEnsembl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/snpeff/!svn/ver/146/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/CompareToEnsembl.java
+END
+TestCasesGtf22.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/snpeff/!svn/ver/300/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesGtf22.java
+END
+TestCaseOverlap.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCaseOverlap.java
+END
+TestCasesHypergeometric.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesHypergeometric.java
+END
+TestCasesIns.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/169/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesIns.java
+END
+TestSuiteAll.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/314/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestSuiteAll.java
+END
+TestCasesMissenseSilentRatio.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesMissenseSilentRatio.java
+END
+TestCaseSequenceIndexer.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCaseSequenceIndexer.java
+END
+IntegrationSnpEff.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/IntegrationSnpEff.java
+END
+TestCasesSnpEnsembl.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesSnpEnsembl.java
+END
+TestCasesIntStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesIntStats.java
+END
+IntegrationSnpEffMultiThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/IntegrationSnpEffMultiThread.java
+END

@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/snpeff/!svn/ver/121/SnpEffect/trunk/data/spliceSites
+END
+dono_acc_hist.png
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/dono_acc_hist.png
+END
+amel2_cuff.summary_meme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/amel2_cuff.summary_meme.txt
+END
+meme_histograms.r
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/meme_histograms.r
+END
+hg19.acceptor.entropy.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/hg19.acceptor.entropy.txt
+END
+hg19.summary_meme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/hg19.summary_meme.txt
+END
+T.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/104/SnpEffect/trunk/data/spliceSites/T.png
+END
+hg19.acceptor.prob.txt
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/hg19.acceptor.prob.txt
+END
+u12_branch.pwm
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/snpeff/!svn/ver/119/SnpEffect/trunk/data/spliceSites/u12_branch.pwm
+END
+branchScoresHist.png
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/branchScoresHist.png
+END
+LOF_splice.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/snpeff/!svn/ver/114/SnpEffect/trunk/data/spliceSites/LOF_splice.pdf
+END
+amel2_cuff.SpliceAnalysis.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/amel2_cuff.SpliceAnalysis.html
+END
+hg19.SpliceAnalysis.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/hg19.SpliceAnalysis.html
+END
+SpliceAnalysis_GRCh37.66.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/snpeff/!svn/ver/121/SnpEffect/trunk/data/spliceSites/SpliceAnalysis_GRCh37.66.html
+END
+donor_scores.r
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/snpeff/!svn/ver/121/SnpEffect/trunk/data/spliceSites/donor_scores.r
+END
+hg19.branchScores.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/hg19.branchScores.txt
+END
+A.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/104/SnpEffect/trunk/data/spliceSites/A.png
+END
+PWM scores Donor sequence vs null.png
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/snpeff/!svn/ver/118/SnpEffect/trunk/data/spliceSites/PWM%20scores%20Donor%20sequence%20vs%20null.png
+END
+SpliceAnalysis_testHg3763Chr1.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/snpeff/!svn/ver/121/SnpEffect/trunk/data/spliceSites/SpliceAnalysis_testHg3763Chr1.html
+END
+C.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/104/SnpEffect/trunk/data/spliceSites/C.png
+END
+hg19.donor.entropy.txt
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/hg19.donor.entropy.txt
+END
+hg19.donor.prob.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/snpeff/!svn/ver/111/SnpEffect/trunk/data/spliceSites/hg19.donor.prob.txt
+END
+LOF_splice.pptx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/snpeff/!svn/ver/114/SnpEffect/trunk/data/spliceSites/LOF_splice.pptx
+END
+G.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/snpeff/!svn/ver/104/SnpEffect/trunk/data/spliceSites/G.png
+END
+SpliceAnalysis_hg19.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/121/SnpEffect/trunk/data/spliceSites/SpliceAnalysis_hg19.html
+END

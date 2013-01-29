@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svnroot/snpeff/!svn/ver/10/SnpEffect/trunk/galaxy
+END
+snpSift_int.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/galaxy/snpSift_int.xml
+END
+snpEff.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/galaxy/snpEff.xml
+END
+snpEff_wrapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/10/SnpEffect/trunk/galaxy/snpEff_wrapper.xml
+END
+snpSift_caseControl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/galaxy/snpSift_caseControl.xml
+END
+tool_conf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/galaxy/tool_conf.xml
+END
+snpEff_download.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/galaxy/snpEff_download.xml
+END
+snpEff_wrapper.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/10/SnpEffect/trunk/galaxy/snpEff_wrapper.sh
+END
+snpSift_filter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/galaxy/snpSift_filter.xml
+END
+snpSift_annotate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/snpeff/!svn/ver/9/SnpEffect/trunk/galaxy/snpSift_annotate.xml
+END
