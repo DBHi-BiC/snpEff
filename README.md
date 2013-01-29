@@ -18,6 +18,6 @@ mkdir -p ~/workspace/SnpEff  ~/workspace/SnpSift  ~/workspace/SnpSql
 mkdir -p ~/snpEff
 
 cd ~/workspace/SnpEff
-git clone git@github.com:CBMi-BiC/snpEff.git .
+git clone git@github.com:CBMi-BiG/snpEff.git .
 ./scripts/make.sh
 ```
