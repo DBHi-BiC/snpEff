@@ -15,7 +15,7 @@ Just follow these verbatim to build snpEff into the target directory.
 
 ```
 mkdir -p ~/workspace/SnpEff  ~/workspace/SnpSift  ~/workspace/SnpSql
-mkdir -p ~/snpEff/ ~/snpEff
+mkdir -p ~/snpEff
 
 cd ~/workspace/SnpEff
 git clone git@github.com:CBMi-BiC/snpEff.git .
