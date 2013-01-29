@@ -14,10 +14,9 @@ To build snpEff-with-dependencies.jar in the ~/workspace/target directory:
 
 
 ```
-mkdir -p ~/workspace/SnpEff  ~/workspace/SnpSift  ~/workspace/SnpSql
-mkdir -p ~/snpEff
-
-cd ~/workspace/SnpEff
-git clone git@github.com:CBMi-BiG/snpEff.git .
+mkdir ~/workspace ~/snpEff
+cd ~/workspace
+git clone git@github.com:CBMi-BiG/snpEff.git SnpEff
+cd SnpEff
 ./scripts/make.sh
 ```
