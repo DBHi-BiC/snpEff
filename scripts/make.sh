@@ -1,8 +1,7 @@
 #!/bin/sh
 
 VERSION_SNPEFF=3.1
-VERSION_SNPSIFT=1.7
-VERSION_SNPSQL=0.2
+
 
 #---
 # Build SnpEff
@@ -11,7 +10,7 @@ VERSION_SNPSQL=0.2
 cd $HOME/workspace/SnpEff/
 
 mvn assembly:assembly
-cp target/snpEff-$VERSION_SNPEFF-jar-with-dependencies.jar $HOME/workplace/SnpEff/snpEff.jar
+cp target/snpEff-$VERSION_SNPEFF-jar-with-dependencies.jar $HOME/workspace/SnpEff/snpEff.jar
 
 
 # Install JAR file in local Maven repo

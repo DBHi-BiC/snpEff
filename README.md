@@ -29,12 +29,12 @@ To build snpEff-3.1-jar-with-dependencies.jar in the ~/workspace/SnpEff/target d
 ```
 ./scripts/make.sh
 ```
-This is copied to ~/snpEff/snpEff.jar
-snpEff will assume it is built there unless you alter the config file.
+
+This is copied to ~/workplace/SnpEff/snpEff.jar per the config file
 
 To get GRCh37 annotations:
 ```
-cd ~/snpEff
+cd ~/workplace/SnpEff
 mkdir -p data/GRCh37.64
 java -jar snpEff.jar download GRCh37.64
 
