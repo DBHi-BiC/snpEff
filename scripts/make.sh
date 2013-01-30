@@ -23,4 +23,3 @@ mvn install:install-file \
 	-DgeneratePom=true
 
 cd - 
-

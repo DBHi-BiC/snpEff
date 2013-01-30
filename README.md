@@ -34,13 +34,13 @@ This is copied to ~/workplace/SnpEff/snpEff.jar per the config file
 
 To get GRCh37 annotations:
 ```
-cd ~/workplace/SnpEff
 mkdir -p data/GRCh37.64
 java -jar snpEff.jar download GRCh37.64
+```
 
-To test:
+To test (assuming you have downloaded all the test cases):
 
 ```
-java -cp $PWD/target/snpEff-3.1-jar-with-dependencies.jar \
+java -cp snpEff.jar \
 ca.mcgill.mcb.pcingola.snpEffect.testCases.TestSuiteAll
 ```
