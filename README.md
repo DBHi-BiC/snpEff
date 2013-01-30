@@ -23,9 +23,24 @@ mvn install:install-file -DgroupId=net.sf.picard -DartifactId=Picard -Dversion=1
 
 
 
-To build snpEff-with-dependencies.jar in the ~/workspace/SnpEff/target directory:
+To build snpEff-3.1-jar-with-dependencies.jar in the ~/workspace/SnpEff/target directory:
 
 
 ```
 ./scripts/make.sh
+```
+This is copied to ~/snpEff/snpEff.jar
+snpEff will assume it is built there unless you alter the config file.
+
+To get GRCh37 annotations:
+```
+cd ~/snpEff
+mkdir -p data/GRCh37.64
+java -jar snpEff.jar download GRCh37.64
+
+To test:
+
+```
+java -cp $PWD/target/snpEff-3.1-jar-with-dependencies.jar \
+ca.mcgill.mcb.pcingola.snpEffect.testCases.TestSuiteAll
 ```
