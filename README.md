@@ -44,3 +44,8 @@ To test (assuming you have downloaded all the test cases):
 java -cp snpEff.jar \
 ca.mcgill.mcb.pcingola.snpEffect.testCases.TestSuiteAll
 ```
+
+
+HGVS annotations can be added to a given input file (i.e. ```tests/hgvs_test_in.vcf```) using ```-hgvsonly``` input parameter of snpEff. In this case, the input vcf MUST have snpEff annotation already and running snpEff again with this parameter, will add HGVS nomenclatures at the end of EFF field. The correct output should be the same as ```tests/hgvs_test_out.vcf```.
+
+Running snpEff with ```-hgvs``` should run snpEff as a normal run (to add all annotations) with HGVS nomenclatures included in annotations.
