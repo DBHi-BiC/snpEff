@@ -52,5 +52,4 @@ Running snpEff with ```-hgvs``` should run snpEff as a normal run (to add all an
 
 ```
 java -Xmx4g -jar snpEff.jar hg19 -i vcf -o vcf tests/hgvs_test_in.vcf
-
 ```
