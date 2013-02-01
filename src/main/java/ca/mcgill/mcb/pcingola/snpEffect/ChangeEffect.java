@@ -114,6 +114,16 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	String aaOld = "", aaNew = ""; // Amino acid changes
 	String aasAroundOld = "", aasAroundNew = ""; // Amino acids arround
 
+    /**
+     * CBMi
+     * HGVS-related information
+     * in coding regions nucleotide 1 is the A of the ATG-translation initiation codon
+     * we are only dealing with codon regions for HGVS annotation
+     * called coding region dna reference sequence here:
+     * http://www.hgvs.org/mutnomen/refseq_figure.html
+     */
+    int txPos = -1; // nucleotide number
+
 	/**
 	 *  An empty list of results;
 	 * @return
@@ -208,7 +218,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	/**
 	 * Amino acid change string (HGVS style)
 	 * References: http://www.hgvs.org/mutnomen/recs.html
-	 * 
+	 *
 	 * @return
 	 */
 	public String getAaChangeHgvs() {
@@ -219,6 +229,20 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		if (aaOld.equals(aaNew)) return aaNew + (codonNum + 1);
 		return aaOld + (codonNum + 1) + aaNew;
 	}
+
+    /**
+     * Coding DNA HGVS change string
+     * SeqChange.changeType associations:
+     * * SNP : substitutions c.76A>T
+     * * INS : insertions    c.76_77insG
+     * * DEL : deletions     c.76delA
+     * * MIXED : delins c.113delinsTACTAGC
+     * although
+     * @return
+     */
+    public String getCodingDnaHgvs() {
+         return "HGVSDNA:";
+    }
 
 	/**
 	 * Amino acid length (negative if there is none)
