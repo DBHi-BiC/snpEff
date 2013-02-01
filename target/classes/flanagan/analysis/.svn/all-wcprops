@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis
+END
+Cronbach.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/Cronbach.java
+END
+ProbabilityPlot.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/ProbabilityPlot.java
+END
+RankAnalysis.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/RankAnalysis.java
+END
+Regression.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/Regression.java
+END
+BoxCox.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/BoxCox.java
+END
+PCA.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/PCA.java
+END
+ANOVA.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/ANOVA.java
+END
+RegressionFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/RegressionFunction.java
+END
+RegressionFunction2.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/RegressionFunction2.java
+END
+RegressionDerivativeFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/RegressionDerivativeFunction.java
+END
+ErrorProp.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/ErrorProp.java
+END
+RegressionDerivativeFunction2.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/RegressionDerivativeFunction2.java
+END
+Stat.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/Stat.java
+END
+Scores.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/analysis/Scores.java
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility
+END
+RankSumNoReplacementSimulate.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility/RankSumNoReplacementSimulate.java
+END
+FisherExactTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility/FisherExactTest.java
+END
+Hypergeometric.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility/Hypergeometric.java
+END
+CochranArmitageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility/CochranArmitageTest.java
+END
+RankSumNoReplacementPdf.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility/RankSumNoReplacementPdf.java
+END
+NormalDistribution.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility/NormalDistribution.java
+END
+RankSumPdf.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility/RankSumPdf.java
+END
+rank_sum_no_replacement.prob
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/probablility/rank_sum_no_replacement.prob
+END

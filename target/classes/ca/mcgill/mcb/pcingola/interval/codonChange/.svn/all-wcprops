@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange
+END
+CodonChangeIns.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/snpeff/!svn/ver/281/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChangeIns.java
+END
+CodonChangeMnp.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChangeMnp.java
+END
+CodonChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/snpeff/!svn/ver/281/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java
+END
+CodonChangeSnp.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/snpeff/!svn/ver/336/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChangeSnp.java
+END
+CodonChangeDel.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/snpeff/!svn/ver/281/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChangeDel.java
+END
+CodonChangeInterval.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChangeInterval.java
+END

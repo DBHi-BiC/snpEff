@@ -1,0 +1,23 @@
+Notes:
+
+Transcript.java:
+As its name implies,represents a transcript. HGVS nomenclature should be written for a variant with respect to the transcript.
+In this class, we have access to introns,exons and their sequnces.
+
+CodonChange:
+Calculate: Calculate codon change for a given seqchange
+
+CodonChange.Factory:
+Called by Calculate to create a codon change object for a seqChange which calls different methods based on 
+seqChange.changeType (Snp,Ins,Del,Mnp).
+
+CodonChangeSNP class extends CodonChange.
+
+CodonChange.codonChange:
+It is the method that actually calculates codon changes for current CodonChange object.
+In this method, line 128,129 of CodonChange.Java, it returns the codonNum and:
+
+codonNum = (firstCdsBaseInExon + cdsBaseInExon) / CODON_SIZE;
+
+so firstCdsBaseInExon + cdsBaseInExon is actually the nucleotide position with respect to the coding segment of the transcript (this is 0 based, plz note for HGVS it should be reported as 1 based)
+

@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control
+END
+HighPassPassive.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/HighPassPassive.java
+END
+ClosedLoop.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/ClosedLoop.java
+END
+DelayLine.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/DelayLine.java
+END
+SecondOrder.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/SecondOrder.java
+END
+Transducer.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/Transducer.java
+END
+PropDeriv.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/PropDeriv.java
+END
+Prop.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/Prop.java
+END
+ZeroOrderHold.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/ZeroOrderHold.java
+END
+LowPassPassive.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/LowPassPassive.java
+END
+FirstOrder.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/FirstOrder.java
+END
+PropIntDeriv.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/PropIntDeriv.java
+END
+BlackBox.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/BlackBox.java
+END
+DtoA.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/DtoA.java
+END
+AtoD.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/AtoD.java
+END
+Compensator.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/Compensator.java
+END
+PropInt.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/PropInt.java
+END
+OpenLoop.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/snpeff/!svn/ver/8/SnpEffect/trunk/src/main/java/flanagan/control/OpenLoop.java
+END
