@@ -631,7 +631,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
     public void setTranscript(int txPos, String ntOld, String ntNew, String ntIns, String ntDel)
     {
         this.txPos = txPos; // nucleotide number
-        this ntOld = ntOld;
+        this.ntOld = ntOld;
         this.ntNew = ntNew; //NT changes
         this.ntIns = ntIns;
         this.ntDel = ntDel;
