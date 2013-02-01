@@ -27,6 +27,7 @@ public class CodonChange {
 	ChangeEffect changeEffect;
 	int codonNum = -1;
 	int codonIndex = -1;
+    int txPos = -1; //transcript-relative nt position
 	String codonsOld = ""; // Old codons (before change)
 	String codonsNew = ""; // New codons (after change)
 	String aaOld = ""; // Old amino acids (before change)
@@ -128,6 +129,9 @@ public class CodonChange {
 				// Get codon number and index within codon (where seqChage is pointing)
 				codonNum = (firstCdsBaseInExon + cdsBaseInExon) / CODON_SIZE;
 				codonIndex = (firstCdsBaseInExon + cdsBaseInExon) % CODON_SIZE;
+
+                //txPos is cdsBaseinTranscript
+                txPos = (firstCdsBaseInExon + cdsBaseInExon);
 
 				// Use appropriate method to calculate codon change
 				boolean hasChanged = false; // Was there any change?

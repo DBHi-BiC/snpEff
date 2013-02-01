@@ -123,6 +123,8 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
      * http://www.hgvs.org/mutnomen/refseq_figure.html
      */
     int txPos = -1; // nucleotide number
+    String ntOld = ""; String ntNew = ""; //NT changes
+    String ntIns = ""; String ntDel = "";
 
 	/**
 	 *  An empty list of results;
