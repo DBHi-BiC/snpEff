@@ -35,39 +35,9 @@ public class TranscriptChange {
         this.changeEffect = changeEffect;
     }
 
+
     // Get coding start (after 5 prime UTR)
     int cdsStart = transcript.getCdsStart();
-
-
-}
-
-    /**
-     * Calculate all possible transcript changes
-     *
-     * @param seqChange
-     * @param changeEffect
-     * @return
-     */
-    public List<ChangeEffect> calculate() {
-        ArrayList<ChangeEffect> changes = new ArrayList<ChangeEffect>();
-
-        // Split each seqChange into it's multiple options
-        for (int i = 0; i < seqChange.getChangeOptionCount(); i++) {
-            ChangeEffect changeEffectNew = changeEffect.clone(); // Create a copy of this result
-
-            // Create a new SeqChange for this option, calculate codonChange for this seqChangeOption and add result to the list
-            SeqChange seqChangeNew = seqChange.getSeqChangeOption(i);
-            if (seqChangeNew != null) {
-                // Create a specific codon change and calculate changes
-                TranscriptChange transcriptChange = factory(seqChangeNew, transcript, changeEffectNew);
-                changes.addAll(transcriptChange.transcriptChange()); // Calculate codon change and add them to the list
-            }
-        }
-
-        return changes;
-    }
-
-
 
     /**
      * Get some details about the effect on this transcript
@@ -75,7 +45,7 @@ public class TranscriptChange {
      * @return
      */
     @Override
-    public List<ChangeEffect> seqChangeEffect(SeqChange seqChange, ChangeEffect changeEffect) {
+    public seqChangeEffect(SeqChange seqChange, ChangeEffect changeEffect) {
         if (!intersects(seqChange)) return ChangeEffect.emptyResults(); // Sanity check
 
         // Create a list of changes
@@ -94,18 +64,6 @@ public class TranscriptChange {
             }
         if (included) return changeEffectList; // SeqChange fully included in the UTR? => We are done.
 
-        //---
-        // Hits a SpliceSiteBranch region?
-        //---
-        included = false;
-        for (SpliceSiteBranch ssbranch : spliceBranchSites)
-            if (ssbranch.intersects(seqChange)) {
-                // Calculate the effect
-                List<ChangeEffect> chEffList = ssbranch.seqChangeEffect(seqChange, changeEffect.clone());
-                if (!chEffList.isEmpty()) changeEffectList.addAll(chEffList);
-                included |= ssbranch.includes(seqChange); // Is this seqChange fully included branch site?
-            }
-        if (included) return changeEffectList; // SeqChange fully included in the Branch site? => We are done.
 
         // Does it hit an intron?
         for (Intron intron : introns())

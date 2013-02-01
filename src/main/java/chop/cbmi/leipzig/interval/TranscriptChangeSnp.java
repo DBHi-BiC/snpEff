@@ -1,11 +1,18 @@
 package chop.cbmi.leipzig.interval;
 
+import ca.mcgill.mcb.pcingola.interval.Exon;
+import ca.mcgill.mcb.pcingola.interval.SeqChange;
+import ca.mcgill.mcb.pcingola.interval.Transcript;
+import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
+import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
+import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.ErrorType;
 /**
- * Created with IntelliJ IDEA.
- * User: leipzig
- * Date: 2/1/13
- * Time: 4:25 PM
- * To change this template use File | Settings | File Templates.
+ * Set SNP details for DNA-HGVS
  */
-public class TranscriptChangeSnp {
+public class TranscriptChangeSnp extends TranscriptChange{
+    public TranscriptChangeSnp(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
+        super(seqChange, transcript, changeEffect);
+        //pos,oldnt,newnt,insnt,delnt
+        changeEffect.setTranscript(this.txPos, seqChange.reference(), seqChange.change(), null, null);
+    }
 }
