@@ -21,3 +21,9 @@ codonNum = (firstCdsBaseInExon + cdsBaseInExon) / CODON_SIZE;
 
 so firstCdsBaseInExon + cdsBaseInExon is actually the nucleotide position with respect to the coding segment of the transcript (this is 0 based, plz note for HGVS it should be reported as 1 based)
 
+--
+Transcript gets codonChanges by Codon in
+    public List<ChangeEffect> seqChangeEffect(SeqChange seqChange, ChangeEffect changeEffect) {
+    ...
+        changeEffectList.addAll(codonChange.calculate());
+    }

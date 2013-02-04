@@ -1047,4 +1047,13 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		if (missingUtrs.size() > 0) return addMissingUtrs(missingUtrs, verbose); // Anything left? => There was a missing UTR
 		return false;
 	}
+
+    /**
+     * Return HGVS
+     */
+    public String getHGVS(SeqChange seqChange, ChangeEffect changeEffect) {
+            TranscriptChange transcriptChange = new TranscriptChange(seqChange, this, changeEffect);
+            String HGVS = transcriptChange.getHGVS();
+        }
+    }
 }
