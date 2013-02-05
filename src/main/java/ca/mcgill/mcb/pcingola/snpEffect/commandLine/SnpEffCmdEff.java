@@ -238,6 +238,7 @@ public class SnpEffCmdEff extends SnpEff {
 			} catch (Throwable t) {
 				totalErrs++;
 				error(t, "Error while processing VCF entry (line " + vcfFile.getLineNum() + ") :\n\t" + vcfEntry + "\n" + t);
+                t.printStackTrace();
 			}
 		}
 

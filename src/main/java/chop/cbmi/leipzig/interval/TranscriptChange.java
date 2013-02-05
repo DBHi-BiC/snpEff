@@ -36,9 +36,6 @@ public class TranscriptChange {
     }
 
 
-    // Get coding start (after 5 prime UTR)
-    int cdsStart = transcript.getCdsStart();
-
    /* *//**
      * Get some details about the effect on this transcript
      * @param seqChange
@@ -123,6 +120,7 @@ public class TranscriptChange {
 
         TranscriptChange transcriptChange = factory(seqChange, transcript, change);
         change = transcriptChange.transcriptChange();
+
         return change;
     }
 
@@ -146,6 +144,8 @@ public class TranscriptChange {
                 //this is just the txPos like any exon
                 //except it is off the end of the transcript
                 txPos = -(transcript.getFirstCodingExon().distance(seqChange));
+                change.setTxPos(txPos);
+                return change;
             }
         }
         //5'UTR
@@ -153,6 +153,8 @@ public class TranscriptChange {
             if(utr5prime.intersects(seqChange)){
                 //should be reported as a negative number
                 txPos = -(transcript.getFirstCodingExon().distance(seqChange));
+                change.setTxPos(txPos);
+                return change;
             }
         }
 
@@ -191,6 +193,7 @@ public class TranscriptChange {
             if (transcript.isStrandPlus()) firstCdsBaseInExon += Math.max(0, exon.getEnd() - Math.max(exon.getStart(), cdsStart) + 1);
             else firstCdsBaseInExon += Math.max(0, Math.min(cdsStart, exon.getEnd()) - exon.getStart() + 1);
         }
+        change.setTxPos(txPos);
         return change;
     }
 

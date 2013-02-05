@@ -636,7 +636,13 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
         this.ntIns = ntIns;
         this.ntDel = ntDel;
     }
-
+    /**
+     * Set the position
+     */
+     public void setTxPos(int txPos)
+     {
+         this.txPos = txPos;
+     }
 
 	/**
 	 * Set codon change. Calculate effect type based on codon changes (for SNPs ans MNPs)
