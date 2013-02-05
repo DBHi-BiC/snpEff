@@ -13,6 +13,7 @@ public class TranscriptChangeSnp extends TranscriptChange{
     public TranscriptChangeSnp(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
         super(seqChange, transcript, changeEffect);
         //pos,oldnt,newnt,insnt,delnt
+        this.txPos = getTxPos();
         changeEffect.setTranscript(this.txPos, seqChange.reference(), seqChange.change(), null, null);
     }
 }
