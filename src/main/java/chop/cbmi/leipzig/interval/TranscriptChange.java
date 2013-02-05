@@ -39,14 +39,14 @@ public class TranscriptChange {
     // Get coding start (after 5 prime UTR)
     int cdsStart = transcript.getCdsStart();
 
-    /**
+   /* *//**
      * Get some details about the effect on this transcript
      * @param seqChange
      * @return
-     */
+     *//*
     @Override
     public seqChangeEffect(SeqChange seqChange, ChangeEffect changeEffect) {
-        if (!intersects(seqChange)) return ChangeEffect.emptyResults(); // Sanity check
+
 
         // Create a list of changes
         ArrayList<ChangeEffect> changeEffectList = new ArrayList<ChangeEffect>();
@@ -109,69 +109,55 @@ public class TranscriptChange {
 
         return changeEffectList;
     }
-
-
+*/
 
     /**
-     * Calculate a list of transcript changes at the DNA level
+     * Calculate the transcript change
+     *
+     * @param seqChange
+     * @param changeEffect
+     * @return
+     */
+    public ChangeEffect calculate() {
+        ChangeEffect change = changeEffect.clone(); // Create a copy of this result
+
+        TranscriptChange transcriptChange = factory(seqChange, transcript, change);
+        change = transcriptChange.transcriptChange();
+        return change;
+    }
+
+    /**
+     * The transcript change at the DNA level
      * and set txPos for use in HGVS-DNA
      * @return
      */
-    List<ChangeEffect> transcriptChange() {
-        ArrayList<ChangeEffect> changes = new ArrayList<ChangeEffect>();
-        if (!transcript.intersects(seqChange)) return changes;
+    ChangeEffect transcriptChange() {
+        ChangeEffect change = changeEffect.clone();
+        if (!transcript.intersects(seqChange)) return change;
 
         List<Exon> exons = transcript.sortedStrand();
         List<Intron> introns = transcript.introns();
         List<Utr5prime> utr5primes = transcript.get5primeUtrs();
         List<Utr3prime> utr3primes = transcript.get3primeUtrs();
 
-
-        //---
-        // Hits a UTR region?
-        //---
-        boolean included = false;
-        for (Utr utr : utrs)
-            if (utr.intersects(seqChange)) {
-                // Calculate the effect
-                List<ChangeEffect> chEffList = utr.seqChangeEffect(seqChange, changeEffect.clone());
-                if (!chEffList.isEmpty()) changes.addAll(chEffList);
-                included |= utr.includes(seqChange); // Is this seqChange fully included in the UTR?
-            }
-        if (included) return changes; // SeqChange fully included in the UTR? => We are done.
-
-
-
-
         //3'UTR
         for (Utr3prime utr3prime : utr3primes){
             if(utr3prime.intersects(seqChange)){
-                ChangeEffect changeEffectNew = changeEffect.clone();
-                changeEffectNew.setMarker(utr3prime);
-                changes.add(changeEffectNew);
-
                 //this is just the txPos like any exon
                 //except it is off the end of the transcript
-                transcript.
                 txPos = -(transcript.getFirstCodingExon().distance(seqChange));
-                transcript.get
+            }
         }
-            //5'UTR
-            for (Utr5prime utr5prime : utr5primes){
-                if(utr5prime.intersects(seqChange)){
-                    ChangeEffect changeEffectNew = changeEffect.clone();
-                    changeEffectNew.setMarker(utr5prime);
-                    changes.add(changeEffectNew);
-
-                    //should be reported as a negative number
-                    txPos = -(transcript.getFirstCodingExon().distance(seqChange));
-                }
+        //5'UTR
+        for (Utr5prime utr5prime : utr5primes){
+            if(utr5prime.intersects(seqChange)){
+                //should be reported as a negative number
+                txPos = -(transcript.getFirstCodingExon().distance(seqChange));
+            }
+        }
 
         // Get coding start (after 5 prime UTR)
         int cdsStart = transcript.getCdsStart();
-
-        // We may have to calculate 'netCdsChange', which is the effect on the CDS
-        netCdsChange = netCdsChange();
 
         //---
         // Concatenate all exons
@@ -200,28 +186,12 @@ public class TranscriptChange {
 
                 //txPos is cdsBaseinTranscript
                 txPos = (firstCdsBaseInExon + cdsBaseInExon);
-
-                // Use appropriate method to calculate codon change
-                boolean hasChanged = false; // Was there any change?
-                ChangeEffect changeEffectNew = changeEffect.clone();
-                changeEffectNew.setMarker(exon); // It is affecting this exon, so we set the marker
-                hasChanged = codonChangeSingle(changeEffectNew, exon);
-
-                // Any change? => Add change to list
-                if (hasChanged) {
-                    codonsAround(seqChange, changeEffectNew, codonNum); // Show codons around change (if required)
-                    changes.add(changeEffectNew);
-                }
-
-                // Can we return immediately?
-                if (returnNow) return changes;
             }
 
             if (transcript.isStrandPlus()) firstCdsBaseInExon += Math.max(0, exon.getEnd() - Math.max(exon.getStart(), cdsStart) + 1);
             else firstCdsBaseInExon += Math.max(0, Math.min(cdsStart, exon.getEnd()) - exon.getStart() + 1);
         }
-
-        return changes;
+        return change;
     }
 
     /**
@@ -233,10 +203,10 @@ public class TranscriptChange {
      */
     TranscriptChange factory(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
         if (seqChange.isSnp()) return new TranscriptChangeSnp(seqChange, transcript, changeEffect);
-        if (seqChange.isIns()) return new TranscriptChangeIns(seqChange, transcript, changeEffect);
+        /*if (seqChange.isIns()) return new TranscriptChangeIns(seqChange, transcript, changeEffect);
         if (seqChange.isDel()) return new TranscriptChangeDel(seqChange, transcript, changeEffect);
         if (seqChange.isMnp()) return new TranscriptChangeMnp(seqChange, transcript, changeEffect);
-        if (seqChange.isInterval()) return new TranscriptChangeInterval(seqChange, transcript, changeEffect);
+        if (seqChange.isInterval()) return new TranscriptChangeInterval(seqChange, transcript, changeEffect);  */
         throw new RuntimeException("Unimplemented factory for SeqChange: " + seqChange);
     }
 }

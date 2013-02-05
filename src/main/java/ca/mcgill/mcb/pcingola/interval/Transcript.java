@@ -11,6 +11,7 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.Config;
 import ca.mcgill.mcb.pcingola.stats.ObservedOverExpectedCpG;
 import ca.mcgill.mcb.pcingola.util.Gpr;
+import chop.cbmi.leipzig.interval.TranscriptChange;
 
 /**
  * Codon position
@@ -919,6 +920,11 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 			CodonChange codonChange = new CodonChange(seqChange, this, changeEffect);
 			changeEffectList.addAll(codonChange.calculate());
 		}
+
+
+        //can we get HGVS as a changeEffect here
+        TranscriptChange transcriptChange = new TranscriptChange(seqChange, this, changeEffect);
+        changeEffectList.add(transcriptChange.calculate());
 
 		return changeEffectList;
 	}
