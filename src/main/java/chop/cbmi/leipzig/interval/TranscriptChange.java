@@ -4,24 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.mcgill.mcb.pcingola.interval.*;
+import ca.mcgill.mcb.pcingola.interval.codonChange.CodonChange;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
+import ca.mcgill.mcb.pcingola.snpEffect.Config;
 
 /**
- * This class handles tx-level modifications and assigns appropriate positions aka txPos
- * to allow associated HGVS descriptors to be generated
+ * Created with IntelliJ IDEA.
+ * User: leipzig
+ * Date: 2/1/13
+ * Time: 2:06 PM
+ * This class handles tx-level modifications and assigns appropriate positions
+ * to allows associated HGVS descriptors to be generated
  * Unlike CodonChange.java it is also concerned with UTRs and Introns
  */
 public class TranscriptChange {
     SeqChange seqChange;
     Transcript transcript;
-    //Exon exon = null;
-    //Intron intron = null;
-    //Utr5prime utr5prime = null;
-    //Utr3prime utr3prime = null;
+    Exon exon = null;
+    Intron intron = null;
+    Utr5prime utr5prime = null;
+    Utr3prime utr3prime = null;
 
     ChangeEffect changeEffect;
     int txPos = -1; //transcript-relative nt position
-    //String netCdsChange = "";
+    String netCdsChange = "";
 
     public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
         this.seqChange = seqChange;
@@ -30,7 +36,6 @@ public class TranscriptChange {
     }
 
 
-<<<<<<< HEAD
    /* *//**
      * Get some details about the effect on this transcript
      * @param seqChange
@@ -121,23 +126,11 @@ public class TranscriptChange {
 
     /**
      * The transcript change at the DNA level
-=======
-    // Get coding start (after 5 prime UTR)
-    int cdsStart = transcript.getCdsStart();
-
-    /**
-     * Calculate the transcript change at the DNA level
->>>>>>> 6476fb4624a29c64d4377dffe1cc32921fb2a619
      * and set txPos for use in HGVS-DNA
      * @return
      */
     ChangeEffect transcriptChange() {
-<<<<<<< HEAD
         ChangeEffect change = changeEffect.clone();
-=======
-        ChangeEffect change = new ChangeEffect(this.seqChange);
-
->>>>>>> 6476fb4624a29c64d4377dffe1cc32921fb2a619
         if (!transcript.intersects(seqChange)) return change;
 
         List<Exon> exons = transcript.sortedStrand();
@@ -145,7 +138,6 @@ public class TranscriptChange {
         List<Utr5prime> utr5primes = transcript.get5primeUtrs();
         List<Utr3prime> utr3primes = transcript.get3primeUtrs();
 
-<<<<<<< HEAD
         //3'UTR
         for (Utr3prime utr3prime : utr3primes){
             if(utr3prime.intersects(seqChange)){
@@ -154,46 +146,27 @@ public class TranscriptChange {
                 txPos = -(transcript.getFirstCodingExon().distance(seqChange));
                 change.setTxPos(txPos);
                 return change;
-=======
-        //this is all about getting txPos
-        //3'UTR
-        for (Utr3prime utr3prime : utr3primes){
-            if(utr3prime.intersects(seqChange)){
-                change.setMarker(utr3prime);
-                //this is just the txPos like any exon
-                //except it is off the end of the transcript
-                this.txPos = -(transcript.getFirstCodingExon().distance(seqChange));
-                break;
->>>>>>> 6476fb4624a29c64d4377dffe1cc32921fb2a619
             }
         }
         //5'UTR
         for (Utr5prime utr5prime : utr5primes){
             if(utr5prime.intersects(seqChange)){
                 //should be reported as a negative number
-<<<<<<< HEAD
                 txPos = -(transcript.getFirstCodingExon().distance(seqChange));
                 change.setTxPos(txPos);
                 return change;
-=======
-                this.txPos = -(transcript.getFirstCodingExon().distance(seqChange));
-                break;
->>>>>>> 6476fb4624a29c64d4377dffe1cc32921fb2a619
             }
         }
 
         // Get coding start (after 5 prime UTR)
         int cdsStart = transcript.getCdsStart();
-<<<<<<< HEAD
 
-=======
->>>>>>> 6476fb4624a29c64d4377dffe1cc32921fb2a619
         //---
         // Concatenate all exons
         //---
         int firstCdsBaseInExon = 0; // Where the exon maps to the CDS (i.e. which CDS base number does the first base in this exon maps to).
         for (Exon exon : exons) {
-            //this.exon = exon;
+            this.exon = exon;
 
             //hits an exon
             if (exon.intersects(seqChange)) {
@@ -209,9 +182,14 @@ public class TranscriptChange {
 
                 if (cdsBaseInExon < 0) cdsBaseInExon = 0;
 
+                // Get codon number and index within codon (where seqChage is pointing)
+                //codonNum = (firstCdsBaseInExon + cdsBaseInExon) / CODON_SIZE;
+                //codonIndex = (firstCdsBaseInExon + cdsBaseInExon) % CODON_SIZE;
+
                 //txPos is cdsBaseinTranscript
                 txPos = (firstCdsBaseInExon + cdsBaseInExon);
             }
+
             if (transcript.isStrandPlus()) firstCdsBaseInExon += Math.max(0, exon.getEnd() - Math.max(exon.getStart(), cdsStart) + 1);
             else firstCdsBaseInExon += Math.max(0, Math.min(cdsStart, exon.getEnd()) - exon.getStart() + 1);
         }
@@ -220,7 +198,7 @@ public class TranscriptChange {
     }
 
     /**
-     * Create a specific transcript change for a seqChange based on snp/indel/etc
+     * Create a specific transcript change for a seqChange
      * @param seqChange
      * @param transcript
      * @param changeEffect
