@@ -196,7 +196,7 @@
       <file leaf-file-name="Transcript.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="928" column="0" selection-start="26185" selection-end="26185" vertical-scroll-proportion="0.33333334">
+            <state line="925" column="26" selection-start="26053" selection-end="26053" vertical-scroll-proportion="0.25091577">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#17957#17968#0" expanded="true" />
@@ -1268,14 +1268,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="22" width="2273" height="1198" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2560297" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4554731" sideWeight="0.49839616" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4554731" sideWeight="0.49839616" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39983714" sideWeight="0.49879712" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1476,7 +1476,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="928" column="0" selection-start="26185" selection-end="26185" vertical-scroll-proportion="0.33333334">
+        <state line="925" column="26" selection-start="26053" selection-end="26053" vertical-scroll-proportion="0.25091577">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#17957#17968#0" expanded="true" />
