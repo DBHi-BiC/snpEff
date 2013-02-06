@@ -76,7 +76,8 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		, INTRAGENIC //
 		, REGULATION //
 		, MICRO_RNA //
-		, CUSTOM
+		, CUSTOM //
+        , HGVS
 	};
 
 	/**
@@ -235,15 +236,22 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
     /**
      * Coding DNA HGVS change string
      * SeqChange.changeType associations:
-     * * SNP : substitutions c.76A>T
-     * * INS : insertions    c.76_77insG
-     * * DEL : deletions     c.76delA
+     * * SNP : substitutions NM_001005484.1:c.76A>T
+     * * INS : insertions    NM_001005484.1:c.76_77insG
+     * * DEL : deletions     NM_001005484.1:c.76delA
      * * MIXED : delins c.113delinsTACTAGC
      * although
      * @return
      */
     public String getCodingDnaHgvs() {
-         return "HGVSDNA:";
+        Transcript tr = getTranscript();
+        if (tr != null)
+        {
+            if(this.seqChange.isSnp()){
+                return tr.getId()+":"+this.txPos+this.ntOld+">"+this.ntNew;
+            }
+        }
+        return "coding hgvs not applicable";
     }
 
 	/**
@@ -368,6 +376,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 			case NONE:
 			case REGULATION:
 			case TRANSCRIPT:
+            case HGVS:
 			case UPSTREAM:
 			case UTR_3_PRIME:
 			case UTR_5_PRIME:
@@ -458,6 +467,8 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		case TRANSCRIPT:
 			if (isExon()) return EffectType.EXON.toString();
 			return EffectType.NONE.toString();
+        case HGVS:
+            return EffectType.NONE.toString();
 		case EXON:
 		case EXON_DELETED:
 		case NON_SYNONYMOUS_CODING:
@@ -539,6 +550,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				+ "Gene_name\t" //
 				+ "Bio_type\t" //
 				+ "Trancript_ID\t" //
+                + "HGVS_DNA\t" //
 				+ "Exon_ID\t" //
 				+ "Exon_Rank\t" //
 				+ "Effect\t" //
@@ -742,7 +754,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	@Override
 	public String toString() {
 		// Get data to show
-		String geneId = "", geneName = "", bioType = "", transcriptId = "", exonId = "", customId = "";
+		String geneId = "", geneName = "", bioType = "", transcriptId = "", hgvsDna = "", exonId = "", customId = "";
 		int exonRank = -1;
 
 		if (marker != null) {
@@ -759,6 +771,8 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 
 			// Update trId
 			if (tr != null) transcriptId = tr.getId();
+
+            if (tr != null) hgvsDna = this.getCodingDnaHgvs();
 
 			// Exon rank information
 			Exon exon = getExon();
@@ -786,6 +800,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				+ "\t" + geneName //
 				+ "\t" + bioType //
 				+ "\t" + transcriptId //
+                + "\t" + hgvsDna //
 				+ "\t" + exonId //
 				+ "\t" + (exonRank >= 0 ? exonRank : "") //
 				+ "\t" + effect(false, false, false) //

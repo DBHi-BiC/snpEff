@@ -117,7 +117,7 @@ public class TranscriptChange {
      */
     public ChangeEffect calculate() {
         ChangeEffect change = changeEffect.clone(); // Create a copy of this result
-
+        change.set(this.transcript, ChangeEffect.EffectType.HGVS,"HGVS");
         TranscriptChange transcriptChange = factory(seqChange, transcript, change);
         change = transcriptChange.transcriptChange();
 

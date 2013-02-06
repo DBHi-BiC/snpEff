@@ -853,6 +853,15 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		// Create a list of changes
 		ArrayList<ChangeEffect> changeEffectList = new ArrayList<ChangeEffect>();
 
+        //can we get HGVS as a changeEffect here
+        TranscriptChange transcriptChange = new TranscriptChange(seqChange, this, changeEffect);
+
+        //here we add HGVS as another effect
+        //changeEffectList.add(transcriptChange.calculate());
+
+        //here we make sure all transcript effects use this changeEffect
+        //by annotating it
+        changeEffect = transcriptChange.calculate();
 		//---
 		// Hits a UTR region?
 		//---
@@ -922,9 +931,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		}
 
 
-        //can we get HGVS as a changeEffect here
-        TranscriptChange transcriptChange = new TranscriptChange(seqChange, this, changeEffect);
-        changeEffectList.add(transcriptChange.calculate());
+
 
 		return changeEffectList;
 	}
@@ -1053,4 +1060,6 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		if (missingUtrs.size() > 0) return addMissingUtrs(missingUtrs, verbose); // Anything left? => There was a missing UTR
 		return false;
 	}
+
+
 }
