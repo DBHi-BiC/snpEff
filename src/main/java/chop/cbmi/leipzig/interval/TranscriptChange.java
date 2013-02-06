@@ -26,7 +26,7 @@ public class TranscriptChange {
     Utr3prime utr3prime = null;
 
     ChangeEffect changeEffect;
-    int txPos = -1; //transcript-relative nt position
+    String txPos = "-1"; //transcript-relative nt position
     String netCdsChange = "";
 
     public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
@@ -117,7 +117,7 @@ public class TranscriptChange {
      */
     public ChangeEffect calculate() {
         ChangeEffect change = changeEffect.clone(); // Create a copy of this result
-        change.set(this.transcript, ChangeEffect.EffectType.HGVS,"HGVS");
+        //change.set(this.transcript, ChangeEffect.EffectType.HGVS,"HGVS");
         TranscriptChange transcriptChange = factory(seqChange, transcript, change);
         change = transcriptChange.transcriptChange();
 
@@ -143,7 +143,7 @@ public class TranscriptChange {
             if(utr3prime.intersects(seqChange)){
                 //this is just the txPos like any exon
                 //except it is off the end of the transcript
-                txPos = -(transcript.getFirstCodingExon().distance(seqChange));
+                txPos = String.valueOf(-(transcript.getFirstCodingExon().distance(seqChange)));
                 change.setTxPos(txPos);
                 return change;
             }
@@ -152,7 +152,7 @@ public class TranscriptChange {
         for (Utr5prime utr5prime : utr5primes){
             if(utr5prime.intersects(seqChange)){
                 //should be reported as a negative number
-                txPos = -(transcript.getFirstCodingExon().distance(seqChange));
+                txPos = String.valueOf(-(transcript.getFirstCodingExon().distance(seqChange)));
                 change.setTxPos(txPos);
                 return change;
             }
@@ -160,6 +160,29 @@ public class TranscriptChange {
 
         // Get coding start (after 5 prime UTR)
         int cdsStart = transcript.getCdsStart();
+
+        //intron
+        //intronic nucleotides (coding DNA reference sequence only)
+        //beginning of the intron; the number of the last nucleotide of the preceding exon, a plus sign and the position in the intron, like c.77+1G, c.77+2T, ....
+        //end of the intron; the number of the first nucleotide of the following exon, a minus sign and the position upstream in the intron, like ..., c.78-2A, c.78-1G.
+        //in the middle of the intron, numbering changes from "c.77+.." to "c.78-.."; for introns with an uneven number of nucleotides the central nucleotide is the last described with a "+"
+        for (Intron intron : introns)
+        {
+            if (intron.intersects(seqChange)) {
+                int distanceToPrecedingExon=Math.abs(seqChange.getStart()-transcript.lastExonPositionBefore(seqChange.getStart()));
+                int distanceToProcedingExon=Math.abs(seqChange.getStart()-transcript.firstExonPositionAfter(seqChange.getStart()));
+
+                if(distanceToPrecedingExon<distanceToProcedingExon){
+                    //here we attempt to use Math.abs to get strand-indendent tx-relative exon end positions
+                    this.txPos=String.valueOf(Math.abs(transcript.lastExonPositionBefore(seqChange.getStart())-cdsStart))+"+"+String.valueOf(distanceToPrecedingExon);
+                }else{
+                    this.txPos=String.valueOf(transcript.firstExonPositionAfter(seqChange.getStart())-cdsStart)+"-"+String.valueOf(distanceToProcedingExon);
+                }
+                change.setTxPos(txPos);
+                return change;
+            }
+        }
+
 
         //---
         // Concatenate all exons
@@ -187,13 +210,13 @@ public class TranscriptChange {
                 //codonIndex = (firstCdsBaseInExon + cdsBaseInExon) % CODON_SIZE;
 
                 //txPos is cdsBaseinTranscript
-                txPos = (firstCdsBaseInExon + cdsBaseInExon);
+                txPos = String.valueOf((firstCdsBaseInExon + cdsBaseInExon));
             }
 
             if (transcript.isStrandPlus()) firstCdsBaseInExon += Math.max(0, exon.getEnd() - Math.max(exon.getStart(), cdsStart) + 1);
             else firstCdsBaseInExon += Math.max(0, Math.min(cdsStart, exon.getEnd()) - exon.getStart() + 1);
         }
-        change.setTxPos(txPos);
+        change.setTxPos(this.txPos);
         return change;
     }
 

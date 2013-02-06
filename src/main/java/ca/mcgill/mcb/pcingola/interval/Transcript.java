@@ -583,7 +583,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * @param pos
 	 * @return
 	 */
-	int firstExonPositionAfter(int pos) {
+	public int firstExonPositionAfter(int pos) {
 		for (Exon ex : sorted()) {
 			if (pos <= ex.getStart()) return ex.getStart();
 			if (pos <= ex.getEnd()) return pos;
@@ -783,7 +783,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * @param pos
 	 * @return
 	 */
-	int lastExonPositionBefore(int pos) {
+	public int lastExonPositionBefore(int pos) {
 		int last = -1;
 		for (Exon ex : sorted()) {
 			if (pos < ex.getStart()) {

@@ -123,7 +123,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
      * called coding region dna reference sequence here:
      * http://www.hgvs.org/mutnomen/refseq_figure.html
      */
-    int txPos = -1; // nucleotide number
+    String txPos = "-1"; // nucleotide number
     String ntOld = ""; String ntNew = ""; //NT changes
     String ntIns = ""; String ntDel = "";
 
@@ -640,7 +640,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
     /**
      * Set transcript changes for DNA-HGVS
      */
-    public void setTranscript(int txPos, String ntOld, String ntNew, String ntIns, String ntDel)
+    public void setTranscript(String txPos, String ntOld, String ntNew, String ntIns, String ntDel)
     {
         this.txPos = txPos; // nucleotide number
         this.ntOld = ntOld;
@@ -650,8 +650,9 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
     }
     /**
      * Set the position
+     * @param txPos
      */
-     public void setTxPos(int txPos)
+     public void setTxPos(String txPos)
      {
          this.txPos = txPos;
      }
