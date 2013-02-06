@@ -151,7 +151,13 @@ public class VcfOutputFormatter extends OutputFormatter {
 				} else effBuff.append("|||");
 
 				// Add transcript info
-				if (tr != null) effBuff.append(vcfInfoSafeString(tr.getId()));
+				if (tr != null){
+                    effBuff.append(vcfInfoSafeString(tr.getId()));
+                    effBuff.append("|");
+                    effBuff.append(changeEffect.getCodingDnaHgvs());
+                }
+
+                // Add HGVS
 				effBuff.append("|");
 
 				// Add exon (or intron) rank info
