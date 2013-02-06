@@ -28,6 +28,7 @@ public class TranscriptChange {
     ChangeEffect changeEffect;
     String txPos = "-1"; //transcript-relative nt position
     String netCdsChange = "";
+    private boolean usePrevBaseIntron = true;
 
     public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
         this.seqChange = seqChange;
@@ -125,6 +126,45 @@ public class TranscriptChange {
     }
 
     /**
+     * Calculate base number in a CDS where 'pos' maps
+     *
+     * @returns Base number relative to cds
+     */
+     int cdsBaseNumberForAll(int pos) {
+
+        // Calculate cdsStart and cdsEnd (if not already done)
+        //calcCdsStartEnd();
+         int cdsStart = transcript.getCdsStart();
+        // All exons..
+        int firstCdsBaseInExon = 0; // Where the exon maps to the CDS (i.e. which CDS base number does the first base in this exon maps to).
+         List<Exon> exons = transcript.sortedStrand();
+         for (Exon eint : exons) {
+            if (eint.intersects(pos)) {
+                int cdsBaseInExon; // cdsBaseInExon: base number relative to the beginning of the coding part of this exon (i.e. excluding 5'UTRs)
+                if (transcript.getStrand() >= 0) cdsBaseInExon = pos - eint.getStart(); //Math.max(eint.getStart(), cdsStart);
+                else cdsBaseInExon = eint.getEnd() - pos; //Math.min(eint.getEnd(), cdsStart) - pos;
+
+                //cdsBaseInExon = Math.max(0, cdsBaseInExon);
+
+                return firstCdsBaseInExon + cdsBaseInExon;
+            } else {
+                // Before exon begins?
+                if ((transcript.isStrandPlus() && (pos < eint.getStart())) // Before exon begins (positive strand)?
+                        || (transcript.isStrandMinus() && (pos > eint.getEnd()))) // Before exon begins (negative strand)?
+                    return firstCdsBaseInExon - (this.usePrevBaseIntron ? 1 : 0);
+            }
+
+            if (transcript.isStrandPlus()){firstCdsBaseInExon += eint.getEnd()-eint.getStart()+1;
+                //Math.max(0, eint.getEnd() - Math.max(eint.getStart(), cdsStart) + 1);
+            }
+            else {firstCdsBaseInExon += eint.getEnd() - eint.getStart() + 1;//Math.max(0, Math.min(cdsStart, eint.getEnd()) - eint.getStart() + 1);
+            }
+        }
+
+        return firstCdsBaseInExon - 1;
+    }
+
+    /**
      * The transcript change at the DNA level
      * and set txPos for use in HGVS-DNA
      * @return
@@ -171,9 +211,11 @@ public class TranscriptChange {
             if (intron.intersects(seqChange)) {
                 int firstAfter=transcript.firstExonPositionAfter(seqChange.getStart());
                 int lastBefore=transcript.lastExonPositionBefore(seqChange.getStart());
+                int cdsFirstAfter=cdsBaseNumberForAll(firstAfter);
+                int cdsLastBefore=cdsBaseNumberForAll(lastBefore);
                 int distanceToPrecedingExon=Math.abs(seqChange.getStart()-lastBefore);
                 int distanceToProcedingExon=Math.abs(seqChange.getStart()-firstAfter);
-                this.txPos = (distanceToPrecedingExon<distanceToProcedingExon) ? String.valueOf(transcript.cdsBaseNumber(lastBefore,true))+"+"+String.valueOf(distanceToPrecedingExon) : String.valueOf(transcript.cdsBaseNumber(firstAfter,true))+"-"+String.valueOf(distanceToProcedingExon);
+                this.txPos = (distanceToPrecedingExon<distanceToProcedingExon) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExon) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExon);
 //                if(distanceToPrecedingExon<distanceToProcedingExon){
 //                    this.txPos=String.valueOf(transcript.cdsBaseNumber(lastBefore))+"+"+String.valueOf(distanceToPrecedingExon);
 //                }else{

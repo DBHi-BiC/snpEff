@@ -286,7 +286,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * 
 	 * @returns Base number or '-1' if it does not map to a coding base
 	 */
-	public synchronized int cdsBaseNumber(int pos, boolean usePrevBaseIntron) {
+	 public synchronized int cdsBaseNumber(int pos, boolean usePrevBaseIntron) {
 		// Doesn't hit this transcript?
 		if (!intersects(pos)) return -1;
 
