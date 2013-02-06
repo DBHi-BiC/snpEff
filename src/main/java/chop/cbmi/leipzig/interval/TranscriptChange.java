@@ -169,15 +169,16 @@ public class TranscriptChange {
         for (Intron intron : introns)
         {
             if (intron.intersects(seqChange)) {
-                int distanceToPrecedingExon=Math.abs(seqChange.getStart()-transcript.lastExonPositionBefore(seqChange.getStart()));
-                int distanceToProcedingExon=Math.abs(seqChange.getStart()-transcript.firstExonPositionAfter(seqChange.getStart()));
-
-                if(distanceToPrecedingExon<distanceToProcedingExon){
-                    //here we attempt to use Math.abs to get strand-indendent tx-relative exon end positions
-                    this.txPos=String.valueOf(Math.abs(transcript.lastExonPositionBefore(seqChange.getStart())-cdsStart))+"+"+String.valueOf(distanceToPrecedingExon);
-                }else{
-                    this.txPos=String.valueOf(transcript.firstExonPositionAfter(seqChange.getStart())-cdsStart)+"-"+String.valueOf(distanceToProcedingExon);
-                }
+                int firstAfter=transcript.firstExonPositionAfter(seqChange.getStart());
+                int lastBefore=transcript.lastExonPositionBefore(seqChange.getStart());
+                int distanceToPrecedingExon=Math.abs(seqChange.getStart()-lastBefore);
+                int distanceToProcedingExon=Math.abs(seqChange.getStart()-firstAfter);
+                this.txPos = (distanceToPrecedingExon<distanceToProcedingExon) ? String.valueOf(transcript.cdsBaseNumber(lastBefore,true))+"+"+String.valueOf(distanceToPrecedingExon) : String.valueOf(transcript.cdsBaseNumber(firstAfter,true))+"-"+String.valueOf(distanceToProcedingExon);
+//                if(distanceToPrecedingExon<distanceToProcedingExon){
+//                    this.txPos=String.valueOf(transcript.cdsBaseNumber(lastBefore))+"+"+String.valueOf(distanceToPrecedingExon);
+//                }else{
+//                    this.txPos=String.valueOf(transcript.cdsBaseNumber(firstAfter,true))+"-"+String.valueOf(distanceToProcedingExon);
+//                }
                 change.setTxPos(txPos);
                 return change;
             }
