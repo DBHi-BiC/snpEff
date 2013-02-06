@@ -930,9 +930,6 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 			changeEffectList.addAll(codonChange.calculate());
 		}
 
-
-
-
 		return changeEffectList;
 	}
 

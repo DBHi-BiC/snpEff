@@ -76,8 +76,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		, INTRAGENIC //
 		, REGULATION //
 		, MICRO_RNA //
-		, CUSTOM //
-        , HGVS
+		, CUSTOM
 	};
 
 	/**
@@ -248,7 +247,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
         if (tr != null)
         {
             if(this.seqChange.isSnp()){
-                return tr.getId()+":"+this.txPos+this.ntOld+">"+this.ntNew;
+                return tr.getId()+":c."+this.txPos+this.ntOld+">"+this.ntNew;
             }
         }
         return "coding hgvs not applicable";
@@ -376,7 +375,6 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 			case NONE:
 			case REGULATION:
 			case TRANSCRIPT:
-            case HGVS:
 			case UPSTREAM:
 			case UTR_3_PRIME:
 			case UTR_5_PRIME:
@@ -467,8 +465,6 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		case TRANSCRIPT:
 			if (isExon()) return EffectType.EXON.toString();
 			return EffectType.NONE.toString();
-        case HGVS:
-            return EffectType.NONE.toString();
 		case EXON:
 		case EXON_DELETED:
 		case NON_SYNONYMOUS_CODING:
@@ -771,9 +767,10 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 			}
 
 			// Update trId
-			if (tr != null) transcriptId = tr.getId();
-
-            if (tr != null) hgvsDna = this.getCodingDnaHgvs();
+			if (tr != null){
+                transcriptId = tr.getId();
+                hgvsDna = this.getCodingDnaHgvs();
+            }
 
 			// Exon rank information
 			Exon exon = getExon();
