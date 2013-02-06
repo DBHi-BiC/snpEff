@@ -122,7 +122,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
      * called coding region dna reference sequence here:
      * http://www.hgvs.org/mutnomen/refseq_figure.html
      */
-    String txPos = "-1"; // nucleotide number
+    String txPos = null; // nucleotide number
     String ntOld = ""; String ntNew = ""; //NT changes
     String ntIns = ""; String ntDel = "";
 
@@ -244,13 +244,13 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
      */
     public String getCodingDnaHgvs() {
         Transcript tr = getTranscript();
-        if (tr != null)
+        if (tr != null && this.txPos != null)
         {
             if(this.seqChange.isSnp()){
                 return tr.getId()+":c."+this.txPos+this.ntOld+">"+this.ntNew;
             }
         }
-        return "coding hgvs not applicable";
+        return "";
     }
 
 	/**

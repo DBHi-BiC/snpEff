@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java" afterPath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" afterPath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" afterPath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_summary.html" afterPath="$PROJECT_DIR$/snpEff_summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -11,8 +11,8 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/fragment.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360122408078" ignored="false" />
     <file path="/Dummy.txt" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360124719255" ignored="false" />
-    <file path="/a.dummy" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360125465008" ignored="false" />
-    <file path="/ChangeEffect.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360120060059" ignored="false" />
+    <file path="/a.dummy" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360125964139" ignored="false" />
+    <file path="/ChangeEffect.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360125700040" ignored="false" />
     <file path="/CodonChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1359743730652" ignored="false" />
     <file path="/transcriptChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1359745612803" ignored="false" />
     <file path="/TranscriptChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360123355391" ignored="false" />
@@ -81,7 +81,7 @@
       <file leaf-file-name="ChangeEffect.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="226" column="17" selection-start="6395" selection-end="6395" vertical-scroll-proportion="0.0">
+            <state line="255" column="48" selection-start="7237" selection-end="7237" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -90,25 +90,16 @@
       <file leaf-file-name="Transcript.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="115" selection-start="3197" selection-end="3202" vertical-scroll-proportion="-23.076923">
+            <state line="115" column="110" selection-start="3197" selection-end="3197" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CodonChange.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="79" selection-start="4451" selection-end="4451" vertical-scroll-proportion="0.33035713">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VcfOutputFormatter.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="VcfOutputFormatter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="67" selection-start="4877" selection-end="4877" vertical-scroll-proportion="-4.0">
+            <state line="268" column="195" selection-start="8497" selection-end="8497" vertical-scroll-proportion="0.26339287">
               <folding />
             </state>
           </provider>
@@ -146,10 +137,10 @@
         <option value="$PROJECT_DIR$/mehdi_notes.txt" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChangeSnp.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" />
       </list>
     </option>
   </component>
@@ -744,13 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="115" selection-start="3197" selection-end="3202" vertical-scroll-proportion="-23.076923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="24" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
@@ -758,23 +742,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="67" selection-start="4877" selection-end="4877" vertical-scroll-proportion="-4.0">
+        <state line="130" column="41" selection-start="4452" selection-end="4452" vertical-scroll-proportion="7.366071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="110" selection-start="3197" selection-end="3197" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="226" column="17" selection-start="6395" selection-end="6395" vertical-scroll-proportion="0.0">
+        <state line="255" column="48" selection-start="7237" selection-end="7237" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="79" selection-start="4451" selection-end="4451" vertical-scroll-proportion="0.33035713">
+        <state line="268" column="195" selection-start="8497" selection-end="8497" vertical-scroll-proportion="0.26339287">
           <folding />
         </state>
       </provider>
