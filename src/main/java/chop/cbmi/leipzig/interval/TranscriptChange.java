@@ -23,7 +23,8 @@ public class TranscriptChange {
     SeqChange seqChange;
     Transcript transcript;
     ChangeEffect changeEffect;
-    String txPos = "-1"; //transcript-relative nt position
+    String txPos = null; //transcript-relative nt position
+    int hgvsoffset = 1;  //1-based
     private boolean usePrevBaseIntron = true;
 
     public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
@@ -47,6 +48,7 @@ public class TranscriptChange {
         return change;
     }
 
+
     /**
      * Calculate base number in a CDS where 'pos' maps
      *
@@ -63,20 +65,23 @@ public class TranscriptChange {
                 int cdsBaseInExon; // cdsBaseInExon: base number relative to the beginning of the coding part of this exon (i.e. excluding 5'UTRs)
                 if (transcript.getStrand() >= 0) cdsBaseInExon = pos - eint.getStart();
                 else cdsBaseInExon = eint.getEnd() - pos;
-                return firstCdsBaseInExon + cdsBaseInExon;
+                return firstCdsBaseInExon + cdsBaseInExon + hgvsoffset;
             } else {
                 // Before exon begins?
                 if ((transcript.isStrandPlus() && (pos < eint.getStart())) // Before exon begins (positive strand)?
                         || (transcript.isStrandMinus() && (pos > eint.getEnd()))) // Before exon begins (negative strand)?
-                    throw new RuntimeException(pos + " is not in an exon but you asked for its cds base number");
+                {
+                    //System.out.println(pos + " is not in an exon but "+this.getClass()+" asked for its cds base number");
+                    throw new IndexOutOfBoundsException(pos + " is not in an exon but "+this.getClass()+" asked for its cds base number");
+                    //return firstCdsBaseInExon - (usePrevBaseIntron ? 1 : 0);
+                }
             }
 
             if (transcript.isStrandPlus()) firstCdsBaseInExon += eint.getEnd()-eint.getStart()+1;
             else firstCdsBaseInExon += eint.getEnd() - eint.getStart() + 1;
 
         }
-
-        return firstCdsBaseInExon - 1;
+        return firstCdsBaseInExon - 1 + hgvsoffset;
     }
 
     /**

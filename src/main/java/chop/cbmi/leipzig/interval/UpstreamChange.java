@@ -25,11 +25,11 @@ public class UpstreamChange extends TranscriptChange {
     @Override
     ChangeEffect transcriptChange() {
         ChangeEffect change = changeEffect.clone();
-
-
         if (upstream.intersects(seqChange)) {
-            int distance = (transcript.isStrandPlus() ? upstream.getEnd() - seqChange.getStart() : seqChange.getStart() - upstream.getStart()) + 1;
-
+            //distance to cds start
+            //this may be much farther than the distance to the TSS reported by SnpEff
+            //especially for alternate 5' end isoforms
+            int distance = (transcript.isStrandPlus() ? transcript.getCdsStart() - seqChange.getEnd() : seqChange.getStart() - transcript.getCdsEnd());
             txPos = String.valueOf(-1*distance);
             change.setTxPos(txPos);
             return change;

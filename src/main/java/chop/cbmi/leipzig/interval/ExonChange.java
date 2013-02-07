@@ -25,8 +25,14 @@ public class ExonChange extends TranscriptChange {
     @Override
     ChangeEffect transcriptChange() {
         ChangeEffect change = changeEffect.clone();
-        txPos = String.valueOf(cdsBaseNumberForAll(seqChange.getStart()));
-        change.setTxPos(txPos);
+        try {
+            txPos = String.valueOf(cdsBaseNumberForAll(seqChange.getStart()));
+            change.setTxPos(txPos);
+        } catch (IndexOutOfBoundsException e) {
+            //sometimes a splice site will claim it belongs to an exon when it doesn't
+             txPos = null;
+        }
+
         return change;
     }
 }

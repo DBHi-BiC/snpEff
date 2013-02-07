@@ -60,14 +60,10 @@ public abstract class SpliceSite extends Marker {
 	@Override
 	public List<ChangeEffect> seqChangeEffect(SeqChange seqChange, ChangeEffect changeEffect) {
 		if (!intersects(seqChange)) return ChangeEffect.emptyResults(); // Sanity check
-
-
         if(parent instanceof Exon){
-            System.out.println("exon"+seqChange.getStart());
             ExonChange ExonChange = new ExonChange(seqChange, (Exon) parent, changeEffect);
             changeEffect = ExonChange.calculate();
         }else if(parent instanceof Transcript){
-            System.out.println("tx"+seqChange.getStart());
             Transcript myTxParent = (Transcript) this.parent;
             TranscriptChange transcriptChange = new TranscriptChange(seqChange, myTxParent, changeEffect);
             changeEffect = transcriptChange.calculate();

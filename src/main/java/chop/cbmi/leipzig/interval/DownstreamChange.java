@@ -28,9 +28,12 @@ public class DownstreamChange  extends TranscriptChange {
     ChangeEffect transcriptChange() {
         ChangeEffect change = changeEffect.clone();
 
-
+        //a star followed by distance to cds end
         if (downstream.intersects(seqChange)) {
-            int distance = (transcript.isStrandPlus() ? seqChange.getStart() - downstream.getStart() : downstream.getEnd() - seqChange.getStart()) + 1;
+            //distance to cds end
+            //this may be much farther than the distance to the polyA reported by SnpEff
+            //especially for alternate 3' end isoforms
+            int distance = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsStart() - seqChange.getEnd());
             txPos = "*"+String.valueOf(distance);
             change.setTxPos(txPos);
             return change;
