@@ -7,6 +7,7 @@ import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
+import chop.cbmi.leipzig.interval.ExonChange;
 
 /**
  * Analyze codon changes based on a SeqChange and a Transcript
@@ -133,6 +134,11 @@ public class CodonChange {
 				boolean hasChanged = false; // Was there any change?
 				ChangeEffect changeEffectNew = changeEffect.clone();
 				changeEffectNew.setMarker(exon); // It is affecting this exon, so we set the marker
+
+                //annotate for HGVS
+                ExonChange exonChange = new ExonChange(seqChange, exon, changeEffectNew);
+                changeEffectNew = exonChange.calculate();
+
 				hasChanged = codonChangeSingle(changeEffectNew, exon);
 
 				// Any change? => Add change to list

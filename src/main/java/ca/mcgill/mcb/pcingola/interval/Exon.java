@@ -7,6 +7,9 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.ErrorType;
 import ca.mcgill.mcb.pcingola.util.GprSeq;
+import chop.cbmi.leipzig.interval.ExonChange;
+
+import java.util.List;
 
 /**
  * Interval for an exon
@@ -245,4 +248,19 @@ public class Exon extends Marker {
 				+ (sequence != null ? ", sequence: " + sequence : "");
 	}
 
+    /**
+     * Calculate the effect of this seqChange
+     * @param seqChange
+     * @param changeEffect
+     * @return
+     */
+    @Override
+    public List<ChangeEffect> seqChangeEffect(SeqChange seqChange, ChangeEffect changeEffect) {
+        if (!intersects(seqChange)) return ChangeEffect.emptyResults(); // Sanity check
+
+        ExonChange exonChange = new ExonChange(seqChange, this, changeEffect);
+        changeEffect = exonChange.calculate();
+        changeEffect.set(this, EffectType.EXON, "");
+        return changeEffect.newList();
+    }
 }

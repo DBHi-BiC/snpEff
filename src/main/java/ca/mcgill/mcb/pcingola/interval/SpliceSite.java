@@ -3,6 +3,8 @@ package ca.mcgill.mcb.pcingola.interval;
 import java.util.List;
 
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
+import chop.cbmi.leipzig.interval.ExonChange;
+import chop.cbmi.leipzig.interval.TranscriptChange;
 
 /**
  * Interval for a splice site
@@ -58,6 +60,18 @@ public abstract class SpliceSite extends Marker {
 	@Override
 	public List<ChangeEffect> seqChangeEffect(SeqChange seqChange, ChangeEffect changeEffect) {
 		if (!intersects(seqChange)) return ChangeEffect.emptyResults(); // Sanity check
+
+
+        if(parent instanceof Transcript){
+            Transcript myTxParent = (Transcript) this.parent;
+            TranscriptChange transcriptChange = new TranscriptChange(seqChange, myTxParent, changeEffect);
+            changeEffect = transcriptChange.calculate();
+        }
+        if(parent instanceof Exon){
+            Transcript myTxParent = (Transcript) this.parent.getParent();
+            ExonChange ExonChange = new ExonChange(seqChange, (Exon) parent, changeEffect);
+            changeEffect = ExonChange.calculate();
+        }
 		changeEffect.set(this, type, "");
 		return changeEffect.newList();
 	}

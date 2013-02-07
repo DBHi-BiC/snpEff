@@ -1,13 +1,14 @@
 package ca.mcgill.mcb.pcingola.interval;
 
-import java.util.Collections;
-import java.util.List;
-
 import ca.mcgill.mcb.pcingola.codons.CodonTable;
 import ca.mcgill.mcb.pcingola.codons.CodonTables;
 import ca.mcgill.mcb.pcingola.interval.SeqChange.ChangeType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
+import chop.cbmi.leipzig.interval.Utr5primeChange;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Interval for a UTR (5 prime UTR and 3 prime UTR
@@ -50,6 +51,9 @@ public class Utr5prime extends Utr {
 
 		String utrDistStr = utrDistance(seqChange, tint);
 		String gained = startGained(seqChange, tint);
+
+        Utr5primeChange utr5primeChange = new Utr5primeChange(seqChange, this, changeEffect);
+        changeEffect = utr5primeChange.calculate();
 
 		if (gained.length() > 0) changeEffect.set(this, EffectType.START_GAINED, gained + ", " + EffectType.UTR_5_PRIME + ": " + utrDistStr);
 		else changeEffect.set(this, type, utrDistStr);

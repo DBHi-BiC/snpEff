@@ -11,6 +11,7 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.Config;
 import ca.mcgill.mcb.pcingola.stats.ObservedOverExpectedCpG;
 import ca.mcgill.mcb.pcingola.util.Gpr;
+import chop.cbmi.leipzig.interval.ExonChange;
 import chop.cbmi.leipzig.interval.TranscriptChange;
 
 /**
@@ -853,15 +854,16 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		// Create a list of changes
 		ArrayList<ChangeEffect> changeEffectList = new ArrayList<ChangeEffect>();
 
-        //can we get HGVS as a changeEffect here
-        TranscriptChange transcriptChange = new TranscriptChange(seqChange, this, changeEffect);
 
-        //here we add HGVS as another effect
-        //changeEffectList.add(transcriptChange.calculate());
+
+
 
         //here we make sure all transcript effects use this changeEffect
         //by annotating it
-        changeEffect = transcriptChange.calculate();
+        //let's disable this and handle each subinterval differently
+        //changeEffect = transcriptChange.calculate();
+
+
 		//---
 		// Hits a UTR region?
 		//---
@@ -891,9 +893,13 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		// Does it hit an intron?
 		for (Intron intron : introns())
 			if (intron.intersects(seqChange)) {
-				ChangeEffect cheff = changeEffect.clone();
-				cheff.set(intron, EffectType.INTRON, "");
-				changeEffectList.add(cheff);
+				//ChangeEffect cheff = changeEffect.clone();
+				//cheff.set(intron, EffectType.INTRON, "");
+				//changeEffectList.add(cheff);
+
+               //how about we ask the intron
+                List<ChangeEffect> chEffList = intron.seqChangeEffect(seqChange, changeEffect.clone());
+                if (!chEffList.isEmpty()) changeEffectList.addAll(chEffList);
 			}
 
 		//---
@@ -905,16 +911,23 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 				// Add all exons
 				for (Exon exon : this) {
 					if (exon.intersects(seqChange)) {
-						ChangeEffect cheff = changeEffect.clone();
-						cheff.set(exon, EffectType.EXON, "");
-						changeEffectList.add(cheff);
+                        List<ChangeEffect> chEffList = exon.seqChangeEffect(seqChange, changeEffect.clone());
+                        if (!chEffList.isEmpty()) changeEffectList.addAll(chEffList);
+
+//						ChangeEffect cheff = changeEffect.clone();
+//						cheff.set(exon, EffectType.EXON, "");
+//						changeEffectList.add(cheff);
 					}
 				}
 			} else {
 				// No exons annotated? Just mark it as hitting a transcript
 				ChangeEffect cheff = changeEffect.clone();
 				cheff.set(this, EffectType.TRANSCRIPT, "");
-				changeEffectList.add(cheff);
+                //can we get HGVS as a changeEffect here
+                TranscriptChange transcriptChange = new TranscriptChange(seqChange, this, changeEffect);
+                cheff = transcriptChange.calculate();
+
+                changeEffectList.add(cheff);
 			}
 
 			return changeEffectList;
@@ -925,7 +938,8 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		// We analyze codon replacement effect
 		//---
 		if (isCds(seqChange)) {
-			// Get codon change effect 
+			// Get codon change effect
+            // we can't annotate with exonChange here because the specific exon has not been identified
 			CodonChange codonChange = new CodonChange(seqChange, this, changeEffect);
 			changeEffectList.addAll(codonChange.calculate());
 		}
