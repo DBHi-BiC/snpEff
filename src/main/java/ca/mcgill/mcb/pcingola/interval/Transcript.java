@@ -581,6 +581,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 
 	/**
 	 * Find the first position after 'pos' within an exon
+     * after
 	 * @param pos
 	 * @return
 	 */

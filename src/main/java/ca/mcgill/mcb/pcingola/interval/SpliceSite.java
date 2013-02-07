@@ -62,16 +62,17 @@ public abstract class SpliceSite extends Marker {
 		if (!intersects(seqChange)) return ChangeEffect.emptyResults(); // Sanity check
 
 
-        if(parent instanceof Transcript){
+        if(parent instanceof Exon){
+            System.out.println("exon"+seqChange.getStart());
+            ExonChange ExonChange = new ExonChange(seqChange, (Exon) parent, changeEffect);
+            changeEffect = ExonChange.calculate();
+        }else if(parent instanceof Transcript){
+            System.out.println("tx"+seqChange.getStart());
             Transcript myTxParent = (Transcript) this.parent;
             TranscriptChange transcriptChange = new TranscriptChange(seqChange, myTxParent, changeEffect);
             changeEffect = transcriptChange.calculate();
         }
-        if(parent instanceof Exon){
-            Transcript myTxParent = (Transcript) this.parent.getParent();
-            ExonChange ExonChange = new ExonChange(seqChange, (Exon) parent, changeEffect);
-            changeEffect = ExonChange.calculate();
-        }
+
 		changeEffect.set(this, type, "");
 		return changeEffect.newList();
 	}

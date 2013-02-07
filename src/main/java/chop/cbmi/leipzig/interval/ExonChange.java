@@ -25,15 +25,8 @@ public class ExonChange extends TranscriptChange {
     @Override
     ChangeEffect transcriptChange() {
         ChangeEffect change = changeEffect.clone();
-
-        if (exon.intersects(seqChange)) {
-            txPos = String.valueOf(cdsBaseNumberForAll(seqChange.getStart()));
-            change.set(exon, EffectType.EXON, "");
-            change.setTxPos(txPos);
-            return change;
-        }
-        //}
+        txPos = String.valueOf(cdsBaseNumberForAll(seqChange.getStart()));
+        change.setTxPos(txPos);
         return change;
-
     }
 }

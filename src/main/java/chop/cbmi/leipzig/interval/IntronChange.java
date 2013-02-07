@@ -36,18 +36,13 @@ public class IntronChange extends TranscriptChange {
         //{
             if (intron.intersects(seqChange)) {
                 change.set(intron, EffectType.INTRON, "");
-                int firstAfter=transcript.firstExonPositionAfter(seqChange.getStart());
-                int lastBefore=transcript.lastExonPositionBefore(seqChange.getStart());
+                int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(seqChange.getEnd()) : transcript.lastExonPositionBefore(seqChange.getEnd());
+                int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(seqChange.getStart()) : transcript.firstExonPositionAfter(seqChange.getStart());
                 int cdsFirstAfter=cdsBaseNumberForAll(firstAfter);
                 int cdsLastBefore=cdsBaseNumberForAll(lastBefore);
                 int distanceToPrecedingExon=Math.abs(seqChange.getStart()-lastBefore);
                 int distanceToProcedingExon=Math.abs(seqChange.getStart()-firstAfter);
                 this.txPos = (distanceToPrecedingExon<distanceToProcedingExon) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExon) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExon);
-//                if(distanceToPrecedingExon<distanceToProcedingExon){
-//                    this.txPos=String.valueOf(transcript.cdsBaseNumber(lastBefore))+"+"+String.valueOf(distanceToPrecedingExon);
-//                }else{
-//                    this.txPos=String.valueOf(transcript.cdsBaseNumber(firstAfter,true))+"-"+String.valueOf(distanceToProcedingExon);
-//                }
                 change.setTxPos(txPos);
                 return change;
             }

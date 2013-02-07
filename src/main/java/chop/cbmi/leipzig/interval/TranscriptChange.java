@@ -48,7 +48,7 @@ public class TranscriptChange {
     }
 
     /**
-     * Calculate base number in a CDS where 'pos' maps, allowing negative numbers
+     * Calculate base number in a CDS where 'pos' maps
      *
      * @returns Base number relative to cds
      */
@@ -61,14 +61,14 @@ public class TranscriptChange {
         for (Exon eint : exons) {
             if (eint.intersects(pos)) {
                 int cdsBaseInExon; // cdsBaseInExon: base number relative to the beginning of the coding part of this exon (i.e. excluding 5'UTRs)
-                if (transcript.getStrand() >= 0) cdsBaseInExon = pos - eint.getStart(); //Math.max(eint.getStart(), cdsStart);
-                else cdsBaseInExon = eint.getEnd() - pos; //Math.min(eint.getEnd(), cdsStart) - pos;
+                if (transcript.getStrand() >= 0) cdsBaseInExon = pos - eint.getStart();
+                else cdsBaseInExon = eint.getEnd() - pos;
                 return firstCdsBaseInExon + cdsBaseInExon;
             } else {
                 // Before exon begins?
                 if ((transcript.isStrandPlus() && (pos < eint.getStart())) // Before exon begins (positive strand)?
                         || (transcript.isStrandMinus() && (pos > eint.getEnd()))) // Before exon begins (negative strand)?
-                    return firstCdsBaseInExon - (this.usePrevBaseIntron ? 1 : 0);
+                    throw new RuntimeException(pos + " is not in an exon but you asked for its cds base number");
             }
 
             if (transcript.isStrandPlus()) firstCdsBaseInExon += eint.getEnd()-eint.getStart()+1;
