@@ -4,6 +4,7 @@ import java.util.List;
 
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
+import chop.cbmi.leipzig.interval.DownstreamChange;
 
 /**
  * Interval for a gene, as well as some other information: exons, utrs, cds, etc.
@@ -33,6 +34,9 @@ public class Downstream extends Marker {
 		if (!intersects(snp)) return ChangeEffect.emptyResults(); // Sanity check
 		int distance = (parent.isStrandPlus() ? snp.getStart() - start : end - snp.getStart()) + 1;
 		changeEffect.set(this, EffectType.DOWNSTREAM, distance + " bases");
+
+        DownstreamChange downstreamChange = new DownstreamChange(snp, this, changeEffect);
+        changeEffect = downstreamChange.calculate();
 		return changeEffect.newList();
 	}
 

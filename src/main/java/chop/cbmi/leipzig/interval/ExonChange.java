@@ -9,15 +9,17 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: leipzigj
- * Date: 2/6/13
- * Time: 8:07 PM
- * To change this template use File | Settings | File Templates.
+ * Jeremy Leipzig
+ * Children's Hospital of Philadelphia
+ * leipzig@gmail.com
+ * 2/6/13
  */
 public class ExonChange extends TranscriptChange {
+    Exon exon;
+
     public ExonChange(SeqChange seqChange, Exon exon, ChangeEffect changeEffect) {
         super(seqChange, (Transcript) exon.getParent(), changeEffect);
+        this.exon = exon;
     }
 
     @Override

@@ -4,6 +4,7 @@ import java.util.List;
 
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
+import chop.cbmi.leipzig.interval.UpstreamChange;
 
 /**
  * Interval for a gene, as well as some other information: exons, utrs, cds, etc.
@@ -35,7 +36,8 @@ public class Upstream extends Marker {
 		// Note: We need to use the transcripts's strand
 		int distance = (parent.isStrandPlus() ? end - seqChange.getStart() : seqChange.getStart() - start) + 1;
 		changeEffect.set(this, EffectType.UPSTREAM, distance + " bases");
-
+        UpstreamChange upstreamChange = new UpstreamChange(seqChange, this, changeEffect);
+        changeEffect = upstreamChange.calculate();
 		return changeEffect.newList();
 	}
 

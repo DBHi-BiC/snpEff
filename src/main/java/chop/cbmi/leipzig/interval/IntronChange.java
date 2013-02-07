@@ -9,15 +9,17 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: leipzigj
- * Date: 2/6/13
- * Time: 8:07 PM
- * To change this template use File | Settings | File Templates.
+ * Jeremy Leipzig
+ * Children's Hospital of Philadelphia
+ * leipzig@gmail.com
+ * 2/6/13
  */
 public class IntronChange extends TranscriptChange {
+    Intron intron;
+
     public IntronChange(SeqChange seqChange, Intron intron, ChangeEffect changeEffect) {
         super(seqChange, (Transcript) intron.getParent(), changeEffect);
+        this.intron = intron;
     }
 
     @Override

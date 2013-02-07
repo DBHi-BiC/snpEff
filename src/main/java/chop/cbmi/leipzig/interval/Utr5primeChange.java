@@ -7,15 +7,17 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.interval.Utr5prime;
 
 /**
- * Created with IntelliJ IDEA.
- * User: leipzigj
- * Date: 2/6/13
- * Time: 8:07 PM
- * To change this template use File | Settings | File Templates.
+ * Jeremy Leipzig
+ * Children's Hospital of Philadelphia
+ * leipzig@gmail.com
+ * 2/6/13
  */
 public class Utr5primeChange extends ExonChange {
+    Utr5prime utr5prime;
+
     public Utr5primeChange(SeqChange seqChange, Utr5prime utr5prime, ChangeEffect changeEffect) {
         super(seqChange, (Exon) utr5prime.getParent(), changeEffect);
+        this.utr5prime = utr5prime;
     }
 
     @Override
