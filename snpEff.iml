@@ -19,8 +19,8 @@
     <orderEntry type="library" name="Maven: net.sf.trove4j:trove4j:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.19" level="project" />
     <orderEntry type="library" name="Maven: distlib:distlib:0.9.1" level="project" />
-    <orderEntry type="library" name="Maven: net.sf.samtools:Sam:1.77" level="project" />
-    <orderEntry type="library" name="Maven: net.sf.picard:Picard:1.77" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.samtools:Sam:1.84" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.picard:Picard:1.84" level="project" />
   </component>
 </module>
 

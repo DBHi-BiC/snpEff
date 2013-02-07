@@ -20,8 +20,6 @@ public class UpstreamChange extends TranscriptChange {
         this.upstream = upstream;
     }
 
-
-
     @Override
     ChangeEffect transcriptChange() {
         ChangeEffect change = changeEffect.clone();
