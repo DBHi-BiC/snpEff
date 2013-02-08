@@ -4,12 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff.jar" afterPath="$PROJECT_DIR$/snpEff.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff.iml" afterPath="$PROJECT_DIR$/snpEff.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_summary.html" afterPath="$PROJECT_DIR$/snpEff_summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" readonly="true" id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="" />
     <ignored path="SnpEff.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/fragment.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360256841280" ignored="false" />
@@ -305,8 +300,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="108" />
-    <option name="y" value="126" />
+    <option name="x" value="134" />
+    <option name="y" value="23" />
     <option name="width" value="2299" />
     <option name="height" value="810" />
   </component>
@@ -610,7 +605,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="108" y="126" width="2299" height="810" extended-state="0" />
+    <frame x="134" y="23" width="2299" height="810" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
