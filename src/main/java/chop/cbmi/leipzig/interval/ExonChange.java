@@ -4,9 +4,6 @@ import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
-import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
-
-import java.util.List;
 
 /**
  * Jeremy Leipzig
@@ -26,7 +23,7 @@ public class ExonChange extends TranscriptChange {
     ChangeEffect transcriptChange() {
         ChangeEffect change = changeEffect.clone();
         try {
-            txPos = String.valueOf(cdsBaseNumberForAll(seqChange.getStart()));
+            txPos = String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
             change.setTxPos(txPos);
         } catch (IndexOutOfBoundsException e) {
             //sometimes a splice site will claim it belongs to an exon when it doesn't

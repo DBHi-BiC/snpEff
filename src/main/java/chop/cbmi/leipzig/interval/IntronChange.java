@@ -6,8 +6,6 @@ import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 
-import java.util.List;
-
 /**
  * Jeremy Leipzig
  * Children's Hospital of Philadelphia
@@ -38,8 +36,8 @@ public class IntronChange extends TranscriptChange {
                 change.set(intron, EffectType.INTRON, "");
                 int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(seqChange.getEnd()) : transcript.lastExonPositionBefore(seqChange.getEnd());
                 int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(seqChange.getStart()) : transcript.firstExonPositionAfter(seqChange.getStart());
-                int cdsFirstAfter=cdsBaseNumberForAll(firstAfter);
-                int cdsLastBefore=cdsBaseNumberForAll(lastBefore);
+                int cdsFirstAfter= cdsBaseNumberOfExonInTx(firstAfter);
+                int cdsLastBefore= cdsBaseNumberOfExonInTx(lastBefore);
                 int distanceToPrecedingExon=Math.abs(seqChange.getStart()-lastBefore);
                 int distanceToProcedingExon=Math.abs(seqChange.getStart()-firstAfter);
                 this.txPos = (distanceToPrecedingExon<distanceToProcedingExon) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExon) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExon);
