@@ -1,12 +1,9 @@
 package chop.cbmi.leipzig.interval;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ca.mcgill.mcb.pcingola.interval.*;
-import ca.mcgill.mcb.pcingola.interval.codonChange.CodonChange;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
-import ca.mcgill.mcb.pcingola.snpEffect.Config;
 import ca.mcgill.mcb.pcingola.util.GprSeq;
 
 /**
@@ -24,7 +21,7 @@ public class TranscriptChange {
     Transcript transcript;
     ChangeEffect changeEffect;
     String txPos = null; //transcript-relative nt position
-    int hgvsoffset = 1;  //1-based
+    final int HGVSOFFSET = 1;  //1-based
     private boolean usePrevBaseIntron = true;
 
     public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
@@ -50,38 +47,18 @@ public class TranscriptChange {
 
 
     /**
-     * Calculate base number in a CDS where 'pos' maps
-     *
-     * @returns Base number relative to cds
+     * Calculate base number of an exon position
+     * 
      */
-    int cdsBaseNumberForAll(int pos) {
-
-        // Calculate cdsStart and cdsEnd (if not already done)
-        int cdsStart = transcript.getCdsStart();
-        int firstCdsBaseInExon = 0; // Where the exon maps to the CDS (i.e. which CDS base number does the first base in this exon maps to).
+    int cdsBaseNumberOfExonInTx(int pos){
         List<Exon> exons = transcript.sortedStrand();
         for (Exon eint : exons) {
             if (eint.intersects(pos)) {
-                int cdsBaseInExon; // cdsBaseInExon: base number relative to the beginning of the coding part of this exon (i.e. excluding 5'UTRs)
-                if (transcript.getStrand() >= 0) cdsBaseInExon = pos - eint.getStart();
-                else cdsBaseInExon = eint.getEnd() - pos;
-                return firstCdsBaseInExon + cdsBaseInExon + hgvsoffset;
-            } else {
-                // Before exon begins?
-                if ((transcript.isStrandPlus() && (pos < eint.getStart())) // Before exon begins (positive strand)?
-                        || (transcript.isStrandMinus() && (pos > eint.getEnd()))) // Before exon begins (negative strand)?
-                {
-                    //System.out.println(pos + " is not in an exon but "+this.getClass()+" asked for its cds base number");
-                    throw new IndexOutOfBoundsException(pos + " is not in an exon but "+this.getClass()+" asked for its cds base number");
-                    //return firstCdsBaseInExon - (usePrevBaseIntron ? 1 : 0);
-                }
+                int cdsBaseNumber = this.transcript.cdsBaseNumber(pos,usePrevBaseIntron);
+                return cdsBaseNumber+HGVSOFFSET;
             }
-
-            if (transcript.isStrandPlus()) firstCdsBaseInExon += eint.getEnd()-eint.getStart()+1;
-            else firstCdsBaseInExon += eint.getEnd() - eint.getStart() + 1;
-
         }
-        return firstCdsBaseInExon - 1 + hgvsoffset;
+        throw new IndexOutOfBoundsException(pos + " is not in an exon but "+this.getClass()+" asked for its cds base number");
     }
 
     /**
@@ -93,7 +70,7 @@ public class TranscriptChange {
         ChangeEffect change = changeEffect.clone();
         if (!transcript.intersects(seqChange)) return change;
 
-        this.txPos= String.valueOf(cdsBaseNumberForAll(seqChange.getStart()));
+        this.txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
         change.setTxPos(this.txPos);
         return change;
     }
