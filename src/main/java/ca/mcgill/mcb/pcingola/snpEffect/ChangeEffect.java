@@ -218,9 +218,9 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	}
 
 	/**
-	 * Amino acid change string (HGVS style)
+	 * Amino acid change string (snpeff-HGVS style)
 	 * References: http://www.hgvs.org/mutnomen/recs.html
-	 *
+	 * Q219*
 	 * @return
 	 */
 	public String getAaChangeHgvs() {
@@ -232,6 +232,26 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		return aaOld + (codonNum + 1) + aaNew;
 	}
 
+    /**
+     * Amino acid change string (HGVS style)
+     * References: http://www.hgvs.org/mutnomen/recs.html
+     * p.I79V
+     * p.Q219X
+     * @return
+     */
+    public String getProteinChangeHgvs() {
+        if (aaOld.isEmpty() && aaNew.isEmpty()) {
+            if (codonNum >= 0) return "" + (codonNum + 1);
+            return "";
+        }
+        if (aaOld.equals(aaNew)) return "p."+HgvsAaClean(aaNew) + (codonNum + 1);
+        return "p."+HgvsAaClean(aaOld) + (codonNum + 1) + HgvsAaClean(aaNew);
+    }
+
+    private String HgvsAaClean(String aa){
+        if (aa.equals("*")) return "X";
+        return aa;
+    }
     /**
      * Coding DNA HGVS change string
      * SeqChange.changeType associations:
