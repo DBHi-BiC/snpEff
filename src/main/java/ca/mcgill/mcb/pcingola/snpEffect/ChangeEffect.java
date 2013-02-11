@@ -244,14 +244,10 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
             if (codonNum >= 0) return "" + (codonNum + 1);
             return "";
         }
-        if (aaOld.equals(aaNew)) return "p."+HgvsAaClean(aaNew) + (codonNum + 1);
-        return "p."+HgvsAaClean(aaOld) + (codonNum + 1) + HgvsAaClean(aaNew);
+        if (aaOld.equals(aaNew)) return "p."+aaNew + (codonNum + 1);
+        return "p."+aaOld + (codonNum + 1) + aaNew;
     }
 
-    private String HgvsAaClean(String aa){
-        if (aa.equals("*")) return "X";
-        return aa;
-    }
     /**
      * Coding DNA HGVS change string
      * SeqChange.changeType associations:

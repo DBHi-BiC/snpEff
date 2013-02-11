@@ -150,19 +150,11 @@ public class VcfOutputFormatter extends OutputFormatter {
 					else effBuff.append("|||");
 				} else effBuff.append("|||");
 
-				// Add transcript info and HGVS
-				if (tr != null){
-                    effBuff.append(vcfInfoSafeString(tr.getId()));
-                    effBuff.append("|");
-                    effBuff.append(changeEffect.getCodingDnaHgvs());
-                }
 
-
-				effBuff.append("|");
-
-                effBuff.append(changeEffect.getProteinChangeHgvs());
-
+                // Add transcript info
+                if (tr != null) effBuff.append(vcfInfoSafeString(tr.getId()));
                 effBuff.append("|");
+
 
 				// Add exon (or intron) rank info
 				Exon ex = changeEffect.getExon();
@@ -176,10 +168,10 @@ public class VcfOutputFormatter extends OutputFormatter {
 
 				effBuff.append(rank >= 0 ? rank : "");
 
+                effBuff.append("|");
+
                 // Add transcript info and HGVS
                 if (tr != null){
-                    effBuff.append(vcfInfoSafeString(tr.getId()));
-                    effBuff.append("|");
                     effBuff.append(changeEffect.getCodingDnaHgvs());
                 }
 
@@ -283,7 +275,7 @@ public class VcfOutputFormatter extends OutputFormatter {
 		ArrayList<String> newLines = new ArrayList<String>();
 		newLines.add("##SnpEffVersion=\"" + version + "\"");
 		newLines.add("##SnpEffCmd=\"" + commandLineStr + "\"");
-		newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_change| Amino_Acid_length | Gene_Name | Gene_BioType | Coding | Transcript | Exon [ | ERRORS | WARNINGS ] | HGVS_DNA_nomenclature | HGVS_protein_nomenclature )' \">");
+		newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_change| Amino_Acid_length | Gene_Name | Gene_BioType | Coding | Transcript | Exon | HGVS_DNA_nomenclature | HGVS_protein_nomenclature [ | ERRORS | WARNINGS ])' \">");
 		if (lossOfFunction) {
 			newLines.add("##INFO=<ID=LOF,Number=.,Type=String,Description=\"Predicted loss of function effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected' \">");
 			newLines.add("##INFO=<ID=NMD,Number=.,Type=String,Description=\"Predicted nonsense mediated decay effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected' \">");
