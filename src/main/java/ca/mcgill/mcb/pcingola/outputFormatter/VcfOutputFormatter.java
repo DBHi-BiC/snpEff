@@ -171,7 +171,8 @@ public class VcfOutputFormatter extends OutputFormatter {
                 effBuff.append("|");
 
                 // Add transcript info and HGVS
-                if (tr != null){
+
+                if (tr != null && ex != null){
                     effBuff.append(changeEffect.getCodingDnaHgvs());
                 }
 

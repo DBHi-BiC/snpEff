@@ -786,7 +786,20 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 			// Update trId
 			if (tr != null){
                 transcriptId = tr.getId();
-                hgvsDna = this.getCodingDnaHgvs();
+
+                //CBMi
+                //only annotate exonic changes
+                //identify exon
+                if(tr.isExon(seqChange.getStart())){
+                    hgvsDna=this.getCodingDnaHgvs();
+                    Exon exon = tr.findExon(seqChange.getStart());
+                    if (exon != null) {
+
+                        exonId = exon.getId();
+                        exonRank = exon.getRank();
+                    }
+                }
+
             }
 
             hgvsAA=this.getProteinChangeHgvs();
@@ -794,6 +807,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 			// Exon rank information
 			Exon exon = getExon();
 			if (exon != null) {
+
 				exonId = exon.getId();
 				exonRank = exon.getRank();
 			}

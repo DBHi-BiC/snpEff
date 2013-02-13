@@ -322,6 +322,23 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		return firstCdsBaseInExon - 1;
 	}
 
+    /**
+     * Is a pos exonic?
+     */
+    public boolean isExon(int pos){
+        if (!intersects(pos)) return false;
+
+        // Is it in UTR instead of CDS?
+        if (isUtr(pos)) return false;
+
+        for (Exon eint : sortedStrand()) {
+            if (eint.intersects(pos)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 	/**
 	 * Calculate chromosome position as function of CDS number 
 	 * 
