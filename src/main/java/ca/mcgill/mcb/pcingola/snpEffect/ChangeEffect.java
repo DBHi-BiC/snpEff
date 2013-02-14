@@ -418,10 +418,19 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	 */
 	public Exon getExon() {
 		if (marker != null) {
-			if (marker instanceof Exon) return (Exon) marker;
-			return (Exon) marker.findParent(Exon.class);
-		}
-		return null;
+			if (marker instanceof Exon){
+                return (Exon) marker;
+            }
+
+            Transcript tr = getTranscript();
+            if(tr != null){
+                Exon exon = tr.findExon(seqChange.getStart());
+                if(exon != null) return exon;
+            }
+            //for splice_site_donor and others
+            return (Exon) marker.findParent(Exon.class);
+        }
+        return null;
 	}
 
 	/**
@@ -563,6 +572,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				+ "Bio_type\t" //
 				+ "Trancript_ID\t" //
                 + "HGVS_DNA\t" //
+                + "HGVS_AA\t" //
 				+ "Exon_ID\t" //
 				+ "Exon_Rank\t" //
 				+ "Effect\t" //
@@ -767,7 +777,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	@Override
 	public String toString() {
 		// Get data to show
-		String geneId = "", geneName = "", bioType = "", transcriptId = "", hgvsDna = "", exonId = "", customId = "";
+		String geneId = "", geneName = "", bioType = "", transcriptId = "", hgvsDna = "", hgvsAA ="", exonId = "", customId = "";
 		int exonRank = -1;
 
 		if (marker != null) {
@@ -782,18 +792,30 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				bioType = getBiotype();
 			}
 
+
+            Exon exon = getExon();
+            if (exon != null) {
+                exonId = exon.getId();
+                exonRank = exon.getRank();
+            }
+
 			// Update trId
 			if (tr != null){
                 transcriptId = tr.getId();
-                hgvsDna = this.getCodingDnaHgvs();
+
+                //CBMi
+                //only annotate exonic changes
+                //in transcripts
+                if (exon != null) {
+                    hgvsDna=this.getCodingDnaHgvs();
+                }
+
             }
 
-			// Exon rank information
-			Exon exon = getExon();
-			if (exon != null) {
-				exonId = exon.getId();
-				exonRank = exon.getRank();
-			}
+            //this will be blank in non-cds instances
+            hgvsAA=this.getProteinChangeHgvs();
+
+
 
 			// Regulation
 			if (isRegulation()) bioType = ((Regulation) marker).getCellType();
@@ -815,6 +837,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				+ "\t" + bioType //
 				+ "\t" + transcriptId //
                 + "\t" + hgvsDna //
+                + "\t" + hgvsAA //
 				+ "\t" + exonId //
 				+ "\t" + (exonRank >= 0 ? exonRank : "") //
 				+ "\t" + effect(false, false, false) //
