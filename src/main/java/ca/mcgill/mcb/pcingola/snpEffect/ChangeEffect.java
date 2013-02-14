@@ -418,10 +418,19 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	 */
 	public Exon getExon() {
 		if (marker != null) {
-			if (marker instanceof Exon) return (Exon) marker;
-			return (Exon) marker.findParent(Exon.class);
-		}
-		return null;
+			if (marker instanceof Exon){
+                return (Exon) marker;
+            }
+
+            Transcript tr = getTranscript();
+            if(tr != null){
+                Exon exon = tr.findExon(seqChange.getStart());
+                if(exon != null) return exon;
+            }
+            //for splice_site_donor and others
+            return (Exon) marker.findParent(Exon.class);
+        }
+        return null;
 	}
 
 	/**
@@ -783,34 +792,30 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				bioType = getBiotype();
 			}
 
+
+            Exon exon = getExon();
+            if (exon != null) {
+                exonId = exon.getId();
+                exonRank = exon.getRank();
+            }
+
 			// Update trId
 			if (tr != null){
                 transcriptId = tr.getId();
 
                 //CBMi
                 //only annotate exonic changes
-                //identify exon
-                if(tr.isExon(seqChange.getStart())){
+                //in transcripts
+                if (exon != null) {
                     hgvsDna=this.getCodingDnaHgvs();
-                    Exon exon = tr.findExon(seqChange.getStart());
-                    if (exon != null) {
-
-                        exonId = exon.getId();
-                        exonRank = exon.getRank();
-                    }
                 }
 
             }
 
+            //this will be blank in non-cds instances
             hgvsAA=this.getProteinChangeHgvs();
 
-			// Exon rank information
-			Exon exon = getExon();
-			if (exon != null) {
 
-				exonId = exon.getId();
-				exonRank = exon.getRank();
-			}
 
 			// Regulation
 			if (isRegulation()) bioType = ((Regulation) marker).getCellType();

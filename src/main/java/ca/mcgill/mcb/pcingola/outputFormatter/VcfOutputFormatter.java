@@ -172,8 +172,19 @@ public class VcfOutputFormatter extends OutputFormatter {
 
                 // Add transcript info and HGVS
 
-                if (tr != null && ex != null){
-                    effBuff.append(changeEffect.getCodingDnaHgvs());
+                if (tr != null){
+                    Exon exon = tr.findExon(changeEffect.getSeqChange().getStart());
+                    if (exon != null) {
+                        //first print the exon name
+                        effBuff.append(exon.getId());
+                        effBuff.append(changeEffect.getCodingDnaHgvs());
+                        //exonId = exon.getId();
+                        //exonRank = exon.getRank();
+                    }
+
+                }else{
+
+
                 }
 
 
@@ -276,7 +287,7 @@ public class VcfOutputFormatter extends OutputFormatter {
 		ArrayList<String> newLines = new ArrayList<String>();
 		newLines.add("##SnpEffVersion=\"" + version + "\"");
 		newLines.add("##SnpEffCmd=\"" + commandLineStr + "\"");
-		newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_change| Amino_Acid_length | Gene_Name | Gene_BioType | Coding | Transcript | Exon | HGVS_DNA_nomenclature | HGVS_protein_nomenclature [ | ERRORS | WARNINGS ])' \">");
+		newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_change| Amino_Acid_length | Gene_Name | Gene_BioType | Coding | Transcript | Rank | Exon | HGVS_DNA_nomenclature | HGVS_protein_nomenclature [ | ERRORS | WARNINGS ])' \">");
 		if (lossOfFunction) {
 			newLines.add("##INFO=<ID=LOF,Number=.,Type=String,Description=\"Predicted loss of function effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected' \">");
 			newLines.add("##INFO=<ID=NMD,Number=.,Type=String,Description=\"Predicted nonsense mediated decay effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected' \">");

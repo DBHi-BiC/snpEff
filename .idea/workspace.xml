@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" afterPath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java" afterPath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" afterPath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_summary.html" afterPath="$PROJECT_DIR$/snpEff_summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -16,14 +15,14 @@
     <file path="/fragment.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360613865784" ignored="false" />
     <file path="/Dummy.txt" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360263826232" ignored="false" />
     <file path="/a.dummy" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360256491772" ignored="false" />
-    <file path="/ChangeEffect.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360793986246" ignored="false" />
+    <file path="/ChangeEffect.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360855696421" ignored="false" />
     <file path="/CodonChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360205196110" ignored="false" />
     <file path="/transcriptChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1359745612803" ignored="false" />
     <file path="/TranscriptChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360605291289" ignored="false" />
     <file path="/Transcript.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360793613558" ignored="false" />
     <file path="/TranscriptChangeSnp.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360115336194" ignored="false" />
     <file path="/mehdi_notes.txt" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1359826732570" ignored="false" />
-    <file path="/VcfOutputFormatter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360792244051" ignored="false" />
+    <file path="/VcfOutputFormatter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360852603028" ignored="false" />
     <file path="/test.chr1.1line.vcf" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360154827117" ignored="false" />
     <file path="/SpliceSite.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360212460548" ignored="false" />
     <file path="/IntronChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360603720217" ignored="false" />
@@ -157,7 +156,7 @@
       <file leaf-file-name="VcfOutputFormatter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="174" column="34" selection-start="5258" selection-end="5258" vertical-scroll-proportion="-13.230769">
+            <state line="181" column="51" selection-start="5661" selection-end="5661" vertical-scroll-proportion="-22.192308">
               <folding />
             </state>
           </provider>
@@ -166,7 +165,16 @@
       <file leaf-file-name="ChangeEffect.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="799" column="21" selection-start="22054" selection-end="22054" vertical-scroll-proportion="0.71207863">
+            <state line="433" column="38" selection-start="11187" selection-end="11187" vertical-scroll-proportion="0.7867435">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Marker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Marker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="124" column="20" selection-start="4040" selection-end="4040" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -194,15 +202,6 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/UpstreamChange.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utr3primeChange.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -248,8 +247,8 @@
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" />
       </list>
     </option>
@@ -844,7 +843,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="132" y="22" width="2383" height="1193" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -932,13 +931,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/hgvs_test_in.vcf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/hgvs_test_out.vcf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="320" selection-start="603" selection-end="628" vertical-scroll-proportion="0.0">
@@ -1016,13 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="34" selection-start="5258" selection-end="5258" vertical-scroll-proportion="-13.230769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="30" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.0">
@@ -1037,9 +1022,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="51" selection-start="5661" selection-end="5661" vertical-scroll-proportion="-22.192308">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Marker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="20" selection-start="4040" selection-end="4040" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="799" column="21" selection-start="22054" selection-end="22054" vertical-scroll-proportion="0.71207863">
+        <state line="433" column="38" selection-start="11187" selection-end="11187" vertical-scroll-proportion="0.7867435">
           <folding />
         </state>
       </provider>
