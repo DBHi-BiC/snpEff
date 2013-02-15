@@ -146,11 +146,7 @@ th a:active, th a:hover {
 	</tr>
 	<tr bgcolor=dddddd> 
 		<td valign=top> <b> Date </b> </td>
-<<<<<<< HEAD
-		<td> 2013-02-15 14:00 </td>
-=======
-		<td> 2013-02-14 10:59 </td>
->>>>>>> develop
+		<td> 2013-02-15 14:11 </td>
 	</tr>
 	<tr bgcolor=ffffff> 
 		<td valign=top> <b> SnpEff version </b> </td>
@@ -158,11 +154,7 @@ th a:active, th a:hover {
 	</tr>
 	<tr bgcolor=dddddd> 
 		<td valign=top> <b> Command line arguments </b> </td>
-<<<<<<< HEAD
-		<td> <pre>SnpEff  hg19 -splice 1 -i vcf -o txt /Users/Mehdi/workspace/snpEff/tests/hgvs_test/splicetest.vcf 
-=======
-		<td> <pre>SnpEff  hg19 -i vcf -o vcf /Users/leipzig/workspace/SnpEff/tests/hgvs_test_in.vcf 
->>>>>>> develop
+		<td> <pre>SnpEff  hg19 -splice 10 -i vcf -o vcf tests/hgvs_test/splicetest.vcf 
 </pre> </td>
 	</tr>
 	<tr bgcolor=ffffff> 
@@ -203,7 +195,7 @@ th a:active, th a:hover {
 	</tr>
 	<tr bgcolor=ffffff>
 		<td valign=top> <b> Number of effects </b> </td>
-		<td> 8 </td>
+		<td> 12 </td>
 	</tr>
 	<tr bgcolor=dddddd>
 		<td valign=top> <b> Genome total length </b> </td>
@@ -334,16 +326,22 @@ th a:active, th a:hover {
 		</tr>
 	</thead>
 		<tr> 
+			<td> <b> HIGH </b> </td> 
+			<th> &nbsp; </th>
+			<td class="numeric" bgcolor="#7f7f00"> 4 </td> 
+			<td class="numeric" bgcolor="#7f7f00"> 33.333% </td>
+		</tr>
+		<tr> 
 			<td> <b> LOW </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="#00ff00"> 3 </td> 
-			<td class="numeric" bgcolor="#00ff00"> 37.5% </td>
+			<td class="numeric" bgcolor="#00ff00"> 25% </td>
 		</tr>
 		<tr> 
 			<td> <b> MODIFIER </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="#ff0000"> 5 </td> 
-			<td class="numeric" bgcolor="#ff0000"> 62.5% </td>
+			<td class="numeric" bgcolor="#ff0000"> 41.667% </td>
 		</tr>
 </table><br>
 <p>
@@ -408,19 +406,25 @@ Missense / Silent ratio: </th><td class="numeric"> 0
 			<td> <b> INTRON </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="#ff0000"> 4 </td> 
-			<td class="numeric" bgcolor="#ff0000"> 50% </td>
+			<td class="numeric" bgcolor="#ff0000"> 33.333% </td>
+		</tr>
+		<tr> 
+			<td> <b> SPLICE_SITE_DONOR </b> </td> 
+			<th> &nbsp; </th>
+			<td class="numeric" bgcolor="#ff0000"> 4 </td> 
+			<td class="numeric" bgcolor="#ff0000"> 33.333% </td>
 		</tr>
 		<tr> 
 			<td> <b> SYNONYMOUS_CODING </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="#aa5500"> 3 </td> 
-			<td class="numeric" bgcolor="#aa5500"> 37.5% </td>
+			<td class="numeric" bgcolor="#aa5500"> 25% </td>
 		</tr>
 		<tr> 
 			<td> <b> UTR_5_PRIME </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="#00ff00"> 1 </td> 
-			<td class="numeric" bgcolor="#00ff00"> 12.5% </td>
+			<td class="numeric" bgcolor="#00ff00"> 8.333% </td>
 		</tr>
 </table><br>
  </td>
@@ -437,19 +441,25 @@ Missense / Silent ratio: </th><td class="numeric"> 0
 			<td> <b> EXON </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="#aa5500"> 3 </td> 
-			<td class="numeric" bgcolor="#aa5500"> 37.5% </td>
+			<td class="numeric" bgcolor="#aa5500"> 25% </td>
 		</tr>
 		<tr> 
 			<td> <b> INTRON </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="#ff0000"> 4 </td> 
-			<td class="numeric" bgcolor="#ff0000"> 50% </td>
+			<td class="numeric" bgcolor="#ff0000"> 33.333% </td>
+		</tr>
+		<tr> 
+			<td> <b> SPLICE_SITE_DONOR </b> </td> 
+			<th> &nbsp; </th>
+			<td class="numeric" bgcolor="#ff0000"> 4 </td> 
+			<td class="numeric" bgcolor="#ff0000"> 33.333% </td>
 		</tr>
 		<tr> 
 			<td> <b> UTR_5_PRIME </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="#00ff00"> 1 </td> 
-			<td class="numeric" bgcolor="#00ff00"> 12.5% </td>
+			<td class="numeric" bgcolor="#00ff00"> 8.333% </td>
 		</tr>
 </table><br>
  </td>
@@ -457,11 +467,7 @@ Missense / Silent ratio: </th><td class="numeric"> 0
 </table>
 <p>
 
-<<<<<<< HEAD
-<img src="http://chart.apis.google.com/chart?cht=bvs&chbh=50,4,8&chs=800x300&chxt=y,y,x,x&chtt=Variations&chxp=1,50.0|3,50.0&chxr=0,0.0,50.0|1,0.0,100.0|3,0.0,100.0&chco=00FFFF,FA8072,FF0000,A52A2A,FFA500,DEB887,E9967A,7FFFD4,808080&chdl=Upstream|5%27UTR|Exon|Splice+Donor|Intron|Splice+Acceptor|3%27UTR|Downstream|Intergenic&chxl=1:|%25|2:|Intergenic|Up|5%27UTR|Exon|Donor|Intron|Acceptor|Exon|3%27UTR|Down|Intergenic|3:|&chd=e:AAAAAAAAAAAAAAAAAAAAAA,AAAAQAAAAAAAAAAAAAAAAA,AAAAAAv.AAAAAAv.AAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAA..AAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA" border=1><p>
-=======
-<img src="http://chart.apis.google.com/chart?cht=bvs&chs=800x300&chbh=50,4,8&chxt=y,y,x,x&chtt=Variations&chxp=1,50.0|3,50.0&chxr=0,0.0,42.857142857142854|1,0.0,100.0|3,0.0,100.0&chco=00FFFF,FA8072,FF0000,A52A2A,FFA500,DEB887,E9967A,7FFFD4,808080&chdl=Upstream|5%27UTR|Exon|Splice+Donor|Intron|Splice+Acceptor|3%27UTR|Downstream|Intergenic&chxl=1:|%25|2:|Intergenic|Up|5%27UTR|Exon|Donor|Intron|Acceptor|Exon|3%27UTR|Down|Intergenic|3:|&chd=e:AAVVAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAA..AAAAAA..AAAAAA,AAAAAAAAVVAAAAAAAAAAAA,AAAAAAAAAAVVAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAVVAA,AAAAAAAAAAAAAAAAAAAAAA" border=1><p>
->>>>>>> develop
+<img src="http://chart.apis.google.com/chart?cht=bvs&chbh=50,4,8&chs=800x300&chxt=y,y,x,x&chtt=Variations&chxp=1,50.0|3,50.0&chxr=0,0.0,33.33333333333333|1,0.0,100.0|3,0.0,100.0&chco=00FFFF,FA8072,FF0000,A52A2A,FFA500,DEB887,E9967A,7FFFD4,808080&chdl=Upstream|5%27UTR|Exon|Splice+Donor|Intron|Splice+Acceptor|3%27UTR|Downstream|Intergenic&chxl=1:|%25|2:|Intergenic|Up|5%27UTR|Exon|Donor|Intron|Acceptor|Exon|3%27UTR|Down|Intergenic|3:|&chd=e:AAAAAAAAAAAAAAAAAAAAAA,AAAAQAAAAAAAAAAAAAAAAA,AAAAAAv.AAAAAAv.AAAAAA,AAAAAAAA..AAAAAAAAAAAA,AAAAAAAAAA..AAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAA" border=1><p>
 
 </center>
 <!--==========================================================================
