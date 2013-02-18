@@ -1,4 +1,4 @@
-##This file is to test the HGVS annotations. The file will be used as input to snpeff with -HGVS parameter
+##This file is to test the HGVS annotations.
 #CHROME POS     ID      REF     ALT     QUAL    FILTER  INFO
 1	16856	.	A	G	100.0	PASS	DP=100;
 1	69745	.	C	T	100.0	PASS	DP=100;
