@@ -1,6 +1,8 @@
 snpEff with HGVS
 =================
 
+This codebase is branched off of official SnpEff version 3.1h (http://snpeff.sourceforge.net/).
+
 The snpEff make script assumes a specific Eclipsey directory structure. Let's not muck with that.
 
 ```
