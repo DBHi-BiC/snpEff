@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_summary.html" afterPath="$PROJECT_DIR$/snpEff_summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SnpEff.iws" />
@@ -35,6 +36,87 @@
     <file path="/test.chr1.2line.vcf" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360214789464" ignored="false" />
     <file path="/Utr3primeChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360258673057" ignored="false" />
     <file path="/*.regexp" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360791853372" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/BinSeqFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/BlastResultFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/DnaSeqFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/FastqFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/FileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/GenericMarkerFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/LineClassFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/LineFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/MarkerFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/MatrixEntry.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/RegulationBedFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/util/Gpr.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/RegulationFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/RegulationGffFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/data/spliceSites/u12_meme/meme.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/Fastq2Fastq.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeBedFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/vcf/VcfEffect.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/vcf/VcfEntry.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeFileTxt.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/TableFile.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/VcfFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/vcf/VcfHeader.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/parser/Parser.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/LossOfFunction.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/filter/ChangeEffectFilter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/PromoterSequences.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/filter/Filter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/Qseq2Fastq.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/Qseq2FastqSplit.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/RegulationConsensusMultipleBed.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/RegulationFileConsensus.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Cds.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/ZzzPacBIo.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Chromosome.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/ChromosomeSimpleName.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Custom.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Downstream.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Exon.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/ExonSpliceCaracterizer.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Gene.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/GenericMarker.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Genes.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Genome.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/GenomeHuman.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Intergenic.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/IntergenicConserved.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Interval.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/IntervalAndSubIntervals.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/IntervalComparatorByEnd.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/IntervalComparatorByStart.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/IntervalSetIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Intron.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/IntronConserved.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/MarkerParentId.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Markers.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/MarkerSerializer.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/MarkerUtil.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/MicroRnaBindingSite.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/RareAminoAcid.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Regulation.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SeqChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteAcceptor.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteBranch.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteBranchU12.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteDonor.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Upstream.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr3prime.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr5prime.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/BedAnnotationOutputFormatter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/BedOutputFormatter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
+    <file path="$PROJECT_DIR$/galaxy/snpEff_wrapper.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
+    <file path="$PROJECT_DIR$/galaxy/snpSift_filter.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
+    <file path="$PROJECT_DIR$/galaxy/snpSift_int.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
+    <file path="$PROJECT_DIR$/galaxy/tool_conf.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
+    <file path="$PROJECT_DIR$/galaxy/snpEff.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
+    <file path="$PROJECT_DIR$/galaxy/snpEff_download.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
+    <file path="$PROJECT_DIR$/galaxy/snpSift_annotate.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654752" ignored="false" />
+    <file path="$PROJECT_DIR$/galaxy/snpSift_caseControl.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654753" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,10 +209,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TranscriptChange.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TranscriptChange.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="40" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0">
+            <state line="84" column="50" selection-start="2663" selection-end="2663" vertical-scroll-proportion="0.86037236">
               <folding />
             </state>
           </provider>
@@ -145,19 +227,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VcfOutputFormatter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="VcfOutputFormatter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="208" column="58" selection-start="6188" selection-end="6188" vertical-scroll-proportion="2.8097126">
+            <state line="208" column="58" selection-start="6188" selection-end="6188" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utr5primeChange.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr5primeChange.java">
+      <file leaf-file-name="ExonChange.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
+            <state line="13" column="13" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -272,8 +354,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="93" />
-    <option name="y" value="56" />
+    <option name="x" value="667" />
+    <option name="y" value="22" />
     <option name="width" value="2383" />
     <option name="height" value="1193" />
   </component>
@@ -318,6 +400,72 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SnpEff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SnpEff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SnpEff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SnpEff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SnpEff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SnpEff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SnpEff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="interval" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -577,8 +725,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="93" y="56" width="2383" height="1193" extended-state="0" />
-    <editor active="false" />
+    <frame x="667" y="22" width="2383" height="1193" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -592,10 +740,10 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57036346" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32391956" sideWeight="0.7474371" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32391956" sideWeight="0.74836904" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15875053" sideWeight="0.7474371" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25227687" sideWeight="0.99785775" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15875053" sideWeight="0.74836904" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25163093" sideWeight="0.99785775" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4557316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -687,11 +835,6 @@
         <state line="16" column="13" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0" />
@@ -712,13 +855,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/UpstreamChange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="40" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -767,7 +903,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="58" selection-start="6188" selection-end="6188" vertical-scroll-proportion="2.8097126">
+        <state line="208" column="58" selection-start="6188" selection-end="6188" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="50" selection-start="2663" selection-end="2663" vertical-scroll-proportion="0.86037236">
           <folding />
         </state>
       </provider>
