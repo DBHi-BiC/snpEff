@@ -50,7 +50,7 @@ import freemarker.template.TemplateException;
 /**
  * Command line program: Predict changes
  * 
- * @author Pablo Cingolani
+ * @author Pablo Cingolani modified by CHOP CBMi
  */
 public class SnpEffCmdEff extends SnpEff {
 
