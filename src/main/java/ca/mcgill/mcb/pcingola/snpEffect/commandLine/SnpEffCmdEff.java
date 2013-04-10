@@ -22,11 +22,7 @@ import ca.mcgill.mcb.pcingola.fileIterator.SeqChangeFileTxt;
 import ca.mcgill.mcb.pcingola.fileIterator.VcfFileIterator;
 import ca.mcgill.mcb.pcingola.filter.ChangeEffectFilter;
 import ca.mcgill.mcb.pcingola.filter.SeqChangeFilter;
-import ca.mcgill.mcb.pcingola.interval.Chromosome;
-import ca.mcgill.mcb.pcingola.interval.Custom;
-import ca.mcgill.mcb.pcingola.interval.Genome;
-import ca.mcgill.mcb.pcingola.interval.Regulation;
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
+import ca.mcgill.mcb.pcingola.interval.*;
 import ca.mcgill.mcb.pcingola.interval.codonChange.CodonChange;
 import ca.mcgill.mcb.pcingola.interval.tree.IntervalForest;
 import ca.mcgill.mcb.pcingola.outputFormatter.BedAnnotationOutputFormatter;
@@ -61,7 +57,10 @@ public class SnpEffCmdEff extends SnpEff {
 	public static final String SUMMARY_TEMPLATE = "snpEff_summary.ftl"; // Summary template file name
 	public static final String SUMMARY_GENES_TEMPLATE = "snpEff_genes.ftl"; // Genes template file name
 
-	boolean canonical = false; // Use only canonical transcripts
+	// Added by Mahdi: An argument to define CORE_SPLICE_SITE_SIZE
+    int coreSpliceSiteSize = 2;
+
+    boolean canonical = false; // Use only canonical transcripts
 	boolean supressOutput = false; // Only used for debugging purposes 
 	boolean createSummary = true; // Do not create summary output file 
 	boolean useLocalTemplate = false; // Use template from 'local' file instead of 'jar' (this is only used for development and debugging)
@@ -359,6 +358,7 @@ public class SnpEffCmdEff extends SnpEff {
 				else if (args[i].equalsIgnoreCase("-noOut")) supressOutput = true; // Undocumented option (only used for development & debugging)
 				else if (args[i].equalsIgnoreCase("-noStats")) createSummary = false; // Do not create summary file. It can be much faster (e.g. when parsing VCF files with many samples)
 				else if (args[i].equalsIgnoreCase("-noChromoPlots")) chromoPlots = false;
+
 				//---
 				// Annotation options
 				//---
@@ -424,7 +424,12 @@ public class SnpEffCmdEff extends SnpEff {
 					if ((i + 1) < args.length) seqChangeFilter.setMaxCoverage(Gpr.parseIntSafe(args[++i]));
 				} else if ((args[i].equals("-ud") || args[i].equalsIgnoreCase("-upDownStreamLen"))) {
 					if ((i + 1) < args.length) upDownStreamLength = Gpr.parseIntSafe(args[++i]);
-				} else if (args[i].equals("-hom")) seqChangeFilter.setHeterozygous(false);
+				}
+                else if ((args[i].equals("-splice") || args[i].equalsIgnoreCase("-spliceSiteSize"))) {
+                if ((i + 1) < args.length) coreSpliceSiteSize = Gpr.parseIntSafe(args[++i]);
+                    SpliceSite.CORE_SPLICE_SITE_SIZE = coreSpliceSiteSize;
+                }
+                else if (args[i].equals("-hom")) seqChangeFilter.setHeterozygous(false);
 				else if (args[i].equals("-het")) seqChangeFilter.setHeterozygous(true);
 				else if (args[i].equals("-snp")) seqChangeFilter.setChangeType(SeqChange.ChangeType.SNP);
 				else if (args[i].equals("-mnp")) seqChangeFilter.setChangeType(SeqChange.ChangeType.MNP);
@@ -850,6 +855,7 @@ public class SnpEffCmdEff extends SnpEff {
 		System.err.println("\t-no-intron                      : Do not show INTRON changes");
 		System.err.println("\t-no-upstream                    : Do not show UPSTREAM changes");
 		System.err.println("\t-no-utr                         : Do not show 5_PRIME_UTR or 3_PRIME_UTR changes");
+
 		System.err.println("\nAnnotations filter options:");
 		System.err.println("\t-canon                          : Only use canonical transcripts.");
 		System.err.println("\t-lof                            : Add loss of function (LOF) and Nonsense mediated decay (NMD) tags.");
@@ -858,6 +864,7 @@ public class SnpEffCmdEff extends SnpEff {
 		System.err.println("\t-onlyTr <file.txt>              : Only use the transcripts in this file. Format: One transcript ID per line.");
 		System.err.println("\t-treatAllAsProteinCoding <bool> : If true, all transcript are treated as if they were protein conding. Default: Auto");
 		System.err.println("\t-ud, -upDownStreamLen           : Set upstream downstream interval length (in bases)");
+        System.err.println("\t-splice X                       : Look up to X basepair before and after an exon for splice sites (default 2)");
 		System.err.println("\nGeneric options:");
 		System.err.println("\t-0                      : File positions are zero-based (same as '-inOffset 0 -outOffset 0')");
 		System.err.println("\t-1                      : File positions are one-based (same as '-inOffset 1 -outOffset 1')");
