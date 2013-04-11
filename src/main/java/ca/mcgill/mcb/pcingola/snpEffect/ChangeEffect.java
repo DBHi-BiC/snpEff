@@ -266,13 +266,11 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
                 return tr.getId()+":c."+this.txPos+this.ntOld+">"+this.ntNew;
             }
             if(this.seqChange.isIns()){
-                int nextPos=Integer.parseInt(this.txPos)+1;
-                return tr.getId()+":c."+this.txPos+"_"+Integer.toString(nextPos)+"ins"+this.ntIns;
+                return tr.getId()+":c."+this.txPos+"ins"+this.ntIns;
             }
             if(this.seqChange.isDel()){
                 if(this.ntDel.length()>1){
-                    int nextPos=Integer.parseInt(this.txPos)+this.ntDel.length()-1;
-                    return tr.getId()+":c."+this.txPos+"_"+Integer.toString(nextPos)+"del"+this.ntDel;
+                    return tr.getId()+":c."+this.txPos+"del"+this.ntDel;
                 }
                 return tr.getId()+":c."+this.txPos+"del"+this.ntDel;
             }
@@ -817,9 +815,9 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
                 //CBMi
                 //only annotate exonic changes
                 //in transcripts
-                if (exon != null) {
+                //if (exon != null) {
                     hgvsDna=this.getCodingDnaHgvs();
-                }
+                //}
 
             }
 

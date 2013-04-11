@@ -73,6 +73,7 @@ public class TranscriptChange {
         if (!transcript.intersects(seqChange)) return change;
 
         this.txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
+
         change.setTxPos(this.txPos);
         return change;
     }

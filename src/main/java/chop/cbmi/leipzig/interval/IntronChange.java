@@ -38,9 +38,31 @@ public class IntronChange extends TranscriptChange {
                 int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(seqChange.getStart()) : transcript.firstExonPositionAfter(seqChange.getStart());
                 int cdsFirstAfter= cdsBaseNumberOfExonInTx(firstAfter);
                 int cdsLastBefore= cdsBaseNumberOfExonInTx(lastBefore);
-                int distanceToPrecedingExon=Math.abs(seqChange.getStart()-lastBefore);
-                int distanceToProcedingExon=Math.abs(seqChange.getStart()-firstAfter);
-                this.txPos = (distanceToPrecedingExon<distanceToProcedingExon) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExon) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExon);
+                int distanceToPrecedingExonStart=Math.abs(seqChange.getStart()-lastBefore);
+                int distanceToProcedingExonStart=Math.abs(seqChange.getStart()-firstAfter);
+                int distanceToPrecedingExonEnd=Math.abs(seqChange.getEnd()-lastBefore);
+                int distanceToProcedingExonEnd=Math.abs(seqChange.getEnd()-firstAfter);
+
+                if(seqChange.isDel()){
+                    String txPosStart = (distanceToPrecedingExonStart<distanceToProcedingExonStart) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart);
+                    String txPosEnd = (distanceToPrecedingExonEnd<distanceToProcedingExonEnd) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonEnd) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonEnd);
+
+                    if(seqChange.size()==1){
+                        txPos= txPosStart;
+                    }else{
+                        if(transcript.isStrandPlus()){
+                             txPos=txPosStart+"_"+txPosEnd;
+                        }else{
+                            txPos=txPosEnd+"_"+txPosStart;
+                        }
+                    }
+                }else if(seqChange.isIns()){
+                    txPos = (distanceToPrecedingExonStart<distanceToProcedingExonStart) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart)+"_"+String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart+1) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart)+"_"+String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart+1);
+                }else{
+                    txPos = (distanceToPrecedingExonStart<distanceToProcedingExonStart) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart);
+                }
+
+
                 change.setTxPos(txPos);
                 return change;
             }

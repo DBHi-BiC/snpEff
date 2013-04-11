@@ -23,7 +23,21 @@ public class ExonChange extends TranscriptChange {
     ChangeEffect transcriptChange() {
         ChangeEffect change = changeEffect.clone();
         try {
-            txPos = String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
+            if(seqChange.isDel()){
+                if(seqChange.size()==1){
+                    txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
+                }else{
+                    if(transcript.isStrandPlus()){
+                        txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()))+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getEnd()));
+                    }else{
+                        txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getEnd()))+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
+                    }
+                }
+            }else if(seqChange.isIns()){
+                txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()))+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+1);
+            }else{
+                txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
+            }
             change.setTxPos(txPos);
         } catch (IndexOutOfBoundsException e) {
             //sometimes a splice site will claim it belongs to an exon when it doesn't
