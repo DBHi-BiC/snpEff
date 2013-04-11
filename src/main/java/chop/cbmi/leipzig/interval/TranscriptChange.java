@@ -40,6 +40,8 @@ public class TranscriptChange {
     public ChangeEffect calculate() {
         ChangeEffect change = changeEffect.clone(); // Create a copy of this result
         if(seqChange.isSnp()) setSNP();
+        if(seqChange.isIns()) setINS();
+        if(seqChange.isDel()) setDEL();
         change = this.transcriptChange();
 
         return change;
@@ -81,6 +83,20 @@ public class TranscriptChange {
             changeEffect.setTranscript(this.txPos, seqChange.reference(), seqChange.change(), null, null);
         }else{
             changeEffect.setTranscript(this.txPos, GprSeq.reverseWc(seqChange.reference()), GprSeq.reverseWc(seqChange.change()), null, null);
+        }
+    }
+    public void setINS(){
+        if(transcript.isStrandPlus()){
+            changeEffect.setTranscript(this.txPos, seqChange.reference(), null, seqChange.netChange(seqChange), null);
+        }else{
+            changeEffect.setTranscript(this.txPos, GprSeq.reverseWc(seqChange.reference()), null, GprSeq.reverseWc(seqChange.netChange(seqChange)), null);
+        }
+    }
+    public void setDEL(){
+        if(transcript.isStrandPlus()){
+            changeEffect.setTranscript(this.txPos, seqChange.reference(), null, null, seqChange.netChange(seqChange));
+        }else{
+            changeEffect.setTranscript(this.txPos, GprSeq.reverseWc(seqChange.reference()), null, null, GprSeq.reverseWc(seqChange.netChange(seqChange)));
         }
     }
 }

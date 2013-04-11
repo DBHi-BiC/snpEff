@@ -3,20 +3,29 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" line="260" mnemonic="H" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" description="setTranscript" line="675" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="">
+    <list id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/hgvs_test_in.vcf" afterPath="$PROJECT_DIR$/tests/hgvs_test_in.vcf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_genes.txt" afterPath="$PROJECT_DIR$/snpEff_genes.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_summary.html" afterPath="$PROJECT_DIR$/snpEff_summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <list default="true" id="53f0086e-1fa6-4bb5-93d1-61c5b544e396" name="getCodingDnaHgvs" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" afterPath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" />
     </list>
     <ignored path="SnpEff.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/fragment.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622553578" ignored="false" />
-    <file path="/Dummy.txt" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622624036" ignored="false" />
+    <file path="/Dummy.txt" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365696759974" ignored="false" />
     <file path="/a.dummy" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360256491772" ignored="false" />
-    <file path="/ChangeEffect.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360855696421" ignored="false" />
+    <file path="/ChangeEffect.java" changelist="53f0086e-1fa6-4bb5-93d1-61c5b544e396" time="1365697844924" ignored="false" />
     <file path="/CodonChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360205196110" ignored="false" />
     <file path="/transcriptChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1359745612803" ignored="false" />
-    <file path="/TranscriptChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360605291289" ignored="false" />
+    <file path="/TranscriptChange.java" changelist="53f0086e-1fa6-4bb5-93d1-61c5b544e396" time="1365698661919" ignored="false" />
     <file path="/Transcript.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360793613558" ignored="false" />
     <file path="/TranscriptChangeSnp.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360115336194" ignored="false" />
     <file path="/mehdi_notes.txt" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1359826732570" ignored="false" />
@@ -35,7 +44,7 @@
     <file path="/Downstream.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360211376282" ignored="false" />
     <file path="/test.chr1.2line.vcf" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360214789464" ignored="false" />
     <file path="/Utr3primeChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360258673057" ignored="false" />
-    <file path="/*.regexp" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1360791853372" ignored="false" />
+    <file path="/*.regexp" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365691278213" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/BinSeqFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/BlastResultFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/DnaSeqFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
@@ -51,26 +60,16 @@
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/RegulationFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/RegulationGffFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
     <file path="$PROJECT_DIR$/data/spliceSites/u12_meme/meme.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/Fastq2Fastq.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeBedFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654677" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/vcf/VcfEffect.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/vcf/VcfEntry.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/SeqChangeFileTxt.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/TableFile.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/VcfFileIterator.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/vcf/VcfHeader.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/fileIterator/parser/Parser.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/LossOfFunction.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/filter/ChangeEffectFilter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/PromoterSequences.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/filter/Filter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/Qseq2Fastq.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/Qseq2FastqSplit.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/RegulationConsensusMultipleBed.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/RegulationFileConsensus.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654678" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Cds.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/ZzzPacBIo.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Chromosome.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/ChromosomeSimpleName.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Custom.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654679" ignored="false" />
@@ -98,7 +97,6 @@
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/MicroRnaBindingSite.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/RareAminoAcid.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Regulation.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SeqChange.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteAcceptor.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteBranch.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SpliceSiteBranchU12.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
@@ -107,8 +105,6 @@
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr3prime.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr5prime.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654680" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/BedAnnotationOutputFormatter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/BedOutputFormatter.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
     <file path="$PROJECT_DIR$/galaxy/snpEff_wrapper.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
     <file path="$PROJECT_DIR$/galaxy/snpSift_filter.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
     <file path="$PROJECT_DIR$/galaxy/snpSift_int.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
@@ -117,7 +113,10 @@
     <file path="$PROJECT_DIR$/galaxy/snpEff_download.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654681" ignored="false" />
     <file path="$PROJECT_DIR$/galaxy/snpSift_annotate.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654752" ignored="false" />
     <file path="$PROJECT_DIR$/galaxy/snpSift_caseControl.xml" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622654753" ignored="false" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <file path="/hgvs_test_in.vcf" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365625463590" ignored="false" />
+    <file path="$PROJECT_DIR$/snpEff_summary.html" changelist="53f0086e-1fa6-4bb5-93d1-61c5b544e396" time="1365697452942" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" changelist="53f0086e-1fa6-4bb5-93d1-61c5b544e396" time="1365698662233" ignored="false" />
+    <option name="TRACKING_ENABLED" value="false" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,38 +130,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/commandLine/SnpEffCmdEff.java" line="212" class="ca.mcgill.mcb.pcingola.snpEffect.commandLine.SnpEffCmdEff" package="ca.mcgill.mcb.pcingola.snpEffect.commandLine">
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="&#13;&#13;JAVA" />
-        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Upstream.java" line="40" class="ca.mcgill.mcb.pcingola.interval.Upstream" package="ca.mcgill.mcb.pcingola.interval">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -209,91 +177,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TranscriptChange.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="50" selection-start="2663" selection-end="2663" vertical-scroll-proportion="0.86037236">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpstreamChange.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/UpstreamChange.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VcfOutputFormatter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="208" column="58" selection-start="6188" selection-end="6188" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExonChange.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodonChange.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="30" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Transcript.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="340" column="4" selection-start="10336" selection-end="10336" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Marker.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Marker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="20" selection-start="4040" selection-end="4040" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChangeEffect.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ChangeEffect.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="437" column="70" selection-start="11291" selection-end="11291" vertical-scroll-proportion="0.0">
+            <state line="260" column="0" selection-start="7418" selection-end="7418" vertical-scroll-proportion="0.41575092">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TxtOutputFormatter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/TxtOutputFormatter.java">
+      <file leaf-file-name="TranscriptChange.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0">
+            <state line="80" column="66" selection-start="2423" selection-end="2423" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutputFormatter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/OutputFormatter.java">
+      <file leaf-file-name="hgvs_test_in.vcf" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/hgvs_test_in.vcf">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="53" selection-start="3365" selection-end="3365" vertical-scroll-proportion="0.0">
+            <state line="15" column="12" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -317,7 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Upstream.java" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChangeSnp.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Downstream.java" />
         <option value="$PROJECT_DIR$/tests/test.chr1.2line.vcf" />
@@ -329,10 +233,11 @@
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/UpstreamChange.java" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java" />
+        <option value="$PROJECT_DIR$/tests/hgvs_test_in.vcf" />
+        <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java" />
       </list>
     </option>
   </component>
@@ -350,14 +255,18 @@
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Snp Effect" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
       </PATH>
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="667" />
-    <option name="y" value="22" />
-    <option name="width" value="2383" />
-    <option name="height" value="1193" />
+    <option name="x" value="459" />
+    <option name="y" value="72" />
+    <option name="width" value="1914" />
+    <option name="height" value="1191" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -403,72 +312,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnpEff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnpEff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnpEff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnpEff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnpEff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnpEff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="interval" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope">
@@ -508,7 +351,7 @@
       <recent name="chop.cbmi.leipzig.interval" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.hgvs_in_vcf">
+  <component name="RunManager" selected="Application.hgvs_in_txt">
     <configuration default="false" name="All in main" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="main" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -696,7 +539,7 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true">
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true" SSL_PROTOCOLS="sslv3">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
     <option name="mySSHConnectionTimeout" value="30000" />
@@ -706,7 +549,6 @@
     <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
     <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
     <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="DETECT_NESTED_COPIES" value="true" />
     <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
@@ -717,36 +559,43 @@
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
+    <task id="Default" summary="Default task">
       <changelist id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="" />
       <created>1359670094689</created>
-      <updated>1359670094689</updated>
+      <updated>1365696770444</updated>
     </task>
+    <task active="true" id="LOCAL-00001" summary="getCodingDnaHgvs">
+      <changelist id="53f0086e-1fa6-4bb5-93d1-61c5b544e396" name="getCodingDnaHgvs" comment="" />
+      <created>1365696769758</created>
+      <updated>1365696770592</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="667" y="22" width="2383" height="1193" extended-state="0" />
-    <editor active="true" />
+    <frame x="459" y="72" width="1914" height="1191" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4557316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4291237" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19860813" sideWeight="0.23809524" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57036346" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32391956" sideWeight="0.74836904" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40524626" sideWeight="0.5723623" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15875053" sideWeight="0.74836904" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25163093" sideWeight="0.99785775" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19860813" sideWeight="0.33333334" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42763773" sideWeight="0.9994647" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4557316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39929327" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -794,7 +643,7 @@
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
@@ -820,16 +669,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/hgvs_test_out.vcf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="320" selection-start="603" selection-end="628" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/testCases/TestCasesVcf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="7" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/DownstreamChange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="13" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" />
@@ -859,51 +698,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/OutputFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="53" selection-start="3365" selection-end="3365" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/TxtOutputFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="30" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="340" column="4" selection-start="10336" selection-end="10336" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Marker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="124" column="20" selection-start="4040" selection-end="4040" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="437" column="70" selection-start="11291" selection-end="11291" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="58" selection-start="6188" selection-end="6188" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -915,9 +712,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/TxtOutputFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="332" selection-end="332" vertical-scroll-proportion="0.18646409">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="30" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/OutputFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="74" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-1.4861878">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/outputFormatter/VcfOutputFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="208" column="58" selection-start="6188" selection-end="6188" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#2507#2515#0" expanded="true" />
+            <element signature="e#7053#7061#0" expanded="true" />
+            <element signature="e#8681#8689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="944" column="28" selection-start="26805" selection-end="26805" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SeqChange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="440" column="16" selection-start="13352" selection-end="13352" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/hgvs_test_in.vcf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="12" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="50" selection-start="2663" selection-end="2663" vertical-scroll-proportion="0.86037236">
+        <state line="80" column="66" selection-start="2423" selection-end="2423" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="260" column="0" selection-start="7418" selection-end="7418" vertical-scroll-proportion="0.41575092">
           <folding />
         </state>
       </provider>

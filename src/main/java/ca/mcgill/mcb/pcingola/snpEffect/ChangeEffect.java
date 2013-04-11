@@ -265,6 +265,17 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
             if(this.seqChange.isSnp()){
                 return tr.getId()+":c."+this.txPos+this.ntOld+">"+this.ntNew;
             }
+            if(this.seqChange.isIns()){
+                int nextPos=Integer.parseInt(this.txPos)+1;
+                return tr.getId()+":c."+this.txPos+"_"+Integer.toString(nextPos)+"ins"+this.ntIns;
+            }
+            if(this.seqChange.isDel()){
+                if(this.ntDel.length()>1){
+                    int nextPos=Integer.parseInt(this.txPos)+this.ntDel.length()-1;
+                    return tr.getId()+":c."+this.txPos+"_"+Integer.toString(nextPos)+"del"+this.ntDel;
+                }
+                return tr.getId()+":c."+this.txPos+"del"+this.ntDel;
+            }
         }
         return "";
     }
