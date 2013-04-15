@@ -35,9 +35,28 @@ public class ExonChange extends TranscriptChange {
                 }
             }else if(seqChange.isIns()){
                 txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()))+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+1);
+                //we need to get the flanking sequence somehow
+                //seems only exons get blessed with this info
+                String myCodingSequence=this.exon.getSequence();
+
+                //this is used almost nowhere else but since we get exon sequence instead of tx seq we use it
+                Integer changeBaseInExon;
+                if (transcript.isStrandPlus()) changeBaseInExon = seqChange.getStart() - this.exon.getStart();
+                else changeBaseInExon = this.exon.getEnd() - seqChange.getStart();
+
+                //make sure there is enough flank left to check,an insert of length 3 must be at position 4 or later
+                Integer ntLen=changeEffect.getNtIns().length();
+                if(changeBaseInExon-ntLen>=0){
+                    String preFlank=exon.getSequence().substring(changeBaseInExon-ntLen-1,changeBaseInExon-1).toUpperCase();
+                    if(preFlank.equals(changeEffect.getNtIns())){
+                        seqChange.setDup(true);
+                    }
+                }
             }else{
                 txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
             }
+
+
             change.setTxPos(txPos);
         } catch (IndexOutOfBoundsException e) {
             //sometimes a splice site will claim it belongs to an exon when it doesn't

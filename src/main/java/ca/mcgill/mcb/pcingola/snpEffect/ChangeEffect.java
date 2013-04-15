@@ -266,7 +266,11 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
                 return tr.getId()+":c."+this.txPos+this.ntOld+">"+this.ntNew;
             }
             if(this.seqChange.isIns()){
-                return tr.getId()+":c."+this.txPos+"ins"+this.ntIns;
+                if(this.seqChange.getDup().equals(true)){
+                    return tr.getId()+":c."+this.txPos+"dup"+this.ntIns;
+                }else{
+                    return tr.getId()+":c."+this.txPos+"ins"+this.ntIns;
+                }
             }
             if(this.seqChange.isDel()){
                 if(this.ntDel.length()>1){
@@ -688,6 +692,10 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
          this.txPos = txPos;
      }
 
+    public String getNtIns()
+    {
+        return ntIns;
+    }
 	/**
 	 * Set codon change. Calculate effect type based on codon changes (for SNPs ans MNPs)
 	 * @param codonsOld

@@ -7,6 +7,8 @@ import java.util.List;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.util.GprSeq;
 
+import ca.mcgill.mcb.pcingola.interval.Exon;
+
 /**
  * A change in a reference sequence
  * 
@@ -27,6 +29,7 @@ public class SeqChange extends Marker {
 	private static final long serialVersionUID = -2928105165111400441L;;
 
 	Boolean heterozygous; // Is this an heterozygous change?
+    Boolean duplicate; //is the insertion actually duplication
 	ChangeType changeType; // Change type
 	String reference; // Reference (i.e. original bases in the genome)
 	String change; // Changed bases
@@ -145,6 +148,12 @@ public class SeqChange extends Marker {
 		return score;
 	}
 
+    public void setDup(boolean isDuplicate){
+        this.duplicate=isDuplicate;
+    }
+    public Boolean getDup(){
+        return this.duplicate;
+    }
 	/**
 	 * Create a new SeqChange for this option
 	 * @param i
