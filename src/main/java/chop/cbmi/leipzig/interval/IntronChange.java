@@ -57,7 +57,7 @@ public class IntronChange extends TranscriptChange {
                         }
                     }
                 }else if(seqChange.isIns()){
-                    txPos = (distanceToPrecedingExonStart<distanceToProcedingExonStart) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart)+"_"+String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart+1) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart)+"_"+String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart+1);
+                    txPos = (distanceToPrecedingExonStart<distanceToProcedingExonStart) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart+1)+"_"+String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart+2) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart)+"_"+String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart+1);
                 }else{
                     txPos = (distanceToPrecedingExonStart<distanceToProcedingExonStart) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPrecedingExonStart) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProcedingExonStart);
                 }

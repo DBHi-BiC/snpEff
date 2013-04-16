@@ -29,7 +29,7 @@ public class SeqChange extends Marker {
 	private static final long serialVersionUID = -2928105165111400441L;;
 
 	Boolean heterozygous; // Is this an heterozygous change?
-    Boolean duplicate; //is the insertion actually duplication
+    Boolean duplicate; //is the insertion actually duplication TODO: NOT USED DUE TO OBJECT IMPERMANENCE AND SCOPE - implemented in ChangeEffect
 	ChangeType changeType; // Change type
 	String reference; // Reference (i.e. original bases in the genome)
 	String change; // Changed bases

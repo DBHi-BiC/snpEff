@@ -25,7 +25,13 @@ import ca.mcgill.mcb.pcingola.interval.Transcript;
  */
 public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 
-	public enum Coding {
+
+
+    public void setDup(boolean duplicate) {
+        isDup=duplicate;
+    }
+
+    public enum Coding {
 		CODING, NON_CODING
 	}
 
@@ -112,8 +118,8 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	int codonIndex = -1; // Index within a codon (negative number mens 'information not available')
 	int codonDegeneracy = -1; // Codon degeneracy (negative number mens 'information not available')
 	String aaOld = "", aaNew = ""; // Amino acid changes
-	String aasAroundOld = "", aasAroundNew = ""; // Amino acids arround
-
+	String aasAroundOld = "", aasAroundNew = ""; // Amino acids around
+    String aasLeft = "", aasRight="";
     /**
      * CBMi
      * HGVS-related information
@@ -125,6 +131,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
     String txPos = null; // nucleotide number
     String ntOld = ""; String ntNew = ""; //NT changes
     String ntIns = ""; String ntDel = "";
+    boolean isDup = false;
 
 	/**
 	 *  An empty list of results;
@@ -217,32 +224,36 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		return aaOld + "/" + aaNew;
 	}
 
-	/**
-	 * Amino acid change string (snpeff-HGVS style)
-	 * References: http://www.hgvs.org/mutnomen/recs.html
-	 * Q219*
-	 * @return
-	 */
-	public String getAaChangeHgvs() {
-		if (aaOld.isEmpty() && aaNew.isEmpty()) {
-			if (codonNum >= 0) return "" + (codonNum + 1);
-			return "";
-		}
-		if (aaOld.equals(aaNew)) return aaNew + (codonNum + 1);
-		return aaOld + (codonNum + 1) + aaNew;
-	}
 
     /**
      * Amino acid change string (HGVS style)
      * References: http://www.hgvs.org/mutnomen/recs.html
      * p.I79V
      * p.Q219X
+     * p.Ala24_Thr25insGlnSerLys
      * @return
      */
-    public String getProteinChangeHgvs() {
+    public String getAaChangeHgvs() {
         if (aaOld.isEmpty() && aaNew.isEmpty()) {
             if (codonNum >= 0) return "" + (codonNum + 1);
             return "";
+        }
+        if(this.seqChange.isIns()){
+            if(this.effectType == EffectType.CODON_INSERTION)
+                return "p."+aasLeft+(codonNum-1)+"_"+aasRight+(codonNum+1)+"ins"+this.ntIns.length();
+            }
+           else{
+            if(this.effectType == EffectType.FRAME_SHIFT)
+            {
+                //p.Arg97fs
+                if(aaOld.equals(aaNew)){
+                 return "p."+aasRight+(codonNum+1)+"fs";
+            }else{
+                    System.out.println(this.effectType.toString());
+                }
+
+
+            }
         }
         if (aaOld.equals(aaNew)) return "p."+aaNew + (codonNum + 1);
         return "p."+aaOld + (codonNum + 1) + aaNew;
@@ -259,24 +270,25 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
      * @return
      */
     public String getCodingDnaHgvs() {
+        //we no longer prepend the tr.getId()+
         Transcript tr = getTranscript();
         if (tr != null && this.txPos != null)
         {
             if(this.seqChange.isSnp()){
-                return tr.getId()+":c."+this.txPos+this.ntOld+">"+this.ntNew;
+                return "c."+this.txPos+this.ntOld+">"+this.ntNew;
             }
             if(this.seqChange.isIns()){
-                if(this.seqChange.getDup().equals(true)){
-                    return tr.getId()+":c."+this.txPos+"dup"+this.ntIns;
+                if(this.isDup){
+                    return "c."+this.txPos+"dup"+this.ntIns;
                 }else{
-                    return tr.getId()+":c."+this.txPos+"ins"+this.ntIns;
+                    return "c."+this.txPos+"ins"+this.ntIns;
                 }
             }
             if(this.seqChange.isDel()){
                 if(this.ntDel.length()>1){
-                    return tr.getId()+":c."+this.txPos+"del"+this.ntDel;
+                    return "c."+this.txPos+"del"+this.ntDel;
                 }
-                return tr.getId()+":c."+this.txPos+"del"+this.ntDel;
+                return "c."+this.txPos+"del"+this.ntDel;
             }
         }
         return "";
@@ -781,10 +793,11 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 
 		// Amino acids surrounding the ones changed
 		CodonTable codonTable = marker.codonTable();
-		String aasLeft = codonTable.aa(codonsLeft);
-		String aasRigt = codonTable.aa(codonsRight);
-		aasAroundOld = aasLeft.toLowerCase() + aaOld.toUpperCase() + aasRigt.toLowerCase();
-		aasAroundNew = aasLeft.toLowerCase() + aaNew.toUpperCase() + aasRigt.toLowerCase();
+		aasLeft = codonTable.aa(codonsLeft);
+		aasRight = codonTable.aa(codonsRight);
+		aasAroundOld = aasLeft.toLowerCase() + aaOld.toUpperCase() + aasRight.toLowerCase();
+		aasAroundNew = aasLeft.toLowerCase() + aaNew.toUpperCase() + aasRight.toLowerCase();
+
 	}
 
 	public void setMarker(Marker marker) {
@@ -830,7 +843,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
             }
 
             //this will be blank in non-cds instances
-            hgvsAA=this.getProteinChangeHgvs();
+            hgvsAA=this.getAaChangeHgvs();
 
 
 

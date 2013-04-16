@@ -34,7 +34,14 @@ public class ExonChange extends TranscriptChange {
                     }
                 }
             }else if(seqChange.isIns()){
-                txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()))+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+1);
+                Integer hgvs_ins_offset;
+                //TODO:i do not understand this at all
+                if(transcript.isStrandPlus()){
+                    hgvs_ins_offset=-1;
+                }else{
+                    hgvs_ins_offset=0;
+                }
+                txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+hgvs_ins_offset)+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+1+hgvs_ins_offset);
                 //we need to get the flanking sequence somehow
                 //seems only exons get blessed with this info
                 String myCodingSequence=this.exon.getSequence();
@@ -49,7 +56,7 @@ public class ExonChange extends TranscriptChange {
                 if(changeBaseInExon-ntLen>=0){
                     String preFlank=exon.getSequence().substring(changeBaseInExon-ntLen-1,changeBaseInExon-1).toUpperCase();
                     if(preFlank.equals(changeEffect.getNtIns())){
-                        seqChange.setDup(true);
+                        change.setDup(true);
                     }
                 }
             }else{
