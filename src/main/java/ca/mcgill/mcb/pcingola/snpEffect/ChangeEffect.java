@@ -30,7 +30,9 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
     public void setDup(boolean duplicate) {
         isDup=duplicate;
     }
-
+    public boolean isDup(){
+        return isDup;
+    }
     public enum Coding {
 		CODING, NON_CODING
 	}
@@ -707,6 +709,10 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
     public String getNtIns()
     {
         return ntIns;
+    }
+    public String getNtDel()
+    {
+        return ntDel;
     }
 	/**
 	 * Set codon change. Calculate effect type based on codon changes (for SNPs ans MNPs)
