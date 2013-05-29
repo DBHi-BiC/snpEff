@@ -5,6 +5,8 @@ import java.util.List;
 import ca.mcgill.mcb.pcingola.interval.SeqChange.ChangeType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
+import chop.cbmi.leipzig.interval.Utr3primeChange;
+
 
 /**
  * Interval for a UTR (5 prime UTR and 3 prime UTR
@@ -49,6 +51,12 @@ public class Utr3prime extends Utr {
 
 		Exon exon = (Exon) findParent(Exon.class);
 		if (exon != null) exon.check(seqChange, changeEffect); // Check that base matches the expected one
+
+        // Note: We need to use the transcripts's strand
+        int distance = (parent.isStrandPlus() ? end - seqChange.getStart() : seqChange.getStart() - start) + 1;
+        changeEffect.set(this, EffectType.UTR_3_PRIME, distance + " bases");
+        Utr3primeChange utrChange = new Utr3primeChange(seqChange, this, changeEffect);
+        changeEffect = utrChange.calculate();
 
 		return changeEffect.newList();
 	}

@@ -32,20 +32,27 @@ public class ExonChange extends TranscriptChange {
         if(seqChange.isIns()){
             flank=changeEffect.getNtIns();
         }
-        if(changeBaseInExon-ntLen>=0){
-            boolean still_walking = true;
-            while(still_walking){
-                //walk the duplication
-                if (transcript.isStrandPlus()){
-                    String postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset,changeBaseInExon+ntLen+dupOffset).toUpperCase();
-                    if(postFlank.equals(flank)){
-                        change.setDup(true);
-                        dupOffset=dupOffset+ntLen;
-                    }else{
-                        still_walking=false;
-                    }
+        if (transcript.isStrandPlus()){
+            if(changeBaseInExon-ntLen>=0){
+                boolean still_walking = true;
+                while(still_walking){
+                    //walk the duplication
+
+                        String postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset,changeBaseInExon+ntLen+dupOffset).toUpperCase();
+                        if(postFlank.equals(flank) & seqChange.isIns()){
+                            change.setDup(true);
+                            dupOffset=dupOffset+ntLen;
+                        }else{
+                            still_walking=false;
+                        }
+
                 }
             }
+        }
+        //for negative strand inserts we need to look behind
+        String preFlank=exon.getSequence().substring(changeBaseInExon-ntLen-1,changeBaseInExon-1).toUpperCase();
+        if(preFlank.equals(flank) & seqChange.isIns()){
+            change.setDup(true);
         }
         return dupOffset;
     }
@@ -57,6 +64,7 @@ public class ExonChange extends TranscriptChange {
                 if(seqChange.size()==1){
                     txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
                 }else{
+                    //end>start because a strand is given
                     if(transcript.isStrandPlus()){
                         Integer changeBaseInExon;
                         changeBaseInExon = seqChange.getEnd() - this.exon.getStart();
@@ -64,6 +72,7 @@ public class ExonChange extends TranscriptChange {
                         int dupOffset=repeatWalker(changeBaseInExon,change,ntLen);
                         txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+dupOffset)+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getEnd())+dupOffset);
                     }else{
+                        //you don't have to walk?
                         txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getEnd()))+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
                     }
                 }
