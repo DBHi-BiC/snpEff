@@ -4,6 +4,7 @@ import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
+import ca.mcgill.mcb.pcingola.util.GprSeq;
 
 /**
  * Jeremy Leipzig
@@ -37,7 +38,6 @@ public class ExonChange extends TranscriptChange {
                 boolean still_walking = true;
                 while(still_walking){
                     //walk the duplication
-
                         String postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset,changeBaseInExon+ntLen+dupOffset).toUpperCase();
                         if(postFlank.equals(flank) & seqChange.isIns()){
                             change.setDup(true);
@@ -48,11 +48,12 @@ public class ExonChange extends TranscriptChange {
 
                 }
             }
-        }
-        //for negative strand inserts we need to look behind
-        String preFlank=exon.getSequence().substring(changeBaseInExon-ntLen-1,changeBaseInExon-1).toUpperCase();
-        if(preFlank.equals(flank) & seqChange.isIns()){
-            change.setDup(true);
+        }else{
+           //for negative strand inserts we need to look behind
+            String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
+            if(preFlank.equals(flank) & seqChange.isIns()){
+                change.setDup(true);
+            }
         }
         return dupOffset;
     }
