@@ -10,12 +10,8 @@
   <component name="ChangeListManager">
     <list id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="" />
     <list default="true" id="53f0086e-1fa6-4bb5-93d1-61c5b544e396" name="getCodingDnaHgvs" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr5prime.java" afterPath="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr5prime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr5primeChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr5primeChange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/hgvs_test_in.vcf" afterPath="$PROJECT_DIR$/tests/hgvs_test_in.vcf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_genes.txt" afterPath="$PROJECT_DIR$/snpEff_genes.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_summary.html" afterPath="$PROJECT_DIR$/snpEff_summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SnpEff.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -370,8 +366,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="51" />
-    <option name="y" value="22" />
+    <option name="x" value="1635" />
+    <option name="y" value="48" />
     <option name="width" value="2505" />
     <option name="height" value="1165" />
   </component>
@@ -846,7 +842,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="51" y="22" width="2505" height="1165" extended-state="0" />
+    <frame x="1635" y="48" width="2505" height="1165" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
