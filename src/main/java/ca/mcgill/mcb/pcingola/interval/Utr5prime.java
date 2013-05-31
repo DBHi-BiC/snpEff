@@ -64,7 +64,7 @@ public class Utr5prime extends Utr {
 
         // Note: We need to use the transcripts's strand
         int distance = (parent.isStrandPlus() ? end - seqChange.getStart() : seqChange.getStart() - start) + 1;
-        changeEffect.set(this, EffectType.UTR_3_PRIME, distance + " bases");
+        changeEffect.set(this, EffectType.UTR_5_PRIME, distance + " bases");
         Utr5primeChange utrChange = new Utr5primeChange(seqChange, this, changeEffect);
         changeEffect = utrChange.calculate();
 

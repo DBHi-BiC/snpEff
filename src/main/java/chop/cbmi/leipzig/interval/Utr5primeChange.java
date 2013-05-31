@@ -7,6 +7,8 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.interval.Utr5prime;
 
+import java.util.List;
+
 /**
  * Jeremy Leipzig
  * Children's Hospital of Philadelphia
@@ -28,9 +30,13 @@ public class Utr5primeChange extends TranscriptChange {
         //this should simply be a negative number representing the distance to the
         //coding start
         if (utr5prime.intersects(seqChange)) {
-            int distance = (transcript.isStrandPlus() ? transcript.getCdsStart() - seqChange.getEnd() : seqChange.getStart() - transcript.getCdsEnd());
+            int distanceToCodingStart = (transcript.isStrandPlus() ? transcript.getCdsStart() - seqChange.getEnd() : seqChange.getStart() - transcript.getCdsStart());
 
-            txPos = String.valueOf(-1*distance);
+            List<Utr5prime> utrs = transcript.get5primeUtrs();
+            boolean fromEnd = !(transcript.getStrand() < 0); // We want distance from begining of transcript (TSS = End of 5'UTR)
+            int distanceToEndOfUTR = seqChange.distanceFrom(utrs, fromEnd) + 1;
+
+            txPos = String.valueOf(-1*distanceToEndOfUTR);
             change.setTxPos(txPos);
             return change;
 
