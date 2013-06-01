@@ -25,6 +25,9 @@ mvn install:install-file -DgroupId=net.sf.picard -DartifactId=Picard -Dversion=1
 -Dpackaging=jar -Dfile=$PWD/picard-tools-1.84/picard-1.84.jar
 ```
 
+CHANGELOG
+=========
+
 
 
 To build snpEff-3.1-jar-with-dependencies.jar in the ~/workspace/SnpEff/target directory:

@@ -1,0 +1,8 @@
+#CBMi version 1.1
+* Amino_acid_change column REMOVED FROM VCF
+  ##INFO=<ID=EFF,Number=.,Type=String,Description="Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change |  Amino_acid_change |Amino_Acid_length | Gene_Name | Gene_BioType | Coding | Transcript | Rank | Segment | HGVS_DNA_nomenclature | HGVS_protein_nomenclature [ | ERRORS | WARNINGS ])' ">
+  is now:
+  ##INFO=<ID=EFF,Number=.,Type=String,Description="Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change |  Amino_Acid_length | Gene_Name | Gene_BioType | Coding | Transcript | Rank | Segment | HGVS_DNA_nomenclature | HGVS_protein_nomenclature [ | ERRORS | WARNINGS ])' ">
+* transcript id removed from HGVS_DNA_nomenclature (NM_000014.4:c.3889C>T now c.3889C>T)
+* all transcript hits HGVS reported: exons, introns, upstream, downstream
+* indels reported

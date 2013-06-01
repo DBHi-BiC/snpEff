@@ -62,6 +62,12 @@ public class Utr5prime extends Utr {
 		//changeEffect.setExon(exon);
 		if (exon != null) exon.check(seqChange, changeEffect); // Check that base matches the expected one
 
+        // Note: We need to use the transcripts's strand
+        int distance = (parent.isStrandPlus() ? end - seqChange.getStart() : seqChange.getStart() - start) + 1;
+        changeEffect.set(this, EffectType.UTR_5_PRIME, distance + " bases");
+        Utr5primeChange utrChange = new Utr5primeChange(seqChange, this, changeEffect);
+        changeEffect = utrChange.calculate();
+
 		return changeEffect.newList();
 	}
 
