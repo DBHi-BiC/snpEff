@@ -37,12 +37,19 @@ public class ExonChange extends TranscriptChange {
             if(changeBaseInExon-ntLen>=0){
                 boolean still_walking = true;
                 while(still_walking){
+                    String postFlank="";
                     //walk the duplication
-                        String postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset,changeBaseInExon+ntLen+dupOffset).toUpperCase();
-                        if(postFlank.equals(flank) & seqChange.isIns()){
+                        if(seqChange.isIns()){
+                           postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset,changeBaseInExon+ntLen+dupOffset).toUpperCase();
+                        }
+                    if(seqChange.isDel()){
+                         postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset-2,changeBaseInExon+ntLen+dupOffset-2).toUpperCase();
+                    }
+                        if(postFlank.equals(flank)){
                             change.setDup(true);
                             dupOffset=dupOffset+ntLen;
-                        }else{
+                        }
+                        else{
                             still_walking=false;
                         }
 

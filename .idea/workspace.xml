@@ -162,7 +162,7 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" line="52" class="chop.cbmi.leipzig.interval.ExonChange" package="chop.cbmi.leipzig.interval">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" line="35" class="chop.cbmi.leipzig.interval.ExonChange" package="chop.cbmi.leipzig.interval">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -190,7 +190,7 @@
       <file leaf-file-name="ExonChange.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="62" selection-start="2876" selection-end="2876" vertical-scroll-proportion="0.7250384">
+            <state line="38" column="0" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.875576">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -828,7 +828,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20943473" sideWeight="0.15502392" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5701677" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.569378" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.081333876" sideWeight="0.6497608" order="4" side_tool="false" content_ui="tabs" />
@@ -1023,7 +1023,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="62" selection-start="2876" selection-end="2876" vertical-scroll-proportion="0.7250384">
+        <state line="38" column="0" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.875576">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
