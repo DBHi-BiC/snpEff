@@ -25,32 +25,45 @@ public class ExonChange extends TranscriptChange {
         //ntLen is the size of the insert
         //dupOffset is the adjustment for placing ins 3' of repeats if they are dups
         Integer dupOffset=0;
+        Integer rollOffset=0;
         //we need to know whether to use insertion or deletion string
-        String flank="";
+        CharStack flank;
         if(seqChange.isDel()){
-            flank=changeEffect.getNtDel();
-        }
+            flank=new CharStack(changeEffect.getNtDel());
+        }else{
         if(seqChange.isIns()){
-            flank=changeEffect.getNtIns();
+            flank=new CharStack(changeEffect.getNtIns());
+        }
+        else{
+            return 0;
+        }
         }
         if (transcript.isStrandPlus()){
             if(changeBaseInExon-ntLen>=0){
                 boolean still_walking = true;
-                while(still_walking){
+                boolean rolling_back=false;
+                while(still_walking || rolling_back){
                     String postFlank="";
                     //walk the duplication
                         if(seqChange.isIns()){
-                           postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset,changeBaseInExon+ntLen+dupOffset).toUpperCase();
+                           postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset-rollOffset,changeBaseInExon+ntLen+dupOffset-rollOffset).toUpperCase();
                         }
                     if(seqChange.isDel()){
-                         postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset-2,changeBaseInExon+ntLen+dupOffset-2).toUpperCase();
+                         postFlank=exon.getSequence().substring(changeBaseInExon+dupOffset-rollOffset-2,changeBaseInExon+ntLen+dupOffset-rollOffset-2).toUpperCase();
                     }
-                        if(postFlank.equals(flank)){
+                        if(postFlank.equals(flank.get())){
                             change.setDup(true);
                             dupOffset=dupOffset+ntLen;
                         }
                         else{
                             still_walking=false;
+                            rolling_back=true;
+                            //here we need to rollback because these deletions will produce the same sequence but we want the latter
+                            //torollbackrollbacsome
+                            //  rollback
+                            //         krollbak
+                            rollOffset+=1;
+                            flank.rollback();
                         }
 
                 }
@@ -58,7 +71,7 @@ public class ExonChange extends TranscriptChange {
         }else{
            //for negative strand inserts we need to look behind
             String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
-            if(preFlank.equals(flank) & seqChange.isIns()){
+            if(preFlank.equals(flank.get()) & seqChange.isIns()){
                 change.setDup(true);
             }
         }
@@ -69,21 +82,25 @@ public class ExonChange extends TranscriptChange {
         ChangeEffect change = changeEffect.clone();
         try {
             if(seqChange.isDel()){
-                if(seqChange.size()==1){
-                    txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
-                }else{
                     //end>start because a strand is given
                     if(transcript.isStrandPlus()){
                         Integer changeBaseInExon;
-                        changeBaseInExon = seqChange.getEnd() - this.exon.getStart();
+                        changeBaseInExon = seqChange.getStart() - this.exon.getStart();
                         Integer ntLen=changeEffect.getNtDel().length();
                         int dupOffset=repeatWalker(changeBaseInExon,change,ntLen);
-                        txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+dupOffset)+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getEnd())+dupOffset);
+                        if(seqChange.size()==1){
+                            txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+dupOffset);
+                        }else{
+                            txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart())+dupOffset)+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getEnd())+dupOffset);
+                        }
                     }else{
                         //you don't have to walk?
-                        txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getEnd()))+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
+                        if(seqChange.size()==1){
+                            txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
+                        }else{
+                            txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getEnd()))+"_"+String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
+                        }
                     }
-                }
             }else if(seqChange.isIns()){
                 Integer hgvs_ins_offset;
                 //TODO:i do not understand this at all
@@ -123,5 +140,38 @@ public class ExonChange extends TranscriptChange {
         }
 
         return change;
+    }
+}
+//http://stackoverflow.com/a/8746524/264696
+class CharStack {
+    StringBuilder sb;// = new StringBuilder();
+
+    public CharStack(String inputString){
+        this.sb = new StringBuilder(inputString);
+    }
+    public void push(char ch) {
+        sb.append(ch);
+    }
+    public void prepend(char ch) {
+        sb.insert(0,ch);
+    }
+    public char pop() {
+        int last = sb.length() -1;
+        char ch= sb.charAt(last);
+        sb.setLength(last);
+        return ch;
+    }
+
+    public int size() {
+        return sb.length();
+    }
+
+    public void rollback() {
+        char popped=pop();
+        prepend(popped);
+    }
+
+    public String get(){
+        return String.valueOf(sb);
     }
 }
