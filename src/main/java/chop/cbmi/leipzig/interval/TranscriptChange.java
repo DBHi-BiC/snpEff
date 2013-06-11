@@ -195,9 +195,9 @@ public class TranscriptChange {
         }
         if (transcript.isStrandPlus()){
             if(changeBaseInExon-ntLen>=0){
-                boolean still_walking = true;
-                boolean rolling_back=false;
-                while(still_walking || rolling_back){
+                boolean walking = true;
+                boolean rolling = false;
+                while(walking || rolling){
                     String postFlank="";
                     //walk the duplication
 
@@ -208,24 +208,28 @@ public class TranscriptChange {
 
                     if(postFlank.equals(flank.get())){
                         change.setDup(true);
-                        if(still_walking){
+                        if(walking){
                             //try to walk further, might fail
                             dupOffset=dupOffset+ntLen;
                         }
-                        if(rolling_back){
-                            dupOffset=dupOffset-rollOffset;
+                        if(rolling){
+                            //not sure the extra ntLen is justified
+                            dupOffset=dupOffset-rollOffset+ntLen;
                             //rolling was a success
                             if(seqChange.isDel()){
                                 change.setNtDel(flank.get());
                             }else{
                                 change.setNtIns(flank.get());
                             }
-                            rolling_back=false;
+                            rolling=false;
+                            //can we walk again?
+                            walking=true;
+                            rollOffset=0;
                         }
                     }
                     else{
-                        still_walking=false;
-                        rolling_back=true;
+                        walking=false;
+                        rolling=true;
                         //here we need to rollback because these deletions will produce the same sequence but we want the latter
                         //torollbackrollbacsome
                         //  rollback
@@ -233,7 +237,7 @@ public class TranscriptChange {
                         rollOffset+=1;
                         //are you back where you started?
                         if(rollOffset==ntLen){
-                            rolling_back=false;
+                            rolling=false;
                             //rolling was a failure
                             dupOffset=dupOffset-ntLen;
                         }
