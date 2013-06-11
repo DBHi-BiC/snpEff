@@ -146,7 +146,7 @@ th a:active, th a:hover {
 	</tr>
 	<tr bgcolor=dddddd> 
 		<td valign=top> <b> Date </b> </td>
-		<td> 2013-06-06 16:43 </td>
+		<td> 2013-06-11 12:49 </td>
 	</tr>
 	<tr bgcolor=ffffff> 
 		<td valign=top> <b> SnpEff version </b> </td>
@@ -154,7 +154,7 @@ th a:active, th a:hover {
 	</tr>
 	<tr bgcolor=dddddd> 
 		<td valign=top> <b> Command line arguments </b> </td>
-		<td> <pre>SnpEff  -i vcf -o txt hg19 tests/hgvs_test_in.vcf 
+		<td> <pre>SnpEff  hg19 -i vcf -o txt /Users/leipzig/workspace/SnpEff/tests/hgvs_test_in.vcf 
 </pre> </td>
 	</tr>
 	<tr bgcolor=ffffff> 
@@ -273,14 +273,14 @@ th a:active, th a:hover {
 	    </tr>
 	    <tr>
 	    	<td> <b> INS </b> </td>
-	    	<td class="numeric" bgcolor="ffffff"> 0 </td>
-	    	<td class="numeric" bgcolor="ffffff"> 0 </td>
+	    	<td class="numeric" bgcolor="ffffff"> 1 </td>
+	    	<td class="numeric" bgcolor="ffffff"> 1 </td>
 	    	<td class="numeric" bgcolor="ffffff"> 0 </td>
 	    </tr>
 	    <tr>
 	    	<td> <b> DEL </b> </td>
-	    	<td class="numeric" bgcolor="ffffff"> 1 </td>
-	    	<td class="numeric" bgcolor="ffffff"> 1 </td>
+	    	<td class="numeric" bgcolor="ffffff"> 0 </td>
+	    	<td class="numeric" bgcolor="ffffff"> 0 </td>
 	    	<td class="numeric" bgcolor="ffffff"> 0 </td>
 	    </tr>
 	    <tr>
@@ -385,7 +385,7 @@ Missense / Silent ratio: </th><td class="numeric"> �
 		</tr>
 	</thead>
 		<tr> 
-			<td> <b> CODON_DELETION </b> </td> 
+			<td> <b> CODON_INSERTION </b> </td> 
 			<th> &nbsp; </th>
 			<td class="numeric" bgcolor="ffffff"> 1 </td> 
 			<td class="numeric" bgcolor="ffffff"> 100% </td>
@@ -469,16 +469,16 @@ Missense / Silent ratio: </th><td class="numeric"> �
 	<p>
 	<pre>
 	<table class="histo">
-		<tr> <th width=15%>Min</th><td>-9</td> </tr>
-		<tr> <th>Max</th><td>-9</td> </tr>
-		<tr> <th>Mean</th><td>-9</td> </tr>
-		<tr> <th>Median</th><td>-4.5</td> </tr>
+		<tr> <th width=15%>Min</th><td>18</td> </tr>
+		<tr> <th>Max</th><td>18</td> </tr>
+		<tr> <th>Mean</th><td>18</td> </tr>
+		<tr> <th>Median</th><td>9</td> </tr>
 		<tr> <th>Standard deviation</th><td>0</td> </tr>
-		<tr> <th>Values</th><td>-9	</td> </tr>
+		<tr> <th>Values</th><td>18	</td> </tr>
 		<tr> <th>Count</th><td>1	</td> </tr>
 		</tr>
 	</table>
-		<img src="http://chart.apis.google.com/chart?cht=bvg&chd=e:..&chbh=8,4,2&chs=800x300&chxt=y,y,x,x&chxp=1,50.0|3,50.0&chxl=1:|Count|2:|-9|3:|Length&chxr=0,0.0,1.0|1,0.0,100.0|3,0.0,100.0&chtt=Insertion+deletion+length+histogram"><br>
+		<img src="http://chart.apis.google.com/chart?cht=bvg&chd=e:..&chbh=8,4,2&chs=800x300&chxt=y,y,x,x&chxp=1,50.0|3,50.0&chxl=1:|Count|2:|18|3:|Length&chxr=0,0.0,1.0|1,0.0,100.0|3,0.0,100.0&chtt=Insertion+deletion+length+histogram"><br>
 	</pre>
 
 <!--==========================================================================
@@ -564,11 +564,24 @@ Note: Number of times an allele appears once (singleton), twice (doubletons), et
 	<thead>
 		<tr> 
 			<th> &nbsp; </th>
-			 <th> - </th>  <th> AGC </th>  <th> GAT </th> 
+			 <th> - </th>  <th> AGC </th>  <th> GAC </th>  <th> GAT </th> 
 		</tr>
 	</thead>
 			<tr> 
 				<th> - </th>
+					
+						<th class="numeric"> &nbsp </th>
+					
+						<td class="numeric" bgcolor="#ff0000"> 4 </td>
+					
+						<td class="numeric" bgcolor="#00ff00"> 1 </td>
+					
+						<td class="numeric" bgcolor="#00ff00"> 1 </td>
+			</tr>
+			<tr> 
+				<th> AGC </th>
+					
+						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
 					
 						<th class="numeric"> &nbsp </th>
 					
@@ -577,9 +590,11 @@ Note: Number of times an allele appears once (singleton), twice (doubletons), et
 						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
 			</tr>
 			<tr> 
-				<th> AGC </th>
+				<th> GAC </th>
 					
-						<td class="numeric" bgcolor="#ff0000"> 2 </td>
+						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
+					
+						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
 					
 						<th class="numeric"> &nbsp </th>
 					
@@ -588,7 +603,9 @@ Note: Number of times an allele appears once (singleton), twice (doubletons), et
 			<tr> 
 				<th> GAT </th>
 					
-						<td class="numeric" bgcolor="#00ff00"> 1 </td>
+						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
+					
+						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
 					
 						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
 					
@@ -627,14 +644,14 @@ Note: Number of times an allele appears once (singleton), twice (doubletons), et
 					
 						<th class="numeric"> &nbsp </th>
 					
-						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
+						<td class="numeric" bgcolor="#00ff00"> 2 </td>
 					
-						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
+						<td class="numeric" bgcolor="#ff0000"> 4 </td>
 			</tr>
 			<tr> 
 				<th> D </th>
 					
-						<td class="numeric" bgcolor="#00ff00"> 1 </td>
+						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
 					
 						<th class="numeric"> &nbsp </th>
 					
@@ -643,7 +660,7 @@ Note: Number of times an allele appears once (singleton), twice (doubletons), et
 			<tr> 
 				<th> S </th>
 					
-						<td class="numeric" bgcolor="#ff0000"> 2 </td>
+						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
 					
 						<td class="numeric" bgcolor="ffffff"> &nbsp </td>
 					

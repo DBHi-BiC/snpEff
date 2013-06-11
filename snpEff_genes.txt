@@ -1,5 +1,5 @@
 # The following table is formatted as tab separated values. 
-#GeneId	GeneName	BioType	Bases affected (EXON)	Total score (EXON)	Length (EXON)	Bases affected (GENE)	Total score (GENE)	Length (GENE)	Count (CODON_DELETION)
+#GeneId	GeneName	BioType	Bases affected (EXON)	Total score (EXON)	Length (EXON)	Bases affected (GENE)	Total score (GENE)	Length (GENE)	Count (CODON_INSERTION)
 A1BG	A1BG	mRNA	0	0	1766	0	0	6694	0
 A1BG-AS1	A1BG-AS1	Non-coding_transcript	0	0	2130	0	0	3214	0
 A1CF	A1CF	mRNA	0	0	9529	0	0	86267	0
@@ -5502,7 +5502,7 @@ DSG3	DSG3	mRNA	0	0	5551	0	0	30934	0
 DSG4	DSG4	mRNA	0	0	3701	0	0	37141	0
 DSN1	DSN1	mRNA	0	0	2517	0	0	22037	0
 DSP	DSP	mRNA	0	0	9730	0	0	45077	0
-DSPP	DSPP	mRNA	9	0	4331	9	0	8345	9
+DSPP	DSPP	mRNA	1	0	4331	1	0	8345	1
 DST	DST	mRNA	0	0	22214	0	0	184910	0
 DSTN	DSTN	mRNA	0	0	1746	0	0	38054	0
 DSTNP2	DSTNP2	Non-coding_transcript	0	0	1105	0	0	1105	0

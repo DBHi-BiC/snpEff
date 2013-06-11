@@ -29,7 +29,21 @@ public class Utr3primeChange extends TranscriptChange {
         //coding start
         if (utr3prime.intersects(seqChange)) {
             //distance to cds end
-            int distance = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsStart() - seqChange.getEnd());
+            int stPos = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsStart() - seqChange.getEnd());
+            int endPos = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsEnd() : transcript.getCdsStart() - seqChange.getStart());
+
+            Exon exon = (Exon) utr3prime.findParent(Exon.class);
+
+            if(seqChange.isIns()){
+                int dupOffset=repeatWalker(exon,change);
+                distance = distance+dupOffset;
+            }
+
+            if(transcript.isStrandPlus() & seqChange.isDel()){
+                int dupOffset=repeatWalker(exon,change);
+                distance = distance+dupOffset;
+            }
+
             txPos = "*"+String.valueOf(distance);
             change.setTxPos(txPos);
             return change;

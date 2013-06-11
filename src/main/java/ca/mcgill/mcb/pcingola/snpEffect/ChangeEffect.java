@@ -705,7 +705,12 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
      {
          this.txPos = txPos;
      }
-
+    public void setNtIns(String ntIns){
+        this.ntIns=ntIns;
+    }
+    public void setNtDel(String ntDel){
+        this.ntDel=ntDel;
+    }
     public String getNtIns()
     {
         return ntIns;

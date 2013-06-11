@@ -28,6 +28,12 @@ public class Utr3prime extends Utr {
 		type = EffectType.UTR_3_PRIME;
 	}
 
+    public String getSequence() {
+        Exon exon = (Exon) findParent(Exon.class);
+        String sequence = exon.getSequence();
+        return sequence;
+    }
+
 	@Override
 	public boolean isUtr3prime() {
 		return true;

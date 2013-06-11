@@ -6,7 +6,7 @@ import ca.mcgill.mcb.pcingola.interval.SeqChange.ChangeType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import chop.cbmi.leipzig.interval.Utr5primeChange;
-
+import ca.mcgill.mcb.pcingola.interval.Exon;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,7 +29,11 @@ public class Utr5prime extends Utr {
 		super(parent, start, end, strand, id);
 		type = EffectType.UTR_5_PRIME;
 	}
-
+    public String getSequence() {
+        Exon exon = (Exon) findParent(Exon.class);
+        String sequence = exon.getSequence();
+        return sequence;
+    }
 	@Override
 	public boolean isUtr3prime() {
 		return false;

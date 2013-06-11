@@ -24,12 +24,74 @@ public class TranscriptChange {
     final int HGVSOFFSET = 1;  //1-based
     private boolean usePrevBaseIntron = true;
 
+    Exon exon;
+
     public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
         this.seqChange = seqChange;
         this.transcript = transcript;
         this.changeEffect = changeEffect;
     }
 
+    //common hgvs formatter for transcripts
+    //txPos is for exons by default
+    ChangeEffect hgvsChangeFormatter(ChangeEffect change, Integer relativePosSt, Integer relativePosEnd){
+        int dupOffset;
+        Integer stPos;
+        Integer endPos;
+        try {
+            if(seqChange.isDel()){
+                //end>start because a strand is given
+                if(transcript.isStrandPlus()){
+                    dupOffset=repeatWalker(exon,change);
+                    stPos=relativePosSt+dupOffset;
+                    endPos=relativePosEnd+dupOffset;
+                }else{
+                    //you don't have to walk?
+                    dupOffset=0;
+                    stPos=relativePosEnd+dupOffset;
+                    endPos=relativePosSt+dupOffset;
+                }
+
+                if(seqChange.size()==1){
+                    assert(stPos==endPos);
+                    txPos= String.valueOf(stPos);
+                }else{
+                    txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+                }
+            }else if(seqChange.isIns()){
+                //we only use the startpos for insertions
+                Integer hgvs_ins_offset;
+                if(transcript.isStrandPlus()){
+                    hgvs_ins_offset=-1;
+                }else{
+                    hgvs_ins_offset=0;
+                }
+                dupOffset=repeatWalker(exon,change);
+
+                if(change.isDup()){
+                    //when the dup loop ends you are change+offset is sitting on the last base of the repeat
+                    Integer ntLen=changeEffect.getNtIns().length();
+                    stPos=relativePosSt+hgvs_ins_offset+dupOffset-ntLen+1;
+                    endPos=relativePosSt+hgvs_ins_offset+dupOffset;
+                }else{
+                    stPos=relativePosSt+hgvs_ins_offset;
+                    endPos=relativePosSt+hgvs_ins_offset+1;
+                }
+                txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+
+                seqChange.setStart(seqChange.getStart()+dupOffset);
+            }else{
+                //a SNP, start is fine
+                txPos= String.valueOf(relativePosSt);
+            }
+            change.setTxPos(txPos);
+        } catch (IndexOutOfBoundsException e) {
+            //sometimes a splice site will claim it belongs to an exon when it doesn't
+            txPos = null;
+        }
+
+        return change;
+    }
     /**
      * Calculate the transcript change
      *
@@ -99,5 +161,97 @@ public class TranscriptChange {
         }else{
             changeEffect.setTranscript(this.txPos, GprSeq.reverseWc(seqChange.reference()), null, null, GprSeq.reverseWc(seqChange.netChange(seqChange)));
         }
+    }
+
+    //walk an indel looking for optimal position for hgvs
+    public int repeatWalker(Exon exon,ChangeEffect change){
+        //make sure there is enough flank left to check,an insert of length 3 must be at position 4 or later
+        //ntLen is the size of the indel
+        //dupOffset is the adjustment for placing ins 3' of repeats if they are dups
+        Integer changeBaseInExon;
+        Integer ntLen;
+        Integer dupOffset=0;
+        Integer rollOffset=0;
+        //we need to know whether to use insertion or deletion string
+        CharStack flank;
+        if(seqChange.isDel()){
+
+            changeBaseInExon = seqChange.getStart() - exon.getStart();
+            ntLen=changeEffect.getNtDel().length();
+
+            flank=new CharStack(changeEffect.getNtDel());
+        }else{
+            if(seqChange.isIns()){
+                //this is used almost nowhere else but since we get exon sequence instead of tx seq we use it
+                if (transcript.isStrandPlus()) changeBaseInExon = seqChange.getStart() - exon.getStart();
+                else changeBaseInExon = exon.getEnd() - seqChange.getStart();
+                ntLen=changeEffect.getNtIns().length();
+
+                flank=new CharStack(changeEffect.getNtIns());
+            }
+            else{
+                return 0;
+            }
+        }
+        if (transcript.isStrandPlus()){
+            if(changeBaseInExon-ntLen>=0){
+                boolean still_walking = true;
+                boolean rolling_back=false;
+                while(still_walking || rolling_back){
+                    String postFlank="";
+                    //walk the duplication
+
+                    //String testFlank=exon.getSequence().substring(2361,2370);
+                    int sPos=changeBaseInExon+dupOffset-rollOffset;
+                    int ePos=changeBaseInExon+ntLen+dupOffset-rollOffset;
+                    postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
+
+                    if(postFlank.equals(flank.get())){
+                        change.setDup(true);
+                        if(still_walking){
+                            //try to walk further, might fail
+                            dupOffset=dupOffset+ntLen;
+                        }
+                        if(rolling_back){
+                            dupOffset=dupOffset-rollOffset;
+                            //rolling was a success
+                            if(seqChange.isDel()){
+                                change.setNtDel(flank.get());
+                            }else{
+                                change.setNtIns(flank.get());
+                            }
+                            rolling_back=false;
+                        }
+                    }
+                    else{
+                        still_walking=false;
+                        rolling_back=true;
+                        //here we need to rollback because these deletions will produce the same sequence but we want the latter
+                        //torollbackrollbacsome
+                        //  rollback
+                        //         krollbac
+                        rollOffset+=1;
+                        //are you back where you started?
+                        if(rollOffset==ntLen){
+                            rolling_back=false;
+                            //rolling was a failure
+                            dupOffset=dupOffset-ntLen;
+                        }
+                        else{
+                            flank.rollback();
+                        }
+
+                    }
+
+                }
+            }
+        }else{
+            //for negative strand inserts we need to look behind
+            String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
+            if(preFlank.equals(flank.get()) & seqChange.isIns()){
+                change.setDup(true);
+            }
+        }
+        return dupOffset;
     }
 }
