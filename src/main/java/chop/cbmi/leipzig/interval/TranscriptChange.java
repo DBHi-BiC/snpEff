@@ -24,7 +24,6 @@ public class TranscriptChange {
     final int HGVSOFFSET = 1;  //1-based
     private boolean usePrevBaseIntron = true;
 
-    Exon exon;
 
     public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
         this.seqChange = seqChange;
@@ -34,7 +33,7 @@ public class TranscriptChange {
 
     //common hgvs formatter for transcripts
     //txPos is for exons by default
-    ChangeEffect hgvsChangeFormatter(ChangeEffect change, Integer relativePosSt, Integer relativePosEnd){
+    ChangeEffect hgvsChangeFormatter(ChangeEffect change, Exon exon, Integer relativePosSt, Integer relativePosEnd){
         int dupOffset;
         Integer stPos;
         Integer endPos;
@@ -122,6 +121,7 @@ public class TranscriptChange {
                 return cdsBaseNumber+HGVSOFFSET;
             }
         }
+        //sometimes this happens with complex deletions
         throw new IndexOutOfBoundsException(pos + " is not in an exon but "+this.getClass()+" asked for its cds base number");
     }
 

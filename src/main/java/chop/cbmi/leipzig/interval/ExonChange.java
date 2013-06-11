@@ -23,9 +23,21 @@ public class ExonChange extends TranscriptChange {
     ChangeEffect transcriptChange() {
         ChangeEffect change = changeEffect.clone();
         //exon-specific relative positions
-        Integer relativePosSt=cdsBaseNumberOfExonInTx(seqChange.getStart());
-        Integer relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
-        change= hgvsChangeFormatter(change, relativePosSt, relativePosEnd);
+        Integer relativePosSt;
+        Integer relativePosEnd;
+        try{
+            relativePosSt=cdsBaseNumberOfExonInTx(seqChange.getStart());
+        }catch (IndexOutOfBoundsException e){
+            int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(seqChange.getStart()) : transcript.firstExonPositionAfter(seqChange.getStart());
+            relativePosSt= cdsBaseNumberOfExonInTx(lastBefore);
+        }
+        try{
+            relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
+        }catch (IndexOutOfBoundsException e){
+            int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(seqChange.getEnd()) : transcript.lastExonPositionBefore(seqChange.getEnd());
+            relativePosEnd= cdsBaseNumberOfExonInTx(firstAfter);
+        }
+        change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
         return change;
     }
 }
