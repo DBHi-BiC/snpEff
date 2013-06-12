@@ -265,7 +265,7 @@ public class TranscriptChange {
                         boolean walking = true;
                         boolean rolling = false;
                         boolean continue_flag=true;
-                        while(walking || rolling){
+                        while(continue_flag & (walking || rolling)){
                             String postFlank="";
                             String preFlank="";
                             //walk the duplication
@@ -280,12 +280,14 @@ public class TranscriptChange {
 
                             if(walking & postFlank.equals(flank.get())){
                                 change.setDup(true);
-
-                                    //try to walk further, might fail
-                                    dupOffset=dupOffset+ntLen;
+                                change.setNtIns(flank.get());
+                                //try to walk further, might fail
+                                dupOffset=dupOffset+ntLen;
                             }else{
-                                walking=false;
-                                //this gets tested for non-walkers
+                                if(!change.isDup()){
+                                    continue_flag=false;
+                                }
+                                if(rolling){
                                 //if the frame is correct
                                     //dupOffset=dupOffset-rollOffset+ntLen;
                                     //rolling was a success
@@ -295,21 +297,27 @@ public class TranscriptChange {
                                         //TODO: not elegant
                                         continue_flag=false;
                                     }
-
-                                //}
-                                if(change.isDup() & continue_flag){
-
+                                }
+                                if(walking){
+                                    walking=false;
+                                    rolling=true;
+                                    //for a insertion of 3
+                                    //we know to try 2 away then 1 away
+                                    //there are only 3 permutations
+                                    dupOffset=dupOffset+ntLen-1;
+                                }
+                                if(continue_flag){
                                     rollOffset+=1;
                                     //are you back where you started?
                                     if(rollOffset==ntLen){
                                         rolling=false;
                                         continue_flag=false;
                                         //rolling was a failure
-                                        dupOffset=dupOffset-ntLen;
+                                        //dupOffset=dupOffset-ntLen;
                                     }
                                     else{
                                         flank.rollback();
-                                        dupOffset=dupOffset+1;
+                                        dupOffset=dupOffset-1;
                                     }
                                 }
                             }
