@@ -27,10 +27,10 @@ mvn install:install-file -DgroupId=net.sf.picard -DartifactId=Picard -Dversion=1
 
 CHANGELOG
 =========
+3.2 Introduces proper HGVS for insertions and deletions, including those which require "walking and rolling" to identify the correct indel frame.
 
 
-
-To build snpEff-3.1-jar-with-dependencies.jar in the ~/workspace/SnpEff/target directory:
+To build snpEff-3.2-jar-with-dependencies.jar in the ~/workspace/SnpEff/target directory:
 
 
 ```
@@ -63,7 +63,7 @@ This fork of SnpEff introduces the following annotations to VCF files
 
 #### VCF output example ####
 ```
-##SnpEffVersion="SnpEff_cbmi 3.1h (build 2013-02-13), by Pablo Cingolani"
+##SnpEffVersion="SnpEff_cbmi 3.2h (build 2013-06-12), by Pablo Cingolani"
 ##SnpEffCmd="SnpEff  hg19 -i vcf -o vcf tests/hgvs_test_in.vcf "
 ##INFO=<ID=EFF,Number=.,Type=String,Description="Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_change| Amino_Acid_length | Gene_Name | Gene_BioType | Coding | Transcript | Rank | Segment | HGVS_DNA_nomenclature | HGVS_protein_nomenclature [ | ERRORS | WARNINGS ])' ">
 #CHROME POS     ID      REF     ALT     QUAL    FILTER  INFO
@@ -74,7 +74,7 @@ This fork of SnpEff introduces the following annotations to VCF files
 ```
 #### txt output example ####
 ```
-# SnpEff version SnpEff_cbmi 3.1h (build 2013-02-13), by Pablo Cingolani
+# SnpEff version SnpEff_cbmi 3.2h (build 2013-06-12), by Pablo Cingolani
 # Command line: SnpEff  hg19 -i vcf -o txt tests/hgvs_test_in.vcf 
 # Chromo	Position	Reference	Change	Change_type	Homozygous	Quality	Coverage	Warnings	Gene_ID	Gene_name	Bio_type	Trancript_ID	HGVS_DNA	HGVS_AA	Exon_ID	Exon_Rank	Effect	old_AA/new_AA	Old_codon/New_codon	Codon_Num(CDS)	Codon_Degeneracy	CDS_size	Codons_around	AAs_around	Custom_interval_ID
 1	16856	A	G	SNP	Hom	100	100		WASH7P	WASH7P		NR_024540.1					INTRON								
