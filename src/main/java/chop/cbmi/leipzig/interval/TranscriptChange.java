@@ -280,12 +280,12 @@ public class TranscriptChange {
 
                             if(walking & postFlank.equals(flank.get())){
                                 change.setDup(true);
-
+                                change.setNtIns(flank.get());
                                     //try to walk further, might fail
                                     dupOffset=dupOffset+ntLen;
                             }else{
                                 walking=false;
-                                //this gets tested for non-walkers
+                                if(rolling){
                                 //if the frame is correct
                                     //dupOffset=dupOffset-rollOffset+ntLen;
                                     //rolling was a success
@@ -296,7 +296,7 @@ public class TranscriptChange {
                                         continue_flag=false;
                                     }
 
-                                //}
+                                }
                                 if(change.isDup() & continue_flag){
 
                                     rollOffset+=1;
