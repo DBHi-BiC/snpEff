@@ -68,13 +68,17 @@ public class TranscriptChange {
                 dupOffset=repeatWalker(exon,change);
 
                 if(change.isDup()){
-                    //when the dup loop ends you are change+offset sitting like it wanted to insert there
+                    //when the dup loop ends you are change+offset
+                    //the position is the first nucleotide of the proceeding sequence
+                    //the same way a regular insert would,
+                    //so the duplicated part precedes that nucleotide
                     Integer ntLen=changeEffect.getNtIns().length();
                     if(transcript.isStrandPlus()){
                         stPos=relativePosSt+dupOffset-ntLen;
                         endPos=relativePosSt+dupOffset-1;
                     }else{
-                        //for negative strand dups the position is the end of the repeat
+                        //for negative strand dups the position is the end nt of the repeat
+                        //and the last repeat
                         stPos=relativePosSt+dupOffset-ntLen+1;
                         endPos=relativePosSt+dupOffset;
                     }
@@ -281,8 +285,8 @@ public class TranscriptChange {
                                     dupOffset=dupOffset+ntLen;
                             }else{
                                 walking=false;
-                                //if(rolling){
-                                    //not sure the extra ntLen is justified
+                                //this gets tested for non-walkers
+                                //if the frame is correct
                                     //dupOffset=dupOffset-rollOffset+ntLen;
                                     //rolling was a success
                                     if(preFlank.equals(flank.get())){
@@ -294,14 +298,7 @@ public class TranscriptChange {
 
                                 //}
                                 if(change.isDup() & continue_flag){
-                                    //do you even need to walk
 
-                                    //you don't get to roll unless you have walked at least one dup
-
-                                    //here we need to rollback because these deletions will produce the same sequence but we want the latter
-                                    //torollbackrollbacsome
-                                    //  rollback
-                                    //         krollbac
                                     rollOffset+=1;
                                     //are you back where you started?
                                     if(rollOffset==ntLen){
