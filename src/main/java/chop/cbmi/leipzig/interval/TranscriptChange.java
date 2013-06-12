@@ -68,10 +68,17 @@ public class TranscriptChange {
                 dupOffset=repeatWalker(exon,change);
 
                 if(change.isDup()){
-                    //when the dup loop ends you are change+offset is sitting on the last base of the repeat
+                    //when the dup loop ends you are change+offset sitting like it wanted to insert there
                     Integer ntLen=changeEffect.getNtIns().length();
-                    stPos=relativePosSt+hgvs_ins_offset+dupOffset-ntLen+1;
-                    endPos=relativePosSt+hgvs_ins_offset+dupOffset;
+                    if(transcript.isStrandPlus()){
+                        stPos=relativePosSt+dupOffset-ntLen;
+                        endPos=relativePosSt+dupOffset-1;
+                    }else{
+                        //for negative strand dups the position is the end of the repeat
+                        stPos=relativePosSt+dupOffset-ntLen+1;
+                        endPos=relativePosSt+dupOffset;
+                    }
+
                 }else{
                     stPos=relativePosSt+hgvs_ins_offset;
                     endPos=relativePosSt+hgvs_ins_offset+1;
@@ -180,6 +187,67 @@ public class TranscriptChange {
             ntLen=changeEffect.getNtDel().length();
 
             flank=new CharStack(changeEffect.getNtDel());
+
+            if (transcript.isStrandPlus()){
+                if(changeBaseInExon-ntLen>=0){
+                    boolean walking = true;
+                    boolean rolling = false;
+                    while(walking || rolling){
+                        String postFlank="";
+                        //walk the duplication
+
+                        //String testFlank=exon.getSequence().substring(2361,2370);
+                        int sPos=changeBaseInExon+dupOffset-rollOffset;
+                        int ePos=changeBaseInExon+ntLen+dupOffset-rollOffset;
+                        postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
+
+                        if(postFlank.equals(flank.get())){
+                            change.setDup(true);
+                            if(walking){
+                                //try to walk further, might fail
+
+                                dupOffset=dupOffset+ntLen;
+                            }
+                            if(rolling){
+                                //not sure the extra ntLen is justified
+                                dupOffset=dupOffset-rollOffset+ntLen;
+                                //rolling was a success
+                                if(seqChange.isDel()){
+                                    change.setNtDel(flank.get());
+                                }else{
+                                    change.setNtIns(flank.get());
+                                }
+                                rolling=false;
+                                //can we walk again?
+                                walking=true;
+                                rollOffset=0;
+                            }
+                        }
+                        else{
+                            walking=false;
+                            if(change.isDup()){
+                                //you don't get to roll unless you have walked at least one dup
+                                rolling=true;
+                                //here we need to rollback because these deletions will produce the same sequence but we want the latter
+                                //torollbackrollbacsome
+                                //  rollback
+                                //         krollbac
+                                rollOffset+=1;
+                                //are you back where you started?
+                                if(rollOffset==ntLen){
+                                    rolling=false;
+                                    //rolling was a failure
+                                    dupOffset=dupOffset-ntLen;
+                                }
+                                else{
+                                    flank.rollback();
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
         }else{
             if(seqChange.isIns()){
                 //this is used almost nowhere else but since we get exon sequence instead of tx seq we use it
@@ -188,72 +256,79 @@ public class TranscriptChange {
                 ntLen=changeEffect.getNtIns().length();
 
                 flank=new CharStack(changeEffect.getNtIns());
-            }
-            else{
-                return 0;
-            }
-        }
-        if (transcript.isStrandPlus()){
-            if(changeBaseInExon-ntLen>=0){
-                boolean walking = true;
-                boolean rolling = false;
-                while(walking || rolling){
-                    String postFlank="";
-                    //walk the duplication
+                if (transcript.isStrandPlus()){
+                    if(changeBaseInExon-ntLen>=0){
+                        boolean walking = true;
+                        boolean rolling = false;
+                        boolean continue_flag=true;
+                        while(walking || rolling){
+                            String postFlank="";
+                            String preFlank="";
+                            //walk the duplication
 
-                    //String testFlank=exon.getSequence().substring(2361,2370);
-                    int sPos=changeBaseInExon+dupOffset-rollOffset;
-                    int ePos=changeBaseInExon+ntLen+dupOffset-rollOffset;
-                    postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
+                            //String testFlank=exon.getSequence().substring(2361,2370);
+                            int sPos=changeBaseInExon+dupOffset;
+                            int ePos=changeBaseInExon+ntLen+dupOffset;
+                            //remember substring is exclusive
+                            //ePos is the position after the insert
+                            postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
+                            preFlank=exon.getSequence().substring(sPos-ntLen,sPos).toUpperCase();
 
-                    if(postFlank.equals(flank.get())){
-                        change.setDup(true);
-                        if(walking){
-                            //try to walk further, might fail
-                            dupOffset=dupOffset+ntLen;
-                        }
-                        if(rolling){
-                            //not sure the extra ntLen is justified
-                            dupOffset=dupOffset-rollOffset+ntLen;
-                            //rolling was a success
-                            if(seqChange.isDel()){
-                                change.setNtDel(flank.get());
+                            if(walking & postFlank.equals(flank.get())){
+                                change.setDup(true);
+
+                                    //try to walk further, might fail
+                                    dupOffset=dupOffset+ntLen;
                             }else{
-                                change.setNtIns(flank.get());
+                                walking=false;
+                                //if(rolling){
+                                    //not sure the extra ntLen is justified
+                                    //dupOffset=dupOffset-rollOffset+ntLen;
+                                    //rolling was a success
+                                    if(preFlank.equals(flank.get())){
+                                        change.setNtIns(flank.get());
+                                        rolling=false;
+                                        //TODO: not elegant
+                                        continue_flag=false;
+                                    }
+
+                                //}
+                                if(change.isDup() & continue_flag){
+                                    //do you even need to walk
+
+                                    //you don't get to roll unless you have walked at least one dup
+
+                                    //here we need to rollback because these deletions will produce the same sequence but we want the latter
+                                    //torollbackrollbacsome
+                                    //  rollback
+                                    //         krollbac
+                                    rollOffset+=1;
+                                    //are you back where you started?
+                                    if(rollOffset==ntLen){
+                                        rolling=false;
+                                        continue_flag=false;
+                                        //rolling was a failure
+                                        dupOffset=dupOffset-ntLen;
+                                    }
+                                    else{
+                                        flank.rollback();
+                                        dupOffset=dupOffset+1;
+                                    }
+                                }
                             }
-                            rolling=false;
-                            //can we walk again?
-                            walking=true;
-                            rollOffset=0;
+
                         }
                     }
-                    else{
-                        walking=false;
-                        rolling=true;
-                        //here we need to rollback because these deletions will produce the same sequence but we want the latter
-                        //torollbackrollbacsome
-                        //  rollback
-                        //         krollbac
-                        rollOffset+=1;
-                        //are you back where you started?
-                        if(rollOffset==ntLen){
-                            rolling=false;
-                            //rolling was a failure
-                            dupOffset=dupOffset-ntLen;
-                        }
-                        else{
-                            flank.rollback();
-                        }
-
+                }else{
+                    //for negative strand inserts we need to look behind
+                    String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
+                    if(preFlank.equals(flank.get()) & seqChange.isIns()){
+                        change.setDup(true);
                     }
-
                 }
-            }
-        }else{
-            //for negative strand inserts we need to look behind
-            String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
-            if(preFlank.equals(flank.get()) & seqChange.isIns()){
-                change.setDup(true);
+            }else{
+                //not a del or insert
+                return 0;
             }
         }
         return dupOffset;
