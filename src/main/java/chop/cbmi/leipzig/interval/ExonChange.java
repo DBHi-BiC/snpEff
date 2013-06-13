@@ -58,7 +58,7 @@ public class ExonChange extends TranscriptChange {
                 try{
                     relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
                     relativePosEndString=String.valueOf(relativePosEnd);
-                }catch (IndexOutOfBoundsException e){
+                }catch (IndexOutOfBoundsException f){
                     //totally intronic, why is this in exonchange?
                     relativePosEndString=intronFormat(seqChange.getEnd());
                 }
