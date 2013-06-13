@@ -43,13 +43,15 @@ public class IntronChange extends TranscriptChange {
                 int distanceToPreceedingExonEnd=Math.abs(seqChange.getEnd()-lastBefore);
                 int distanceToProceedingExonEnd=Math.abs(seqChange.getEnd()-firstAfter);
 
-                //665+1-665+2
-                int fromProceeding = (distanceToProceedingExonStart <= distanceToProceedingExonEnd) ? distanceToProceedingExonStart : distanceToProceedingExonEnd;
-                int toProceeding =  (distanceToProceedingExonStart <= distanceToProceedingExonEnd) ?  distanceToProceedingExonEnd : distanceToProceedingExonStart;
 
                 //666-3-666-2
-                int fromPreceeding = (distanceToPreceedingExonStart <= distanceToPreceedingExonEnd) ? distanceToPreceedingExonEnd : distanceToPreceedingExonStart;
-                int toPreceeding =  (distanceToPreceedingExonStart <= distanceToPreceedingExonEnd) ? distanceToPreceedingExonStart : distanceToPreceedingExonEnd;
+                //bigger is from
+                int fromProceeding = (distanceToProceedingExonStart <= distanceToProceedingExonEnd) ? distanceToProceedingExonEnd : distanceToProceedingExonStart;
+                int toProceeding =  (distanceToProceedingExonStart <= distanceToProceedingExonEnd) ? distanceToProceedingExonStart : distanceToProceedingExonEnd;
+
+                //665+1-665+2
+                int fromPreceeding = (distanceToPreceedingExonStart <= distanceToPreceedingExonEnd) ? distanceToPreceedingExonStart :distanceToPreceedingExonEnd;
+                int toPreceeding =  (distanceToPreceedingExonStart <= distanceToPreceedingExonEnd) ? distanceToPreceedingExonEnd : distanceToPreceedingExonStart;
 
                 String fromPreceedingString = ((fromPreceeding == 0) ? "" : "+"+String.valueOf(fromPreceeding));
                 String fromProceedingString = ((fromProceeding == 0) ? "" : "-"+String.valueOf(fromProceeding));
@@ -63,11 +65,11 @@ public class IntronChange extends TranscriptChange {
                     if(seqChange.size()==1){
                         txPos= txPosStart;
                     }else{
-                        if(transcript.isStrandPlus()){
+                        //if(transcript.isStrandPlus()){
                              txPos=txPosStart+"_"+txPosEnd;
-                        }else{
-                            txPos=txPosEnd+"_"+txPosStart;
-                        }
+                        //}else{
+                        //    txPos=txPosEnd+"_"+txPosStart;
+                        //}
                     }
                 }else if(seqChange.isIns()){
                     txPos = (distanceToPreceedingExonStart<distanceToProceedingExonStart) ? String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPreceedingExonStart+1)+"_"+String.valueOf(cdsLastBefore)+"+"+String.valueOf(distanceToPreceedingExonStart+2) : String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProceedingExonStart)+"_"+String.valueOf(cdsFirstAfter)+"-"+String.valueOf(distanceToProceedingExonStart+1);
