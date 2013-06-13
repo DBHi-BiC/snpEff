@@ -39,7 +39,8 @@ public class Utr3primeChange extends TranscriptChange {
             change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
 
             //specific to 3' UTR
-            txPos = "*"+txPos;
+            //txPos = "*"+txPos;
+            txPos=txPos.replaceAll("(\\d+)", "\\*$1");
             change.setTxPos(txPos);
             return change;
         }

@@ -35,6 +35,7 @@ public class DownstreamChange  extends TranscriptChange {
             //especially for alternate 3' end isoforms
             int distance = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsStart() - seqChange.getEnd());
             txPos = "*"+String.valueOf(distance);
+
             change.setTxPos(txPos);
             return change;
         }

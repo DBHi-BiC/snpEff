@@ -58,14 +58,14 @@ public class ExonChange extends TranscriptChange {
                 try{
                     relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
                     relativePosEndString=String.valueOf(relativePosEnd);
+                    if(transcript.isStrandPlus()){
+                        txPos= intronFormat(seqChange.getStart())+"_"+relativePosEndString;
+                    }else{
+                        txPos= relativePosEndString+"_"+intronFormat(seqChange.getStart());
+                    }
                 }catch (IndexOutOfBoundsException f){
-                    //totally intronic, why is this in exonchange?
-                    relativePosEndString=intronFormat(seqChange.getEnd());
-                }
-                if(transcript.isStrandPlus()){
-                    txPos= intronFormat(seqChange.getStart())+"_"+relativePosEndString;
-                }else{
-                    txPos= relativePosEndString+"_"+intronFormat(seqChange.getStart());
+                    //totally intronic
+                    allIntronTxPos();
                 }
                 change.setTxPos(txPos);
                 return change;
@@ -109,22 +109,7 @@ public class ExonChange extends TranscriptChange {
         return change;
     }
     
-    public String intronFormat(int position){
-        int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
-        int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
-        int cdsFirstAfter= cdsBaseNumberOfExonInTx(firstAfter);
-        int cdsLastBefore= cdsBaseNumberOfExonInTx(lastBefore);
 
-        int toProceeding=Math.abs(position-firstAfter);
-        int fromPreceeding=Math.abs(position-lastBefore);
-
-        String fromPreceedingString =   ((fromPreceeding == 0)   ? "" : "+"+String.valueOf(fromPreceeding));
-        String toProceedingString =   ((toProceeding == 0)   ? "" : "-"+String.valueOf(toProceeding));
-
-
-        String intronFormat = (fromPreceeding<toProceeding) ? String.valueOf(cdsLastBefore)+ fromPreceedingString : String.valueOf(cdsFirstAfter)+ toProceedingString;
-        return intronFormat;
-    }
 }
 //http://stackoverflow.com/a/8746524/264696
 class CharStack {
