@@ -838,6 +838,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
             if (exon != null) {
                 exonId = exon.getId();
                 exonRank = exon.getRank();
+                exonId = exonId.replaceAll("ex\\.[0-9]+", "ex."+exon.getRank());
             }
 
 			// Update trId
