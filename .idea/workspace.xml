@@ -10,7 +10,11 @@
   <component name="ChangeListManager">
     <list id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="" />
     <list default="true" id="53f0086e-1fa6-4bb5-93d1-61c5b544e396" name="getCodingDnaHgvs" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/hgvs_test_in.vcf" afterPath="$PROJECT_DIR$/tests/hgvs_test_in.vcf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_genes.txt" afterPath="$PROJECT_DIR$/snpEff_genes.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_summary.html" afterPath="$PROJECT_DIR$/snpEff_summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -161,7 +165,7 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java" line="35" class="chop.cbmi.leipzig.interval.IntronChange" package="chop.cbmi.leipzig.interval">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" line="28" class="chop.cbmi.leipzig.interval.ExonChange" package="chop.cbmi.leipzig.interval">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -189,10 +193,28 @@
       <file leaf-file-name="TranscriptChange.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="0" selection-start="4348" selection-end="4348" vertical-scroll-proportion="0.0">
+            <state line="125" column="0" selection-start="4632" selection-end="4632" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExonChange.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="48" selection-start="2347" selection-end="2347" vertical-scroll-proportion="0.44805196">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utr3primeChange.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="17" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -206,10 +228,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IntronChange.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IntronChange.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="91" selection-start="4102" selection-end="4102" vertical-scroll-proportion="1.6258503">
+            <state line="71" column="17" selection-start="1618" selection-end="4494" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -220,16 +242,7 @@
       <file leaf-file-name="Transcript.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="919" column="0" selection-start="25761" selection-end="25761" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExonChange.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0">
+            <state line="611" column="41" selection-start="18255" selection-end="18255" vertical-scroll-proportion="75.61539">
               <folding />
             </state>
           </provider>
@@ -238,7 +251,7 @@
       <file leaf-file-name="snpEff_summary.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snpEff_summary.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="356" column="18" selection-start="8393" selection-end="8393" vertical-scroll-proportion="0.0">
+            <state line="262" column="18" selection-start="6041" selection-end="6041" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -253,19 +266,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="Utr5primeChange.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr5primeChange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="32" selection-start="3476" selection-end="3476" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pcingola.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/Pcingola.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="66" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
+            <state line="49" column="69" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -274,7 +278,7 @@
       <file leaf-file-name="SnpEffCmdEff.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/commandLine/SnpEffCmdEff.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="39" selection-start="2286" selection-end="2286" vertical-scroll-proportion="0.0">
+            <state line="237" column="0" selection-start="10092" selection-end="10092" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -307,13 +311,13 @@
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr5prime.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr3prime.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr5primeChange.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/commandLine/SnpEff.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
         <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" />
       </list>
     </option>
   </component>
@@ -339,10 +343,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
+    <option name="x" value="-146" />
     <option name="y" value="22" />
-    <option name="width" value="2559" />
-    <option name="height" value="1308" />
+    <option name="width" value="1927" />
+    <option name="height" value="1348" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -370,6 +374,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="All" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -452,36 +459,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="interval" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnpEff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnpEff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="interval" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ExonChange.java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -590,9 +567,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="All" />
-      </pane>
       <pane id="PackagesPane">
         <subPane />
       </pane>
@@ -613,21 +587,21 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="dynamic.classpath" value="false" />
     <property name="Downloaded.Files.Path" value="$PROJECT_DIR$/lib" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="chop.cbmi.leipzig.interval" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.hgvs_temp_txt">
+  <component name="RunManager" selected="Application.problems">
     <configuration default="false" name="All in main" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="main" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -664,6 +638,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -689,19 +676,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -925,24 +899,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="22" width="2559" height="1308" extended-state="0" />
+    <frame x="-146" y="22" width="1927" height="1348" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42508417" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32084692" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20493434" sideWeight="0.16835018" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27379054" sideWeight="0.25325733" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.56931126" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.081177875" sideWeight="0.4520202" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10898458" sideWeight="0.6791531" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20493434" sideWeight="0.28282827" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5479798" sideWeight="0.9990296" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27379054" sideWeight="0.42508143" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3131313" sideWeight="0.9990296" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1020,27 +994,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/SeqChange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="335" column="0" selection-start="10729" selection-end="10729" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/codonChange/CodonChange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Gene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="0" selection-start="4905" selection-end="4905" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/ChangeEffect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="838" column="32" selection-start="23109" selection-end="23114" vertical-scroll-proportion="0.0">
@@ -1076,16 +1029,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/commandLine/SnpEffCmdEff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="39" selection-start="2286" selection-end="2286" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snpEff_summary.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="356" column="18" selection-start="8393" selection-end="8393" vertical-scroll-proportion="0.0">
+        <state line="262" column="18" selection-start="6041" selection-end="6041" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1097,19 +1043,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Utr5prime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0">
+        <state line="18" column="13" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr5primeChange.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="0" selection-start="4348" selection-end="4348" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="49" column="69" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="17" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1120,16 +1071,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="17" selection-start="1618" selection-end="4494" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/interval/Transcript.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="919" column="0" selection-start="25761" selection-end="25761" vertical-scroll-proportion="0.0">
+        <state line="611" column="41" selection-start="18255" selection-end="18255" vertical-scroll-proportion="75.61539">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/mcb/pcingola/snpEffect/commandLine/SnpEffCmdEff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="91" selection-start="4102" selection-end="4102" vertical-scroll-proportion="1.6258503">
+        <state line="237" column="0" selection-start="10092" selection-end="10092" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="0" selection-start="4632" selection-end="4632" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="48" selection-start="2347" selection-end="2347" vertical-scroll-proportion="0.44805196">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

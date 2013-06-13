@@ -29,16 +29,101 @@ public class ExonChange extends TranscriptChange {
             relativePosSt=cdsBaseNumberOfExonInTx(seqChange.getStart());
         }catch (IndexOutOfBoundsException e){
             int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(seqChange.getStart()) : transcript.firstExonPositionAfter(seqChange.getStart());
-            relativePosSt= cdsBaseNumberOfExonInTx(lastBefore);
+            if(lastBefore == -1){
+
+                //off the edge of the cds, but is it the start or the end?
+                if(transcript.isStrandPlus()){
+                    //utr5
+                    relativePosSt = seqChange.getStart() - transcript.getCdsStart();
+
+                    //wrap up and send off
+                    relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
+                    txPos= String.valueOf(relativePosSt)+"_"+String.valueOf(relativePosEnd);
+                    change.setTxPos(txPos);
+                    return change;
+
+                }else{
+                    //utr3
+                    relativePosSt = transcript.getCdsEnd() - seqChange.getStart();
+
+                    relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
+                    txPos= String.valueOf(relativePosEnd)+"_"+String.valueOf(relativePosSt);
+                    change.setTxPos(txPos);
+                    return change;
+                }
+
+            }else{
+                 //intronic - assume were closer to this guy
+                String relativePosEndString;
+                try{
+                    relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
+                    relativePosEndString=String.valueOf(relativePosEnd);
+                }catch (IndexOutOfBoundsException e){
+                    //totally intronic, why is this in exonchange?
+                    relativePosEndString=intronFormat(seqChange.getEnd());
+                }
+                if(transcript.isStrandPlus()){
+                    txPos= intronFormat(seqChange.getStart())+"_"+relativePosEndString;
+                }else{
+                    txPos= relativePosEndString+"_"+intronFormat(seqChange.getStart());
+                }
+                change.setTxPos(txPos);
+                return change;
+            }
         }
         try{
             relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
         }catch (IndexOutOfBoundsException e){
             int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(seqChange.getEnd()) : transcript.lastExonPositionBefore(seqChange.getEnd());
-            relativePosEnd= cdsBaseNumberOfExonInTx(firstAfter);
+
+            if (firstAfter == -1){
+
+                //off the edge of the gene, but is it the start or the end?
+                if(transcript.isStrandPlus()){
+                    //utr3
+                    relativePosEnd = seqChange.getEnd() - transcript.getCdsEnd();
+                    txPos= String.valueOf(relativePosSt)+"_*"+String.valueOf(relativePosEnd);
+                    change.setTxPos(txPos);
+                    return change;
+                }else{
+                    //utr5 - this implies neg strand
+                    //the change is strand-ignorant - it's the getEnd that is utr5
+                    relativePosEnd = transcript.getCdsStart() - seqChange.getEnd();
+                    txPos= String.valueOf(relativePosEnd)+"_"+String.valueOf(relativePosSt);
+                    change.setTxPos(txPos);
+                    return change;
+                }
+
+            }else{
+                //intronic - assume were closer to this guy
+                if(transcript.isStrandPlus()){
+                    txPos= intronFormat(seqChange.getEnd())+"_"+String.valueOf(relativePosSt);
+                }else{
+                    txPos= String.valueOf(relativePosSt)+"_"+intronFormat(seqChange.getEnd());
+                }
+                change.setTxPos(txPos);
+                return change;
+            }
         }
         change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
         return change;
+    }
+    
+    public String intronFormat(int position){
+        int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
+        int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
+        int cdsFirstAfter= cdsBaseNumberOfExonInTx(firstAfter);
+        int cdsLastBefore= cdsBaseNumberOfExonInTx(lastBefore);
+
+        int toProceeding=Math.abs(position-firstAfter);
+        int fromPreceeding=Math.abs(position-lastBefore);
+
+        String fromPreceedingString =   ((fromPreceeding == 0)   ? "" : "+"+String.valueOf(fromPreceeding));
+        String toProceedingString =   ((toProceeding == 0)   ? "" : "-"+String.valueOf(toProceeding));
+
+
+        String intronFormat = (fromPreceeding<toProceeding) ? String.valueOf(cdsLastBefore)+ fromPreceedingString : String.valueOf(cdsFirstAfter)+ toProceedingString;
+        return intronFormat;
     }
 }
 //http://stackoverflow.com/a/8746524/264696
@@ -74,3 +159,4 @@ class CharStack {
         return String.valueOf(sb);
     }
 }
+

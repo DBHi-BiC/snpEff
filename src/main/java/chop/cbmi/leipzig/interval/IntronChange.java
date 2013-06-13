@@ -42,8 +42,6 @@ public class IntronChange extends TranscriptChange {
                 int distanceToProceedingExonStart=Math.abs(seqChange.getStart()-firstAfter);
                 int distanceToPreceedingExonEnd=Math.abs(seqChange.getEnd()-lastBefore);
                 int distanceToProceedingExonEnd=Math.abs(seqChange.getEnd()-firstAfter);
-
-
                 //666-3-666-2
                 //bigger is from
                 int fromProceeding = (distanceToProceedingExonStart <= distanceToProceedingExonEnd) ? distanceToProceedingExonEnd : distanceToProceedingExonStart;

@@ -55,7 +55,11 @@ public class TranscriptChange {
                     assert(stPos==endPos);
                     txPos= String.valueOf(stPos);
                 }else{
-                    txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+                    if(stPos>endPos){
+                        txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
+                    }else{
+                        txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+                    }
                 }
             }else if(seqChange.isIns()){
                 //we only use the startpos for insertions
@@ -87,7 +91,12 @@ public class TranscriptChange {
                     stPos=relativePosSt+hgvs_ins_offset;
                     endPos=relativePosSt+hgvs_ins_offset+1;
                 }
-                txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+                if(stPos>endPos){
+                    txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
+                }else{
+                    txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+                }
+
 
                 seqChange.setStart(seqChange.getStart()+dupOffset);
             }else{
