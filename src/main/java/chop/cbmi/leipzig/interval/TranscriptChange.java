@@ -387,6 +387,8 @@ public class TranscriptChange {
         String intronFormat = (fromPreceeding<toProceeding) ? String.valueOf(cdsLastBefore)+ fromPreceedingString : String.valueOf(cdsFirstAfter)+ toProceedingString;
         return intronFormat;
     }
+
+    //am I closer to the preceeding exon than the proceeding one?
     public Boolean comingFrom(int position){
         int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
         int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
@@ -419,14 +421,16 @@ public class TranscriptChange {
 
             int stPos=seqChange.getStart()+hgvs_ins_offset;
             int endPos=seqChange.getStart()+hgvs_ins_offset+1;
+            String insSt=intronFormat(stPos);
+            String endSt=intronFormat(endPos);
 
             //666-3-666-2
-            if(comingFrom(stPos)){
-                txPos=String.valueOf(stPos)+"_"+String.valueOf(endPos);
-            }else{
-                txPos= String.valueOf(endPos)+"_"+String.valueOf(stPos);
-            }
-            txPos=txPosStringSt+intronFormat(seqChange.getStart()+1);
+            //if(comingFrom(stPos)){
+            txPos = transcript.isStrandPlus() ? insSt+"_"+endSt : endSt+"_"+insSt;
+//            }else{
+//                txPos= transcript.isStrandPlus() ? insSt+"_"+endSt : endSt+"_"+insSt;
+//            }
+            //txPos=txPosStringSt+intronFormat(seqChange.getStart()+1);
         }else{
             txPos=intronFormat(seqChange.getStart());
         }
