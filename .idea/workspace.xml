@@ -9,16 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list id="a6177d33-887d-429e-9421-3eed05d7e03d" name="Default" comment="" />
-    <list default="true" id="53f0086e-1fa6-4bb5-93d1-61c5b544e396" name="getCodingDnaHgvs" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/DownstreamChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/DownstreamChange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/ExonChange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/IntronChange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java" afterPath="$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/Utr3primeChange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_genes.txt" afterPath="$PROJECT_DIR$/snpEff_genes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snpEff_summary.html" afterPath="$PROJECT_DIR$/snpEff_summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="53f0086e-1fa6-4bb5-93d1-61c5b544e396" name="getCodingDnaHgvs" comment="" />
     <ignored path="SnpEff.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/fragment.java" changelist="a6177d33-887d-429e-9421-3eed05d7e03d" time="1365622553578" ignored="false" />
@@ -193,7 +184,7 @@
       <file leaf-file-name="TranscriptChange.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="37" selection-start="3280" selection-end="3280" vertical-scroll-proportion="0.37290716">
+            <state line="85" column="37" selection-start="3280" selection-end="3280" vertical-scroll-proportion="-0.26655203">
               <folding />
             </state>
           </provider>
@@ -357,7 +348,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="1" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -906,15 +897,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3202934" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27379054" sideWeight="0.2192339" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27379054" sideWeight="0.37326813" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34718826" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10898458" sideWeight="0.58761203" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27379054" sideWeight="0.36756316" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41238794" sideWeight="0.9990296" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27379054" sideWeight="0.6267319" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41238794" sideWeight="0.9990296" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1101,7 +1092,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chop/cbmi/leipzig/interval/TranscriptChange.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="37" selection-start="3280" selection-end="3280" vertical-scroll-proportion="0.37290716">
+        <state line="85" column="37" selection-start="3280" selection-end="3280" vertical-scroll-proportion="-0.26655203">
           <folding />
         </state>
       </provider>
