@@ -373,10 +373,41 @@ public class TranscriptChange {
     }
 
     public String intronFormat(int position){
-        int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
-        int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
-        int cdsFirstAfter= cdsBaseNumberOfExonInTx(firstAfter);
-        int cdsLastBefore= cdsBaseNumberOfExonInTx(lastBefore);
+        int firstAfter;
+        int lastBefore;
+        String beforeString;
+        String afterString;
+        //cdsStart can be > cdsEnd, so cdsStart is really cds start
+
+        //check to see if this intron is in the utr
+        //the rule says find the nearest utr nucleotide
+        //http://www.hgvs.org/mutnomen/refseq.html#IVSin5
+
+        lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
+        firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
+
+        if(transcript.isStrandPlus() & position>transcript.getCdsEnd() || !transcript.isStrandPlus() &position<transcript.getCdsEnd()){
+            //3'utr
+            int lastBefore3Utr = (transcript.isStrandPlus() ? lastBefore - transcript.getCdsEnd() : transcript.getCdsEnd() - lastBefore);
+            int firstAfter3Utr = (transcript.isStrandPlus() ? firstAfter - transcript.getCdsEnd() : transcript.getCdsEnd() - firstAfter);
+            beforeString="*"+String.valueOf(lastBefore3Utr);
+            afterString="*"+String.valueOf(firstAfter3Utr);
+        }else{
+            if(transcript.isStrandPlus() & position<transcript.getCdsStart() || !transcript.isStrandPlus() & position>transcript.getCdsStart()){
+                //5utr
+                int lastBefore5Utr = (transcript.isStrandPlus() ? lastBefore - transcript.getCdsStart() : transcript.getCdsStart() - lastBefore);
+                int firstAfter5Utr = (transcript.isStrandPlus() ? firstAfter - transcript.getCdsStart() : transcript.getCdsStart() - firstAfter);
+                beforeString=String.valueOf(lastBefore5Utr);
+                afterString=String.valueOf(firstAfter5Utr);
+            }else{
+                //normal intron
+                int cdsFirstAfter= cdsBaseNumberOfExonInTx(firstAfter);
+                int cdsLastBefore= cdsBaseNumberOfExonInTx(lastBefore);
+                beforeString=String.valueOf(cdsLastBefore);
+                afterString=String.valueOf(cdsFirstAfter);
+            }
+        }
+
 
         int toProceeding=Math.abs(position-firstAfter);
         int fromPreceeding=Math.abs(position-lastBefore);
@@ -384,7 +415,7 @@ public class TranscriptChange {
         String fromPreceedingString = ((fromPreceeding == 0)   ? "" : "+"+String.valueOf(fromPreceeding));
         String toProceedingString = ((toProceeding == 0)   ? "" : "-"+String.valueOf(toProceeding));
 
-        String intronFormat = (fromPreceeding<toProceeding) ? String.valueOf(cdsLastBefore)+ fromPreceedingString : String.valueOf(cdsFirstAfter)+ toProceedingString;
+        String intronFormat = (fromPreceeding<toProceeding) ? beforeString + fromPreceedingString : afterString + toProceedingString;
         return intronFormat;
     }
 

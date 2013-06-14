@@ -612,6 +612,8 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		return -1;
 	}
 
+
+
 	/**
 	 * Create a list of 3 prime UTRs
 	 */
@@ -808,7 +810,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 			if (pos < ex.getStart()) {
 				// Nothing found?
 				if (last < 0) {
-					System.err.println("WARNING: Cannot find last exonic position before " + pos + " for transcript '" + id + "'");
+					//System.err.println("WARNING: Cannot find last exonic position before " + pos + " for transcript '" + id + "'");
 					return -1;
 				}
 				return last;
@@ -816,9 +818,10 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 			last = ex.getEnd();
 		}
 
-		System.err.println("WARNING: Cannot find last exonic position before " + pos + " for transcript '" + id + "'");
+		//System.err.println("WARNING: Cannot find last exonic position before " + pos + " for transcript '" + id + "'");
 		return -1;
 	}
+
 
 	/**
 	 * Retrieve coding sequence AND the UTRs (mRNA = 5'UTR + CDS + 3'UTR)
