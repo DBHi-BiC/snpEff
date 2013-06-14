@@ -386,14 +386,14 @@ public class TranscriptChange {
         lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
         firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
 
-        if(transcript.isStrandPlus() & position>transcript.getCdsEnd() || position<transcript.getCdsStart()){
+        if(transcript.isStrandPlus() & position>transcript.getCdsEnd() || !transcript.isStrandPlus() &position<transcript.getCdsEnd()){
             //3'utr
             int lastBefore3Utr = (transcript.isStrandPlus() ? lastBefore - transcript.getCdsEnd() : transcript.getCdsEnd() - lastBefore);
             int firstAfter3Utr = (transcript.isStrandPlus() ? firstAfter - transcript.getCdsEnd() : transcript.getCdsEnd() - firstAfter);
             beforeString="*"+String.valueOf(lastBefore3Utr);
             afterString="*"+String.valueOf(firstAfter3Utr);
         }else{
-            if(transcript.isStrandPlus() & position<transcript.getCdsStart() || position>transcript.getCdsStart()){
+            if(transcript.isStrandPlus() & position<transcript.getCdsStart() || !transcript.isStrandPlus() & position>transcript.getCdsStart()){
                 //5utr
                 int lastBefore5Utr = (transcript.isStrandPlus() ? lastBefore - transcript.getCdsStart() : transcript.getCdsStart() - lastBefore);
                 int firstAfter5Utr = (transcript.isStrandPlus() ? firstAfter - transcript.getCdsStart() : transcript.getCdsStart() - firstAfter);
