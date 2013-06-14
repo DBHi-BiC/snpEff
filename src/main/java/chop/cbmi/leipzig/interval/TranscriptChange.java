@@ -373,8 +373,21 @@ public class TranscriptChange {
     }
 
     public String intronFormat(int position){
-        int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
-        int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
+        int firstAfter;
+        int lastBefore;
+        //cdsStart can be > cdsEnd, so cdsStart is really cds start
+
+        //check to see if this intron is really an intron or is outside the coding regiond
+        if(transcript.isStrandPlus() & position>transcript.getCdsEnd() || position<transcript.getCdsStart()){
+            lastBefore = transcript.getCdsEnd();
+        }else{
+            lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
+        }
+        if(transcript.isStrandPlus() & position<transcript.getCdsStart() || position>transcript.getCdsStart()){
+            firstAfter = transcript.getCdsStart();
+        }else{
+            firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
+        }
         int cdsFirstAfter= cdsBaseNumberOfExonInTx(firstAfter);
         int cdsLastBefore= cdsBaseNumberOfExonInTx(lastBefore);
 
