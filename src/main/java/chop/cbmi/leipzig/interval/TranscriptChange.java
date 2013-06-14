@@ -222,8 +222,17 @@ public class TranscriptChange {
                         //String testFlank=exon.getSequence().substring(2361,2370);
                         int sPos=changeBaseInExon+dupOffset-rollOffset;
                         int ePos=changeBaseInExon+ntLen+dupOffset-rollOffset;
-                        postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
-
+                        try{
+                            postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
+                        }catch(StringIndexOutOfBoundsException e){
+                            //you have no room to check
+                            walking=false;
+                            if(change.isDup()){
+                                rolling=true;
+                                rollOffset+=1;
+                            }
+                            continue;
+                        }
                         if(postFlank.equals(flank.get())){
                             change.setDup(true);
                             if(walking){
@@ -232,7 +241,7 @@ public class TranscriptChange {
                                 dupOffset=dupOffset+ntLen;
                             }
                             if(rolling){
-                                //not sure the extra ntLen is justified
+                                //retract ntlen later if a failure
                                 dupOffset=dupOffset-rollOffset+ntLen;
                                 //rolling was a success
                                 if(seqChange.isDel()){
@@ -242,7 +251,7 @@ public class TranscriptChange {
                                 }
                                 rolling=false;
                                 //can we walk again?
-                                walking=true;
+                                //walking=true;
                                 rollOffset=0;
                             }
                         }
@@ -294,9 +303,14 @@ public class TranscriptChange {
                             int ePos=changeBaseInExon+ntLen+dupOffset;
                             //remember substring is exclusive
                             //ePos is the position after the insert
-                            postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
-                            preFlank=exon.getSequence().substring(sPos-ntLen,sPos).toUpperCase();
-
+                            try{
+                                postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
+                                preFlank=exon.getSequence().substring(sPos-ntLen,sPos).toUpperCase();
+                            }catch(StringIndexOutOfBoundsException e){
+                                //you have no room to check
+                                continue_flag=false;
+                                break;
+                            }
                             if(walking & postFlank.equals(flank.get())){
                                 change.setDup(true);
                                 change.setNtIns(flank.get());
