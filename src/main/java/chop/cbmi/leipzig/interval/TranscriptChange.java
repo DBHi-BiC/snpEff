@@ -55,7 +55,11 @@ public class TranscriptChange {
                     assert(stPos==endPos);
                     txPos= String.valueOf(stPos);
                 }else{
-                    txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+                    if(stPos>endPos){
+                        txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
+                    }else{
+                        txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+                    }
                 }
             }else if(seqChange.isIns()){
                 //we only use the startpos for insertions
@@ -73,6 +77,14 @@ public class TranscriptChange {
                     //the same way a regular insert would,
                     //so the duplicated part precedes that nucleotide
                     Integer ntLen=changeEffect.getNtIns().length();
+                    if(ntLen==1){
+                        //we need to break here
+                        //61dupC
+                        stPos=relativePosSt+dupOffset-ntLen;
+                        txPos=String.valueOf(stPos);
+                        change.setTxPos(txPos);
+                        return change;
+                    }
                     if(transcript.isStrandPlus()){
                         stPos=relativePosSt+dupOffset-ntLen;
                         endPos=relativePosSt+dupOffset-1;
@@ -82,12 +94,19 @@ public class TranscriptChange {
                         stPos=relativePosSt+dupOffset-ntLen+1;
                         endPos=relativePosSt+dupOffset;
                     }
-
                 }else{
                     stPos=relativePosSt+hgvs_ins_offset;
                     endPos=relativePosSt+hgvs_ins_offset+1;
                 }
-                txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+
+
+                if(stPos>endPos){
+                    txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
+                }else{
+                    txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
+                }
+
+
 
                 seqChange.setStart(seqChange.getStart()+dupOffset);
             }else{
@@ -122,7 +141,7 @@ public class TranscriptChange {
 
     /**
      * Calculate base number of an exon position
-     * 
+     *
      */
     int cdsBaseNumberOfExonInTx(int pos){
         List<Exon> exons = transcript.sortedStrand();
@@ -288,7 +307,7 @@ public class TranscriptChange {
                                     continue_flag=false;
                                 }
                                 if(rolling){
-                                //if the frame is correct
+                                    //if the frame is correct
                                     //dupOffset=dupOffset-rollOffset+ntLen;
                                     //rolling was a success
                                     if(preFlank.equals(flank.get())){
@@ -337,5 +356,65 @@ public class TranscriptChange {
             }
         }
         return dupOffset;
+    }
+
+    public String intronFormat(int position){
+        int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
+        int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
+        int cdsFirstAfter= cdsBaseNumberOfExonInTx(firstAfter);
+        int cdsLastBefore= cdsBaseNumberOfExonInTx(lastBefore);
+
+        int toProceeding=Math.abs(position-firstAfter);
+        int fromPreceeding=Math.abs(position-lastBefore);
+
+        String fromPreceedingString = ((fromPreceeding == 0)   ? "" : "+"+String.valueOf(fromPreceeding));
+        String toProceedingString = ((toProceeding == 0)   ? "" : "-"+String.valueOf(toProceeding));
+
+        String intronFormat = (fromPreceeding<toProceeding) ? String.valueOf(cdsLastBefore)+ fromPreceedingString : String.valueOf(cdsFirstAfter)+ toProceedingString;
+        return intronFormat;
+    }
+    public Boolean comingFrom(int position){
+        int firstAfter = transcript.isStrandPlus() ? transcript.firstExonPositionAfter(position) : transcript.lastExonPositionBefore(position);
+        int lastBefore = transcript.isStrandPlus() ? transcript.lastExonPositionBefore(position) : transcript.firstExonPositionAfter(position);
+        int toProceeding=Math.abs(position-firstAfter);
+        int fromPreceeding=Math.abs(position-lastBefore);
+        return fromPreceeding<toProceeding;
+    }
+
+    public void allIntronTxPos(){
+        String txPosStringSt=intronFormat(seqChange.getStart());
+        String txPosStringEnd=intronFormat(seqChange.getEnd());
+
+        if(seqChange.isDel()){
+            if(seqChange.size()==1){
+                txPos= txPosStringSt;
+            }else{
+                if(transcript.isStrandPlus()){
+                    txPos=txPosStringSt+"_"+txPosStringEnd;
+                }else{
+                    txPos=txPosStringEnd+"_"+txPosStringSt;
+                }
+            }
+        }else if(seqChange.isIns()){
+            Integer hgvs_ins_offset;
+            if(transcript.isStrandPlus()){
+                hgvs_ins_offset=-1;
+            }else{
+                hgvs_ins_offset=0;
+            }
+
+            int stPos=seqChange.getStart()+hgvs_ins_offset;
+            int endPos=seqChange.getStart()+hgvs_ins_offset+1;
+
+            //666-3-666-2
+            if(comingFrom(stPos)){
+                txPos=String.valueOf(stPos)+"_"+String.valueOf(endPos);
+            }else{
+                txPos= String.valueOf(endPos)+"_"+String.valueOf(stPos);
+            }
+            txPos=txPosStringSt+intronFormat(seqChange.getStart()+1);
+        }else{
+            txPos=intronFormat(seqChange.getStart());
+        }
     }
 }
