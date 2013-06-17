@@ -27,8 +27,13 @@ public class UpstreamChange extends TranscriptChange {
             //distance to cds start
             //this may be much farther than the distance to the TSS reported by SnpEff
             //especially for alternate 5' end isoforms
-            int distance = (transcript.isStrandPlus() ? transcript.getCdsStart() - seqChange.getEnd() : seqChange.getStart() - transcript.getCdsEnd());
-            txPos = String.valueOf(-1*distance);
+            Integer relativePosSt = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsStart() : transcript.getCdsStart() - seqChange.getEnd());
+            Integer relativePosEnd = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsStart() : transcript.getCdsStart() - seqChange.getStart());
+
+            change = hgvsChangeFormatter(change, null, relativePosSt, relativePosEnd);
+
+            //txPos = "-1"+String.valueOf(distanceToEndOfUTR);
+
             change.setTxPos(txPos);
             return change;
         }

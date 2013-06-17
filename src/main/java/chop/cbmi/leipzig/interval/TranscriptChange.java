@@ -204,6 +204,9 @@ public class TranscriptChange {
         Integer rollOffset=0;
         //we need to know whether to use insertion or deletion string
         CharStack flank;
+        if(exon == null){
+            return 0;
+        }
         if(seqChange.isDel()){
 
             changeBaseInExon = seqChange.getStart() - exon.getStart();
@@ -359,10 +362,17 @@ public class TranscriptChange {
                     }
                 }else{
                     //for negative strand inserts we need to look behind
-                    String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
-                    if(preFlank.equals(flank.get()) & seqChange.isIns()){
-                        change.setDup(true);
+                    try{
+                        String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
+                        if(preFlank.equals(flank.get()) & seqChange.isIns()){
+                            change.setDup(true);
+                        }
+                    }catch(StringIndexOutOfBoundsException e){
+                        //no room to check
+                        //4	39455843	.	T	TA	100.0	PASS	DP=100
+                        return 0;
                     }
+
                 }
             }else{
                 //not a del or insert

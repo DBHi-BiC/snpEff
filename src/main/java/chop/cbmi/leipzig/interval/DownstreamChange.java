@@ -33,9 +33,14 @@ public class DownstreamChange  extends TranscriptChange {
             //distance to cds end
             //this may be much farther than the distance to the polyA reported by SnpEff
             //especially for alternate 3' end isoforms
-            int distance = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsStart() - seqChange.getEnd());
-            txPos = "*"+String.valueOf(distance);
+            Integer relativePosSt = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getEnd());
+            Integer relativePosEnd = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getStart());
 
+            change = hgvsChangeFormatter(change, null, relativePosSt, relativePosEnd);
+
+            //specific to 3' UTR
+            //txPos = "*"+txPos;
+            txPos=txPos.replaceAll("(\\d+)", "\\*$1");
             change.setTxPos(txPos);
             return change;
         }
