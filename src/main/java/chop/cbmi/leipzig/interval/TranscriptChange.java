@@ -33,7 +33,7 @@ public class TranscriptChange {
 
     //common hgvs formatter for transcripts
     //txPos is for exons by default
-    ChangeEffect hgvsChangeFormatter(ChangeEffect change, Exon exon, Integer relativePosSt, Integer relativePosEnd){
+    ChangeEffect hgvsChangeFormatter(ChangeEffect change, Exon exon, Integer relativePosSt, Integer relativePosEnd) {
         int dupOffset;
         Integer stPos;
         Integer endPos;
@@ -50,6 +50,12 @@ public class TranscriptChange {
                     stPos=relativePosEnd+dupOffset;
                     endPos=relativePosSt+dupOffset;
                 }
+                //sanity check - do the nucleotides specified in the deletion actually exist
+                String deletedSequence;
+                deletedSequence = transcript.cds().substring(stPos-1,endPos).toUpperCase();
+                //deletedSequence = exon.getSequence().substring(stPos-exon.getStart(),endPos-exon.getStart()).toUpperCase();
+                if(!change.getNtDel().equals(deletedSequence))
+                    throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + deletedSequence + ") are not the same as what ntDel as set to:" + change.getNtDel());
 
                 if(seqChange.size()==1){
                     assert(stPos==endPos);
@@ -215,7 +221,8 @@ public class TranscriptChange {
             flank=new CharStack(changeEffect.getNtDel());
 
             if (transcript.isStrandPlus()){
-                if(changeBaseInExon-ntLen>=0){
+                //this must have been a walk-off the end warning but it isn't written correctly
+                //if(changeBaseInExon-ntLen>=0){
                     boolean walking = true;
                     boolean rolling = false;
                     while(walking || rolling){
@@ -240,12 +247,12 @@ public class TranscriptChange {
                             change.setDup(true);
                             if(walking){
                                 //try to walk further, might fail
-
                                 dupOffset=dupOffset+ntLen;
                             }
                             if(rolling){
                                 //retract ntlen later if a failure
-                                dupOffset=dupOffset-rollOffset+ntLen;
+                                dupOffset=dupOffset-rollOffset;
+                                        //not sure why I added +ntLen;
                                 //rolling was a success
                                 if(seqChange.isDel()){
                                     change.setNtDel(flank.get());
@@ -279,8 +286,7 @@ public class TranscriptChange {
                                 }
                             }
                         }
-
-                    }
+                    //}
                 }
             }
         }else{
@@ -363,7 +369,9 @@ public class TranscriptChange {
                 }else{
                     //for negative strand inserts we need to look behind
                     try{
-                        String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
+                        //String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
+                        String preFlank=exon.getSequence().substring(changeBaseInExon-ntLen-2,changeBaseInExon-2).toUpperCase();
+
                         if(preFlank.equals(flank.get()) & seqChange.isIns()){
                             change.setDup(true);
                         }
