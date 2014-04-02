@@ -236,6 +236,8 @@ public class TranscriptChange {
                             postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
                         }catch(StringIndexOutOfBoundsException e){
                             //you have no room to check
+                            //this occurs with
+                            //1       76199309        CD052077        TG      T       .       .       CLASS=DM;MUT=ALT;GENE=ACADM;STRAND=+;DNA=NM_000016.4:c.387+1delG
                             walking=false;
                             if(change.isDup()){
                                 rolling=true;
@@ -251,8 +253,9 @@ public class TranscriptChange {
                             }
                             if(rolling){
                                 //retract ntlen later if a failure
+                                //not sure why I added +ntLen;
                                 dupOffset=dupOffset-rollOffset;
-                                        //not sure why I added +ntLen;
+
                                 //rolling was a success
                                 if(seqChange.isDel()){
                                     change.setNtDel(flank.get());
@@ -298,7 +301,7 @@ public class TranscriptChange {
 
                 flank=new CharStack(changeEffect.getNtIns());
                 if (transcript.isStrandPlus()){
-                    if(changeBaseInExon-ntLen>=0){
+                    //if(changeBaseInExon-ntLen>=0){
                         boolean walking = true;
                         boolean rolling = false;
                         boolean continue_flag=true;
@@ -308,8 +311,8 @@ public class TranscriptChange {
                             //walk the duplication
 
                             //String testFlank=exon.getSequence().substring(2361,2370);
-                            int sPos=changeBaseInExon+dupOffset;
-                            int ePos=changeBaseInExon+ntLen+dupOffset;
+                            int sPos=changeBaseInExon+dupOffset-rollOffset;
+                            int ePos=changeBaseInExon+ntLen+dupOffset-rollOffset;
                             //remember substring is exclusive
                             //ePos is the position after the insert
                             try{
@@ -333,9 +336,12 @@ public class TranscriptChange {
                                     //if the frame is correct
                                     //dupOffset=dupOffset-rollOffset+ntLen;
                                     //rolling was a success
-                                    if(preFlank.equals(flank.get())){
+                                    if(postFlank.equals(flank.get())){
                                         change.setNtIns(flank.get());
                                         rolling=false;
+                                        //the insertion is at the end of teh postflank
+                                        dupOffset=dupOffset-rollOffset+ntLen;
+                                        rollOffset=0;
                                         //TODO: not elegant
                                         continue_flag=false;
                                     }
@@ -346,7 +352,9 @@ public class TranscriptChange {
                                     //for a insertion of 3
                                     //we know to try 2 away then 1 away
                                     //there are only 3 permutations
-                                    dupOffset=dupOffset+ntLen-1;
+
+                                    //I dont' get this
+                                    //dupOffset=dupOffset+ntLen-1;
                                 }
                                 if(continue_flag){
                                     rollOffset+=1;
@@ -359,13 +367,13 @@ public class TranscriptChange {
                                     }
                                     else{
                                         flank.rollback();
-                                        dupOffset=dupOffset-1;
+                                        //dupOffset=dupOffset-1;
                                     }
                                 }
                             }
 
                         }
-                    }
+                    //}
                 }else{
                     //for negative strand inserts we need to look behind
                     try{
