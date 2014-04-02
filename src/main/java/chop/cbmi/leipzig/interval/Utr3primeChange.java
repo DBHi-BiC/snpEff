@@ -36,7 +36,9 @@ public class Utr3primeChange extends TranscriptChange {
 
             Exon exon = (Exon) utr3prime.findParent(Exon.class);
 
+
             change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
+
 
             //specific to 3' UTR
             //txPos = "*"+txPos;
