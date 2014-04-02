@@ -52,7 +52,7 @@ public class TranscriptChange {
                 }
                 //sanity check - do the nucleotides specified in the deletion actually exist
                 String deletedSequence;
-                deletedSequence = transcript.cds().substring(stPos-1,endPos).toUpperCase();
+                deletedSequence = transcript.cds().substring(stPos - 1, endPos).toUpperCase();
                 //deletedSequence = exon.getSequence().substring(stPos-exon.getStart(),endPos-exon.getStart()).toUpperCase();
                 if(!change.getNtDel().equals(deletedSequence))
                     throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + deletedSequence + ") are not the same as what ntDel as set to:" + change.getNtDel());
@@ -82,12 +82,19 @@ public class TranscriptChange {
                     //the position is the first nucleotide of the proceeding sequence
                     //the same way a regular insert would,
                     //so the duplicated part precedes that nucleotide
+
+                    //this logic seems one off for
+                    //1	235967924	CI021900	A	AT	.	.	CLASS=DM;MUT=ALT;GENE=LYST;STRAND=-;DNA=NM_000081.2:c.3434dupA;DB=rs80338653;PHEN="Chediak-Higashi syndrome";
                     Integer ntLen=changeEffect.getNtIns().length();
                     if(ntLen==1){
                         //we need to break here
                         //61dupC
-                        stPos=relativePosSt+dupOffset-ntLen;
-                        txPos=String.valueOf(stPos);
+                        if(transcript.isStrandPlus()){
+                            stPos = relativePosSt + dupOffset - 1;
+                        }else{
+                            stPos=relativePosSt+dupOffset;
+                        }
+                        txPos = String.valueOf(stPos);
                         change.setTxPos(txPos);
                         return change;
                     }
@@ -100,6 +107,12 @@ public class TranscriptChange {
                         stPos=relativePosSt+dupOffset-ntLen+1;
                         endPos=relativePosSt+dupOffset;
                     }
+
+                    //sanity check - do the nucleotides duplicated actually exist
+                    String insertedSequence;
+                    insertedSequence = transcript.cds().substring(stPos-1,endPos).toUpperCase();
+                    if(!change.getNtIns().equals(insertedSequence))
+                        throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + insertedSequence + ") are not the same as what ntIns as set to:" + change.getNtIns());
                 }else{
                     stPos=relativePosSt+hgvs_ins_offset;
                     endPos=relativePosSt+hgvs_ins_offset+1;
