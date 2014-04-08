@@ -53,22 +53,23 @@ public class TranscriptChange {
 
                 //edge case: deletion spans the end of an exon into the 3' UTR of the cds
                 //1       196716437       CD076770        AAGAT   A       .       .       CLASS=DM;MUT=ALT;GENE=CFH;STRAND=+;DNA=NM_000186.3:c.3694_*1delTAGA
-                if(transcript.isStrandPlus() & endPos>transcript.cds().length()){
+                if(transcript.isStrandPlus() & stPos < transcript.cds().length() & endPos>transcript.cds().length()){
                     int overrun=endPos-transcript.cds().length();
                     txPos=String.valueOf(endPos)+"_*"+String.valueOf(overrun);
                     change.setTxPos(txPos);
                     return change;
                 }
-
-
                 //sanity check - do the nucleotides specified in the deletion actually exist
-                String deletedSequence;
+                //let's apply this to the ones that are actually in the coding region
+                if(stPos>=1 & endPos<=transcript.cds().length()){
 
-                deletedSequence = transcript.cds().substring(stPos - 1, endPos).toUpperCase();
-                //deletedSequence = exon.getSequence().substring(stPos-exon.getStart(),endPos-exon.getStart()).toUpperCase();
-                if(!change.getNtDel().equals(deletedSequence))
-                    throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + deletedSequence + ") are not the same as what ntDel as set to:" + change.getNtDel());
+                    String deletedSequence;
 
+                    deletedSequence = transcript.cds().substring(stPos - 1, endPos).toUpperCase();
+                    //deletedSequence = exon.getSequence().substring(stPos-exon.getStart(),endPos-exon.getStart()).toUpperCase();
+                    if (!change.getNtDel().equals(deletedSequence))
+                        throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + deletedSequence + ") are not the same as what ntDel as set to:" + change.getNtDel());
+                }
                 if(seqChange.size()==1){
                     assert(stPos==endPos);
                     txPos= String.valueOf(stPos);
