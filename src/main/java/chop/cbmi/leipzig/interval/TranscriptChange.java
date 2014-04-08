@@ -391,7 +391,8 @@ public class TranscriptChange {
                     //for negative strand inserts we need to look behind
                     try{
                         //String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
-                        String preFlank=exon.getSequence().substring(changeBaseInExon-ntLen-2,changeBaseInExon-2).toUpperCase();
+                        //wow this was way off
+                        String preFlank=exon.getSequence().substring(changeBaseInExon-ntLen+1,changeBaseInExon+1).toUpperCase();
 
                         if(preFlank.equals(flank.get()) & seqChange.isIns()){
                             change.setDup(true);
