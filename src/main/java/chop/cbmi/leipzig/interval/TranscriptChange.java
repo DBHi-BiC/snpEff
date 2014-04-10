@@ -102,24 +102,19 @@ public class TranscriptChange {
                     if(ntLen==1){
                         //we need to break here
                         //61dupC
-                        if(transcript.isStrandPlus()){
-                            stPos = relativePosSt + dupOffset - 1;
-                        }else{
-                            stPos = relativePosSt+dupOffset;
-                        }
+
+                        stPos = relativePosSt + dupOffset + hgvs_ins_offset;
+
                         txPos = String.valueOf(stPos);
                         change.setTxPos(txPos);
                         return change;
                     }
-                    if(transcript.isStrandPlus()){
-                        stPos=relativePosSt+dupOffset-ntLen;
-                        endPos=relativePosSt+dupOffset-1;
-                    }else{
+
                         //for negative strand dups the position is the end nt of the repeat
                         //and the last repeat
-                        stPos=relativePosSt+dupOffset-ntLen+1;
-                        endPos=relativePosSt+dupOffset;
-                    }
+                        stPos=relativePosSt+dupOffset-ntLen+1+hgvs_ins_offset;
+                        endPos=relativePosSt+dupOffset+hgvs_ins_offset;
+
 
                     //sanity check - do the nucleotides duplicated actually exist
                     String insertedSequence;
@@ -127,8 +122,8 @@ public class TranscriptChange {
                     if(!change.getNtIns().equals(insertedSequence))
                         throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + insertedSequence + ") are not the same as what ntIns as set to:" + change.getNtIns());
                 }else{
-                    stPos=relativePosSt+hgvs_ins_offset;
-                    endPos=relativePosSt+hgvs_ins_offset+1;
+                    stPos = relativePosSt + dupOffset + hgvs_ins_offset;
+                    endPos=relativePosSt+dupOffset+ hgvs_ins_offset+1;
                 }
 
 
@@ -340,7 +335,8 @@ public class TranscriptChange {
                             //walk the duplication
 
                             //String testFlank=exon.getSequence().substring(2361,2370);
-                            int sPos=changeBaseInExon+dupOffset-rollOffset;
+                            int sPos=changeBaseInExon+dupOffset;
+                            //let's shorten the postflank as we roll -rollOffset;
                             int ePos=changeBaseInExon+ntLen+dupOffset-rollOffset;
                             //remember substring is exclusive
                             //ePos is the position after the insert
@@ -358,14 +354,12 @@ public class TranscriptChange {
                                 //try to walk further, might fail
                                 dupOffset=dupOffset+ntLen;
                             }else{
-                                if(!change.isDup()){
-                                    continue_flag=false;
-                                }
+
                                 if(rolling){
                                     //if the frame is correct
                                     //dupOffset=dupOffset-rollOffset+ntLen;
                                     //rolling was a success
-                                    if(postFlank.equals(flank.get())){
+                                    if(postFlank.equals(flank.get().substring(rollOffset))){
                                         change.setNtIns(flank.get());
                                         rolling=false;
                                         //the insertion is at the end of teh postflank
@@ -384,6 +378,29 @@ public class TranscriptChange {
 
                                     //I dont' get this
                                     //dupOffset=dupOffset+ntLen-1;
+                                    if(!change.isDup()){
+                                        //1       161138820       CI016229        G       GGCCAAGGCCAGC   .       .       CLASS=DM;MUT=ALT;GENE=PPOX;STRAND=+;DNA=NM_000309.3:c.657_658insAAGGCCAGCGCC
+                                        // GXXXXXXXXXXXXGCCTTGGCTGAG
+                                        //  GCCAAGGCCAGC
+                                        //              GCCAAGGCCAGC no
+                                        //             CGCCAAGGCCAG
+                                        //            GCGCCAAGGCCA
+                                        //           AGCGCCAAGGCC
+                                        //          CAGCGCCAAGGC
+                                        //         CCAGCGCCAAGG
+                                        //        GCCAGCGCCAAG
+                                        //       GGCCAGCGCCAA
+                                        //      AGGCCAGCGCCA
+                                        //     AAGGCCAGCGCC
+                                        //sometimes you need to roll even if you can't walk
+                                        //continue_flag=false;
+                                        //do the first x nt match?
+                                        if(flank.get().substring(0,1).equals(postFlank.substring(0,1))){
+                                            //dupOffset=dupOffset+ntLen;
+                                        }else{
+                                            continue_flag=false;
+                                        }
+                                    }
                                 }
                                 if(continue_flag){
                                     rollOffset+=1;
