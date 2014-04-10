@@ -55,7 +55,7 @@ public class TranscriptChange {
                 //1       196716437       CD076770        AAGAT   A       .       .       CLASS=DM;MUT=ALT;GENE=CFH;STRAND=+;DNA=NM_000186.3:c.3694_*1delTAGA
                 if(transcript.isStrandPlus() & stPos < transcript.cds().length() & endPos>transcript.cds().length()){
                     int overrun=endPos-transcript.cds().length();
-                    txPos=String.valueOf(endPos)+"_*"+String.valueOf(overrun);
+                    txPos=String.valueOf(stPos)+"_*"+String.valueOf(overrun);
                     change.setTxPos(txPos);
                     return change;
                 }
@@ -231,6 +231,7 @@ public class TranscriptChange {
         //ntLen is the size of the indel
         //dupOffset is the adjustment for placing ins 3' of repeats if they are dups
         Integer changeBaseInExon;
+        Integer changeBaseInTx;
         Integer ntLen;
         Integer dupOffset=0;
         Integer rollOffset=0;
@@ -242,6 +243,8 @@ public class TranscriptChange {
         if(seqChange.isDel()){
 
             changeBaseInExon = seqChange.getStart() - exon.getStart();
+            changeBaseInTx  = seqChange.getStart() - transcript.getStart();
+
             ntLen=changeEffect.getNtDel().length();
 
             flank=new CharStack(changeEffect.getNtDel());
