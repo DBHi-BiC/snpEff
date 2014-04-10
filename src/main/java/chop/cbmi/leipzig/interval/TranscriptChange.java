@@ -61,7 +61,7 @@ public class TranscriptChange {
                 }
                 //sanity check - do the nucleotides specified in the deletion actually exist
                 //let's apply this to the ones that are actually in the coding region
-                if(stPos>=1 & endPos<=transcript.cds().length()){
+                if(this.getClass()==ExonChange.class & stPos>=1 & endPos<=transcript.cds().length()){
 
                     String deletedSequence;
 

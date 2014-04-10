@@ -16,9 +16,9 @@ import ca.mcgill.mcb.pcingola.interval.Utr3prime;
 public class Utr3primeChange extends TranscriptChange {
     Utr3prime utr3prime;
 
-    public Utr3primeChange(SeqChange seqChange, Utr3prime utr5prime, ChangeEffect changeEffect) {
-        super(seqChange, (Transcript) utr5prime.getParent().getParent(), changeEffect);
-        this.utr3prime = utr5prime;
+    public Utr3primeChange(SeqChange seqChange, Utr3prime utr3prime, ChangeEffect changeEffect) {
+        super(seqChange, (Transcript) utr3prime.getParent().getParent(), changeEffect);
+        this.utr3prime = utr3prime;
     }
 
     @Override
@@ -31,10 +31,19 @@ public class Utr3primeChange extends TranscriptChange {
             //distance to cds end
             //cdsStart>cdsEnd, so cdsStart is really cds start
             //this is the opposite of transcript start and end, in which tx.end > tx.start always
+
+
             Integer relativePosSt = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getEnd());
             Integer relativePosEnd = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getStart());
 
             Exon exon = (Exon) utr3prime.findParent(Exon.class);
+
+            //edge case
+            //1       196716441       CD032470        TAGAA   T       .       .       CLASS=DM;MUT=ALT;GENE=CFH;STRAND=+;DNA=NM_000186.3:c.3695_*2delAGAA; uraemic syndrome
+            //this should be
+            if(relativePosSt<1){
+                relativePosSt=cdsBaseNumberOfExonInTx(seqChange.getStart());
+            }
 
 
             change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
