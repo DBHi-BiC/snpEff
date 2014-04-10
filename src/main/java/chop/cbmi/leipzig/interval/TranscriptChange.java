@@ -74,7 +74,7 @@ public class TranscriptChange {
                     assert(stPos==endPos);
                     txPos= String.valueOf(stPos);
                 }else{
-                    if(stPos>endPos){
+                    if(transcript.isStrandMinus()){
                         txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
                     }else{
                         txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
@@ -105,7 +105,7 @@ public class TranscriptChange {
                         if(transcript.isStrandPlus()){
                             stPos = relativePosSt + dupOffset - 1;
                         }else{
-                            stPos=relativePosSt+dupOffset;
+                            stPos = relativePosSt+dupOffset;
                         }
                         txPos = String.valueOf(stPos);
                         change.setTxPos(txPos);
@@ -132,7 +132,7 @@ public class TranscriptChange {
                 }
 
 
-                if(stPos>endPos){
+                if(transcript.isStrandMinus()){
                     txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
                 }else{
                     txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
