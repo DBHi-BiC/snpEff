@@ -74,11 +74,11 @@ public class TranscriptChange {
                     assert(stPos==endPos);
                     txPos= String.valueOf(stPos);
                 }else{
-                    if(transcript.isStrandMinus()){
-                        txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
-                    }else{
+                    //if(transcript.isStrandMinus()){
+                    //    txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
+                    //}else{
                         txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
-                    }
+                    //}
                 }
             }else if(seqChange.isIns()){
                 //we only use the startpos for insertions
@@ -123,15 +123,15 @@ public class TranscriptChange {
                         throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + insertedSequence + ") are not the same as what ntIns as set to:" + change.getNtIns());
                 }else{
                     stPos = relativePosSt + dupOffset + hgvs_ins_offset;
-                    endPos=relativePosSt+dupOffset+ hgvs_ins_offset+1;
+                    endPos= relativePosSt + dupOffset + hgvs_ins_offset + 1;
                 }
 
 
-                if(transcript.isStrandMinus()){
-                    txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
-                }else{
+                //if(transcript.isStrandMinus()){
+                //    txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
+                //}else{
                     txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
-                }
+                //}
 
 
 
