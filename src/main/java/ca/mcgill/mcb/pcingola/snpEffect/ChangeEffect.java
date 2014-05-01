@@ -302,6 +302,19 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	String aaOld = "", aaNew = ""; // Amino acid changes
 	String aasAroundOld = "", aasAroundNew = ""; // Amino acids around
 
+    /**
+     * CBMi
+     * HGVS-related information
+     * in coding regions nucleotide 1 is the A of the ATG-translation initiation codon
+     * we are only dealing with codon regions for HGVS annotation
+     * called coding region dna reference sequence here:
+     * http://www.hgvs.org/mutnomen/refseq_figure.html
+     */
+    String txPos = null; // nucleotide number
+    String ntOld = ""; String ntNew = ""; //NT changes
+    String ntIns = ""; String ntDel = "";
+    boolean isDup = false;
+
 	public ChangeEffect(SeqChange seqChange) {
 		this.seqChange = seqChange;
 	}
@@ -420,6 +433,39 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		if (aaOld.equals(aaNew)) return aaNew + (codonNum + 1);
 		return aaOld + (codonNum + 1) + aaNew;
 	}
+
+    /**
+     * Coding DNA HGVS change string
+     * SeqChange.changeType associations:
+     * * SNP : substitutions NM_001005484.1:c.76A>T
+     * * INS : insertions    NM_001005484.1:c.76_77insG
+     * * DEL : deletions     NM_001005484.1:c.76delA
+     * @return
+     */
+    public String getCodingDnaHgvs() {
+        //we no longer prepend the tr.getId()+
+        Transcript tr = getTranscript();
+        if (tr != null && this.txPos != null)
+        {
+            if(this.seqChange.isSnp()){
+                return "c."+this.txPos+this.ntOld+">"+this.ntNew;
+            }
+            if(this.seqChange.isIns()){
+                if(this.isDup){
+                    return "c."+this.txPos+"dup"+this.ntIns;
+                }else{
+                    return "c."+this.txPos+"ins"+this.ntIns;
+                }
+            }
+            if(this.seqChange.isDel()){
+                if(this.ntDel.length()>1){
+                    return "c."+this.txPos+"del"+this.ntDel;
+                }
+                return "c."+this.txPos+"del"+this.ntDel;
+            }
+        }
+        return "";
+    }
 
 	/**
 	 * Amino acid length (negative if there is none)
@@ -607,13 +653,23 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	 * Get exon (if any)
 	 * @return
 	 */
-	public Exon getExon() {
-		if (marker != null) {
-			if (marker instanceof Exon) return (Exon) marker;
-			return (Exon) marker.findParent(Exon.class);
-		}
-		return null;
-	}
+    public Exon getExon() {
+        if (marker != null) {
+            if (marker instanceof Exon){
+                return (Exon) marker;
+            }
+
+            Transcript tr = getTranscript();
+            if(tr != null){
+                Exon exon = tr.findExon(seqChange.getStart());
+                if(exon != null) return exon;
+            }
+            //for splice_site_donor and others
+            return (Exon) marker.findParent(Exon.class);
+        }
+        return null;
+    }
+
 
 	/**
 	 * Return functional class of this effect (i.e.  NONSENSE, MISSENSE, SILENT or NONE)
@@ -719,20 +775,22 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		return seqChange.getGenotype();
 	}
 
+
 	/**
 	 * Change in HGVS notation
 	 * @return
-	 */
+    */
 	public String getHgvs() {
 		HgsvProtein hgsvProtein = new HgsvProtein(this);
 		HgsvDna hgsvDna = new HgsvDna(this);
 
 		String hgvsProt = hgsvProtein.toString();
-		String hgvsDna = hgsvDna.toString();
+        //protein only
+		//String hgvsDna = hgsvDna.toString();
 
-		return (hgvsProt != null ? hgsvProtein + "/" : "") //
-				+ (hgvsDna != null ? hgvsDna : "") //
-		;
+		return (hgvsProt != null ? hgsvProtein + "/" : "");
+		//		+ (hgvsDna != null ? hgvsDna : "") //
+
 	}
 
 	//	/**
@@ -962,6 +1020,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				+ "Gene_name\t" //
 				+ "Bio_type\t" //
 				+ "Trancript_ID\t" //
+                + "HGVS_DNA\t" //
 				+ "Exon_ID\t" //
 				+ "Exon_Rank\t" //
 				+ "Effect\t" //
@@ -1174,7 +1233,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 
 	public String toString(boolean useSeqOntology, boolean useHgvs) {
 		// Get data to show
-		String geneId = "", geneName = "", bioType = "", transcriptId = "", exonId = "", customId = "";
+		String geneId = "", geneName = "", bioType = "", transcriptId = "", hgvsDna = "", exonId = "", customId = "";
 		int exonRank = -1;
 
 		if (marker != null) {
@@ -1189,8 +1248,18 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				bioType = getBiotype();
 			}
 
-			// Update trId
-			if (tr != null) transcriptId = tr.getId();
+            // Update trId
+            if (tr != null){
+                transcriptId = tr.getId();
+
+                //CBMi
+                //only annotate exonic changes
+                //in transcripts
+                //if (exon != null) {
+                hgvsDna=this.getCodingDnaHgvs();
+                //}
+
+            }
 
 			// Exon rank information
 			Exon exon = getExon();
@@ -1223,6 +1292,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				+ "\t" + geneName //
 				+ "\t" + bioType //
 				+ "\t" + transcriptId //
+                + "\t" + hgvsDna //
 				+ "\t" + exonId //
 				+ "\t" + (exonRank >= 0 ? exonRank : "") //
 				+ "\t" + effect(false, false, false, useSeqOntology) //
