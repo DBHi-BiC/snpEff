@@ -1,2 +1,5 @@
+*.dir_bash_history
 /data
 /target
+.idea
+*.iml
