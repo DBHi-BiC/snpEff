@@ -15,14 +15,13 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 public class IntronChange extends TranscriptChange {
     Intron intron;
 
-    public IntronChange(SeqChange seqChange, Intron intron) {
-        super(seqChange, (Transcript) intron.getParent());
+    public IntronChange(SeqChange seqChange, Intron intron, ChangeEffect changeEffect) {
+        super(seqChange, (Transcript) intron.getParent(), changeEffect);
         this.intron = intron;
     }
 
     @Override
-    ChangeEffect transcriptChange() {
-        ChangeEffect change = changeEffect.clone();
+    boolean transcriptChange() {
         //List<Intron> introns = transcript.introns();
 
         //intron
@@ -33,15 +32,15 @@ public class IntronChange extends TranscriptChange {
         //for (Intron intron : introns)
         //{
         if (intron.intersects(seqChange)) {
-            change.set(intron, EffectType.INTRON, "");
+            changeEffect.set(intron, EffectType.INTRON, "");
 
             //sets txPos
             allIntronTxPos();
 
-            change.setTxPos(txPos);
-            return change;
+            changeEffect.setTxPos(txPos);
+            return true;
         }
-        return change;
+        return false;
 
     }
 

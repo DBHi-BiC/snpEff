@@ -1,6 +1,7 @@
 package ca.mcgill.mcb.pcingola.interval;
 
 import ca.mcgill.mcb.pcingola.interval.SeqChange.ChangeType;
+import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
 import chop.cbmi.leipzig.interval.Utr3primeChange;
@@ -41,17 +42,14 @@ public class Utr3prime extends Utr {
 
 		if (seqChange.includes(this) && (seqChange.getChangeType() == ChangeType.DEL)) {
 			changeEffects.add(this, EffectType.UTR_3_DELETED, ""); // A UTR was removed entirely
-			return true;
-		}
-
-		Transcript tr = (Transcript) findParent(Transcript.class);
-		int dist = utrDistance(seqChange, tr);
-		changeEffects.add(this, type, dist >= 0 ? dist + " bases from CDS" : "");
-		if (dist >= 0) changeEffects.setDistance(dist);
-
-        Utr3primeChange utrChange = new Utr3primeChange(seqChange, this);
-        changeEffects.add(utrChange.calculate());
-
+		}else {
+            Transcript tr = (Transcript) findParent(Transcript.class);
+            int dist = utrDistance(seqChange, tr);
+            changeEffects.add(this, type, dist >= 0 ? dist + " bases from CDS" : "");
+            if (dist >= 0) changeEffects.setDistance(dist);
+        }
+        Utr3primeChange utrChange = new Utr3primeChange(seqChange, this, changeEffects.get());
+        utrChange.calculate();
 		return true;
 	}
 

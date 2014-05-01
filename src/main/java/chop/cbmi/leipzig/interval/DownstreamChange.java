@@ -25,8 +25,7 @@ public class DownstreamChange  extends TranscriptChange {
 
 
     @Override
-    ChangeEffect transcriptChange() {
-        ChangeEffect change = changeEffect.clone();
+    boolean transcriptChange() {
 
         //a star followed by distance to cds end
         if (downstream.intersects(seqChange)) {
@@ -36,16 +35,16 @@ public class DownstreamChange  extends TranscriptChange {
             Integer relativePosSt = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getEnd());
             Integer relativePosEnd = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getStart());
 
-            change = hgvsChangeFormatter(change, null, relativePosSt, relativePosEnd);
+            changeEffect = hgvsChangeFormatter(changeEffect, null, relativePosSt, relativePosEnd);
 
             //specific to 3' UTR
             //txPos = "*"+txPos;
             txPos=txPos.replaceAll("(\\d+)", "\\*$1");
-            change.setTxPos(txPos);
-            return change;
+            changeEffect.setTxPos(txPos);
+            return true;
         }
         //}
-        return change;
+        return false;
 
     }
 }

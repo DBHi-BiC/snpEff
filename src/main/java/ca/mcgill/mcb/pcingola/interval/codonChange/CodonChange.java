@@ -6,6 +6,7 @@ import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
+import chop.cbmi.leipzig.interval.ExonChange;
 
 /**
  * Analyze codon changes based on a SeqChange and a Transcript
@@ -131,6 +132,10 @@ public class CodonChange {
 					codonsAround(seqChange, codonNum); // Show codons around change (if required)
 				}
 
+                //hgvs
+                ExonChange exonChange = new ExonChange(seqChange, exon, changeEffects.get());
+                exonChange.calculate();
+
 				// Can we return immediately?
 				if (returnNow) return;
 			}
@@ -147,7 +152,7 @@ public class CodonChange {
 	 * @return
 	 */
 	boolean codonChangeSingle(Exon exon) {
-		throw new RuntimeException("Unimplemented method for this thype of seqChange: " + seqChange.getType());
+		throw new RuntimeException("Unimplemented method for this type of seqChange: " + seqChange.getType());
 	}
 
 	/**
@@ -180,7 +185,7 @@ public class CodonChange {
 	 * @return
 	 */
 	String codonsNew() {
-		throw new RuntimeException("Unimplemented method for this thype of CodonChange: " + this.getClass().getSimpleName());
+		throw new RuntimeException("Unimplemented method for this type of CodonChange: " + this.getClass().getSimpleName());
 	}
 
 	/**
@@ -249,5 +254,4 @@ public class CodonChange {
 
 		return seqChange.netChange(transcript.getStrand());
 	}
-
 }

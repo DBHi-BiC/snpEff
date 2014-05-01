@@ -14,14 +14,15 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 public class ExonChange extends TranscriptChange {
     Exon exon;
 
-    public ExonChange(SeqChange seqChange, Exon exon) {
-        super(seqChange, (Transcript) exon.getParent());
+    public ExonChange(SeqChange seqChange, Exon exon, ChangeEffect changeEffect) {
+        super(seqChange, (Transcript) exon.getParent(), changeEffect);
         this.exon = exon;
     }
 
     @Override
-    ChangeEffect transcriptChange() {
-        ChangeEffect change = changeEffect.clone();
+    boolean transcriptChange() {
+        //ChangeEffect change = changeEffect.clone();
+
         //exon-specific relative positions
         Integer relativePosSt;
         Integer relativePosEnd;
@@ -39,8 +40,8 @@ public class ExonChange extends TranscriptChange {
                     //wrap up and send off
                     relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
                     txPos= String.valueOf(relativePosSt)+"_"+String.valueOf(relativePosEnd);
-                    change.setTxPos(txPos);
-                    return change;
+                    changeEffect.setTxPos(txPos);
+                    return true;
 
                 }else{
                     //utr3
@@ -48,8 +49,8 @@ public class ExonChange extends TranscriptChange {
 
                     relativePosEnd=cdsBaseNumberOfExonInTx(seqChange.getEnd());
                     txPos= String.valueOf(relativePosEnd)+"_"+String.valueOf(relativePosSt);
-                    change.setTxPos(txPos);
-                    return change;
+                    changeEffect.setTxPos(txPos);
+                    return true;
                 }
 
             }else{
@@ -67,8 +68,8 @@ public class ExonChange extends TranscriptChange {
                     //totally intronic
                     allIntronTxPos();
                 }
-                change.setTxPos(txPos);
-                return change;
+                changeEffect.setTxPos(txPos);
+                return true;
             }
         }
         try{
@@ -83,15 +84,15 @@ public class ExonChange extends TranscriptChange {
                     //utr3
                     relativePosEnd = seqChange.getEnd() - transcript.getCdsEnd();
                     txPos= String.valueOf(relativePosSt)+"_*"+String.valueOf(relativePosEnd);
-                    change.setTxPos(txPos);
-                    return change;
+                    changeEffect.setTxPos(txPos);
+                    return true;
                 }else{
                     //utr5 - this implies neg strand
                     //the change is strand-ignorant - it's the getEnd that is utr5
                     relativePosEnd = transcript.getCdsStart() - seqChange.getEnd();
                     txPos= String.valueOf(relativePosEnd)+"_"+String.valueOf(relativePosSt);
-                    change.setTxPos(txPos);
-                    return change;
+                    changeEffect.setTxPos(txPos);
+                    return true;
                 }
 
             }else{
@@ -101,12 +102,12 @@ public class ExonChange extends TranscriptChange {
                 }else{
                     txPos= String.valueOf(relativePosSt)+"_"+intronFormat(seqChange.getEnd());
                 }
-                change.setTxPos(txPos);
-                return change;
+                changeEffect.setTxPos(txPos);
+                return true;
             }
         }
-        change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
-        return change;
+        changeEffect = hgvsChangeFormatter(changeEffect, exon, relativePosSt, relativePosEnd);
+        return true;
     }
     
 

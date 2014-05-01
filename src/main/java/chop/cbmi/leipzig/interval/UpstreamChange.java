@@ -15,14 +15,13 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 public class UpstreamChange extends TranscriptChange {
     Upstream upstream;
 
-    public UpstreamChange(SeqChange seqChange, Upstream upstream) {
-        super(seqChange, (Transcript) upstream.getParent());
+    public UpstreamChange(SeqChange seqChange, Upstream upstream, ChangeEffect changeEffect) {
+        super(seqChange, (Transcript) upstream.getParent(), changeEffect);
         this.upstream = upstream;
     }
 
     @Override
-    ChangeEffect transcriptChange() {
-        ChangeEffect change = changeEffect.clone();
+    boolean transcriptChange() {
         if (upstream.intersects(seqChange)) {
             //distance to cds start
             //this may be much farther than the distance to the TSS reported by SnpEff
@@ -30,15 +29,15 @@ public class UpstreamChange extends TranscriptChange {
             Integer relativePosSt = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsStart() : transcript.getCdsStart() - seqChange.getEnd());
             Integer relativePosEnd = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsStart() : transcript.getCdsStart() - seqChange.getStart());
 
-            change = hgvsChangeFormatter(change, null, relativePosSt, relativePosEnd);
+            changeEffect = hgvsChangeFormatter(changeEffect, null, relativePosSt, relativePosEnd);
 
             //txPos = "-1"+String.valueOf(distanceToEndOfUTR);
 
-            change.setTxPos(txPos);
-            return change;
+            changeEffect.setTxPos(txPos);
+            return true;
         }
         //}
-        return change;
+        return false;
 
     }
 }

@@ -4,10 +4,7 @@ import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
-import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.interval.Utr5prime;
-
-import java.util.List;
 
 /**
  * Jeremy Leipzig
@@ -18,14 +15,13 @@ import java.util.List;
 public class Utr5primeChange extends TranscriptChange {
     Utr5prime utr5prime;
 
-    public Utr5primeChange(SeqChange seqChange, Utr5prime utr5prime) {
-        super(seqChange, (Transcript) utr5prime.getParent().getParent());
+    public Utr5primeChange(SeqChange seqChange, Utr5prime utr5prime, ChangeEffect changeEffect) {
+        super(seqChange, (Transcript) utr5prime.getParent().getParent(), changeEffect);
         this.utr5prime = utr5prime;
     }
 
     @Override
-    ChangeEffect transcriptChange() {
-        ChangeEffect change = changeEffect.clone();
+    boolean transcriptChange() {
 
         //this should simply be a negative number representing the distance to the
         //coding start
@@ -44,16 +40,16 @@ public class Utr5primeChange extends TranscriptChange {
 
             Exon exon = (Exon) utr5prime.findParent(Exon.class);
 
-            change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
+            changeEffect = hgvsChangeFormatter(changeEffect, exon, relativePosSt, relativePosEnd);
 
             //txPos = "-1"+String.valueOf(distanceToEndOfUTR);
 
-            change.setTxPos(txPos);
-            return change;
+            changeEffect.setTxPos(txPos);
+            return true;
 
         }
         //}
-        return change;
+        return false;
 
     }
 }

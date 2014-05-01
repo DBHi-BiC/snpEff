@@ -1,5 +1,6 @@
 package ca.mcgill.mcb.pcingola.interval;
 
+import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
 import chop.cbmi.leipzig.interval.UpstreamChange;
@@ -46,8 +47,8 @@ public class Upstream extends Marker {
 		changeEffects.add(this, EffectType.UPSTREAM, distance + " bases");
 		changeEffects.setDistance(distance);
 
-        UpstreamChange upstreamChange = new UpstreamChange(seqChange, this);
-        changeEffects.add(upstreamChange.calculate());
+        UpstreamChange upstreamChange = new UpstreamChange(seqChange, this,changeEffects.get());
+        upstreamChange.calculate();
 
 		return true;
 	}

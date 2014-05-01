@@ -25,10 +25,10 @@ public class TranscriptChange {
     private boolean usePrevBaseIntron = true;
 
 
-    public TranscriptChange(SeqChange seqChange, Transcript transcript) {
+    public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
         this.seqChange = seqChange;
         this.transcript = transcript;
-        this.changeEffect = new ChangeEffect(seqChange);
+        this.changeEffect = changeEffect;
     }
 
     //common hgvs formatter for transcripts
@@ -155,14 +155,13 @@ public class TranscriptChange {
      * @param changeEffect
      * @return
      */
-    public ChangeEffect calculate() {
-        ChangeEffect change = changeEffect.clone(); // Create a copy of this result
+    public boolean calculate() {
+        //ChangeEffect change = changeEffect.clone(); // Create a copy of this result
+        //nope, actually change it
         if(seqChange.isSnp()) setSNP();
         if(seqChange.isIns()) setINS();
         if(seqChange.isDel()) setDEL();
-        change = this.transcriptChange();
-
-        return change;
+        return this.transcriptChange();
     }
 
 
@@ -174,7 +173,7 @@ public class TranscriptChange {
         List<Exon> exons = transcript.sortedStrand();
         for (Exon eint : exons) {
             if (eint.intersects(pos)) {
-                int cdsBaseNumber = this.transcript.cdsBaseNumber(pos,usePrevBaseIntron);
+                int cdsBaseNumber = this.transcript.baseNumberCds(pos, usePrevBaseIntron);
                 return cdsBaseNumber+HGVSOFFSET;
             }
         }
@@ -187,14 +186,13 @@ public class TranscriptChange {
      * and set txPos for use in HGVS-DNA
      * @return
      */
-    ChangeEffect transcriptChange() {
-        ChangeEffect change = changeEffect.clone();
-        if (!transcript.intersects(seqChange)) return change;
+    boolean transcriptChange() {
+        if (!transcript.intersects(seqChange)) return false;
 
         this.txPos= String.valueOf(cdsBaseNumberOfExonInTx(seqChange.getStart()));
 
-        change.setTxPos(this.txPos);
-        return change;
+        changeEffect.setTxPos(this.txPos);
+        return true;
     }
 
 

@@ -14,7 +14,7 @@ public class VcfEffect {
 	 * VcfFields in SnpEff version 2.X have a different format than 3.X 
 	 */
 	public enum FormatVersion {
-		FORMAT_SNPEFF_2, FORMAT_SNPEFF_3, FORMAT_SNPEFF_4
+		FORMAT_SNPEFF_2, FORMAT_SNPEFF_3, FORMAT_SNPEFF_4, FORMAT_SNPEFF_2_CBMI
 	}
 
 	public static final String VCF_INFO_EFF_NAME = "EFF";

@@ -192,7 +192,18 @@ public class VcfOutputFormatter extends OutputFormatter {
 				}
 				effBuff.append(rank >= 0 ? rank : "");
 
-				// Add genotype (or genotype difference) for this effect
+                effBuff.append("|");
+
+                //HGVS only for tx-bound exonics
+
+                //exons only?&& ex != null) {
+                if (tr != null){
+                    effBuff.append(changeEffect.getCodingDnaHgvs());
+                }
+
+                effBuff.append("|");
+
+                // Add genotype (or genotype difference) for this effect
 				if (formatVersion == FormatVersion.FORMAT_SNPEFF_4) {
 					effBuff.append("|");
 					effBuff.append(changeEffect.getGenotype());

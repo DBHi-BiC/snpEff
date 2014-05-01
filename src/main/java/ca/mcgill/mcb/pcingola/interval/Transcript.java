@@ -14,6 +14,8 @@ import ca.mcgill.mcb.pcingola.snpEffect.Config;
 import ca.mcgill.mcb.pcingola.stats.ObservedOverExpectedCpG;
 import ca.mcgill.mcb.pcingola.util.Gpr;
 import ca.mcgill.mcb.pcingola.util.GprSeq;
+import chop.cbmi.leipzig.interval.ExonChange;
+import chop.cbmi.leipzig.interval.IntronChange;
 
 /**
  * Codon position
@@ -1404,6 +1406,11 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		for (Intron intron : introns())
 			if (intron.intersects(seqChange)) {
 				changeEffectList.add(intron, EffectType.INTRON, "");
+
+                //hgvs - no seqchangeeffect method for introns
+                IntronChange intronChange = new IntronChange(seqChange, intron, changeEffectList.get());
+                intronChange.calculate();
+
 				included |= intron.includes(seqChange); // Is this seqChange fully included in this intron?
 			}
 		if (included) return true; // SeqChange fully included? => We are done.
@@ -1416,7 +1423,12 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 			if (!subintervals().isEmpty()) {
 				// Add all exons
 				for (Exon exon : this)
-					if (exon.intersects(seqChange)) changeEffectList.add(exon, EffectType.EXON, "");
+					if (exon.intersects(seqChange)){
+                        changeEffectList.add(exon, EffectType.EXON, "");
+                        //hgvs - no seqchangeeffect method for exons
+                        ExonChange exonChange = new ExonChange(seqChange, exon, changeEffectList.get());
+                        exonChange.calculate();
+                    }
 			} else changeEffectList.add(this, EffectType.TRANSCRIPT, ""); // No exons annotated? Just mark it as hitting a transcript
 
 			// Ok, we are done
@@ -1431,6 +1443,9 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 			// Get codon change effect 
 			CodonChange codonChange = new CodonChange(seqChange, this, changeEffectList);
 			codonChange.calculate();
+
+            //hgvs is done within codonChange
+
 			return true;
 		}
 
