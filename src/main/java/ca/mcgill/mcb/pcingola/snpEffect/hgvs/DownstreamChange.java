@@ -1,4 +1,4 @@
-package chop.cbmi.leipzig.interval;
+package ca.mcgill.mcb.pcingola.snpEffect.hgvs;
 
 import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;

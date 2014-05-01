@@ -1,4 +1,4 @@
-package chop.cbmi.leipzig.interval;
+package ca.mcgill.mcb.pcingola.snpEffect.hgvs;
 
 import java.util.List;
 
