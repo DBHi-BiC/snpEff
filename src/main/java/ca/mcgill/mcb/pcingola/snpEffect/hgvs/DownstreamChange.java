@@ -9,7 +9,7 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
  * Jeremy Leipzig
  * Children's Hospital of Philadelphia
  * leipzig@gmail.com
- * 2/6/13
+ * 5/1/14
  *
  * for downstream changes
  * the nucleotide 3' of the translation stop codon is *1, the next *2, etc.

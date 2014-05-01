@@ -1,9 +1,8 @@
 package ca.mcgill.mcb.pcingola.interval;
 
-import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
-import chop.cbmi.leipzig.interval.UpstreamChange;
+import ca.mcgill.mcb.pcingola.snpEffect.hgvs.UpstreamChange;
 
 /**
  * Interval for a gene, as well as some other information: exons, utrs, cds, etc.

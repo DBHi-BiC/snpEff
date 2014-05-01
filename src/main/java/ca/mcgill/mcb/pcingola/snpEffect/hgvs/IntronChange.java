@@ -10,7 +10,7 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
  * Jeremy Leipzig
  * Children's Hospital of Philadelphia
  * leipzig@gmail.com
- * 2/6/13
+ * 5/1/14
  */
 public class IntronChange extends TranscriptChange {
     Intron intron;

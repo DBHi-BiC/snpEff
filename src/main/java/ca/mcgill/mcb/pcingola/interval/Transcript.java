@@ -14,8 +14,8 @@ import ca.mcgill.mcb.pcingola.snpEffect.Config;
 import ca.mcgill.mcb.pcingola.stats.ObservedOverExpectedCpG;
 import ca.mcgill.mcb.pcingola.util.Gpr;
 import ca.mcgill.mcb.pcingola.util.GprSeq;
-import chop.cbmi.leipzig.interval.ExonChange;
-import chop.cbmi.leipzig.interval.IntronChange;
+import ca.mcgill.mcb.pcingola.snpEffect.hgvs.ExonChange;
+import ca.mcgill.mcb.pcingola.snpEffect.hgvs.IntronChange;
 
 /**
  * Codon position

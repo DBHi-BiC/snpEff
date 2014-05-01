@@ -9,7 +9,7 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
  * Jeremy Leipzig
  * Children's Hospital of Philadelphia
  * leipzig@gmail.com
- * 2/6/13
+ * 5/1/14
  */
 public class ExonChange extends TranscriptChange {
     Exon exon;

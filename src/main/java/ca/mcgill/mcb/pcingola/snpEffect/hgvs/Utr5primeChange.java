@@ -10,7 +10,7 @@ import ca.mcgill.mcb.pcingola.interval.Utr5prime;
  * Jeremy Leipzig
  * Children's Hospital of Philadelphia
  * leipzig@gmail.com
- * 2/6/13
+ * 5/1/14
  */
 public class Utr5primeChange extends TranscriptChange {
     Utr5prime utr5prime;
@@ -23,14 +23,8 @@ public class Utr5primeChange extends TranscriptChange {
     @Override
     boolean transcriptChange() {
 
-        //this should simply be a negative number representing the distance to the
-        //coding start
+        //this should simply be a negative number representing the distance to the coding start
         if (utr5prime.intersects(seqChange)) {
-            //this is the method employed by SnpEff
-//            List<Utr5prime> utrs = transcript.get5primeUtrs();
-//            boolean fromEnd = !(transcript.getStrand() < 0); // We want distance from beginning of transcript (TSS = End of 5'UTR)
-//            int distanceToEndOfUTR = seqChange.distanceFrom(utrs, fromEnd) + 1;
-
             //distance to cds start
             //cdsStart>cdsEnd, so cdsStart is really cds start
             //this is the opposite of transcript start and end, in which tx.end > tx.start always

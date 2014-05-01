@@ -1,9 +1,6 @@
 package ca.mcgill.mcb.pcingola.interval;
 
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
-import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
-import chop.cbmi.leipzig.interval.IntronChange;
-import chop.cbmi.leipzig.interval.UpstreamChange;
 
 /**
  * Intron

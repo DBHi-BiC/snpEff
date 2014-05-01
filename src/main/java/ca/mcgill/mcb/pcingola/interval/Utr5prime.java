@@ -6,11 +6,10 @@ import java.util.List;
 import ca.mcgill.mcb.pcingola.codons.CodonTable;
 import ca.mcgill.mcb.pcingola.codons.CodonTables;
 import ca.mcgill.mcb.pcingola.interval.SeqChange.ChangeType;
-import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
 import ca.mcgill.mcb.pcingola.util.GprSeq;
-import chop.cbmi.leipzig.interval.Utr5primeChange;
+import ca.mcgill.mcb.pcingola.snpEffect.hgvs.Utr5primeChange;
 
 /**
  * Interval for a UTR (5 prime UTR and 3 prime UTR

@@ -1,10 +1,9 @@
 package ca.mcgill.mcb.pcingola.interval;
 
 import ca.mcgill.mcb.pcingola.interval.SeqChange.ChangeType;
-import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
-import chop.cbmi.leipzig.interval.Utr3primeChange;
+import ca.mcgill.mcb.pcingola.snpEffect.hgvs.Utr3primeChange;
 
 /**
  * Interval for a UTR (5 prime UTR and 3 prime UTR

@@ -10,7 +10,7 @@ import ca.mcgill.mcb.pcingola.interval.Utr3prime;
  * Jeremy Leipzig
  * Children's Hospital of Philadelphia
  * leipzig@gmail.com
- * 2/6/13
+ * 5/1/14
  */
 public class Utr3primeChange extends TranscriptChange {
     Utr3prime utr3prime;
@@ -27,18 +27,13 @@ public class Utr3primeChange extends TranscriptChange {
         //a star followed by distance to cds end
         //coding start
         if (utr3prime.intersects(seqChange)) {
-            //distance to cds end
-            //cdsStart>cdsEnd, so cdsStart is really cds start
-            //this is the opposite of transcript start and end, in which tx.end > tx.start always
-
-
             Integer relativePosSt = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getEnd());
             Integer relativePosEnd = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getStart());
 
             Exon exon = (Exon) utr3prime.findParent(Exon.class);
 
             //edge case
-            //1       196716441       CD032470        TAGAA   T       .       .       CLASS=DM;MUT=ALT;GENE=CFH;STRAND=+;DNA=NM_000186.3:c.3695_*2delAGAA; uraemic syndrome
+            //1       196716441       CD032470        TAGAA   T    is    NM_000186.3:c.3695_*2delAGAA
             if(relativePosSt<1){
                 relativePosSt=cdsBaseNumberOfExonInTx(seqChange.getStart());
                 hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);

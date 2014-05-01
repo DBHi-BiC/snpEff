@@ -6,7 +6,7 @@ import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
-import chop.cbmi.leipzig.interval.ExonChange;
+import ca.mcgill.mcb.pcingola.snpEffect.hgvs.ExonChange;
 
 /**
  * Analyze codon changes based on a SeqChange and a Transcript
