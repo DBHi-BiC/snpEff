@@ -35,7 +35,7 @@ public class DownstreamChange  extends TranscriptChange {
             Integer relativePosSt = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getEnd());
             Integer relativePosEnd = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsEnd() : transcript.getCdsEnd() - seqChange.getStart());
 
-            changeEffect = hgvsChangeFormatter(changeEffect, null, relativePosSt, relativePosEnd);
+            hgvsChangeFormatter(changeEffect, null, relativePosSt, relativePosEnd);
 
             //specific to 3' UTR
             //txPos = "*"+txPos;

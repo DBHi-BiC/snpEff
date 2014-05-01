@@ -2,6 +2,7 @@ package ca.mcgill.mcb.pcingola.interval;
 
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
+import chop.cbmi.leipzig.interval.DownstreamChange;
 
 /**
  * Interval for a gene, as well as some other information: exons, utrs, cds, etc.
@@ -42,6 +43,9 @@ public class Downstream extends Marker {
 		int distance = distanceToTr(seqChange);
 		changeEffects.add(this, EffectType.DOWNSTREAM, distance + " bases");
 		changeEffects.setDistance(distance);
+
+        DownstreamChange downstreamChange = new DownstreamChange(seqChange, this,changeEffects.get());
+        downstreamChange.calculate();
 		return true;
 	}
 

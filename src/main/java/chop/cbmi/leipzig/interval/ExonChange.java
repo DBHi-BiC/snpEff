@@ -106,7 +106,7 @@ public class ExonChange extends TranscriptChange {
                 return true;
             }
         }
-        changeEffect = hgvsChangeFormatter(changeEffect, exon, relativePosSt, relativePosEnd);
+        hgvsChangeFormatter(changeEffect, exon, relativePosSt, relativePosEnd);
         return true;
     }
     

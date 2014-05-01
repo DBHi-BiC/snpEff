@@ -29,7 +29,7 @@ public class UpstreamChange extends TranscriptChange {
             Integer relativePosSt = (transcript.isStrandPlus() ? seqChange.getStart() - transcript.getCdsStart() : transcript.getCdsStart() - seqChange.getEnd());
             Integer relativePosEnd = (transcript.isStrandPlus() ? seqChange.getEnd() - transcript.getCdsStart() : transcript.getCdsStart() - seqChange.getStart());
 
-            changeEffect = hgvsChangeFormatter(changeEffect, null, relativePosSt, relativePosEnd);
+            hgvsChangeFormatter(changeEffect, null, relativePosSt, relativePosEnd);
 
             //txPos = "-1"+String.valueOf(distanceToEndOfUTR);
 

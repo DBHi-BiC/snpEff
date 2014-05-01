@@ -41,23 +41,23 @@ public class Utr3primeChange extends TranscriptChange {
             //1       196716441       CD032470        TAGAA   T       .       .       CLASS=DM;MUT=ALT;GENE=CFH;STRAND=+;DNA=NM_000186.3:c.3695_*2delAGAA; uraemic syndrome
             if(relativePosSt<1){
                 relativePosSt=cdsBaseNumberOfExonInTx(seqChange.getStart());
-                change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
+                hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
                 txPos=txPos.replaceAll("_(\\d+)", "_\\*$1");
                 change.setTxPos(txPos);
-                return change;
+                return true;
             }
 
 
-            change = hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
+            hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
 
 
             //specific to 3' UTR
             //txPos = "*"+txPos;
             txPos=txPos.replaceAll("(\\d+)", "\\*$1");
             change.setTxPos(txPos);
-            return change;
+            return true;
         }
-        return change;
+        return false;
 
     }
 }

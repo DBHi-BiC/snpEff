@@ -40,7 +40,7 @@ public class Utr5primeChange extends TranscriptChange {
 
             Exon exon = (Exon) utr5prime.findParent(Exon.class);
 
-            changeEffect = hgvsChangeFormatter(changeEffect, exon, relativePosSt, relativePosEnd);
+            hgvsChangeFormatter(changeEffect, exon, relativePosSt, relativePosEnd);
 
             //txPos = "-1"+String.valueOf(distanceToEndOfUTR);
 

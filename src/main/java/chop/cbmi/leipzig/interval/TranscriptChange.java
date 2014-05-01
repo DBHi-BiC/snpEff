@@ -10,7 +10,7 @@ import ca.mcgill.mcb.pcingola.util.GprSeq;
  * Jeremy Leipzig
  * Children's Hospital of Philadelphia
  * leipzig@gmail.com
- * 2/6/13
+ * 5/1/14
  *
  * This class handles tx-level modifications and assigns appropriate positions
  * to allows associated HGVS descriptors to be generated
@@ -33,7 +33,7 @@ public class TranscriptChange {
 
     //common hgvs formatter for transcripts
     //txPos is for exons by default
-    ChangeEffect hgvsChangeFormatter(ChangeEffect change, Exon exon, Integer relativePosSt, Integer relativePosEnd) {
+    boolean hgvsChangeFormatter(ChangeEffect change, Exon exon, Integer relativePosSt, Integer relativePosEnd) {
         int dupOffset;
         Integer stPos;
         Integer endPos;
@@ -57,7 +57,7 @@ public class TranscriptChange {
                     int overrun=endPos-transcript.cds().length();
                     txPos=String.valueOf(stPos)+"_*"+String.valueOf(overrun);
                     change.setTxPos(txPos);
-                    return change;
+                    return true;
                 }
                 //sanity check - do the nucleotides specified in the deletion actually exist
                 //let's apply this to the ones that are actually in the coding region
@@ -107,7 +107,7 @@ public class TranscriptChange {
 
                         txPos = String.valueOf(stPos);
                         change.setTxPos(txPos);
-                        return change;
+                        return true;
                     }
 
                         //for negative strand dups the position is the end nt of the repeat
@@ -127,13 +127,7 @@ public class TranscriptChange {
                 }
 
 
-                //if(transcript.isStrandMinus()){
-                //    txPos=String.valueOf(endPos)+"_"+String.valueOf(stPos);
-                //}else{
-                    txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
-                //}
-
-
+                txPos= String.valueOf(stPos)+"_"+String.valueOf(endPos);
 
                 seqChange.setStart(seqChange.getStart()+dupOffset);
             }else{
@@ -146,7 +140,7 @@ public class TranscriptChange {
             txPos = null;
         }
 
-        return change;
+        return true;
     }
     /**
      * Calculate the transcript change
@@ -156,7 +150,6 @@ public class TranscriptChange {
      * @return
      */
     public boolean calculate() {
-        //ChangeEffect change = changeEffect.clone(); // Create a copy of this result
         //nope, actually change it
         if(seqChange.isSnp()) setSNP();
         if(seqChange.isIns()) setINS();
@@ -243,15 +236,12 @@ public class TranscriptChange {
             flank=new CharStack(changeEffect.getNtDel());
 
             if (transcript.isStrandPlus()){
-                //this must have been a walk-off the end warning but it isn't written correctly
-                //if(changeBaseInExon-ntLen>=0){
                     boolean walking = true;
                     boolean rolling = false;
                     while(walking || rolling){
                         String postFlank="";
                         //walk the duplication
 
-                        //String testFlank=exon.getSequence().substring(2361,2370);
                         int sPos=changeBaseInExon+dupOffset-rollOffset;
                         int ePos=changeBaseInExon+ntLen+dupOffset-rollOffset;
                         try{
@@ -275,7 +265,6 @@ public class TranscriptChange {
                             }
                             if(rolling){
                                 //retract ntlen later if a failure
-                                //not sure why I added +ntLen;
                                 dupOffset=dupOffset-rollOffset;
 
                                 //rolling was a success
@@ -285,8 +274,6 @@ public class TranscriptChange {
                                     change.setNtIns(flank.get());
                                 }
                                 rolling=false;
-                                //can we walk again?
-                                //walking=true;
                                 rollOffset=0;
                             }
                         }
@@ -323,7 +310,6 @@ public class TranscriptChange {
 
                 flank=new CharStack(changeEffect.getNtIns());
                 if (transcript.isStrandPlus()){
-                    //if(changeBaseInExon-ntLen>=0){
                         boolean walking = true;
                         boolean rolling = false;
                         boolean continue_flag=true;
@@ -332,15 +318,11 @@ public class TranscriptChange {
                             String preFlank="";
                             //walk the duplication
 
-                            //String testFlank=exon.getSequence().substring(2361,2370);
                             int sPos=changeBaseInExon+dupOffset;
-                            //let's shorten the postflank as we roll -rollOffset;
                             int ePos=changeBaseInExon+ntLen+dupOffset-rollOffset;
-                            //remember substring is exclusive
-                            //ePos is the position after the insert
+
                             try{
                                 postFlank=exon.getSequence().substring(sPos,ePos).toUpperCase();
-                                preFlank=exon.getSequence().substring(sPos-ntLen,sPos).toUpperCase();
                             }catch(StringIndexOutOfBoundsException e){
                                 //you have no room to check
                                 continue_flag=false;
@@ -354,8 +336,6 @@ public class TranscriptChange {
                             }else{
 
                                 if(rolling){
-                                    //if the frame is correct
-                                    //dupOffset=dupOffset-rollOffset+ntLen;
                                     //rolling was a success
                                     if(postFlank.equals(flank.get().substring(rollOffset))){
                                         change.setNtIns(flank.get());
@@ -367,36 +347,30 @@ public class TranscriptChange {
                                         continue_flag=false;
                                     }
                                 }
-                                if(walking){
-                                    walking=false;
-                                    rolling=true;
-                                    //for a insertion of 3
-                                    //we know to try 2 away then 1 away
-                                    //there are only 3 permutations
+                                if(walking) {
+                                    walking = false;
+                                    rolling = true;
 
-                                    //I dont' get this
-                                    //dupOffset=dupOffset+ntLen-1;
-                                    if(!change.isDup()){
-                                        //1       161138820       CI016229        G       GGCCAAGGCCAGC   .       .       CLASS=DM;MUT=ALT;GENE=PPOX;STRAND=+;DNA=NM_000309.3:c.657_658insAAGGCCAGCGCC
-                                        // GXXXXXXXXXXXXGCCTTGGCTGAG
-                                        //  GCCAAGGCCAGC
-                                        //              GCCAAGGCCAGC no
-                                        //             CGCCAAGGCCAG
-                                        //            GCGCCAAGGCCA
-                                        //           AGCGCCAAGGCC
-                                        //          CAGCGCCAAGGC
-                                        //         CCAGCGCCAAGG
-                                        //        GCCAGCGCCAAG
-                                        //       GGCCAGCGCCAA
-                                        //      AGGCCAGCGCCA
-                                        //     AAGGCCAGCGCC
-                                        //sometimes you need to roll even if you can't walk
-                                        //continue_flag=false;
-                                        //do the first x nt match?
-                                        if(flank.get().substring(0,1).equals(postFlank.substring(0,1))){
+                                    //1       161138820       CI016229        G       GGCCAAGGCCAGC   .       .       CLASS=DM;MUT=ALT;GENE=PPOX;STRAND=+;DNA=NM_000309.3:c.657_658insAAGGCCAGCGCC
+                                    // GXXXXXXXXXXXXGCCTTGGCTGAG
+                                    //  GCCAAGGCCAGC
+                                    //              GCCAAGGCCAGC no
+                                    //             CGCCAAGGCCAG
+                                    //            GCGCCAAGGCCA
+                                    //           AGCGCCAAGGCC
+                                    //          CAGCGCCAAGGC
+                                    //         CCAGCGCCAAGG
+                                    //        GCCAGCGCCAAG
+                                    //       GGCCAGCGCCAA
+                                    //      AGGCCAGCGCCA
+                                    //     AAGGCCAGCGCC
+                                    //sometimes you need to roll even if you can't walk
+                                    //do the first x nt match?
+                                    if (!change.isDup()) {
+                                        if (flank.get().substring(0, 1).equals(postFlank.substring(0, 1))) {
                                             //dupOffset=dupOffset+ntLen;
-                                        }else{
-                                            continue_flag=false;
+                                        } else {
+                                            continue_flag = false;
                                         }
                                     }
                                 }
@@ -417,12 +391,9 @@ public class TranscriptChange {
                             }
 
                         }
-                    //}
                 }else{
                     //for negative strand inserts we need to look behind
                     try{
-                        //String preFlank=exon.getSequence().substring(changeBaseInExon-2,changeBaseInExon+ntLen-2).toUpperCase();
-                        //wow this was way off
                         String preFlank=exon.getSequence().substring(changeBaseInExon-ntLen+1,changeBaseInExon+1).toUpperCase();
                         //1       2338230 CI001585        C       CTNM_153818.1:c.764dupA
                         if(preFlank.equals(flank.get()) & seqChange.isIns()){
@@ -526,13 +497,8 @@ public class TranscriptChange {
             String insSt=intronFormat(stPos);
             String endSt=intronFormat(endPos);
 
-            //666-3-666-2
-            //if(comingFrom(stPos)){
             txPos = transcript.isStrandPlus() ? insSt+"_"+endSt : endSt+"_"+insSt;
-//            }else{
-//                txPos= transcript.isStrandPlus() ? insSt+"_"+endSt : endSt+"_"+insSt;
-//            }
-            //txPos=txPosStringSt+intronFormat(seqChange.getStart()+1);
+
         }else{
             txPos=intronFormat(seqChange.getStart());
         }

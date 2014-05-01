@@ -1333,7 +1333,7 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 				+ "\t" + geneName //
 				+ "\t" + bioType //
 				+ "\t" + transcriptId //
-                + "\tHGVSDANJERM" + hgvsDna //
+                + "\t" + hgvsDna //
 				+ "\t" + exonId //
 				+ "\t" + (exonRank >= 0 ? exonRank : "") //
 				+ "\t" + effect(false, false, false, useSeqOntology) //
