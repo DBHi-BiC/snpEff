@@ -1101,6 +1101,40 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		this.message = message;
 	}
 
+    /**
+     * Set transcript changes for DNA-HGVS
+     */
+    public void setTranscript(String txPos, String ntOld, String ntNew, String ntIns, String ntDel)
+    {
+        this.txPos = txPos; // nucleotide number
+        this.ntOld = ntOld;
+        this.ntNew = ntNew; //NT changes
+        this.ntIns = ntIns;
+        this.ntDel = ntDel;
+    }
+    /**
+     * Set the position
+     * @param txPos
+     */
+    public void setTxPos(String txPos)
+    {
+        this.txPos = txPos;
+    }
+    public void setNtIns(String ntIns){
+        this.ntIns=ntIns;
+    }
+    public void setNtDel(String ntDel){
+        this.ntDel=ntDel;
+    }
+    public String getNtIns()
+    {
+        return ntIns;
+    }
+    public String getNtDel()
+    {
+        return ntDel;
+    }
+
 	/**
 	 * Set codon change. Calculate effect type based on codon changes (for SNPs ans MNPs)
 	 * @param codonsOld
