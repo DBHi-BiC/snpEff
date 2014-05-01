@@ -25,10 +25,10 @@ public class TranscriptChange {
     private boolean usePrevBaseIntron = true;
 
 
-    public TranscriptChange(SeqChange seqChange, Transcript transcript, ChangeEffect changeEffect) {
+    public TranscriptChange(SeqChange seqChange, Transcript transcript) {
         this.seqChange = seqChange;
         this.transcript = transcript;
-        this.changeEffect = changeEffect;
+        this.changeEffect = new ChangeEffect(seqChange);
     }
 
     //common hgvs formatter for transcripts

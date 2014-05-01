@@ -14,8 +14,8 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 public class ExonChange extends TranscriptChange {
     Exon exon;
 
-    public ExonChange(SeqChange seqChange, Exon exon, ChangeEffect changeEffect) {
-        super(seqChange, (Transcript) exon.getParent(), changeEffect);
+    public ExonChange(SeqChange seqChange, Exon exon) {
+        super(seqChange, (Transcript) exon.getParent());
         this.exon = exon;
     }
 

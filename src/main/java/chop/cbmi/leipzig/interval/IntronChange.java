@@ -15,8 +15,8 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 public class IntronChange extends TranscriptChange {
     Intron intron;
 
-    public IntronChange(SeqChange seqChange, Intron intron, ChangeEffect changeEffect) {
-        super(seqChange, (Transcript) intron.getParent(), changeEffect);
+    public IntronChange(SeqChange seqChange, Intron intron) {
+        super(seqChange, (Transcript) intron.getParent());
         this.intron = intron;
     }
 

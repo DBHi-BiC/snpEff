@@ -1,6 +1,9 @@
 package ca.mcgill.mcb.pcingola.interval;
 
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
+import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
+import chop.cbmi.leipzig.interval.IntronChange;
+import chop.cbmi.leipzig.interval.UpstreamChange;
 
 /**
  * Intron
@@ -89,4 +92,12 @@ public class Intron extends Marker {
 		this.rank = rank;
 	}
 
+    public boolean seqChangeEffect(SeqChange seqChange, ChangeEffects changeEffects) {
+        if (!intersects(seqChange)) return false; // Sanity check
+
+        IntronChange intronChange = new IntronChange(seqChange, this);
+        changeEffects.add(intronChange.calculate());
+
+        return true;
+    }
 }

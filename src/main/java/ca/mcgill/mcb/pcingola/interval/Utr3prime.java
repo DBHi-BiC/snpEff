@@ -3,6 +3,7 @@ package ca.mcgill.mcb.pcingola.interval;
 import ca.mcgill.mcb.pcingola.interval.SeqChange.ChangeType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
+import chop.cbmi.leipzig.interval.Utr3primeChange;
 
 /**
  * Interval for a UTR (5 prime UTR and 3 prime UTR
@@ -47,6 +48,9 @@ public class Utr3prime extends Utr {
 		int dist = utrDistance(seqChange, tr);
 		changeEffects.add(this, type, dist >= 0 ? dist + " bases from CDS" : "");
 		if (dist >= 0) changeEffects.setDistance(dist);
+
+        Utr3primeChange utrChange = new Utr3primeChange(seqChange, this);
+        changeEffects.add(utrChange.calculate());
 
 		return true;
 	}

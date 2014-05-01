@@ -15,8 +15,8 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 public class UpstreamChange extends TranscriptChange {
     Upstream upstream;
 
-    public UpstreamChange(SeqChange seqChange, Upstream upstream, ChangeEffect changeEffect) {
-        super(seqChange, (Transcript) upstream.getParent(), changeEffect);
+    public UpstreamChange(SeqChange seqChange, Upstream upstream) {
+        super(seqChange, (Transcript) upstream.getParent());
         this.upstream = upstream;
     }
 

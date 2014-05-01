@@ -9,6 +9,7 @@ import ca.mcgill.mcb.pcingola.interval.SeqChange.ChangeType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
 import ca.mcgill.mcb.pcingola.util.GprSeq;
+import chop.cbmi.leipzig.interval.Utr5primeChange;
 
 /**
  * Interval for a UTR (5 prime UTR and 3 prime UTR
@@ -83,6 +84,9 @@ public class Utr5prime extends Utr {
 		changeEffects.add(this, type, dist >= 0 ? dist + " bases from TSS" : "");
 		if (dist >= 0) changeEffects.setDistance(dist);
 		if (!gained.isEmpty()) changeEffects.add(this, EffectType.START_GAINED, gained);
+
+        Utr5primeChange utrChange = new Utr5primeChange(seqChange, this);
+        changeEffects.add(utrChange.calculate());
 
 		return true;
 	}

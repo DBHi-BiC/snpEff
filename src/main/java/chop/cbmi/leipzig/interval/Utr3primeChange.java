@@ -16,14 +16,14 @@ import ca.mcgill.mcb.pcingola.interval.Utr3prime;
 public class Utr3primeChange extends TranscriptChange {
     Utr3prime utr3prime;
 
-    public Utr3primeChange(SeqChange seqChange, Utr3prime utr3prime, ChangeEffect changeEffect) {
-        super(seqChange, (Transcript) utr3prime.getParent().getParent(), changeEffect);
+    public Utr3primeChange(SeqChange seqChange, Utr3prime utr3prime) {
+        super(seqChange, (Transcript) utr3prime.getParent().getParent());
         this.utr3prime = utr3prime;
     }
 
     @Override
     ChangeEffect transcriptChange() {
-        ChangeEffect change = changeEffect.clone();
+        ChangeEffect change = new ChangeEffect(seqChange);
 
         //a star followed by distance to cds end
         //coding start

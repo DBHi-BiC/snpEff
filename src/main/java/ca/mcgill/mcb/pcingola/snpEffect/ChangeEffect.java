@@ -434,6 +434,13 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 		return aaOld + (codonNum + 1) + aaNew;
 	}
 
+    public void setDup(boolean duplicate) {
+        isDup=duplicate;
+    }
+    public boolean isDup(){
+        return isDup;
+    }
+
     /**
      * Coding DNA HGVS change string
      * SeqChange.changeType associations:

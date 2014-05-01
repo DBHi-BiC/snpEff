@@ -18,8 +18,8 @@ import java.util.List;
 public class Utr5primeChange extends TranscriptChange {
     Utr5prime utr5prime;
 
-    public Utr5primeChange(SeqChange seqChange, Utr5prime utr5prime, ChangeEffect changeEffect) {
-        super(seqChange, (Transcript) utr5prime.getParent().getParent(), changeEffect);
+    public Utr5primeChange(SeqChange seqChange, Utr5prime utr5prime) {
+        super(seqChange, (Transcript) utr5prime.getParent().getParent());
         this.utr5prime = utr5prime;
     }
 
