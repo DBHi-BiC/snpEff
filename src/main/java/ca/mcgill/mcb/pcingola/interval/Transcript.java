@@ -29,7 +29,7 @@ class CodonPosition {
 
 /**
  * Interval for a transcript, as well as some other information: exons, utrs, cds, etc.
- * 
+ *
  * @author pcingola
  */
 public class Transcript extends IntervalAndSubIntervals<Exon> {
@@ -47,8 +47,8 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	ArrayList<Intron> introns; // Intron markers
 	Upstream upstream; // Upstream interval
 	Downstream downstream; // Downstream interval
-	Exon firstCodingExon; // First coding exon. I.e. where transcription start site (TSS) is. 
-	int cds2pos[];
+	Exon firstCodingExon; // First coding exon. I.e. where transcription start site (TSS) is.
+	int cds2pos[], aa2pos[];
 
 	public Transcript() {
 		super();
@@ -61,6 +61,35 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	public Transcript(Gene gene, int start, int end, int strand, String id) {
 		super(gene, start, end, strand, id);
 		type = EffectType.TRANSCRIPT;
+	}
+
+	/**
+	 * Calculate chromosome position as function of Amino Acid number
+	 *
+	 * @returns An array mapping 'pos[aaNumber] = chromosmalPos'
+	 */
+	public synchronized int[] aaNumber2Pos() {
+		if (aa2pos != null) return aa2pos;
+
+		calcCdsStartEnd();
+
+		aa2pos = new int[protein().length()];
+		for (int i = 0; i < aa2pos.length; i++)
+			aa2pos[i] = -1;
+
+		int cdsMin = Math.min(cdsStart, cdsEnd);
+		int cdsMax = Math.max(cdsStart, cdsEnd);
+
+		// For each exon, add CDS position to array
+		int aaBaseNum = 0;
+		for (Exon exon : sortedStrand()) {
+			int min = isStrandPlus() ? exon.getStart() : exon.getEnd();
+			int step = isStrandPlus() ? 3 : -3;
+			for (int pos = min; exon.intersects(pos) && aaBaseNum < aa2pos.length; pos += step)
+				if ((cdsMin <= pos) && (pos <= cdsMax)) aa2pos[aaBaseNum++] = pos;
+		}
+
+		return aa2pos;
 	}
 
 	/**
@@ -186,19 +215,19 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 
 	/**
 	 * Create a new transcript after applying changes in seqChange
-	 * 
+	 *
 	 * Note: If this transcript is unaffected, no new transcript is created (same transcript is returned)
-	 * 
+	 *
 	 * @param seqChange
 	 * @return
 	 */
 	@Override
-	public Transcript apply(SeqChange seqChange) {
+	public Transcript apply(Variant seqChange) {
 		// SeqChange after this marker: No effect
 		if (end < seqChange.getStart()) return this;
 
 		// We can only handle one change at a time
-		if (seqChange.isChangeMultiple()) throw new RuntimeException("Cannot apply multiple changes!\n\tseqChange.isChangeMultiple() = " + seqChange.isChangeMultiple() + "\n\tSeqChange : " + seqChange);
+		if (seqChange.isVariantMultiple()) throw new RuntimeException("Cannot apply multiple changes!\n\tseqChange.isChangeMultiple() = " + seqChange.isVariantMultiple() + "\n\tSeqChange : " + seqChange);
 
 		// Create new transcript
 		Transcript tr = (Transcript) super.apply(seqChange);
@@ -234,14 +263,14 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 
 	/**
 	 * Calculate base number in a CDS where 'pos' maps
-	 * 
+	 *
 	 * @returns Base number or '-1' if it does not map to a coding base
 	 */
 	public synchronized int baseNumberCds(int pos, boolean usePrevBaseIntron) {
 		// Doesn't hit this transcript?
 		if (!intersects(pos)) return -1;
 
-		// Is it in UTR instead of CDS? 
+		// Is it in UTR instead of CDS?
 		if (isUtr(pos)) return -1;
 
 		// Calculate cdsStart and cdsEnd (if not already done)
@@ -273,8 +302,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	}
 
 	/**
-	 * Analyze SNPs in this transcript.
-	 * Add changeEffect to 'changeEffect'
+	 * Return a codon that includes 'cdsBaseNumber'
 	 */
 	public String baseNumberCds2Codon(int cdsBaseNumber) {
 		int codonNum = cdsBaseNumber / CodonChange.CODON_SIZE;
@@ -285,9 +313,9 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	}
 
 	/**
-	 * Calculate chromosome position as function of CDS number 
-	 * 
-	 * @returns An array mapping 'pos[cdsBaseNumber] = chromosmalPos' 
+	 * Calculate chromosome position as function of CDS number
+	 *
+	 * @returns An array mapping 'pos[cdsBaseNumber] = chromosmalPos'
 	 */
 	public synchronized int[] baseNumberCds2Pos() {
 		if (cds2pos != null) return cds2pos;
@@ -306,7 +334,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		for (Exon exon : sortedStrand()) {
 			int min = isStrandPlus() ? exon.getStart() : exon.getEnd();
 			int step = isStrandPlus() ? 1 : -1;
-			for (int pos = min; exon.intersects(pos); pos += step)
+			for (int pos = min; exon.intersects(pos) && cdsBaseNum < cds2pos.length; pos += step)
 				if ((cdsMin <= pos) && (pos <= cdsMax)) cds2pos[cdsBaseNum++] = pos;
 		}
 
@@ -399,8 +427,8 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 					cdsEnd = firstExonPositionAfter(cdsEnd);
 				}
 
-				// We were not able to find cdsStart & cdsEnd within exon limits. 
-				// Probably there is something wrong with the database and the transcript does 
+				// We were not able to find cdsStart & cdsEnd within exon limits.
+				// Probably there is something wrong with the database and the transcript does
 				// not have a single coding base (e.g. all of it is UTR).
 				if (cdsStart < 0 || cdsEnd < 0) cdsStart = cdsEnd = cdsStartNotExon;
 			}
@@ -524,9 +552,9 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 
 	/**
 	 * Find all splice sites.
-	 * 
+	 *
 	 * @param createIfMissing : If true, create canonical splice sites if they are missing.
-	 * 
+	 *
 	 * @return
 	 */
 	public List<SpliceSite> createSpliceSites(int spliceSiteSize, int spliceRegionExonSize, int spliceRegionIntronMin, int spliceRegionIntronMax) {
@@ -672,7 +700,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * @return An exon intersecting 'pos' (null if not found)
 	 */
 	public Exon findExon(int pos) {
-		// Is it in UTR instead of CDS? 
+		// Is it in UTR instead of CDS?
 		for (Exon exon : this)
 			if (exon.intersects(pos)) return exon;
 		return null;
@@ -695,7 +723,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * @return An UTR intersecting 'pos' (null if not found)
 	 */
 	public Utr findUtr(int pos) {
-		// Is it in UTR instead of CDS? 
+		// Is it in UTR instead of CDS?
 		for (Utr utr : utrs)
 			if (utr.intersects(pos)) return utr;
 		return null;
@@ -709,7 +737,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	public List<Utr> findUtrs(Marker marker) {
 		List<Utr> utrs = new LinkedList<Utr>();
 
-		// Is it in UTR instead of CDS? 
+		// Is it in UTR instead of CDS?
 		for (Utr utr : utrs)
 			if (utr.intersects(marker)) utrs.add(utr);
 
@@ -733,16 +761,16 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 
 	/**
 	 * Correct exons based on frame information.
-	 * 
-	 * E.g. if the frame information (form a genomic 
-	 * database file, such as a GTF) does not 
-	 * match the calculated frame, we correct exon's 
+	 *
+	 * E.g. if the frame information (form a genomic
+	 * database file, such as a GTF) does not
+	 * match the calculated frame, we correct exon's
 	 * boundaries to make them match.
-	 * 
+	 *
 	 * This is performed in two stages:
 	 *    i) First exon is corrected by adding a fake 5'UTR
 	 *    ii) Other exons are corrected by changing the start (or end) coordinates.
-	 *    
+	 *
 	 * @return
 	 */
 	public synchronized boolean frameCorrection() {
@@ -753,7 +781,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		boolean changedFirst = frameCorrectionFirstCodingExon();
 
 		// Other exons are corrected by changing the start (or end) coordinates.
-		// boolean changedNonFirst = false; 
+		// boolean changedNonFirst = false;
 		// Gpr.debug("UNCOMMENT!");
 		boolean changedNonFirst = frameCorrectionNonFirstCodingExon();
 
@@ -766,12 +794,12 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		return changed;
 	}
 
-	/** 
-	 * Fix transcripts having non-zero frames in first exon 
-	 * 
+	/**
+	 * Fix transcripts having non-zero frames in first exon
+	 *
 	 * Transcripts whose first exon has a non-zero frame indicate problems.
 	 * We add a 'fake' UTR5 to compensate for reading frame.
-	 * 
+	 *
 	 * @param showEvery
 	 */
 	synchronized boolean frameCorrectionFirstCodingExon() {
@@ -897,7 +925,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 				}
 			}
 
-			// Append sequence 
+			// Append sequence
 			sequence.append(seq);
 		}
 
@@ -1079,10 +1107,10 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 
 	/**
 	 * Return the intron size for intron number 'intronNum'
-	 * 
+	 *
 	 * Note: Intron number 'N' is the intron between exon number N and exon number N+1
 	 * Note: Numbering is zero-based (not to be confused with exon 'ranking', which is one-based)
-	 * 
+	 *
 	 * @param intronNum
 	 * @return
 	 */
@@ -1104,7 +1132,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * @param seqChange
 	 * @return
 	 */
-	boolean isCds(SeqChange seqChange) {
+	boolean isCds(Variant seqChange) {
 		calcCdsStartEnd();
 
 		int cs = cdsStart;
@@ -1166,7 +1194,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 				if (countErrs > 1) return true;
 			}
 
-		// OK 
+		// OK
 		return false;
 	}
 
@@ -1258,7 +1286,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	}
 
 	/**
-	 * Protein sequence (amino acid sequence produced by this transcripts) 
+	 * Protein sequence (amino acid sequence produced by this transcripts)
 	 * @return
 	 */
 	public String protein() {
@@ -1299,9 +1327,9 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		for (Intron m : introns())
 			if (m.intersects(marker)) markers.add(m);
 
-		// Note: Upstram and Downstream are technically NOT in the 
+		// Note: Upstram and Downstream are technically NOT in the
 		// transcript. So we should not be returning them
-		// 
+		//
 		//		// Add upstream & downstream
 		//		if (upstream.intersects(marker)) markers.add(upstream);
 		//		if (downstream.intersects(marker)) markers.add(downstream);
@@ -1362,7 +1390,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * @param seqChange
 	 * @return
 	 */
-	public ErrorWarningType sanityCheck(SeqChange seqChange) {
+	public ErrorWarningType sanityCheck(Variant seqChange) {
 		if (isErrorProteinLength()) return ErrorWarningType.WARNING_TRANSCRIPT_INCOMPLETE;
 		else if (isErrorStopCodonsInCds()) return ErrorWarningType.WARNING_TRANSCRIPT_MULTIPLE_STOP_CODONS;
 		else if (isErrorStartCodon()) return ErrorWarningType.WARNING_TRANSCRIPT_NO_START_CODON;
@@ -1375,7 +1403,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * @return
 	 */
 	@Override
-	public boolean seqChangeEffect(SeqChange seqChange, ChangeEffects changeEffectList) {
+	public boolean seqChangeEffect(Variant seqChange, ChangeEffects changeEffectList) {
 		if (!intersects(seqChange)) return false; // Sanity check
 
 		//---
@@ -1418,7 +1446,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		//---
 		// Analyze non-coding transcripts (or 'interval' seqChanges)
 		//---
-		if ((!Config.get().isTreatAllAsProteinCoding() && !isProteinCoding()) || seqChange.isInterval() || !seqChange.isChange()) {
+		if ((!Config.get().isTreatAllAsProteinCoding() && !isProteinCoding()) || seqChange.isInterval() || !seqChange.isVariant()) {
 			// Do we have exon information for this transcript?
 			if (!subintervals().isEmpty()) {
 				// Add all exons
@@ -1440,7 +1468,7 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 		// We analyze codon replacement effect
 		//---
 		if (isCds(seqChange)) {
-			// Get codon change effect 
+			// Get codon change effect
 			CodonChange codonChange = new CodonChange(seqChange, this, changeEffectList);
 			codonChange.calculate();
 

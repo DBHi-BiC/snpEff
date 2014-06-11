@@ -9,8 +9,8 @@ import ca.mcgill.mcb.pcingola.interval.Chromosome;
 import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.Gene;
 import ca.mcgill.mcb.pcingola.interval.Genome;
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
+import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
@@ -28,7 +28,7 @@ import ca.mcgill.mcb.pcingola.util.GprSeq;
 public class TestCasesDel extends TestCase {
 
 	boolean debug = false;
-	boolean forcePositive = false; // Force positive strand (used for debugging)
+	boolean forcePositive = debug || false; // Force positive strand (used for debugging)
 
 	Random rand;
 	Config config;
@@ -50,7 +50,7 @@ public class TestCasesDel extends TestCase {
 	 * @param seqChange
 	 * @return
 	 */
-	String codonsNew(SeqChange seqChange) {
+	String codonsNew(Variant seqChange) {
 		int cdsBaseNum = 0;
 		String codonsNew = "";
 		char currCodon[] = new char[3];
@@ -93,7 +93,7 @@ public class TestCasesDel extends TestCase {
 	 * @param seqChange
 	 * @return
 	 */
-	String codonsOld(SeqChange seqChange) {
+	String codonsOld(Variant seqChange) {
 		int cdsBaseNum = 0;
 		String codonsOld = "";
 		char currCodon[] = new char[3];
@@ -190,6 +190,7 @@ public class TestCasesDel extends TestCase {
 		//	- Create a random Insert at each position
 		//	- Calculate effect
 		for (int i = 0; i < N; i++) {
+
 			initSnpEffPredictor();
 			if (debug) System.out.println("DEL Test iteration: " + i + "\n" + transcript);
 			else System.out.println("DEL Test iteration: " + i + "\t" + transcript.cds());
@@ -228,11 +229,7 @@ public class TestCasesDel extends TestCase {
 					int cdsCodonPos = cdsBaseNum % 3;
 
 					// Create a SeqChange
-					int seqChangeStrand = rand.nextBoolean() ? +1 : -1;
-					if (forcePositive) seqChangeStrand = 1; // Force positive strand (for debugging)
-					if (seqChangeStrand < 0) del = GprSeq.reverseWc(delPlus);
-
-					SeqChange seqChange = new SeqChange(chromosome, start, "", "-" + del, seqChangeStrand, "", 1.0, 1);
+					Variant seqChange = new Variant(chromosome, start, "", "-" + del, "");
 
 					// Sanity checks
 					Assert.assertEquals(true, seqChange.isDel()); // Is it a deletion?
@@ -247,6 +244,7 @@ public class TestCasesDel extends TestCase {
 					String aaOld = codonTable.aa(codonsOld);
 
 					String codonsNew = codonsNew(seqChange);
+					// String aaNew = codonTable.aa(codonsNew.length() < 3 ? "" : codonsNew);
 					String aaNew = codonTable.aa(codonsNew);
 
 					// Net change
@@ -261,7 +259,7 @@ public class TestCasesDel extends TestCase {
 					if (aaNew.isEmpty()) aaNew = "-";
 
 					if (seqChange.includes(exon)) effectExpected = "EXON_DELETED";
-					else if (netChange.length() % 3 != 0) effectExpected = "FRAME_SHIFT(-)";
+					else if (netChange.length() % 3 != 0) effectExpected = "FRAME_SHIFT(" + aaOld + "/" + "-" + ")";
 					else {
 						if (cdsCodonPos == 0) effectExpected = "CODON_DELETION(" + aaOld + "/-)";
 						else {
@@ -306,6 +304,8 @@ public class TestCasesDel extends TestCase {
 					boolean ok = false;
 					for (ChangeEffect effect : effects) {
 						String effStr = effect.effect(true, true, true, false);
+						if (debug) Gpr.debug("\tIteration: " + i + "\tPos: " + pos + "\tExpected: '" + effectExpected + "'\tEffect: '" + effStr + "'");
+
 						if (effectExpected.equals(effStr)) {
 							ok = true;
 							// Check codons
@@ -322,9 +322,10 @@ public class TestCasesDel extends TestCase {
 								if (debug //
 										|| !codonsOld.equals(effect.getCodonsOld().toUpperCase()) //
 										|| !codonsNew.equals(codonsNewEff)) {
-									System.out.println("\tIteration: " + i + "\tPos: " + pos //
+									System.out.println("\tIteration: " + i //
+											+ "\tPos: " + pos //
 											+ "\n\t\tCDS base [codon] : " + cdsBaseNum + " [" + cdsCodonNum + ":" + cdsCodonPos + "]" //
-											+ "\n\t\tSeqChange        : " + seqChange + "_strand" + (seqChangeStrand >= 0 ? "+" : "-") + "\tsize: " + seqChange.size() + "\tdelPlus: " + delPlus//
+											+ "\n\t\tSeqChange        : " + seqChange + "\tsize: " + seqChange.size() + "\tdelPlus: " + delPlus//
 											+ "\n\t\tNetCdsChange     : " + netChange //
 											+ "\n\t\tExpected         : " + effectExpected //
 											+ "\n\t\tEffect           : " + effStr //
@@ -341,7 +342,7 @@ public class TestCasesDel extends TestCase {
 							}
 						}
 					}
-					Assert.assertEquals(ok, true);
+					Assert.assertEquals(true, ok);
 				}
 			}
 		}

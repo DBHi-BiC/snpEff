@@ -3,8 +3,8 @@ package ca.mcgill.mcb.pcingola.interval.codonChange;
 import java.util.List;
 
 import ca.mcgill.mcb.pcingola.interval.Exon;
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
+import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
 import ca.mcgill.mcb.pcingola.snpEffect.hgvs.ExonChange;
 
@@ -15,13 +15,12 @@ import ca.mcgill.mcb.pcingola.snpEffect.hgvs.ExonChange;
  */
 public class CodonChange {
 
-	public static int SHOW_CODONS_AROUND_CHANGE = 0; // Show this many changes around the codon
 	public static boolean showCodonChange = true; // This is disabled in some specific test cases
 	public static final int CODON_SIZE = 3; // I'll be extremely surprised if you ever need to change this parameter...
 
 	boolean returnNow = false; // Can we return immediately after calculating the first 'codonChangeSingle()'?
 	boolean requireNetCdsChange = false;
-	SeqChange seqChange;
+	Variant seqChange;
 	Transcript transcript;
 	Exon exon = null;
 	ChangeEffects changeEffects;
@@ -33,7 +32,7 @@ public class CodonChange {
 	String aaNew = ""; // New amino acids (after change)
 	String netCdsChange = "";
 
-	public CodonChange(SeqChange seqChange, Transcript transcript, ChangeEffects changeEffects) {
+	public CodonChange(Variant seqChange, Transcript transcript, ChangeEffects changeEffects) {
 		this.seqChange = seqChange;
 		this.transcript = transcript;
 		this.changeEffects = changeEffects;
@@ -50,7 +49,7 @@ public class CodonChange {
 		// Split each seqChange into it's multiple options
 		for (int i = 0; i < seqChange.getChangeOptionCount(); i++) {
 			// Create a new SeqChange for this option, calculate codonChange for this seqChangeOption and add result to the list
-			SeqChange seqChangeNew = seqChange.getSeqChangeOption(i);
+			Variant seqChangeNew = seqChange.getSeqAltOption(i);
 			if (seqChangeNew != null) {
 				// Create a specific codon change and calculate changes
 				CodonChange codonChange = factory(seqChangeNew, transcript, changeEffects);
@@ -127,10 +126,7 @@ public class CodonChange {
 				hasChanged = codonChangeSingle(exon);
 
 				// Any change? => Add change to list
-				if (hasChanged) {
-					changeEffects.setMarker(exon); // It is affecting this exon, so we set the marker
-					codonsAround(seqChange, codonNum); // Show codons around change (if required)
-				}
+				if (hasChanged) changeEffects.setMarker(exon); // It is affecting this exon, so we set the marker
 
                 //hgvs
                 ExonChange exonChange = new ExonChange(seqChange, exon, changeEffects.get());
@@ -153,31 +149,6 @@ public class CodonChange {
 	 */
 	boolean codonChangeSingle(Exon exon) {
 		throw new RuntimeException("Unimplemented method for this type of seqChange: " + seqChange.getType());
-	}
-
-	/**
-	 * Calculate codons changes
-	 * @param seqChange
-	 * @param changeEffect
-	 * @param codonNum
-	 */
-	void codonsAround(SeqChange seqChange, int codonNum) {
-		if (SHOW_CODONS_AROUND_CHANGE <= 0) return; // Nothing to do?
-
-		String cdsSeq = transcript.cds();
-		int changeSizeInCodons = seqChange.size() / 3;
-
-		// Calculate codon positions
-		int codonMinBasePos = Math.max(0, codonNum - SHOW_CODONS_AROUND_CHANGE) * CodonChange.CODON_SIZE;
-		int codonStartBasePos = codonNum * CodonChange.CODON_SIZE;
-		int codonEndBasePos = Math.min(cdsSeq.length(), codonStartBasePos + (1 + changeSizeInCodons) * CodonChange.CODON_SIZE);
-		int codonMaxBasePos = Math.min(cdsSeq.length(), codonEndBasePos + SHOW_CODONS_AROUND_CHANGE * CodonChange.CODON_SIZE);
-
-		// Calculate codons around the seqChange
-		String codonsLeft = cdsSeq.substring(codonMinBasePos, codonStartBasePos);
-		String codonsRight = cdsSeq.substring(codonEndBasePos, codonMaxBasePos);
-
-		changeEffects.setCodonsAround(codonsLeft, codonsRight);
 	}
 
 	/**
@@ -228,7 +199,7 @@ public class CodonChange {
 	 * @param changeEffects
 	 * @return
 	 */
-	CodonChange factory(SeqChange seqChange, Transcript transcript, ChangeEffects changeEffects) {
+	CodonChange factory(Variant seqChange, Transcript transcript, ChangeEffects changeEffects) {
 		if (seqChange.isSnp()) return new CodonChangeSnp(seqChange, transcript, changeEffects);
 		if (seqChange.isIns()) return new CodonChangeIns(seqChange, transcript, changeEffects);
 		if (seqChange.isDel()) return new CodonChangeDel(seqChange, transcript, changeEffects);

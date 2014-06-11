@@ -13,8 +13,8 @@ import ca.mcgill.mcb.pcingola.interval.Chromosome;
 import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.Gene;
 import ca.mcgill.mcb.pcingola.interval.Genome;
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
+import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
 import ca.mcgill.mcb.pcingola.snpEffect.Config;
@@ -91,7 +91,7 @@ public class TestCasesIns extends TestCase {
 	 * Compare with results from ENSEMBL's VEP on transcript ENST00000268124
 	 */
 	public void compareVep(String genome, String vcf, String trId) {
-		String args[] = { genome, vcf };
+		String args[] = { "-classic", genome, vcf };
 
 		SnpEff cmd = new SnpEff(args);
 		SnpEffCmdEff cmdEff = (SnpEffCmdEff) cmd.snpEffCmd();
@@ -212,10 +212,9 @@ public class TestCasesIns extends TestCase {
 						String codonNew = "", aaNew = "";
 
 						// Create a SeqChange
-						// int seqChangeStrand = rand.nextBoolean() ? +1 : -1;
 						int seqChangeStrand = 1;
 						if (seqChangeStrand == -exon.getStrand()) ins = GprSeq.reverseWc(insPlus);
-						SeqChange seqChange = new SeqChange(chromosome, pos, "", "+" + ins, seqChangeStrand, "", 1.0, 1);
+						Variant seqChange = new Variant(chromosome, pos, "", "+" + ins, "");
 
 						// Is it an insertion?
 						Assert.assertEquals(true, seqChange.isIns());
@@ -278,7 +277,7 @@ public class TestCasesIns extends TestCase {
 	 * Insertion on minus strand
 	 */
 	public void test_02_InsOffByOne() {
-		String args[] = { "testENST00000268124", "tests/ins_off_by_one.vcf" };
+		String args[] = { "-classic", "testENST00000268124", "tests/ins_off_by_one.vcf" };
 
 		SnpEff cmd = new SnpEff(args);
 		SnpEffCmdEff snpeff = (SnpEffCmdEff) cmd.snpEffCmd();

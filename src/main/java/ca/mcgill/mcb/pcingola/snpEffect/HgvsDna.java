@@ -4,10 +4,10 @@ import ca.mcgill.mcb.pcingola.interval.Intron;
 import ca.mcgill.mcb.pcingola.util.GprSeq;
 
 /**
- * Coding DNA reference sequence 
- * 
+ * Coding DNA reference sequence
+ *
  * References http://www.hgvs.org/mutnomen/recs.html
- * 
+ *
  * Nucleotide numbering:
  * 	- there is no nucleotide 0
  * 	- nucleotide 1 is the A of the ATG-translation initiation codon
@@ -17,7 +17,7 @@ import ca.mcgill.mcb.pcingola.util.GprSeq;
  * 		- beginning of the intron; the number of the last nucleotide of the preceding exon, a plus sign and the position in the intron, like c.77+1G, c.77+2T, ....
  * 		- end of the intron; the number of the first nucleotide of the following exon, a minus sign and the position upstream in the intron, like ..., c.78-2A, c.78-1G.
  * 		- in the middle of the intron, numbering changes from "c.77+.." to "c.78-.."; for introns with an uneven number of nucleotides the central nucleotide is the last described with a "+" (see Discussion)
- * 
+ *
  * Genomic reference sequence
  * 		- nucleotide numbering starts with 1 at the first nucleotide of the sequence
  * 		  NOTE: the sequence should include all nucleotides covering the sequence (gene) of interest and should start well 5' of the promoter of a gene
@@ -26,35 +26,107 @@ import ca.mcgill.mcb.pcingola.util.GprSeq;
  * 		- for all descriptions the most 3' position possible is arbitrarily assigned to have been changed (see Exception)
  */
 
-public class HgsvDna extends Hgsv {
+public class HgvsDna extends Hgvs {
 
-	public HgsvDna(ChangeEffect changeEffect) {
+	public HgvsDna(ChangeEffect changeEffect) {
 		super(changeEffect);
 	}
 
 	/**
-	 * Coding change in HGVS notation (DNA changes)
-	 * References: http://www.hgvs.org/mutnomen/recs-DNA.html 
-	 * 
-	 * @return
+	 * Prefix for coding or non-coding sequences
 	 */
-	protected String coding() {
-		int codonNum = changeEffect.getCodonNum();
-		if (codonNum < 0) return "";
-
-		int seqPos = codonNum * 3 + changeEffect.getCodonIndex() + 1;
-
-		if ((tr == null) || tr.isStrandPlus()) return codingPrefix() + seqPos + seqChange.getReference() + ">" + seqChange.getChange();
-		return codingPrefix() + seqPos + GprSeq.wc(seqChange.getReference()) + ">" + GprSeq.wc(seqChange.getChange());
+	protected String codingPrefix() {
+		return (tr.isProteinCoding() ? "c." : "n.");
 	}
 
 	/**
-	 * Intronic change
+	 * DNA level base changes
 	 * @return
 	 */
-	protected String intron() {
+	protected String dnaBaseChange() {
+
+		switch (seqChange.getChangeType()) {
+		case SNP:
+		case MNP:
+			if (marker == null || marker.isStrandPlus()) return seqChange.getReference() + ">" + seqChange.getChange();
+			return GprSeq.wc(seqChange.getReference()) + ">" + GprSeq.wc(seqChange.getChange());
+
+		case INS:
+		case DEL:
+			String netChange = seqChange.netChange(1);
+			if (marker == null || marker.isStrandPlus()) return netChange;
+			return GprSeq.wc(netChange);
+
+		default:
+			return null;
+		}
+	}
+
+	/**
+	 * Calculate position
+	 * @return
+	 */
+	protected String pos() {
+		// Intron
+		if (changeEffect.isIntron()) {
+			switch (seqChange.getChangeType()) {
+			case SNP:
+			case MNP:
+				return posIntron(seqChange.getStart());
+
+			case INS:
+				String p = posIntron(seqChange.getStart());
+				if (p == null) return null;
+				int next = seqChange.getStart() + (marker.isStrandPlus() ? 1 : -1);
+				String pNext = posIntron(next);
+				if (pNext == null) return null;
+				return p + "_" + pNext;
+
+			case DEL:
+				p = posIntron(seqChange.getStart());
+				if (p == null) return null;
+				pNext = posIntron(seqChange.getEnd());
+				if (pNext == null) return null;
+				return p + "_" + pNext;
+
+			default:
+				return null;
+			}
+		}
+
+		// Exon position
+		int codonNum = changeEffect.getCodonNum();
+		if (codonNum < 0) return null;
+		int seqPos = codonNum * 3 + changeEffect.getCodonIndex() + 1;
+
+		switch (seqChange.getChangeType()) {
+		case SNP:
+		case MNP:
+			return "" + seqPos;
+
+		case INS:
+			return seqPos + "_" + (seqPos + 1);
+
+		case DEL:
+			String aaOld = changeEffect.getAaOld();
+			String aaNew = changeEffect.getAaNew();
+			if (aaOld == null || aaOld.isEmpty() || aaOld.equals("-")) return null;
+			if (aaNew == null || aaNew.isEmpty() || aaNew.equals("-")) aaNew = "";
+
+			int end = seqPos + (aaOld.length() - aaNew.length());
+			return seqPos + "_" + end;
+
+		default:
+			return null;
+		}
+	}
+
+	/**
+	 * Intronic position
+	 */
+	protected String posIntron(int pos) {
 		Intron intron = (Intron) changeEffect.getMarker();
-		if (intron == null) return "";
+		if (intron == null) return null;
 
 		// Jump to closest exon position
 		// Ref:
@@ -62,8 +134,8 @@ public class HgsvDna extends Hgsv {
 		// 		end of the intron; the number of the first nucleotide of the following exon, a minus sign and the position upstream in the intron, like c.78-1G.
 		int posExon = -1;
 		String posExonStr = "";
-		int distanceLeft = Math.max(0, seqChange.getStart() - intron.getStart()) + 1;
-		int distanceRight = Math.max(0, intron.getEnd() - seqChange.getStart()) + 1;
+		int distanceLeft = Math.max(0, pos - intron.getStart()) + 1;
+		int distanceRight = Math.max(0, intron.getEnd() - pos) + 1;
 		if (distanceLeft < distanceRight) {
 			posExon = intron.getStart() - 1;
 			posExonStr = (intron.isStrandPlus() ? "+" : "-");
@@ -79,14 +151,14 @@ public class HgsvDna extends Hgsv {
 		}
 
 		// Distance to closest exonic base
-		int exonDistance = Math.abs(posExon - seqChange.getStart());
+		int exonDistance = Math.abs(posExon - pos);
 
 		// Closest exonic base within coding region?
 		int cdsLeft = Math.min(tr.getCdsStart(), tr.getCdsEnd());
 		int cdsRight = Math.max(tr.getCdsStart(), tr.getCdsEnd());
 		if ((posExon >= cdsLeft) && (posExon <= cdsRight)) {
 			int distExonBase = tr.baseNumberCds(posExon, false) + 1;
-			return codingPrefix() + distExonBase + posExonStr + exonDistance + baseChange();
+			return distExonBase + posExonStr + exonDistance;
 		}
 
 		// Left side of coding part
@@ -95,20 +167,38 @@ public class HgsvDna extends Hgsv {
 			int cdnaStart = tr.baseNumberPreMRna(cdsLeft); // tr.getCdsStart());
 			int utrDistance = Math.abs(cdnaStart - cdnaPos);
 			String utrStr = tr.isStrandPlus() ? "-" : "*";
-			return codingPrefix() + utrStr + utrDistance + posExonStr + exonDistance + baseChange();
+			return utrStr + utrDistance + posExonStr + exonDistance;
 		}
 
 		// Right side of coding part
 		int cdnaEnd = tr.baseNumberPreMRna(cdsRight); // tr.getCdsEnd());
 		int utrDistance = Math.abs(cdnaEnd - cdnaPos);
 		String utrStr = tr.isStrandPlus() ? "*" : "-";
-		return codingPrefix() + utrStr + utrDistance + posExonStr + exonDistance + baseChange();
+		return utrStr + utrDistance + posExonStr + exonDistance;
 	}
 
 	@Override
 	public String toString() {
-		if (changeEffect.isIntron()) return intron();
-		return coding();
+		if (seqChange == null) return null;
+
+		String pos = pos();
+		if (pos == null) return null;
+
+		String type = "";
+		switch (seqChange.getChangeType()) {
+		case INS:
+			type = "ins";
+			break;
+
+		case DEL:
+			type = "del";
+			break;
+
+		default:
+			break;
+		}
+
+		return codingPrefix() + pos + type + dnaBaseChange();
 	}
 
 }

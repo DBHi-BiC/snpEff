@@ -11,8 +11,8 @@ import ca.mcgill.mcb.pcingola.interval.Chromosome;
 import ca.mcgill.mcb.pcingola.interval.Exon;
 import ca.mcgill.mcb.pcingola.interval.Gene;
 import ca.mcgill.mcb.pcingola.interval.Genome;
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
+import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffects;
@@ -89,7 +89,7 @@ public class TestCasesMnp extends TestCase {
 
 		// Create a SeqChange
 		int seqChangeStrand = +1;
-		SeqChange seqChange = new SeqChange(chromosome, pos, ref + "", mnp + "", seqChangeStrand, "", 1.0, 1);
+		Variant seqChange = new Variant(chromosome, pos, ref + "", mnp + "", "");
 
 		//---
 		// Calculate effects
@@ -296,7 +296,7 @@ public class TestCasesMnp extends TestCase {
 
 	public void test_01() {
 		// Run
-		String args[] = { "-ud", "0", "testHg3766Chr1", "./tests/test.mnp.01.vcf" };
+		String args[] = { "-classic", "-ud", "0", "testHg3766Chr1", "./tests/test.mnp.01.vcf" };
 		SnpEff cmd = new SnpEff(args);
 		SnpEffCmdEff snpeff = (SnpEffCmdEff) cmd.snpEffCmd();
 		List<VcfEntry> results = snpeff.run(true);

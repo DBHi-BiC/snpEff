@@ -24,7 +24,7 @@ public class Downstream extends Marker {
 	 * @param seqChange
 	 * @return
 	 */
-	public int distanceToTr(SeqChange seqChange) {
+	public int distanceToTr(Variant seqChange) {
 		int dist = (parent.isStrandPlus() ? seqChange.getStart() - start : end - seqChange.getStart()) + 1;
 		return Math.max(0, dist);
 	}
@@ -38,7 +38,7 @@ public class Downstream extends Marker {
 	}
 
 	@Override
-	public boolean seqChangeEffect(SeqChange seqChange, ChangeEffects changeEffects) {
+	public boolean seqChangeEffect(Variant seqChange, ChangeEffects changeEffects) {
 		if (!intersects(seqChange)) return false; // Sanity check
 		int distance = distanceToTr(seqChange);
 		changeEffects.add(this, EffectType.DOWNSTREAM, distance + " bases");
