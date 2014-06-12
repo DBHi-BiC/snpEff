@@ -553,10 +553,13 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	/**
 	 * Find all splice sites.
 	 *
-	 * @param createIfMissing : If true, create canonical splice sites if they are missing.
-	 *
-	 * @return
-	 */
+     * @param spliceSiteSize
+     * @param spliceRegionExonSize
+     * @param spliceRegionIntronMin
+     * @param spliceRegionIntronMax
+     *
+     * @return
+     */
 	public List<SpliceSite> createSpliceSites(int spliceSiteSize, int spliceRegionExonSize, int spliceRegionIntronMin, int spliceRegionIntronMax) {
 		List<SpliceSite> list = new LinkedList<SpliceSite>();
 
@@ -730,12 +733,12 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	}
 
 	/**
-	 * Return the UTR that hits position 'pos'
-	 * @param pos
-	 * @return An UTR intersecting 'pos' (null if not found)
-	 */
-	public List<Utr> findUtrs(Marker marker) {
-		List<Utr> utrs = new LinkedList<Utr>();
+     * Return the UTR that hits marker
+     * @param marker
+     * @return An UTR intersecting marker (null if not found)
+     */
+    public List<Utr> findUtrs(Marker marker) {
+        List<Utr> utrs = new LinkedList<Utr>();
 
 		// Is it in UTR instead of CDS?
 		for (Utr utr : utrs)
@@ -800,10 +803,9 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 	 * Transcripts whose first exon has a non-zero frame indicate problems.
 	 * We add a 'fake' UTR5 to compensate for reading frame.
 	 *
-	 * @param showEvery
-	 */
-	synchronized boolean frameCorrectionFirstCodingExon() {
-		List<Exon> exons = sortedStrand();
+     */
+    synchronized boolean frameCorrectionFirstCodingExon() {
+        List<Exon> exons = sortedStrand();
 
 		// No exons? Nothing to do
 		if ((exons == null) || exons.isEmpty()) return false;
@@ -1482,10 +1484,10 @@ public class Transcript extends IntervalAndSubIntervals<Exon> {
 
 	/**
 	 * Parse a line from a serialized file
-	 * @param line
-	 * @return
-	 */
-	@Override
+     * @param markerSerializer
+     * @return
+     */
+    @Override
 	public void serializeParse(MarkerSerializer markerSerializer) {
 		super.serializeParse(markerSerializer);
 		bioType = markerSerializer.getNextField();

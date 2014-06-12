@@ -1,8 +1,8 @@
 package ca.mcgill.mcb.pcingola.snpEffect.hgvs;
 
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.interval.Upstream;
+import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 
 
@@ -15,7 +15,7 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 public class UpstreamChange extends TranscriptChange {
     Upstream upstream;
 
-    public UpstreamChange(SeqChange seqChange, Upstream upstream, ChangeEffect changeEffect) {
+    public UpstreamChange(Variant seqChange, Upstream upstream, ChangeEffect changeEffect) {
         super(seqChange, (Transcript) upstream.getParent(), changeEffect);
         this.upstream = upstream;
     }

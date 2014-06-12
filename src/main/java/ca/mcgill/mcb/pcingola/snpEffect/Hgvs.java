@@ -5,7 +5,7 @@ import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 
 /**
- * HGSV notation
+ * HGVS notation
  *
  * References: http://www.hgvs.org/
  *

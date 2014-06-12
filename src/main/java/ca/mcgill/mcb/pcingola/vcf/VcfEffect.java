@@ -14,8 +14,8 @@ public class VcfEffect {
 	 * VcfFields in SnpEff version 2.X have a different format than 3.X 
 	 */
 	public enum FormatVersion {
-		FORMAT_SNPEFF_2, FORMAT_SNPEFF_3, FORMAT_SNPEFF_4, FORMAT_SNPEFF_2_CBMI
-	}
+        FORMAT_SNPEFF_2, FORMAT_SNPEFF_3, FORMAT_SNPEFF_4, FORMAT_SNPEFF_CBMI
+    }
 
 	public static final String VCF_INFO_EFF_NAME = "EFF";
 
@@ -128,10 +128,9 @@ public class VcfEffect {
 
 	/**
 	 * Constructor: Guess format version
-	 * @param effStr
-	 * @param formatVersion
-	 */
-	public VcfEffect(String effectString) {
+     * @param effectString
+     */
+    public VcfEffect(String effectString) {
 		formatVersion = null; // Force guess
 		this.effectString = effectString;
 		parse();
@@ -139,9 +138,9 @@ public class VcfEffect {
 
 	/**
 	 * Constructor: Force format version
-	 * @param effStr
-	 * @param formatVersion : If null, will try to guess it
-	 */
+     * @param effectString
+     * @param formatVersion : If null, will try to guess it
+     */
 	public VcfEffect(String effectString, FormatVersion formatVersion) {
 		this.formatVersion = formatVersion;
 		this.effectString = effectString;

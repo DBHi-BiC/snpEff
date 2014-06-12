@@ -39,8 +39,8 @@ public class VcfOutputFormatter extends OutputFormatter {
 	boolean needAddHeader = true;
 	boolean lossOfFunction;
 	boolean gatk;
-	FormatVersion formatVersion = VcfEffect.FormatVersion.FORMAT_SNPEFF_4;
-	List<VcfEntry> vcfEntries;
+    FormatVersion formatVersion = VcfEffect.FormatVersion.FORMAT_SNPEFF_CBMI;
+    List<VcfEntry> vcfEntries;
 
 	// Genome genome;
 
@@ -64,7 +64,6 @@ public class VcfOutputFormatter extends OutputFormatter {
 
 	/**
 	 * Add header
-	 * @param vcfEntry
 	 */
 	protected void addHeader() {
 		VcfEntry vcfEntry = (VcfEntry) section;
@@ -131,9 +130,9 @@ public class VcfOutputFormatter extends OutputFormatter {
 				effBuff.append("|");
 
 				// Add HGVS (amino acid change) 
-				if (useHgvs) effBuff.append(changeEffect.getHgvs());
-				else effBuff.append(changeEffect.getAaChangeHgsv());
-				effBuff.append("|");
+                //if (useHgvs) effBuff.append(changeEffect.getHgvs());
+                //else effBuff.append(changeEffect.getAaChangeHgsv());
+                //effBuff.append("|");
 
 				// Add amino acid length
 				if (formatVersion != FormatVersion.FORMAT_SNPEFF_2) { // This field is not in format version 2
@@ -178,21 +177,36 @@ public class VcfOutputFormatter extends OutputFormatter {
 				// Add exon (or intron) rank info
 				Exon ex = changeEffect.getExon();
 				int rank = -1;
-				if (ex != null) rank = ex.getRank();
-				else {
-					// Do we have an intron?
-					Intron intron = changeEffect.getIntron();
-					if (intron != null) rank = intron.getRank();
-				}
-				effBuff.append(rank >= 0 ? rank : "");
+                String geneSegId = "";
 
-                effBuff.append("|");
+                if (ex != null) {
+                    rank = ex.getRank();
+                    geneSegId = ex.getId();
+                } else {
+                    // Do we have an intron?
+                    Intron intron = changeEffect.getIntron();
+                    if (intron != null) {
+                        rank = intron.getRank();
+                        geneSegId = intron.getId();
+                    }
+                }
+                effBuff.append(rank >= 0 ? rank : "");
 
-                //HGVS only for tx-bound exonics
+                if (formatVersion == FormatVersion.FORMAT_SNPEFF_CBMI) {
+                    effBuff.append("|");
 
-                //exons only?&& ex != null) {
-                if (tr != null){
-                    effBuff.append(changeEffect.getCodingDnaHgvs());
+                    effBuff.append(geneSegId);
+
+                    effBuff.append("|");
+
+                    //HGVS only for tx-bound exonics
+                    if (tr != null) {
+                        effBuff.append(changeEffect.getCodingDnaHgvs());
+                    }
+
+                    effBuff.append("|");
+
+                    effBuff.append(changeEffect.getAaChangeHgvs());
                 }
 
                 effBuff.append("|");
@@ -352,7 +366,10 @@ public class VcfOutputFormatter extends OutputFormatter {
 		// Fields changed in different format versions
 		if (formatVersion == FormatVersion.FORMAT_SNPEFF_2) newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_change| Gene_Name | Transcript_BioType | Gene_Coding | Transcript_ID | Exon [ | ERRORS | WARNINGS ] )' \">");
 		else if (formatVersion == FormatVersion.FORMAT_SNPEFF_3) newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_change| Amino_Acid_length | Gene_Name | Transcript_BioType | Gene_Coding | Transcript_ID | Exon [ | ERRORS | WARNINGS ] )' \">");
-		else newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_Change| Amino_Acid_length | Gene_Name | Transcript_BioType | Gene_Coding | Transcript_ID | Exon_Rank  | Genotype_Number [ | ERRORS | WARNINGS ] )' \">");
+        else if (formatVersion == FormatVersion.FORMAT_SNPEFF_CBMI)
+            newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change |  Amino_Acid_length | Gene_Name | Gene_BioType | Coding | Transcript | Rank | Segment | HGVS_DNA_nomenclature | HGVS_protein_nomenclature [ | ERRORS | WARNINGS ])' \">");
+        else
+            newLines.add("##INFO=<ID=EFF,Number=.,Type=String,Description=\"Predicted effects for this variant.Format: 'Effect ( Effect_Impact | Functional_Class | Codon_Change | Amino_Acid_Change| Amino_Acid_length | Gene_Name | Transcript_BioType | Gene_Coding | Transcript_ID | Exon_Rank  | Genotype_Number [ | ERRORS | WARNINGS ] )' \">");
 
 		if (lossOfFunction) {
 			newLines.add("##INFO=<ID=LOF,Number=.,Type=String,Description=\"Predicted loss of function effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected' \">");

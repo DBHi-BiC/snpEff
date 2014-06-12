@@ -1,8 +1,8 @@
 package ca.mcgill.mcb.pcingola.snpEffect.hgvs;
 
 import ca.mcgill.mcb.pcingola.interval.Exon;
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
+import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.interval.Utr3prime;
 
@@ -15,7 +15,7 @@ import ca.mcgill.mcb.pcingola.interval.Utr3prime;
 public class Utr3primeChange extends TranscriptChange {
     Utr3prime utr3prime;
 
-    public Utr3primeChange(SeqChange seqChange, Utr3prime utr3prime, ChangeEffect changeEffect) {
+    public Utr3primeChange(Variant seqChange, Utr3prime utr3prime, ChangeEffect changeEffect) {
         super(seqChange, (Transcript) utr3prime.getParent().getParent(), changeEffect);
         this.utr3prime = utr3prime;
     }
@@ -34,10 +34,10 @@ public class Utr3primeChange extends TranscriptChange {
 
             //edge case
             //1       196716441       CD032470        TAGAA   T    is    NM_000186.3:c.3695_*2delAGAA
-            if(relativePosSt<1){
-                relativePosSt=cdsBaseNumberOfExonInTx(seqChange.getStart());
+            if (relativePosSt < 1) {
+                relativePosSt = cdsBaseNumberOfExonInTx(seqChange.getStart());
                 hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
-                txPos=txPos.replaceAll("_(\\d+)", "_\\*$1");
+                txPos = txPos.replaceAll("_(\\d+)", "_\\*$1");
                 change.setTxPos(txPos);
                 return true;
             }
@@ -48,7 +48,7 @@ public class Utr3primeChange extends TranscriptChange {
 
             //specific to 3' UTR
             //txPos = "*"+txPos;
-            txPos=txPos.replaceAll("(\\d+)", "\\*$1");
+            txPos = txPos.replaceAll("(\\d+)", "\\*$1");
             change.setTxPos(txPos);
             return true;
         }

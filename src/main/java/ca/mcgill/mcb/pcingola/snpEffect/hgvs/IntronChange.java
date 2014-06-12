@@ -1,8 +1,8 @@
 package ca.mcgill.mcb.pcingola.snpEffect.hgvs;
 
 import ca.mcgill.mcb.pcingola.interval.Intron;
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
+import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 
@@ -15,7 +15,7 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect.EffectType;
 public class IntronChange extends TranscriptChange {
     Intron intron;
 
-    public IntronChange(SeqChange seqChange, Intron intron, ChangeEffect changeEffect) {
+    public IntronChange(Variant seqChange, Intron intron, ChangeEffect changeEffect) {
         super(seqChange, (Transcript) intron.getParent(), changeEffect);
         this.intron = intron;
     }
@@ -43,7 +43,6 @@ public class IntronChange extends TranscriptChange {
         return false;
 
     }
-
 
 
 }

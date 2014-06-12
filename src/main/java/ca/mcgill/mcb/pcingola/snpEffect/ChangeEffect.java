@@ -89,8 +89,8 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 
 		/**
 		 * Parse a string to an EffectType
-		 * @param effStr
-		 * @return
+         * @param str
+         * @return
 		 */
 		public static EffectType parse(String str) {
 			try {
@@ -425,10 +425,10 @@ public class ChangeEffect implements Cloneable, Comparable<ChangeEffect> {
 	 * Amino acid change string (HGVS style)
 	 * @return
 	 */
-	public String getAaChangeHgsv() {
-		if (aaOld.isEmpty() && aaNew.isEmpty()) {
-			if (codonNum >= 0) return "" + (codonNum + 1);
-			return "";
+    public String getAaChangeHgvs() {
+        if (aaOld.isEmpty() && aaNew.isEmpty()) {
+            if (codonNum >= 0) return "" + (codonNum + 1);
+            return "";
 		}
 
 		if (aaOld.equals(aaNew)) return aaNew + (codonNum + 1);

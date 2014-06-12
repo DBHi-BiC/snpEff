@@ -1,8 +1,8 @@
 package ca.mcgill.mcb.pcingola.snpEffect.hgvs;
 
-import ca.mcgill.mcb.pcingola.interval.SeqChange;
 import ca.mcgill.mcb.pcingola.interval.Transcript;
 import ca.mcgill.mcb.pcingola.interval.Downstream;
+import ca.mcgill.mcb.pcingola.interval.Variant;
 import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
 
 /**
@@ -10,18 +10,17 @@ import ca.mcgill.mcb.pcingola.snpEffect.ChangeEffect;
  * Children's Hospital of Philadelphia
  * leipzig@gmail.com
  * 5/1/14
- *
+ * <p/>
  * for downstream changes
  * the nucleotide 3' of the translation stop codon is *1, the next *2, etc.
  */
-public class DownstreamChange  extends TranscriptChange {
+public class DownstreamChange extends TranscriptChange {
     Downstream downstream;
 
-    public DownstreamChange(SeqChange seqChange, Downstream downstream, ChangeEffect changeEffect) {
+    public DownstreamChange(Variant seqChange, Downstream downstream, ChangeEffect changeEffect) {
         super(seqChange, (Transcript) downstream.getParent(), changeEffect);
         this.downstream = downstream;
     }
-
 
 
     @Override
@@ -39,7 +38,7 @@ public class DownstreamChange  extends TranscriptChange {
 
             //specific to 3' UTR
             //txPos = "*"+txPos;
-            txPos=txPos.replaceAll("(\\d+)", "\\*$1");
+            txPos = txPos.replaceAll("(\\d+)", "\\*$1");
             changeEffect.setTxPos(txPos);
             return true;
         }

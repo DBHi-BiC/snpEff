@@ -478,10 +478,10 @@ public class SnpEffCmdEff extends SnpEff {
 					if ((i + 1) < args.length) {
 						String outFor = args[++i].toUpperCase();
 
-						// if (outFor.equals("TXT")) outputFormat = OutputFormat.TXT;
-						if (outFor.equals("VCF")) outputFormat = OutputFormat.VCF;
-						else if (outFor.equals("GATK")) outputFormat = OutputFormat.GATK;
-						else if (outFor.equals("BED")) outputFormat = OutputFormat.BED;
+                        //if (outFor.equals("TXT")) outputFormat = OutputFormat.TXT;
+                        if (outFor.equals("VCF")) outputFormat = OutputFormat.VCF;
+                        else if (outFor.equals("GATK")) outputFormat = OutputFormat.GATK;
+                        else if (outFor.equals("BED")) outputFormat = OutputFormat.BED;
 						else if (outFor.equals("BEDANN")) outputFormat = OutputFormat.BEDANN;
 						else usage("Unknown output file format '" + outFor + "'");
 					}
@@ -741,10 +741,11 @@ public class SnpEffCmdEff extends SnpEff {
 
 	/**
 	 * Calculate the effect of variants and show results
-	 * @param snpEffFile
-	 */
-	public void runAnalysis(String inputFile, String outputFile) {
-		// Reset all counters
+     * @param inputFile
+     * @param outputFile
+     */
+    public void runAnalysis(String inputFile, String outputFile) {
+        // Reset all counters
 		totalErrs = 0;
 		countInputLines = countVariants = countEffects = 0; // = countVariantsFilteredOut = 0;
 
