@@ -22,7 +22,7 @@ public class Utr3primeChange extends TranscriptChange {
 
     @Override
     boolean transcriptChange() {
-        ChangeEffect change = new ChangeEffect(seqChange);
+        //ChangeEffect change = new ChangeEffect(seqChange);
 
         //a star followed by distance to cds end
         //coding start
@@ -36,20 +36,20 @@ public class Utr3primeChange extends TranscriptChange {
             //1       196716441       CD032470        TAGAA   T    is    NM_000186.3:c.3695_*2delAGAA
             if (relativePosSt < 1) {
                 relativePosSt = cdsBaseNumberOfExonInTx(seqChange.getStart());
-                hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
+                hgvsChangeFormatter(changeEffect, exon, relativePosSt, relativePosEnd);
                 txPos = txPos.replaceAll("_(\\d+)", "_\\*$1");
-                change.setTxPos(txPos);
+                changeEffect.setTxPos(txPos);
                 return true;
             }
 
 
-            hgvsChangeFormatter(change, exon, relativePosSt, relativePosEnd);
+            hgvsChangeFormatter(changeEffect, exon, relativePosSt, relativePosEnd);
 
 
             //specific to 3' UTR
             //txPos = "*"+txPos;
             txPos = txPos.replaceAll("(\\d+)", "\\*$1");
-            change.setTxPos(txPos);
+            changeEffect.setTxPos(txPos);
             return true;
         }
         return false;
