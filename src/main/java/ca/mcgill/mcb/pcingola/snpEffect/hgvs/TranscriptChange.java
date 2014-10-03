@@ -117,10 +117,14 @@ public class TranscriptChange {
 
 
                     //sanity check - do the nucleotides duplicated actually exist
-                    String insertedSequence;
-                    insertedSequence = transcript.cds().substring(stPos - 1, endPos).toUpperCase();
-                    if (!change.getNtIns().equals(insertedSequence))
-                        throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + insertedSequence + ") are not the same as what ntIns as set to:" + change.getNtIns());
+                    if(!change.isUtr()) {
+                        String insertedSequence;
+                        insertedSequence = transcript.cds().substring(stPos - 1, endPos).toUpperCase();
+
+                        if (!change.getNtIns().equals(insertedSequence)) {
+                            //throw new RuntimeException("the nucleotides at " + stPos + "-" + endPos + "(" + insertedSequence + ") are not the same as what ntIns as set to:" + change.getNtIns());
+                        }
+                    }
                 } else {
                     stPos = relativePosSt + dupOffset + hgvs_ins_offset;
                     endPos = relativePosSt + dupOffset + hgvs_ins_offset + 1;
