@@ -68,12 +68,13 @@ public class SnpEff implements CommandLine {
 	public static final int COMMAND_LINE_WIDTH = 40;
 
 	// Version info
-	public static final String SOFTWARE_NAME = "SnpEff";
+	public static final String SOFTWARE_NAME = "SnpEff-CBMi";
 	public static final String REVISION = "c";
-	public static final String BUILD = "2014-06-10";
+    public static final String CBMI_VERSION = "-cbmi-v2";
+	public static final String BUILD = "2014-10-09";
 	public static final String VERSION_MAJOR = "3.6";
 	// public static final String VERSION_MAJOR = "4.0";
-	public static final String VERSION_SHORT = VERSION_MAJOR + REVISION;
+	public static final String VERSION_SHORT = VERSION_MAJOR + REVISION + CBMI_VERSION;
 	public static final String VERSION_NO_NAME = VERSION_SHORT + " (build " + BUILD + "), by " + Pcingola.BY;
 	public static final String VERSION = SOFTWARE_NAME + " " + VERSION_NO_NAME;
 
