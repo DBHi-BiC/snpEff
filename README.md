@@ -27,10 +27,10 @@ mvn install:install-file -DgroupId=net.sf.picard -DartifactId=Picard -Dversion=1
 
 CHANGELOG
 =========
-3.1h2 Introduces proper HGVS for insertions and deletions, including those which require "walking and rolling" to identify the correct indel frame.
+* 3.1h2 Introduces proper HGVS for insertions and deletions, including those which require "walking and rolling" to identify the correct indel frame.
+* 3.6 Merges official SnpEff 3.6
 
-
-To build snpEff-3.1-jar-with-dependencies.jar in the ~/workspace/SnpEff/target directory:
+To build snpEff-3.6-jar-with-dependencies.jar in the ~/workspace/SnpEff/target directory:
 
 
 ```
